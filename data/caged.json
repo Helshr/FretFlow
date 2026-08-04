@@ -1,0 +1,33 @@
+{
+  "shapes": [
+    { "id": "E",   "quality": "Major", "rootString": 6, "barre": { "from": 6, "to": 1 }, "template": [0, 2, 2, 1, 0, 0] },
+    { "id": "A",   "quality": "Major", "rootString": 5, "barre": { "from": 5, "to": 1 }, "template": [-1, 0, 2, 2, 2, 0] },
+    { "id": "D",   "quality": "Major", "rootString": 4, "barre": { "from": 4, "to": 1 }, "template": [-1, -1, 0, 2, 3, 2] },
+    { "id": "C",   "quality": "Major", "rootString": 5, "template": [-1, 0, -1, -3, -2, -3] },
+    { "id": "G",   "quality": "Major", "rootString": 6, "template": [0, -1, -3, -3, -3, 0] },
+
+    { "id": "Em",  "quality": "Minor", "rootString": 6, "barre": { "from": 6, "to": 1 }, "template": [0, 2, 2, 0, 0, 0] },
+    { "id": "Am",  "quality": "Minor", "rootString": 5, "barre": { "from": 5, "to": 1 }, "template": [-1, 0, 2, 2, 1, 0] },
+    { "id": "Dm",  "quality": "Minor", "rootString": 4, "barre": { "from": 4, "to": 1 }, "template": [-1, -1, 0, 2, 3, 1] },
+
+    { "id": "Em7", "quality": "m7", "rootString": 6, "barre": { "from": 6, "to": 1 }, "template": [0, 2, 0, 0, 0, 0] },
+    { "id": "Am7", "quality": "m7", "rootString": 5, "barre": { "from": 5, "to": 1 }, "template": [-1, 0, 2, 0, 1, 0] },
+    { "id": "Dm7", "quality": "m7", "rootString": 4, "barre": { "from": 4, "to": 1 }, "template": [-1, -1, 0, 2, 1, 1] },
+
+    { "id": "Emaj7", "quality": "Maj7", "rootString": 6, "barre": { "from": 6, "to": 1 }, "template": [0, 2, 1, 1, 0, 0] },
+    { "id": "Amaj7", "quality": "Maj7", "rootString": 5, "barre": { "from": 5, "to": 1 }, "template": [-1, 0, 2, 1, 2, 0] },
+    { "id": "Dmaj7", "quality": "Maj7", "rootString": 4, "barre": { "from": 4, "to": 1 }, "template": [-1, -1, 0, 2, 2, 2] },
+    { "id": "Cmaj7", "quality": "Maj7", "rootString": 5, "template": [-1, 0, -1, -3, -3, -3] },
+    { "id": "Gmaj7", "quality": "Maj7", "rootString": 6, "template": [0, -1, -3, -3, -3, -1] },
+
+    { "id": "E7",  "quality": "7", "rootString": 6, "barre": { "from": 6, "to": 1 }, "template": [0, 2, 0, 1, 0, 0] },
+    { "id": "A7",  "quality": "7", "rootString": 5, "barre": { "from": 5, "to": 1 }, "template": [-1, 0, 2, 0, 2, 0] },
+    { "id": "D7",  "quality": "7", "rootString": 4, "barre": { "from": 4, "to": 1 }, "template": [-1, -1, 0, 2, 1, 2] },
+    { "id": "C7",  "quality": "7", "rootString": 5, "template": [-1, 0, -1, 0, -2, -3] },
+    { "id": "G7",  "quality": "7", "rootString": 6, "template": [0, -1, -3, -3, -3, -2] },
+
+    { "id": "E5",  "quality": "5", "rootString": 6, "template": [0, 2, 2, -1, -1, -1] },
+    { "id": "A5",  "quality": "5", "rootString": 5, "template": [-1, 0, 2, 2, -1, -1] },
+    { "id": "D5",  "quality": "5", "rootString": 4, "template": [-1, -1, 0, 2, 3, -1] }
+  ]
+}

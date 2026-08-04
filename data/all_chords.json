@@ -1,0 +1,4830 @@
+{
+  "meta": {
+    "generated": "2026-08-04",
+    "openCount": 20,
+    "cagedCount": 231,
+    "total": 251,
+    "qualities": [
+      "Major",
+      "Minor",
+      "m7",
+      "Maj7",
+      "7",
+      "5"
+    ],
+    "note": "frets 为 6→1 弦；-1=闷音 0=空弦；barre=横按（吉他把位号 6..1）；rootFret=根音品位"
+  },
+  "chords": [
+    {
+      "type": "caged",
+      "name": "A Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 12,
+      "frets": [
+        -1,
+        12,
+        -1,
+        9,
+        10,
+        9
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "A Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        -1,
+        7,
+        9,
+        10,
+        9
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        7,
+        7,
+        6,
+        5,
+        5
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        -1,
+        2,
+        2,
+        2,
+        5
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "A# Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        3,
+        1
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A# Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        -1,
+        8,
+        10,
+        11,
+        10
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A# Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        8,
+        8,
+        7,
+        6,
+        6
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A# Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        -1,
+        3,
+        3,
+        3,
+        6
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "A#5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "A#5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        -1,
+        8,
+        10,
+        11,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "A#5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        8,
+        8,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "A#m",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        2,
+        1
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#m",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        -1,
+        8,
+        10,
+        11,
+        9
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#m",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        8,
+        8,
+        6,
+        6,
+        6
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#m7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        1,
+        2,
+        1
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#m7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        -1,
+        8,
+        10,
+        9,
+        9
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#m7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        8,
+        6,
+        6,
+        6,
+        6
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#maj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        2,
+        3,
+        1
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#maj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        -1,
+        8,
+        10,
+        10,
+        10
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#maj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        8,
+        7,
+        7,
+        6,
+        6
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#maj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        -1,
+        3,
+        3,
+        3,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "A#undefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        1,
+        3,
+        1
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#undefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        -1,
+        8,
+        10,
+        9,
+        10
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#undefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        8,
+        6,
+        7,
+        6,
+        6
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "A#undefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 6,
+      "frets": [
+        6,
+        -1,
+        3,
+        3,
+        3,
+        4
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "A",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        0,
+        0,
+        2,
+        2,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "A5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        -1,
+        7,
+        9,
+        10,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "A5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        7,
+        7,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "A7",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        0,
+        2,
+        0,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Am",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        -1,
+        7,
+        9,
+        10,
+        8
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Am",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        7,
+        7,
+        5,
+        5,
+        5
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "open",
+      "name": "Am",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Am7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        -1,
+        7,
+        9,
+        8,
+        8
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Am7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        7,
+        5,
+        5,
+        5,
+        5
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Amaj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 12,
+      "frets": [
+        -1,
+        12,
+        -1,
+        9,
+        9,
+        9
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Amaj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        -1,
+        7,
+        9,
+        9,
+        9
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Amaj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        7,
+        6,
+        6,
+        5,
+        5
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Amaj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        -1,
+        2,
+        2,
+        2,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "Asus2",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Aundefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 12,
+      "frets": [
+        -1,
+        12,
+        -1,
+        12,
+        10,
+        9
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Aundefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        -1,
+        7,
+        9,
+        8,
+        9
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Aundefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        7,
+        5,
+        6,
+        5,
+        5
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Aundefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 5,
+      "frets": [
+        5,
+        -1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "B Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        4,
+        2
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "B Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        -1,
+        9,
+        11,
+        12,
+        11
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "B Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        9,
+        9,
+        8,
+        7,
+        7
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "B Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        -1,
+        4,
+        4,
+        4,
+        7
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "B5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "B5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        -1,
+        9,
+        11,
+        12,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "B5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        9,
+        9,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "B7",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        2,
+        1,
+        2,
+        0,
+        2
+      ],
+      "fingers": [
+        0,
+        2,
+        1,
+        3,
+        0,
+        4
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Bm",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        3,
+        2
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bm",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        -1,
+        9,
+        11,
+        12,
+        10
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bm",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        9,
+        9,
+        7,
+        7,
+        7
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "open",
+      "name": "Bm",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        3,
+        2
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Bm7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        2,
+        3,
+        2
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bm7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        -1,
+        9,
+        11,
+        10,
+        10
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bm7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        9,
+        7,
+        7,
+        7,
+        7
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bmaj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        3,
+        4,
+        2
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bmaj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        -1,
+        9,
+        11,
+        11,
+        11
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bmaj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        9,
+        8,
+        8,
+        7,
+        7
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bmaj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        -1,
+        4,
+        4,
+        4,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Bundefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        2,
+        4,
+        2
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bundefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        -1,
+        9,
+        11,
+        10,
+        11
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bundefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        9,
+        7,
+        8,
+        7,
+        7
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Bundefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 7,
+      "frets": [
+        7,
+        -1,
+        4,
+        4,
+        4,
+        5
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        10,
+        10,
+        9,
+        8,
+        8
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        -1,
+        5,
+        5,
+        5,
+        8
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C# Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        6,
+        4
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C# Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        -1,
+        1,
+        2,
+        1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C# Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        11,
+        11,
+        10,
+        9,
+        9
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C# Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        -1,
+        6,
+        6,
+        6,
+        9
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C#5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C#5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        11,
+        11,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C#m",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        5,
+        4
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C#m",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        11,
+        11,
+        9,
+        9,
+        9
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C#m7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        4,
+        5,
+        4
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C#m7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        11,
+        9,
+        9,
+        9,
+        9
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C#maj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        5,
+        6,
+        4
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C#maj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C#maj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        11,
+        10,
+        10,
+        9,
+        9
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C#maj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        -1,
+        6,
+        6,
+        6,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C#undefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        4,
+        6,
+        4
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C#undefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        4,
+        -1,
+        4,
+        2,
+        1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C#undefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        11,
+        9,
+        10,
+        9,
+        9
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "C#undefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 9,
+      "frets": [
+        9,
+        -1,
+        6,
+        6,
+        6,
+        7
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "C",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        3,
+        2,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "C5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        5,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "C5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        10,
+        10,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "Cadd9",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        3,
+        2,
+        0,
+        3,
+        3
+      ],
+      "fingers": [
+        0,
+        2,
+        1,
+        0,
+        3,
+        4
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Cm",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        5,
+        4,
+        3
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cm",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        10,
+        10,
+        8,
+        8,
+        8
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cm7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        3,
+        4,
+        3
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cm7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        -1,
+        10,
+        12,
+        11,
+        11
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cm7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        10,
+        8,
+        8,
+        8,
+        8
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cmaj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cmaj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        -1,
+        10,
+        12,
+        12,
+        12
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cmaj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        10,
+        9,
+        9,
+        8,
+        8
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cmaj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        -1,
+        5,
+        5,
+        5,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Cundefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        3,
+        5,
+        3
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cundefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        -1,
+        10,
+        12,
+        11,
+        12
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cundefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        10,
+        8,
+        9,
+        8,
+        8
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Cundefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 8,
+      "frets": [
+        8,
+        -1,
+        5,
+        5,
+        5,
+        6
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        7,
+        7,
+        5
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        -1,
+        2,
+        3,
+        2
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        12,
+        12,
+        11,
+        10,
+        10
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        -1,
+        7,
+        7,
+        7,
+        10
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D# Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        8,
+        6
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D# Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        -1,
+        3,
+        4,
+        3
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D# Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        3,
+        4,
+        3
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D# Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 11,
+      "frets": [
+        11,
+        -1,
+        8,
+        8,
+        8,
+        11
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D#5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D#5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        3,
+        4,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D#m",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        7,
+        6
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D#m",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        3,
+        4,
+        2
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D#m7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        6,
+        7,
+        6
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D#m7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        3,
+        2,
+        2
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D#maj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        7,
+        8,
+        6
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D#maj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        -1,
+        3,
+        3,
+        3
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D#maj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        3,
+        3,
+        3
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D#maj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 11,
+      "frets": [
+        11,
+        -1,
+        8,
+        8,
+        8,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D#undefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        6,
+        8,
+        6
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D#undefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        6,
+        -1,
+        6,
+        4,
+        3
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D#undefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        3,
+        2,
+        3
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "D#undefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 11,
+      "frets": [
+        11,
+        -1,
+        8,
+        8,
+        8,
+        9
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "D",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        3,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "D5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        7,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "D5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        12,
+        12,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "D7",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Dm",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        7,
+        6,
+        5
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Dm",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        12,
+        12,
+        10,
+        10,
+        10
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "open",
+      "name": "Dm",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        3,
+        1
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Dm7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        5,
+        6,
+        5
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Dm7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        12,
+        10,
+        10,
+        10,
+        10
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Dmaj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        6,
+        7,
+        5
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Dmaj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        -1,
+        2,
+        2,
+        2
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Dmaj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        12,
+        11,
+        11,
+        10,
+        10
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Dmaj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        -1,
+        7,
+        7,
+        7,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "Dsus2",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        3,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Dundefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        5,
+        7,
+        5
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Dundefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        5,
+        -1,
+        5,
+        3,
+        2
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Dundefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        12,
+        10,
+        11,
+        10,
+        10
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Dundefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 10,
+      "frets": [
+        10,
+        -1,
+        7,
+        7,
+        7,
+        8
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "E Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        9,
+        9,
+        7
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "E Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        -1,
+        4,
+        5,
+        4
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "E Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        -1,
+        2,
+        4,
+        5,
+        4
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "E Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 12,
+      "frets": [
+        12,
+        -1,
+        9,
+        9,
+        9,
+        12
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "E",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        0,
+        2,
+        2,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "E5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        9,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "E5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        -1,
+        2,
+        4,
+        5,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "E7",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Em",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Em",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        -1,
+        2,
+        4,
+        5,
+        3
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "open",
+      "name": "Em",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        0,
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Em7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        7,
+        8,
+        7
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Em7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        -1,
+        2,
+        4,
+        3,
+        3
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "open",
+      "name": "Em7",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Emaj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        8,
+        9,
+        7
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Emaj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        -1,
+        4,
+        4,
+        4
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Emaj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        -1,
+        2,
+        4,
+        4,
+        4
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Emaj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 12,
+      "frets": [
+        12,
+        -1,
+        9,
+        9,
+        9,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Eundefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        7,
+        9,
+        7
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Eundefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 7,
+      "frets": [
+        -1,
+        7,
+        -1,
+        7,
+        5,
+        4
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Eundefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 2,
+      "frets": [
+        -1,
+        -1,
+        2,
+        4,
+        3,
+        4
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Eundefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 12,
+      "frets": [
+        12,
+        -1,
+        9,
+        9,
+        9,
+        10
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        10,
+        10,
+        10,
+        8
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        -1,
+        5,
+        6,
+        5
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        -1,
+        3,
+        5,
+        6,
+        5
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 1,
+      "frets": [
+        1,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F# Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        11,
+        11,
+        11,
+        9
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F# Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        -1,
+        6,
+        7,
+        6
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F# Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        -1,
+        4,
+        6,
+        7,
+        6
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F# Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        3,
+        2,
+        2
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        11,
+        11,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F#5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        -1,
+        4,
+        6,
+        7,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F#5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F#m",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        11,
+        11,
+        10,
+        9
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#m",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        -1,
+        4,
+        6,
+        7,
+        5
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#m",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        2,
+        2,
+        2
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#m7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        11,
+        9,
+        10,
+        9
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#m7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        -1,
+        4,
+        6,
+        5,
+        5
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#m7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 2,
+      "frets": [
+        2,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#maj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        11,
+        10,
+        11,
+        9
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#maj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        -1,
+        6,
+        6,
+        6
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F#maj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        -1,
+        4,
+        6,
+        6,
+        6
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#maj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 2,
+      "frets": [
+        2,
+        4,
+        3,
+        3,
+        2,
+        2
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#undefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        11,
+        9,
+        11,
+        9
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#undefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 9,
+      "frets": [
+        -1,
+        9,
+        -1,
+        9,
+        7,
+        6
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F#undefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 4,
+      "frets": [
+        -1,
+        -1,
+        4,
+        6,
+        5,
+        6
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "F#undefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 2,
+      "frets": [
+        2,
+        4,
+        2,
+        3,
+        2,
+        2
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "open",
+      "name": "F",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        1,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "F5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        10,
+        10,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        -1,
+        3,
+        5,
+        6,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "F5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 1,
+      "frets": [
+        1,
+        3,
+        3,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Fm",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        10,
+        10,
+        9,
+        8
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fm",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        -1,
+        3,
+        5,
+        6,
+        4
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fm",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 1,
+      "frets": [
+        1,
+        3,
+        3,
+        1,
+        1,
+        1
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fm7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        10,
+        8,
+        9,
+        8
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fm7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        -1,
+        3,
+        5,
+        4,
+        4
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fm7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 1,
+      "frets": [
+        1,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fmaj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        10,
+        9,
+        10,
+        8
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fmaj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        -1,
+        5,
+        5,
+        5
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Fmaj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        -1,
+        3,
+        5,
+        5,
+        5
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fmaj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 1,
+      "frets": [
+        1,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "open",
+      "name": "Fmaj7",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        -1,
+        3,
+        2,
+        2,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        4,
+        1,
+        0
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Fundefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        10,
+        8,
+        10,
+        8
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fundefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 8,
+      "frets": [
+        -1,
+        8,
+        -1,
+        8,
+        6,
+        5
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Fundefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 3,
+      "frets": [
+        -1,
+        -1,
+        3,
+        5,
+        4,
+        5
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Fundefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 1,
+      "frets": [
+        1,
+        3,
+        1,
+        2,
+        1,
+        1
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G Major",
+      "quality": "Major",
+      "shape": "A",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        12,
+        12,
+        12,
+        10
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        -1,
+        7,
+        8,
+        7
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        -1,
+        5,
+        7,
+        8,
+        7
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 3,
+      "frets": [
+        3,
+        5,
+        5,
+        4,
+        3,
+        3
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G# Major",
+      "quality": "Major",
+      "shape": "C",
+      "rootString": 5,
+      "rootFret": 11,
+      "frets": [
+        -1,
+        11,
+        -1,
+        8,
+        9,
+        8
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G# Major",
+      "quality": "Major",
+      "shape": "D",
+      "rootString": 4,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        -1,
+        6,
+        8,
+        9,
+        8
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G# Major",
+      "quality": "Major",
+      "shape": "E",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        6,
+        6,
+        5,
+        4,
+        4
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G# Major",
+      "quality": "Major",
+      "shape": "G",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        -1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G#5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        -1,
+        6,
+        8,
+        9,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G#5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        6,
+        6,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G#m",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        -1,
+        6,
+        8,
+        9,
+        7
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G#m",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        6,
+        6,
+        4,
+        4,
+        4
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G#m7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        -1,
+        6,
+        8,
+        7,
+        7
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G#m7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        6,
+        4,
+        4,
+        4,
+        4
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G#maj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 11,
+      "frets": [
+        -1,
+        11,
+        -1,
+        8,
+        8,
+        8
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G#maj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        -1,
+        6,
+        8,
+        8,
+        8
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G#maj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        6,
+        5,
+        5,
+        4,
+        4
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G#maj7",
+      "quality": "Maj7",
+      "shape": "Gmaj7",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        -1,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G#undefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 11,
+      "frets": [
+        -1,
+        11,
+        -1,
+        11,
+        9,
+        8
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G#undefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 6,
+      "frets": [
+        -1,
+        -1,
+        6,
+        8,
+        7,
+        8
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G#undefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        6,
+        4,
+        5,
+        4,
+        4
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "G#undefined",
+      "quality": "7",
+      "shape": "G7",
+      "rootString": 6,
+      "rootFret": 4,
+      "frets": [
+        4,
+        -1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "G",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        3
+      ],
+      "fingers": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "G5",
+      "quality": "5",
+      "shape": "A5",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        12,
+        12,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G5",
+      "quality": "5",
+      "shape": "D5",
+      "rootString": 4,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        -1,
+        5,
+        7,
+        8,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "G5",
+      "quality": "5",
+      "shape": "E5",
+      "rootString": 6,
+      "rootFret": 3,
+      "frets": [
+        3,
+        5,
+        5,
+        -1,
+        -1,
+        -1
+      ],
+      "barre": null
+    },
+    {
+      "type": "open",
+      "name": "G7",
+      "quality": "Open",
+      "shape": "Open",
+      "frets": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "fingers": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "type": "caged",
+      "name": "Gm",
+      "quality": "Minor",
+      "shape": "Am",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        12,
+        12,
+        11,
+        10
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gm",
+      "quality": "Minor",
+      "shape": "Dm",
+      "rootString": 4,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        -1,
+        5,
+        7,
+        8,
+        6
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gm",
+      "quality": "Minor",
+      "shape": "Em",
+      "rootString": 6,
+      "rootFret": 3,
+      "frets": [
+        3,
+        5,
+        5,
+        3,
+        3,
+        3
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gm7",
+      "quality": "m7",
+      "shape": "Am7",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        12,
+        10,
+        11,
+        10
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gm7",
+      "quality": "m7",
+      "shape": "Dm7",
+      "rootString": 4,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        -1,
+        5,
+        7,
+        6,
+        6
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gm7",
+      "quality": "m7",
+      "shape": "Em7",
+      "rootString": 6,
+      "rootFret": 3,
+      "frets": [
+        3,
+        5,
+        3,
+        3,
+        3,
+        3
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gmaj7",
+      "quality": "Maj7",
+      "shape": "Amaj7",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        12,
+        11,
+        12,
+        10
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gmaj7",
+      "quality": "Maj7",
+      "shape": "Cmaj7",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        -1,
+        7,
+        7,
+        7
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Gmaj7",
+      "quality": "Maj7",
+      "shape": "Dmaj7",
+      "rootString": 4,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        -1,
+        5,
+        7,
+        7,
+        7
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gmaj7",
+      "quality": "Maj7",
+      "shape": "Emaj7",
+      "rootString": 6,
+      "rootFret": 3,
+      "frets": [
+        3,
+        5,
+        4,
+        4,
+        3,
+        3
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gundefined",
+      "quality": "7",
+      "shape": "A7",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        12,
+        10,
+        12,
+        10
+      ],
+      "barre": {
+        "from": 5,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gundefined",
+      "quality": "7",
+      "shape": "C7",
+      "rootString": 5,
+      "rootFret": 10,
+      "frets": [
+        -1,
+        10,
+        -1,
+        10,
+        8,
+        7
+      ],
+      "barre": null
+    },
+    {
+      "type": "caged",
+      "name": "Gundefined",
+      "quality": "7",
+      "shape": "D7",
+      "rootString": 4,
+      "rootFret": 5,
+      "frets": [
+        -1,
+        -1,
+        5,
+        7,
+        6,
+        7
+      ],
+      "barre": {
+        "from": 4,
+        "to": 1
+      }
+    },
+    {
+      "type": "caged",
+      "name": "Gundefined",
+      "quality": "7",
+      "shape": "E7",
+      "rootString": 6,
+      "rootFret": 3,
+      "frets": [
+        3,
+        5,
+        3,
+        4,
+        3,
+        3
+      ],
+      "barre": {
+        "from": 6,
+        "to": 1
+      }
+    }
+  ]
+}

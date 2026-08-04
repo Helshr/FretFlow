@@ -1,0 +1,240 @@
+/* style.css — 深色主题，无框架 */
+
+:root {
+  --bg: #121316;
+  --card: #1d1f24;
+  --card-2: #24262d;
+  --text: #ececf0;
+  --muted: #9aa0a8;
+  --accent: #e94560;
+  --accent-2: #2ecc71;
+  --line: #32353d;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body { min-height: 100vh; }
+
+.screen { display: none; }
+.screen.active { display: block; }
+
+#settings-screen,
+#training-screen {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  text-align: center;
+  margin: 12px 0 4px;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 0 24px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+/* ---------- 设置屏 ---------- */
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 0 0 18px;
+}
+
+legend {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0 6px;
+}
+
+label.radio {
+  display: inline-block;
+  margin: 4px 18px 4px 0;
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+label.radio input { margin-right: 6px; accent-color: var(--accent); }
+
+.row { margin-bottom: 18px; }
+
+.row > label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.slider-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.slider-line input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent);
+  height: 28px;
+}
+
+.slider-line .val {
+  min-width: 3ch;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  background: var(--card-2);
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+/* ---------- 按钮 ---------- */
+
+button {
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  min-height: 48px;
+  padding: 0 22px;
+  font-family: inherit;
+  transition: filter 0.15s ease, transform 0.05s ease;
+}
+
+button:active { transform: translateY(1px); }
+button:hover { filter: brightness(1.08); }
+
+button.primary {
+  background: var(--accent);
+  color: #fff;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+button.ghost {
+  background: var(--card-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+button.ghost.danger { color: var(--accent); }
+
+/* ---------- 训练屏 ---------- */
+
+.train-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.mode-label {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.chord-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.chord-card { text-align: center; }
+
+.card-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.chord-name {
+  font-size: clamp(2.4rem, 12vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 4px 0 2px;
+}
+
+.chord-shape {
+  color: var(--accent-2);
+  font-size: 1rem;
+  min-height: 1.4em;
+  margin-bottom: 6px;
+}
+
+.diagram svg {
+  width: min(100%, 300px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.countdown-card { text-align: center; }
+
+.time {
+  font-size: clamp(2.2rem, 10vw, 3.4rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  margin: 4px 0;
+}
+
+.train-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.done-banner {
+  text-align: center;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--accent-2);
+  border-radius: var(--radius);
+  background: rgba(46, 204, 113, 0.08);
+}
+
+.done-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-2);
+  margin-bottom: 14px;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- 移动端 ---------- */
+
+@media (max-width: 640px) {
+  .chord-grid { grid-template-columns: 1fr; }
+}

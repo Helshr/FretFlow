@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>和弦切换训练器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 设置屏 -->
+  <section id="settings-screen" class="screen active">
+    <h1>和弦切换训练器</h1>
+    <p class="subtitle">打开网页 → 设置参数 → 点击开始 → 开始练和弦</p>
+
+    <div class="card">
+      <fieldset>
+        <legend>模式</legend>
+        <label class="radio"><input type="radio" name="mode" value="open" checked> Open Chords</label>
+        <label class="radio"><input type="radio" name="mode" value="caged"> CAGED</label>
+      </fieldset>
+
+      <div class="row">
+        <label for="chord-count">训练和弦数量</label>
+        <div class="slider-line">
+          <input type="range" id="chord-count" min="2" max="12" value="4">
+          <span class="val" id="chord-count-val">4</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="bpm">BPM</label>
+        <div class="slider-line">
+          <input type="range" id="bpm" min="40" max="180" value="80">
+          <span class="val" id="bpm-val">80</span>
+        </div>
+      </div>
+
+      <fieldset>
+        <legend>每个和弦持续</legend>
+        <label class="radio"><input type="radio" name="measures" value="1" checked> 1 小节</label>
+        <label class="radio"><input type="radio" name="measures" value="2"> 2 小节</label>
+        <label class="radio"><input type="radio" name="measures" value="4"> 4 小节</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>训练时长</legend>
+        <label class="radio"><input type="radio" name="duration" value="1"> 1 分钟</label>
+        <label class="radio"><input type="radio" name="duration" value="3"> 3 分钟</label>
+        <label class="radio"><input type="radio" name="duration" value="5" checked> 5 分钟</label>
+        <label class="radio"><input type="radio" name="duration" value="10"> 10 分钟</label>
+      </fieldset>
+
+      <button id="btn-start" class="primary">开始训练</button>
+    </div>
+  </section>
+
+  <!-- 训练屏 -->
+  <section id="training-screen" class="screen">
+    <header class="train-header">
+      <span id="train-mode-label" class="mode-label"></span>
+      <button id="btn-stop" class="ghost danger">停止</button>
+    </header>
+
+    <div class="chord-grid">
+      <div class="card chord-card current">
+        <div class="card-label">当前和弦</div>
+        <div class="chord-name" id="current-name"></div>
+        <div class="chord-shape" id="current-shape"></div>
+        <div class="diagram" id="current-diagram"></div>
+      </div>
+      <div class="card chord-card next">
+        <div class="card-label">下一和弦</div>
+        <div class="chord-name" id="next-name"></div>
+        <div class="chord-shape" id="next-shape"></div>
+        <div class="diagram" id="next-diagram"></div>
+      </div>
+    </div>
+
+    <div class="card countdown-card">
+      <div class="card-label">剩余时间</div>
+      <div class="time" id="remaining-time">05:00</div>
+    </div>
+
+    <div class="train-actions">
+      <button id="btn-pause" class="ghost">暂停</button>
+    </div>
+
+    <div id="done-banner" class="done-banner hidden">
+      <div class="done-title">训练完成</div>
+      <button id="btn-done-return" class="primary">返回设置</button>
+    </div>
+  </section>
+
+  <script src="svg/chordRenderer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
