@@ -63,6 +63,108 @@ var CAGED_FALLBACK = {
   ]
 };
 
+/* ---------- i18n ---------- */
+
+var I18N_FALLBACK = {
+  'zh-CN': {
+    "app.title": "和弦切换训练器",
+    "app.subtitle": "打开网页 → 设置参数 → 点击开始 → 开始练和弦",
+    "settings.language": "语言",
+    "settings.mode": "模式",
+    "settings.modeOpen": "Open Chords",
+    "settings.modeCaged": "CAGED",
+    "settings.chordCount": "训练和弦数量",
+    "settings.bpm": "BPM",
+    "settings.measures": "每个和弦持续",
+    "settings.measures1": "1 小节",
+    "settings.measures2": "2 小节",
+    "settings.measures4": "4 小节",
+    "settings.time": "训练时长",
+    "settings.minutes1": "1 分钟",
+    "settings.minutes3": "3 分钟",
+    "settings.minutes5": "5 分钟",
+    "settings.minutes10": "10 分钟",
+    "settings.start": "开始训练",
+    "train.current": "当前和弦",
+    "train.next": "下一和弦",
+    "train.remaining": "剩余时间",
+    "train.pause": "暂停",
+    "train.resume": "继续",
+    "train.stop": "停止",
+    "train.done": "训练完成",
+    "train.return": "返回设置",
+    "chord.majorSuffix": "大调",
+    "chord.shapeSuffix": "形",
+    "chord.power": "强力和弦",
+    "error.emptyPool": "和弦池为空，请检查数据或减少数量"
+  },
+  'en': {
+    "app.title": "Chord Switching Trainer",
+    "app.subtitle": "Open page → Set params → Start → Practice chords",
+    "settings.language": "Language",
+    "settings.mode": "Mode",
+    "settings.modeOpen": "Open Chords",
+    "settings.modeCaged": "CAGED",
+    "settings.chordCount": "Number of Chords",
+    "settings.bpm": "BPM",
+    "settings.measures": "Hold Each Chord",
+    "settings.measures1": "1 measure",
+    "settings.measures2": "2 measures",
+    "settings.measures4": "4 measures",
+    "settings.time": "Session Length",
+    "settings.minutes1": "1 minute",
+    "settings.minutes3": "3 minutes",
+    "settings.minutes5": "5 minutes",
+    "settings.minutes10": "10 minutes",
+    "settings.start": "Start Training",
+    "train.current": "Current Chord",
+    "train.next": "Next Chord",
+    "train.remaining": "Time Left",
+    "train.pause": "Pause",
+    "train.resume": "Resume",
+    "train.stop": "Stop",
+    "train.done": "Training Complete",
+    "train.return": "Back to Settings",
+    "chord.majorSuffix": "Major",
+    "chord.shapeSuffix": "Shape",
+    "chord.power": "Power",
+    "error.emptyPool": "Chord pool is empty. Check data or lower the count."
+  }
+};
+
+var I18n = {
+  locale: 'zh-CN',
+  strings: {},
+
+  set: function (locale, strings) {
+    this.locale = locale;
+    this.strings = strings;
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = locale;
+    }
+  },
+
+  t: function (key, vars) {
+    var s = this.strings[key] != null ? this.strings[key] : key;
+    if (vars) {
+      Object.keys(vars).forEach(function (k) {
+        s = s.split('{' + k + '}').join(vars[k]);
+      });
+    }
+    return s;
+  },
+
+  apply: function () {
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      el.textContent = I18n.t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      el.setAttribute('aria-label', I18n.t(el.getAttribute('data-i18n-aria')));
+    });
+    document.title = I18n.t('app.title');
+  }
+};
+
 /* ---------- 小工具 ---------- */
 
 function randInt(n) { return Math.floor(Math.random() * n); }
@@ -107,11 +209,11 @@ function rootFretRange(shape) {
 
 var QUALITIES = ['Major', 'Minor', 'm7', 'Maj7', '7', '5'];
 
-// 和弦名后缀：Major 用全称（与设计指南一致），其余用通用符号
+// 和弦名后缀：Major 用全称（随语言变化），其余用通用符号
 function qualitySuffix(q) {
-  if (q === 'Major') return ' Major';
+  if (q === 'Major') return ' ' + I18n.t('chord.majorSuffix');
   if (q === 'Minor') return 'm';
-  return q; // m7 / Maj7 / 5
+  return q; // m7 / Maj7 / 7 / 5
 }
 
 function transposeShape(shape, rootFret) {
@@ -267,7 +369,7 @@ var Session = {
   start: function () {
     this.readSettings();
     var pool = makePool(this.settings, this.openData, this.cagedData);
-    if (!pool.length) { alert('和弦池为空，请检查数据或减少数量'); return; }
+    if (!pool.length) { alert(I18n.t('error.emptyPool')); return; }
     this.pool = pool;
     this.current = pool[0];
     this.next = pickNext(pool, this.current);
@@ -280,7 +382,7 @@ var Session = {
 
     this.renderTraining();
     this.showScreen('training');
-    this.setPauseLabel('暂停');
+    this.setPauseLabel('train.pause');
     document.getElementById('done-banner').classList.add('hidden');
     document.getElementById('btn-pause').classList.remove('hidden');
 
@@ -318,14 +420,14 @@ var Session = {
       DrumMachine.stop();
       clearInterval(this.ticker);
       this.ticker = null;
-      this.setPauseLabel('继续');
+      this.setPauseLabel('train.resume');
     } else {
       this.pausedTotal += performance.now() - this.pausedAt;
       this.paused = false;
       this.barCount = 0; // 鼓机相位重置到小节起点，重记小节数
       DrumMachine.start(this.settings.bpm, function () { Session.onBar(); });
       this.ticker = setInterval(function () { Session.tick(); }, 200);
-      this.setPauseLabel('暂停');
+      this.setPauseLabel('train.pause');
     }
   },
 
@@ -366,7 +468,7 @@ var Session = {
     if (c.quality) {
       return {
         name: c.chord + qualitySuffix(c.quality),
-        shape: c.quality === '5' ? 'Power' : c.shape + ' Shape',
+        shape: c.quality === '5' ? I18n.t('chord.power') : c.shape + ' ' + I18n.t('chord.shapeSuffix'),
         frets: c.frets,
         rootString: c.rootString,
         barre: c.barre,
@@ -401,8 +503,8 @@ var Session = {
       (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
   },
 
-  setPauseLabel: function (t) {
-    document.getElementById('btn-pause').textContent = t;
+  setPauseLabel: function (key) {
+    document.getElementById('btn-pause').textContent = I18n.t(key);
   },
 
   showScreen: function (name) {
@@ -433,14 +535,49 @@ function bindActions() {
   document.getElementById('btn-done-return').addEventListener('click', function () { Session.stop(); });
 }
 
+/* ---------- 语言切换 ---------- */
+
+function bindLang() {
+  var sel = document.getElementById('lang-select');
+  sel.value = I18n.locale;
+  sel.addEventListener('change', function () {
+    var locale = sel.value;
+    loadJSON('data/i18n/' + locale + '.json', I18N_FALLBACK[locale] || I18N_FALLBACK['zh-CN'])
+      .then(function (strings) {
+        I18n.set(locale, strings);
+        try { localStorage.setItem('trainer-lang', locale); } catch (e) {}
+        I18n.apply();
+        if (Session.running && !Session.done) {
+          Session.renderTraining();
+          Session.setPauseLabel(Session.paused ? 'train.resume' : 'train.pause');
+        }
+      });
+  });
+}
+
 /* ---------- 启动 ---------- */
 
-Promise.all([
-  loadJSON('data/open_chords.json', OPEN_CHORD_FALLBACK),
-  loadJSON('data/caged.json', CAGED_FALLBACK)
-]).then(function (results) {
-  Session.openData = results[0];
-  Session.cagedData = results[1];
-  bindSettings();
-  bindActions();
-});
+function initialLocale() {
+  try {
+    var saved = localStorage.getItem('trainer-lang');
+    if (saved) return saved;
+  } catch (e) {}
+  return 'zh-CN';
+}
+
+loadJSON('data/i18n/' + initialLocale() + '.json', I18N_FALLBACK[initialLocale()] || I18N_FALLBACK['zh-CN'])
+  .then(function (strings) {
+    I18n.set(initialLocale(), strings);
+    return Promise.all([
+      loadJSON('data/open_chords.json', OPEN_CHORD_FALLBACK),
+      loadJSON('data/caged.json', CAGED_FALLBACK)
+    ]);
+  })
+  .then(function (results) {
+    Session.openData = results[0];
+    Session.cagedData = results[1];
+    bindSettings();
+    bindActions();
+    bindLang();
+    I18n.apply();
+  });

@@ -1,0 +1,36 @@
+{
+  "app.title": "Chord Switching Trainer",
+  "app.subtitle": "Open page → Set params → Start → Practice chords",
+
+  "settings.language": "Language",
+  "settings.mode": "Mode",
+  "settings.modeOpen": "Open Chords",
+  "settings.modeCaged": "CAGED",
+  "settings.chordCount": "Number of Chords",
+  "settings.bpm": "BPM",
+  "settings.measures": "Hold Each Chord",
+  "settings.measures1": "1 measure",
+  "settings.measures2": "2 measures",
+  "settings.measures4": "4 measures",
+  "settings.time": "Session Length",
+  "settings.minutes1": "1 minute",
+  "settings.minutes3": "3 minutes",
+  "settings.minutes5": "5 minutes",
+  "settings.minutes10": "10 minutes",
+  "settings.start": "Start Training",
+
+  "train.current": "Current Chord",
+  "train.next": "Next Chord",
+  "train.remaining": "Time Left",
+  "train.pause": "Pause",
+  "train.resume": "Resume",
+  "train.stop": "Stop",
+  "train.done": "Training Complete",
+  "train.return": "Back to Settings",
+
+  "chord.majorSuffix": "Major",
+  "chord.shapeSuffix": "Shape",
+  "chord.power": "Power",
+
+  "error.emptyPool": "Chord pool is empty. Check data or lower the count."
+}

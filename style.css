@@ -36,6 +36,22 @@ body { min-height: 100vh; }
   padding: 24px 16px 48px;
 }
 
+.lang-switch {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.lang-switch select {
+  background: var(--card-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 h1 {
   font-size: clamp(1.6rem, 5vw, 2.2rem);
   text-align: center;
