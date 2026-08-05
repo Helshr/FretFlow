@@ -40,6 +40,8 @@
   "home.section": "功能",
   "home.trainer": "和弦切换训练器",
   "home.trainerDesc": "5 分钟和弦切换训练 · Open Chords 与 CAGED · 全指板移调",
+  "home.chordChart": "全量和弦图",
+  "home.chordChartDesc": "CAGED 全性质 × 12 根音 · 全指板指形总表",
   "home.enter": "进入",
   "home.comingSoon": "更多功能即将到来"
 }

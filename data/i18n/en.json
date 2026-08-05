@@ -40,6 +40,8 @@
   "home.section": "Features",
   "home.trainer": "Chord Switching Trainer",
   "home.trainerDesc": "5-min chord switching · Open Chords & CAGED · movable across the fretboard",
+  "home.chordChart": "All Chords",
+  "home.chordChartDesc": "All CAGED voicings × 12 roots · full-fretboard reference",
   "home.enter": "Open",
   "home.comingSoon": "More features coming soon"
 }

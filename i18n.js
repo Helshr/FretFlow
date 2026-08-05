@@ -53,6 +53,8 @@ var I18N_FALLBACK = {
     "home.section": "功能",
     "home.trainer": "和弦切换训练器",
     "home.trainerDesc": "5 分钟和弦切换训练 · Open Chords 与 CAGED · 全指板移调",
+    "home.chordChart": "全量和弦图",
+    "home.chordChartDesc": "CAGED 全性质 × 12 根音 · 全指板指形总表",
     "home.enter": "进入",
     "home.comingSoon": "更多功能即将到来"
   },
@@ -93,6 +95,8 @@ var I18N_FALLBACK = {
     "home.section": "Features",
     "home.trainer": "Chord Switching Trainer",
     "home.trainerDesc": "5-min chord switching · Open Chords & CAGED · movable across the fretboard",
+    "home.chordChart": "All Chords",
+    "home.chordChartDesc": "All CAGED voicings × 12 roots · full-fretboard reference",
     "home.enter": "Open",
     "home.comingSoon": "More features coming soon"
   }
