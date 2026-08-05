@@ -9,7 +9,8 @@ const TOP = 44; // 6 弦 y
 const SGAP = 22; // 弦间距
 const FRETS = 12;
 const LAST_X = X0 + FRETS * FRET_W;
-const INLAY_FRETS = [3, 5, 7, 9, 12];
+const SINGLE_INLAY_FRETS = [3, 5, 7, 9];
+const DOUBLE_INLAY_FRETS = [12];
 
 function stringY(s: number): number {
   return TOP + (6 - s) * SGAP;
@@ -68,9 +69,15 @@ export default function Fretboard({
         </text>
       ))}
 
-      {/* 指板圆点（位于品格中间） */}
-      {INLAY_FRETS.map((f) => (
-        <circle key={`in${f}`} cx={X0 + (f - 0.5) * FRET_W} cy={midY} r={5} fill="#3a3e46" />
+      {/* 指板圆点（位于品格中间；12 品为双点） */}
+      {SINGLE_INLAY_FRETS.map((f) => (
+        <circle key={`in${f}`} cx={fretX(f)} cy={midY} r={5} fill="#3a3e46" />
+      ))}
+      {DOUBLE_INLAY_FRETS.map((f) => (
+        <g key={`in${f}`}>
+          <circle cx={fretX(f)} cy={midY - 12} r={5} fill="#3a3e46" />
+          <circle cx={fretX(f)} cy={midY + 12} r={5} fill="#3a3e46" />
+        </g>
       ))}
 
       {/* 琴枕 */}
