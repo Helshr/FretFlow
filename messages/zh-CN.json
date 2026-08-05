@@ -1,0 +1,56 @@
+{
+  "app": {
+    "title": "FretFlow · 和弦切换训练器",
+    "subtitle": "打开页面 → 设置参数 → 点击开始 → 开始练和弦"
+  },
+  "settings": {
+    "language": "语言",
+    "mode": "模式",
+    "modeOpen": "Open Chords",
+    "modeCaged": "CAGED",
+    "chordCount": "训练和弦数量",
+    "bpm": "BPM",
+    "measures": "每个和弦持续",
+    "measures1": "1 小节",
+    "measures2": "2 小节",
+    "measures4": "4 小节",
+    "time": "训练时长",
+    "minutes1": "1 分钟",
+    "minutes3": "3 分钟",
+    "minutes5": "5 分钟",
+    "minutes10": "10 分钟",
+    "start": "开始训练"
+  },
+  "train": {
+    "current": "当前和弦",
+    "next": "下一和弦",
+    "remaining": "剩余时间",
+    "pause": "暂停",
+    "resume": "继续",
+    "stop": "停止",
+    "done": "训练完成",
+    "return": "返回设置"
+  },
+  "chord": {
+    "majorSuffix": "大调",
+    "shapeSuffix": "形",
+    "power": "强力和弦"
+  },
+  "error": {
+    "emptyPool": "和弦池为空，请检查数据或减少数量"
+  },
+  "nav": {
+    "home": "首页"
+  },
+  "home": {
+    "title": "FretFlow",
+    "subtitle": "选择一个功能开始练习",
+    "section": "功能",
+    "trainer": "和弦切换训练器",
+    "trainerDesc": "5 分钟和弦切换训练 · Open Chords 与 CAGED · 全指板移调",
+    "chordChart": "全量和弦图",
+    "chordChartDesc": "CAGED 全性质 × 12 根音 · 全指板指形总表",
+    "enter": "进入",
+    "comingSoon": "更多功能即将到来"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "app": {
+    "title": "FretFlow · Chord Switching Trainer",
+    "subtitle": "Open page → Set params → Start → Practice chords"
+  },
+  "settings": {
+    "language": "Language",
+    "mode": "Mode",
+    "modeOpen": "Open Chords",
+    "modeCaged": "CAGED",
+    "chordCount": "Number of Chords",
+    "bpm": "BPM",
+    "measures": "Hold Each Chord",
+    "measures1": "1 measure",
+    "measures2": "2 measures",
+    "measures4": "4 measures",
+    "time": "Session Length",
+    "minutes1": "1 minute",
+    "minutes3": "3 minutes",
+    "minutes5": "5 minutes",
+    "minutes10": "10 minutes",
+    "start": "Start Training"
+  },
+  "train": {
+    "current": "Current Chord",
+    "next": "Next Chord",
+    "remaining": "Time Left",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop",
+    "done": "Training Complete",
+    "return": "Back to Settings"
+  },
+  "chord": {
+    "majorSuffix": "Major",
+    "shapeSuffix": "Shape",
+    "power": "Power"
+  },
+  "error": {
+    "emptyPool": "Chord pool is empty. Check data or lower the count."
+  },
+  "nav": {
+    "home": "Home"
+  },
+  "home": {
+    "title": "FretFlow",
+    "subtitle": "Pick a feature to start practicing",
+    "section": "Features",
+    "trainer": "Chord Switching Trainer",
+    "trainerDesc": "5-min chord switching · Open Chords & CAGED · movable across the fretboard",
+    "chordChart": "All Chords",
+    "chordChartDesc": "All CAGED voicings × 12 roots · full-fretboard reference",
+    "enter": "Open",
+    "comingSoon": "More features coming soon"
+  }
+}
