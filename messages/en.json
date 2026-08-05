@@ -50,6 +50,7 @@
     "trainerDesc": "5-min chord switching · Open Chords & CAGED · movable across the fretboard",
     "chordChart": "All Chords",
     "chordChartDesc": "All CAGED voicings × 12 roots · full-fretboard reference",
+    "chordChartNote": "All CAGED voicings × 12 roots · red = root · thick = barre",
     "enter": "Open",
     "comingSoon": "More features coming soon"
   }
