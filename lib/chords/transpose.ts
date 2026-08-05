@@ -1,3 +1,4 @@
+import {OPEN_FREQ} from '../guitar';
 import type {
   CagedShape,
   OpenChord,
@@ -90,4 +91,15 @@ export function pickNext(pool: PoolItem[], current: PoolItem): PoolItem {
   const others = pool.filter((c) => c.key !== current.key);
   if (others.length === 0) return current;
   return others[randInt(others.length)];
+}
+
+// 和弦各非闷音弦的实际音高（6→1 弦顺序），用于播放和弦音
+export function chordFrequencies(c: {frets: number[]}): number[] {
+  const out: number[] = [];
+  c.frets.forEach((fret, i) => {
+    if (fret < 0) return;
+    const string = 6 - i;
+    out.push(OPEN_FREQ[string] * Math.pow(2, fret / 12));
+  });
+  return out;
 }

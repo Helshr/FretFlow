@@ -87,9 +87,10 @@ export default function SettingsForm({
   const [measuresPerChord, setMeasuresPerChord] = useState<1 | 2 | 4>(1);
   const [durationMin, setDurationMin] = useState(5);
   const [patternId, setPatternId] = useState('rock');
+  const [playChord, setPlayChord] = useState(true);
 
   function submit() {
-    onStart({mode, chordCount, bpm, measuresPerChord, durationMin, patternId});
+    onStart({mode, chordCount, bpm, measuresPerChord, durationMin, patternId, playChord});
   }
 
   return (
@@ -126,6 +127,16 @@ export default function SettingsForm({
         onChange={setMeasuresPerChord}
         options={([1, 2, 4] as const).map((v) => ({value: v, label: t(`measures${v}`)}))}
       />
+
+      <label className="mb-5 flex cursor-pointer items-center gap-2 text-base">
+        <input
+          type="checkbox"
+          checked={playChord}
+          onChange={(e) => setPlayChord(e.target.checked)}
+          className="h-4 w-4 accent-accent"
+        />
+        {t('playChord')}
+      </label>
 
       <RadioGroup
         legend={t('time')}

@@ -35,6 +35,7 @@ export interface Settings {
   measuresPerChord: 1 | 2 | 4;
   durationMin: number;
   patternId: string; // 鼓点类型（DRUM_PATTERNS 的 id）
+  playChord: boolean; // 切到新和弦时播放和弦音
 }
 
 export interface ChordDisplay {

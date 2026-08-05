@@ -2,9 +2,10 @@
 
 import {useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
-import {makePool, pickNext} from '@/lib/chords/transpose';
+import {chordFrequencies, makePool, pickNext} from '@/lib/chords/transpose';
 import type {CagedShape, OpenChord, PoolItem, Settings} from '@/lib/chords/types';
 import {formatTime} from '@/lib/format';
+import {tonePlayer} from '@/lib/notes/notes';
 import {useDrumMachine} from './useDrumMachine';
 import openDataJson from '@/data/open_chords.json';
 import cagedDataJson from '@/data/caged.json';
@@ -33,6 +34,7 @@ export function useTrainingSession() {
     measuresPerChord: 1,
     durationMin: 5,
     patternId: 'rock',
+    playChord: true,
   });
   const poolRef = useRef<PoolItem[]>([]);
   const currentRef = useRef<PoolItem | null>(null);
@@ -43,6 +45,12 @@ export function useTrainingSession() {
   const pausedAtRef = useRef(0);
   const tickerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  function playCurrentChord(c: PoolItem) {
+    if (settingsRef.current.playChord) {
+      tonePlayer.playChord(chordFrequencies(c));
+    }
+  }
+
   function advanceChord() {
     const cur = nextRef.current;
     if (!cur) return;
@@ -50,6 +58,7 @@ export function useTrainingSession() {
     nextRef.current = pickNext(poolRef.current, cur);
     setCurrent(cur);
     setNext(nextRef.current);
+    playCurrentChord(cur);
   }
 
   function onBar() {
@@ -115,6 +124,7 @@ export function useTrainingSession() {
     setPhase('training');
     setTimeText(formatTime(settings.durationMin * 60000));
 
+    playCurrentChord(pool[0]); // 在用户手势内初始化 TonePlayer 音频上下文
     startAudio(settings.bpm, settings.patternId);
   }
 

@@ -79,6 +79,28 @@ class TonePlayer {
     osc.start(now);
     osc.stop(now + duration + 0.05);
   }
+
+  // 同时奏响多个音高（和弦）；单音音量调低避免削波
+  playChord(freqs: number[], duration = 1.2): void {
+    const ctx = this.ensureCtx();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+    freqs.forEach((f) => {
+      if (f <= 0) return;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = f;
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(0.35, now + 0.02);
+      gain.gain.setValueAtTime(0.35, now + duration * 0.7);
+      gain.gain.linearRampToValueAtTime(0.001, now + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + duration + 0.05);
+    });
+  }
 }
 
 export const tonePlayer = new TonePlayer();
