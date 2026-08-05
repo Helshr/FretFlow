@@ -1,125 +1,28 @@
 'use client';
 
-import {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
-import {
-  CHROMATIC_NOTES,
-  NATURAL_NOTES,
-  NOTE_SEMITONE,
-  notePositions,
-  speakNote,
-  tonePlayer,
-} from '@/lib/notes/notes';
+import {useNotePlayer} from '@/hooks/useNotePlayer';
+import type {NoteScope} from '@/hooks/useNotePlayer';
 import Fretboard from './Fretboard';
-
-type Scope = '7' | '12';
-type Status = 'idle' | 'playing' | 'ready';
-
-const FIRST_DELAY_MS = 350; // 念完字母后的首个音延迟
-const DEFAULT_INTERVAL_MS = 700; // 每个音的时间间隔（默认）
 
 export default function NoteTrainer() {
   const t = useTranslations('notes');
-  const [scope, setScope] = useState<Scope>('7');
-  const [currentNote, setCurrentNote] = useState<string | null>(null);
-  const [status, setStatus] = useState<Status>('idle');
-  const [currentPos, setCurrentPos] = useState<{string: number; fret: number} | null>(null);
-  const [auto, setAuto] = useState(false);
-  const [intervalMs, setIntervalMs] = useState(DEFAULT_INTERVAL_MS);
+  const {
+    scope,
+    currentNote,
+    currentPos,
+    auto,
+    intervalMs,
+    positions,
+    playing,
+    changeScope,
+    setAuto,
+    setIntervalMs,
+    start,
+    nextNote,
+    repeat,
+  } = useNotePlayer();
 
-  const timeoutsRef = useRef<number[]>([]);
-  const currentNoteRef = useRef<string | null>(null);
-
-  useEffect(() => {
-    currentNoteRef.current = currentNote;
-  }, [currentNote]);
-
-  const pool = scope === '7' ? NATURAL_NOTES : CHROMATIC_NOTES;
-
-  const clearTimers = useCallback(() => {
-    timeoutsRef.current.forEach((id) => window.clearTimeout(id));
-    timeoutsRef.current = [];
-  }, []);
-
-  const schedule = useCallback((fn: () => void, ms: number) => {
-    timeoutsRef.current.push(window.setTimeout(fn, ms));
-  }, []);
-
-  const playNote = useCallback(
-    (note: string) => {
-      clearTimers();
-      setStatus('playing');
-      speakNote(note);
-      const positions = notePositions(NOTE_SEMITONE[note]);
-      // 音长随间隔自适应，避免间隔过短时音叠加
-      const durSec = Math.max(0.1, Math.min(0.4, intervalMs / 1000 - 0.15));
-      let t = FIRST_DELAY_MS;
-      positions.forEach((p) => {
-        schedule(() => {
-          tonePlayer.play(p.freq, durSec);
-          setCurrentPos({string: p.string, fret: p.fret});
-        }, t);
-        t += intervalMs;
-      });
-      schedule(() => {
-        setStatus('ready');
-        setCurrentPos(null);
-      }, t);
-    },
-    [clearTimers, schedule, intervalMs],
-  );
-
-  const pickNext = useCallback(
-    (exclude: string | null): string => {
-      const candidates = pool.filter((n) => n !== exclude);
-      return candidates[Math.floor(Math.random() * candidates.length)];
-    },
-    [pool],
-  );
-
-  const nextNote = useCallback(() => {
-    const note = pickNext(currentNoteRef.current);
-    setCurrentNote(note);
-    playNote(note);
-  }, [pickNext, playNote]);
-
-  const start = useCallback(() => {
-    const note = pickNext(null);
-    setCurrentNote(note);
-    playNote(note);
-  }, [pickNext, playNote]);
-
-  // 自动模式：一组播完自动接下一个
-  useEffect(() => {
-    if (auto && status === 'ready') {
-      const id = window.setTimeout(() => nextNote(), 700);
-      return () => window.clearTimeout(id);
-    }
-  }, [auto, status, nextNote]);
-
-  // 卸载清理：清定时器 + 停止语音
-  useEffect(() => {
-    return () => {
-      clearTimers();
-      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
-    };
-  }, [clearTimers]);
-
-  function changeScope(s: Scope) {
-    setScope(s);
-    setCurrentNote(null);
-    setStatus('idle');
-    setCurrentPos(null);
-    clearTimers();
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
-  }
-
-  const playing = status === 'playing';
-  const positions = currentNote ? notePositions(NOTE_SEMITONE[currentNote]) : [];
   const posLabel = currentPos
     ? `${t('stringX', {n: currentPos.string})} ${
         currentPos.fret === 0 ? t('open') : t('fretX', {n: currentPos.fret})
@@ -148,7 +51,7 @@ export default function NoteTrainer() {
       </div>
 
       <div className="mb-6 flex justify-center gap-2">
-        {(['7', '12'] as Scope[]).map((s) => (
+        {(['7', '12'] as NoteScope[]).map((s) => (
           <button
             key={s}
             onClick={() => changeScope(s)}
@@ -187,7 +90,7 @@ export default function NoteTrainer() {
           {currentNote ?? ''}
         </div>
         <div className="mt-4 flex h-7 items-center justify-center text-base text-accent-2">
-          {playing ? `${t('playing')} ${posLabel}` : status === 'ready' ? t('ready') : ''}
+          {playing ? `${t('playing')} ${posLabel}` : currentNote ? t('ready') : ''}
         </div>
       </div>
 
@@ -201,7 +104,7 @@ export default function NoteTrainer() {
             <button onClick={nextNote} disabled={playing} className={ctrlBtn(true, playing)}>
               {t('next')}
             </button>
-            <button onClick={() => playNote(currentNote)} disabled={playing} className={ctrlBtn(false, playing)}>
+            <button onClick={repeat} disabled={playing} className={ctrlBtn(false, playing)}>
               {t('repeat')}
             </button>
           </>

@@ -1,5 +1,7 @@
 // 音符数据与播放助手（浏览器 API，均加 typeof window 守卫）
 
+import {OPEN_FREQ, OPEN_SEMITONE} from '../guitar';
+
 export const NATURAL_NOTES = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 
 export const CHROMATIC_NOTES = [
@@ -11,16 +13,8 @@ export const NOTE_SEMITONE: Record<string, number> = {
   C: 0, 'C#': 1, D: 2, 'D#': 3, E: 4, F: 5, 'F#': 6, G: 7, 'G#': 8, A: 9, 'A#': 10, B: 11,
 };
 
-// 空弦音（半音，C=0）与空弦基频（标准调弦）
-export const OPEN_SEMITONE: Record<number, number> = { 6: 4, 5: 9, 4: 2, 3: 7, 2: 11, 1: 4 };
-export const OPEN_FREQ: Record<number, number> = {
-  6: 82.41, // E2
-  5: 110.0, // A2
-  4: 146.83, // D3
-  3: 196.0, // G3
-  2: 246.94, // B3
-  1: 329.63, // E4
-};
+// 空弦音（半音，C=0）与空弦基频（标准调弦）——定义在 lib/guitar.ts
+export {OPEN_FREQ, OPEN_SEMITONE};
 
 export interface NotePosition {
   string: number; // 6..1

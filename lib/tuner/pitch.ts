@@ -1,16 +1,8 @@
 // 音高检测（自相关）与吉他弦匹配
 
-const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+import {GUITAR_STRINGS} from '../guitar';
 
-// 标准调弦 6 根弦（复用 lib/notes/notes.ts 的 OPEN_FREQ 数值）
-export const GUITAR_STRINGS = [
-  {string: 6, note: 'E', freq: 82.41},
-  {string: 5, note: 'A', freq: 110.0},
-  {string: 4, note: 'D', freq: 146.83},
-  {string: 3, note: 'G', freq: 196.0},
-  {string: 2, note: 'B', freq: 246.94},
-  {string: 1, note: 'E', freq: 329.63},
-];
+const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
 export interface Detected {
   freq: number;
