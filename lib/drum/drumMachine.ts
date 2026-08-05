@@ -33,6 +33,13 @@ export const DRUM_PATTERNS: DrumPattern[] = [
     hat: [0, 2, 4, 6, 8, 10, 12, 14],
     hatAccent: [0, 8],
   },
+  {
+    id: 'metronome',
+    kick: [],
+    snare: [],
+    hat: [],
+    hatAccent: [],
+  },
 ];
 
 export class DrumMachine {
@@ -44,11 +51,10 @@ export class DrumMachine {
   private step = 0;
   private bpm = 120;
   private pattern: DrumPattern = DRUM_PATTERNS[0];
-  private metronome = false;
   private onBar: (() => void) | null = null;
   running = false;
 
-  start(bpm: number, onBar: () => void, patternId = 'rock', metronome = false): void {
+  start(bpm: number, onBar: () => void, patternId = 'rock'): void {
     if (typeof window === 'undefined') return;
     const AC = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
     if (!this.ctx) this.ctx = new AC();
@@ -60,7 +66,6 @@ export class DrumMachine {
     }
     this.ensureNoise();
     this.pattern = DRUM_PATTERNS.find((p) => p.id === patternId) ?? DRUM_PATTERNS[0];
-    this.metronome = metronome;
     this.bpm = bpm;
     this.onBar = onBar;
     if (!this.running) {
@@ -92,7 +97,7 @@ export class DrumMachine {
   }
 
   private scheduleStep(s: number, t: number): void {
-    if (this.metronome) {
+    if (this.pattern.id === 'metronome') {
       if (s % 4 === 0) this.click(t, s === 0); // 每拍一次，第 1 拍重音
       return;
     }

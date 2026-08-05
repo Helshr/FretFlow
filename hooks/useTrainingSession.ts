@@ -35,7 +35,6 @@ export function useTrainingSession() {
     durationMin: 5,
     patternId: 'rock',
     playChord: true,
-    metronome: false,
   });
   const poolRef = useRef<PoolItem[]>([]);
   const currentRef = useRef<PoolItem | null>(null);
@@ -95,8 +94,8 @@ export function useTrainingSession() {
     clearTicker();
   }
 
-  function startAudio(bpm: number, patternId: string, metronome: boolean) {
-    drum.start(bpm, onBar, patternId, metronome);
+  function startAudio(bpm: number, patternId: string) {
+    drum.start(bpm, onBar, patternId);
     tickerRef.current = setInterval(tick, 200);
   }
 
@@ -126,7 +125,7 @@ export function useTrainingSession() {
     setTimeText(formatTime(settings.durationMin * 60000));
 
     playCurrentChord(pool[0]); // 在用户手势内初始化 TonePlayer 音频上下文
-    startAudio(settings.bpm, settings.patternId, settings.metronome);
+    startAudio(settings.bpm, settings.patternId);
   }
 
   function togglePause() {
@@ -139,11 +138,7 @@ export function useTrainingSession() {
       pausedTotalRef.current += performance.now() - pausedAtRef.current;
       setPaused(false);
       barCountRef.current = 0; // 鼓机相位重置到小节起点，重记小节数
-      startAudio(
-        settingsRef.current.bpm,
-        settingsRef.current.patternId,
-        settingsRef.current.metronome,
-      );
+      startAudio(settingsRef.current.bpm, settingsRef.current.patternId);
     }
   }
 
