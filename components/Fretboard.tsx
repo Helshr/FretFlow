@@ -75,8 +75,8 @@ export default function Fretboard({
       ))}
       {DOUBLE_INLAY_FRETS.map((f) => (
         <g key={`in${f}`}>
-          <circle cx={fretX(f)} cy={midY - 12} r={5} fill="#3a3e46" />
-          <circle cx={fretX(f)} cy={midY + 12} r={5} fill="#3a3e46" />
+          <circle cx={fretX(f)} cy={midY - 18} r={5} fill="#3a3e46" />
+          <circle cx={fretX(f)} cy={midY + 18} r={5} fill="#3a3e46" />
         </g>
       ))}
 
