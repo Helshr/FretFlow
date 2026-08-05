@@ -44,10 +44,11 @@ export class DrumMachine {
   private step = 0;
   private bpm = 120;
   private pattern: DrumPattern = DRUM_PATTERNS[0];
+  private metronome = false;
   private onBar: (() => void) | null = null;
   running = false;
 
-  start(bpm: number, onBar: () => void, patternId = 'rock'): void {
+  start(bpm: number, onBar: () => void, patternId = 'rock', metronome = false): void {
     if (typeof window === 'undefined') return;
     const AC = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
     if (!this.ctx) this.ctx = new AC();
@@ -59,6 +60,7 @@ export class DrumMachine {
     }
     this.ensureNoise();
     this.pattern = DRUM_PATTERNS.find((p) => p.id === patternId) ?? DRUM_PATTERNS[0];
+    this.metronome = metronome;
     this.bpm = bpm;
     this.onBar = onBar;
     if (!this.running) {
@@ -90,10 +92,29 @@ export class DrumMachine {
   }
 
   private scheduleStep(s: number, t: number): void {
+    if (this.metronome) {
+      if (s % 4 === 0) this.click(t, s === 0); // 每拍一次，第 1 拍重音
+      return;
+    }
     const p = this.pattern;
     if (p.kick.includes(s)) this.kick(t);
     if (p.snare.includes(s)) this.snare(t);
     if (p.hat.includes(s)) this.hat(t, p.hatAccent.includes(s));
+  }
+
+  // 节拍器 click：短促高音，重音更高更响
+  private click(t: number, accent: boolean): void {
+    if (!this.ctx || !this.master) return;
+    const o = this.ctx.createOscillator();
+    const g = this.ctx.createGain();
+    o.type = 'square';
+    o.frequency.value = accent ? 1760 : 1175;
+    g.gain.setValueAtTime(accent ? 0.45 : 0.28, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.06);
+    o.connect(g);
+    g.connect(this.master);
+    o.start(t);
+    o.stop(t + 0.08);
   }
 
   private ensureNoise(): void {

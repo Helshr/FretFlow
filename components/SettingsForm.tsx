@@ -88,9 +88,19 @@ export default function SettingsForm({
   const [durationMin, setDurationMin] = useState(5);
   const [patternId, setPatternId] = useState('rock');
   const [playChord, setPlayChord] = useState(true);
+  const [metronome, setMetronome] = useState(false);
 
   function submit() {
-    onStart({mode, chordCount, bpm, measuresPerChord, durationMin, patternId, playChord});
+    onStart({
+      mode,
+      chordCount,
+      bpm,
+      measuresPerChord,
+      durationMin,
+      patternId,
+      playChord,
+      metronome,
+    });
   }
 
   return (
@@ -119,6 +129,16 @@ export default function SettingsForm({
           label: p.id[0].toUpperCase() + p.id.slice(1),
         }))}
       />
+
+      <label className="mb-4 flex cursor-pointer items-center gap-2 text-base">
+        <input
+          type="checkbox"
+          checked={metronome}
+          onChange={(e) => setMetronome(e.target.checked)}
+          className="h-4 w-4 accent-accent"
+        />
+        {t('metronome')}
+      </label>
 
       <RadioGroup
         legend={t('measures')}
