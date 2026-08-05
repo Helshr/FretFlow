@@ -10,6 +10,7 @@ import {
   speakNote,
   tonePlayer,
 } from '@/lib/notes/notes';
+import Fretboard from './Fretboard';
 
 type Scope = '7' | '12';
 type Status = 'idle' | 'playing' | 'ready';
@@ -116,6 +117,7 @@ export default function NoteTrainer() {
   }
 
   const playing = status === 'playing';
+  const positions = currentNote ? notePositions(NOTE_SEMITONE[currentNote]) : [];
   const posLabel = currentPos
     ? `${t('stringX', {n: currentPos.string})} ${
         currentPos.fret === 0 ? t('open') : t('fretX', {n: currentPos.fret})
@@ -138,7 +140,11 @@ export default function NoteTrainer() {
     }`;
 
   return (
-    <div className="mx-auto max-w-[560px]">
+    <div className="mx-auto max-w-[640px]">
+      <div className="mb-6">
+        <Fretboard positions={positions} active={currentPos} label={currentNote ?? undefined} />
+      </div>
+
       <div className="mb-6 flex justify-center gap-2">
         {(['7', '12'] as Scope[]).map((s) => (
           <button
