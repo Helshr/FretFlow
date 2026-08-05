@@ -38,6 +38,12 @@ export default async function HomePage({
           href="/notes"
           cta={t('enter')}
         />
+        <FeatureCard
+          title={t('tuner')}
+          desc={t('tunerDesc')}
+          href="/tuner"
+          cta={t('enter')}
+        />
         <div className="rounded-2xl border border-line bg-card p-5 opacity-50">
           <div className="text-xl font-bold">{t('comingSoon')}</div>
         </div>

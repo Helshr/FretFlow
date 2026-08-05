@@ -53,6 +53,18 @@
     "interval": "Interval per note",
     "seconds": "s"
   },
+  "tuner": {
+    "title": "Guitar Tuner",
+    "start": "Start",
+    "stop": "Stop",
+    "pluck": "Pluck a string",
+    "listening": "Listening…",
+    "inTune": "In tune!",
+    "flat": "Flat",
+    "sharp": "Sharp",
+    "micError": "Cannot access microphone. Check browser permissions.",
+    "stringX": "String {n}"
+  },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."
   },
@@ -70,6 +82,8 @@
     "chordChartNote": "All CAGED voicings × 12 roots · red = root · thick = barre",
     "notes": "Fretboard Notes",
     "notesDesc": "Speaks each note and plays it across all six strings",
+    "tuner": "Guitar Tuner",
+    "tunerDesc": "Tune each string with mic pitch detection",
     "enter": "Open",
     "comingSoon": "More features coming soon"
   }
