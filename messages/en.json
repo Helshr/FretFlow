@@ -49,7 +49,9 @@
     "scope12": "12 notes (with sharps)",
     "stringX": "String {n}",
     "fretX": "fret {n}",
-    "open": "open"
+    "open": "open",
+    "interval": "Interval per note",
+    "seconds": "s"
   },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."

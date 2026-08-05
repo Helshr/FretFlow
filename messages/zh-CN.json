@@ -49,7 +49,9 @@
     "scope12": "12 个音（含升降号）",
     "stringX": "{n}弦",
     "fretX": "{n}品",
-    "open": "空弦"
+    "open": "空弦",
+    "interval": "每个音的间隔",
+    "seconds": "秒"
   },
   "error": {
     "emptyPool": "和弦池为空，请检查数据或减少数量"

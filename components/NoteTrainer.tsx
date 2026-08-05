@@ -15,9 +15,8 @@ import Fretboard from './Fretboard';
 type Scope = '7' | '12';
 type Status = 'idle' | 'playing' | 'ready';
 
-const TONE_MS = 400; // 每个音时长
-const GAP_MS = 300; // 音之间间隔
 const FIRST_DELAY_MS = 350; // 念完字母后的首个音延迟
+const DEFAULT_INTERVAL_MS = 700; // 每个音的时间间隔（默认）
 
 export default function NoteTrainer() {
   const t = useTranslations('notes');
@@ -26,6 +25,7 @@ export default function NoteTrainer() {
   const [status, setStatus] = useState<Status>('idle');
   const [currentPos, setCurrentPos] = useState<{string: number; fret: number} | null>(null);
   const [auto, setAuto] = useState(false);
+  const [intervalMs, setIntervalMs] = useState(DEFAULT_INTERVAL_MS);
 
   const timeoutsRef = useRef<number[]>([]);
   const currentNoteRef = useRef<string | null>(null);
@@ -51,20 +51,22 @@ export default function NoteTrainer() {
       setStatus('playing');
       speakNote(note);
       const positions = notePositions(NOTE_SEMITONE[note]);
+      // 音长随间隔自适应，避免间隔过短时音叠加
+      const durSec = Math.max(0.1, Math.min(0.4, intervalMs / 1000 - 0.15));
       let t = FIRST_DELAY_MS;
       positions.forEach((p) => {
         schedule(() => {
-          tonePlayer.play(p.freq);
+          tonePlayer.play(p.freq, durSec);
           setCurrentPos({string: p.string, fret: p.fret});
         }, t);
-        t += TONE_MS + GAP_MS;
+        t += intervalMs;
       });
       schedule(() => {
         setStatus('ready');
         setCurrentPos(null);
       }, t);
     },
-    [clearTimers, schedule],
+    [clearTimers, schedule, intervalMs],
   );
 
   const pickNext = useCallback(
@@ -155,6 +157,28 @@ export default function NoteTrainer() {
             {s === '7' ? t('scope7') : t('scope12')}
           </button>
         ))}
+      </div>
+
+      <div className="mb-6 flex items-center justify-center gap-2">
+        <label htmlFor="note-interval" className="text-sm text-muted">
+          {t('interval')}
+        </label>
+        <input
+          id="note-interval"
+          type="number"
+          min={0.3}
+          max={5}
+          step={0.1}
+          value={Math.round((intervalMs / 1000) * 10) / 10}
+          onChange={(e) => {
+            const v = Number(e.target.value);
+            if (!Number.isNaN(v) && v >= 0.3 && v <= 5) {
+              setIntervalMs(Math.round(v * 1000));
+            }
+          }}
+          className="w-20 rounded-lg border border-line bg-card-2 px-2 py-1.5 text-center text-sm text-text"
+        />
+        <span className="text-sm text-muted">{t('seconds')}</span>
       </div>
 
       <div className="rounded-2xl border border-line bg-card p-8 text-center">
