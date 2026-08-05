@@ -36,6 +36,21 @@
     "shapeSuffix": "Shape",
     "power": "Power"
   },
+  "notes": {
+    "title": "Fretboard Notes",
+    "instruction": "Hear the note, then find & play it on each string (6→1, incl. open)",
+    "start": "Start",
+    "next": "Next note",
+    "repeat": "Repeat",
+    "auto": "Auto",
+    "playing": "Playing:",
+    "ready": "Ready",
+    "scope7": "7 natural notes",
+    "scope12": "12 notes (with sharps)",
+    "stringX": "String {n}",
+    "fretX": "fret {n}",
+    "open": "open"
+  },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."
   },
@@ -51,6 +66,8 @@
     "chordChart": "All Chords",
     "chordChartDesc": "All CAGED voicings × 12 roots · full-fretboard reference",
     "chordChartNote": "All CAGED voicings × 12 roots · red = root · thick = barre",
+    "notes": "Fretboard Notes",
+    "notesDesc": "Speaks each note and plays it across all six strings",
     "enter": "Open",
     "comingSoon": "More features coming soon"
   }

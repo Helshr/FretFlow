@@ -36,6 +36,21 @@
     "shapeSuffix": "形",
     "power": "强力和弦"
   },
+  "notes": {
+    "title": "指板音名练习",
+    "instruction": "听到音名后，在每根弦（6→1，含空弦）上找到并弹出",
+    "start": "开始",
+    "next": "下一个音",
+    "repeat": "再放一遍",
+    "auto": "自动模式",
+    "playing": "正在播放：",
+    "ready": "就绪",
+    "scope7": "7 个自然音",
+    "scope12": "12 个音（含升降号）",
+    "stringX": "{n}弦",
+    "fretX": "{n}品",
+    "open": "空弦"
+  },
   "error": {
     "emptyPool": "和弦池为空，请检查数据或减少数量"
   },
@@ -51,6 +66,8 @@
     "chordChart": "全量和弦图",
     "chordChartDesc": "CAGED 全性质 × 12 根音 · 全指板指形总表",
     "chordChartNote": "CAGED 全性质 × 12 根音 · 红=根音 · 粗线=横按",
+    "notes": "指板音名练习",
+    "notesDesc": "程序念音，并按 6→1 弦播放每个音的位置",
     "enter": "进入",
     "comingSoon": "更多功能即将到来"
   }
