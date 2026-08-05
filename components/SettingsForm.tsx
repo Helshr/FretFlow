@@ -3,6 +3,7 @@
 import {useState} from 'react';
 import {useTranslations} from 'next-intl';
 import type {Settings} from '@/lib/chords/types';
+import {DRUM_PATTERNS} from '@/lib/drum/drumMachine';
 
 function RadioGroup<T extends string | number>({
   legend,
@@ -85,9 +86,10 @@ export default function SettingsForm({
   const [bpm, setBpm] = useState(80);
   const [measuresPerChord, setMeasuresPerChord] = useState<1 | 2 | 4>(1);
   const [durationMin, setDurationMin] = useState(5);
+  const [patternId, setPatternId] = useState('rock');
 
   function submit() {
-    onStart({mode, chordCount, bpm, measuresPerChord, durationMin});
+    onStart({mode, chordCount, bpm, measuresPerChord, durationMin, patternId});
   }
 
   return (
@@ -105,6 +107,17 @@ export default function SettingsForm({
 
       <SliderRow id="chord-count" label={t('chordCount')} min={2} max={12} value={chordCount} onChange={setChordCount} />
       <SliderRow id="bpm" label={t('bpm')} min={40} max={180} value={bpm} onChange={setBpm} />
+
+      <RadioGroup
+        legend={t('pattern')}
+        name="pattern"
+        value={patternId}
+        onChange={setPatternId}
+        options={DRUM_PATTERNS.map((p) => ({
+          value: p.id,
+          label: p.id[0].toUpperCase() + p.id.slice(1),
+        }))}
+      />
 
       <RadioGroup
         legend={t('measures')}

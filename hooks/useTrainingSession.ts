@@ -32,6 +32,7 @@ export function useTrainingSession() {
     bpm: 80,
     measuresPerChord: 1,
     durationMin: 5,
+    patternId: 'rock',
   });
   const poolRef = useRef<PoolItem[]>([]);
   const currentRef = useRef<PoolItem | null>(null);
@@ -84,8 +85,8 @@ export function useTrainingSession() {
     clearTicker();
   }
 
-  function startAudio(bpm: number) {
-    drum.start(bpm, onBar);
+  function startAudio(bpm: number, patternId: string) {
+    drum.start(bpm, onBar, patternId);
     tickerRef.current = setInterval(tick, 200);
   }
 
@@ -114,7 +115,7 @@ export function useTrainingSession() {
     setPhase('training');
     setTimeText(formatTime(settings.durationMin * 60000));
 
-    startAudio(settings.bpm);
+    startAudio(settings.bpm, settings.patternId);
   }
 
   function togglePause() {
@@ -127,7 +128,7 @@ export function useTrainingSession() {
       pausedTotalRef.current += performance.now() - pausedAtRef.current;
       setPaused(false);
       barCountRef.current = 0; // 鼓机相位重置到小节起点，重记小节数
-      startAudio(settingsRef.current.bpm);
+      startAudio(settingsRef.current.bpm, settingsRef.current.patternId);
     }
   }
 

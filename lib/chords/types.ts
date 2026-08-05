@@ -34,6 +34,7 @@ export interface Settings {
   bpm: number;
   measuresPerChord: 1 | 2 | 4;
   durationMin: number;
+  patternId: string; // 鼓点类型（DRUM_PATTERNS 的 id）
 }
 
 export interface ChordDisplay {
