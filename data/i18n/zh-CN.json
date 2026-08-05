@@ -32,5 +32,14 @@
   "chord.shapeSuffix": "形",
   "chord.power": "强力和弦",
 
-  "error.emptyPool": "和弦池为空，请检查数据或减少数量"
+  "error.emptyPool": "和弦池为空，请检查数据或减少数量",
+
+  "nav.home": "首页",
+  "home.title": "吉他训练",
+  "home.subtitle": "选择一个功能开始练习",
+  "home.section": "功能",
+  "home.trainer": "和弦切换训练器",
+  "home.trainerDesc": "5 分钟和弦切换训练 · Open Chords 与 CAGED · 全指板移调",
+  "home.enter": "进入",
+  "home.comingSoon": "更多功能即将到来"
 }

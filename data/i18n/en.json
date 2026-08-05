@@ -32,5 +32,14 @@
   "chord.shapeSuffix": "Shape",
   "chord.power": "Power",
 
-  "error.emptyPool": "Chord pool is empty. Check data or lower the count."
+  "error.emptyPool": "Chord pool is empty. Check data or lower the count.",
+
+  "nav.home": "Home",
+  "home.title": "Guitar Training",
+  "home.subtitle": "Pick a feature to start practicing",
+  "home.section": "Features",
+  "home.trainer": "Chord Switching Trainer",
+  "home.trainerDesc": "5-min chord switching · Open Chords & CAGED · movable across the fretboard",
+  "home.enter": "Open",
+  "home.comingSoon": "More features coming soon"
 }

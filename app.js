@@ -1,4 +1,5 @@
-/* app.js — 数据加载 / 设置 / 池生成 / 鼓机 / 训练会话 */
+/* app.js — 训练器逻辑（数据 / 池生成 / 鼓机 / 会话）。
+   依赖：先加载 i18n.js（提供 loadJSON、I18n）与 svg/chordRenderer.js */
 
 'use strict';
 
@@ -63,108 +64,6 @@ var CAGED_FALLBACK = {
   ]
 };
 
-/* ---------- i18n ---------- */
-
-var I18N_FALLBACK = {
-  'zh-CN': {
-    "app.title": "和弦切换训练器",
-    "app.subtitle": "打开网页 → 设置参数 → 点击开始 → 开始练和弦",
-    "settings.language": "语言",
-    "settings.mode": "模式",
-    "settings.modeOpen": "Open Chords",
-    "settings.modeCaged": "CAGED",
-    "settings.chordCount": "训练和弦数量",
-    "settings.bpm": "BPM",
-    "settings.measures": "每个和弦持续",
-    "settings.measures1": "1 小节",
-    "settings.measures2": "2 小节",
-    "settings.measures4": "4 小节",
-    "settings.time": "训练时长",
-    "settings.minutes1": "1 分钟",
-    "settings.minutes3": "3 分钟",
-    "settings.minutes5": "5 分钟",
-    "settings.minutes10": "10 分钟",
-    "settings.start": "开始训练",
-    "train.current": "当前和弦",
-    "train.next": "下一和弦",
-    "train.remaining": "剩余时间",
-    "train.pause": "暂停",
-    "train.resume": "继续",
-    "train.stop": "停止",
-    "train.done": "训练完成",
-    "train.return": "返回设置",
-    "chord.majorSuffix": "大调",
-    "chord.shapeSuffix": "形",
-    "chord.power": "强力和弦",
-    "error.emptyPool": "和弦池为空，请检查数据或减少数量"
-  },
-  'en': {
-    "app.title": "Chord Switching Trainer",
-    "app.subtitle": "Open page → Set params → Start → Practice chords",
-    "settings.language": "Language",
-    "settings.mode": "Mode",
-    "settings.modeOpen": "Open Chords",
-    "settings.modeCaged": "CAGED",
-    "settings.chordCount": "Number of Chords",
-    "settings.bpm": "BPM",
-    "settings.measures": "Hold Each Chord",
-    "settings.measures1": "1 measure",
-    "settings.measures2": "2 measures",
-    "settings.measures4": "4 measures",
-    "settings.time": "Session Length",
-    "settings.minutes1": "1 minute",
-    "settings.minutes3": "3 minutes",
-    "settings.minutes5": "5 minutes",
-    "settings.minutes10": "10 minutes",
-    "settings.start": "Start Training",
-    "train.current": "Current Chord",
-    "train.next": "Next Chord",
-    "train.remaining": "Time Left",
-    "train.pause": "Pause",
-    "train.resume": "Resume",
-    "train.stop": "Stop",
-    "train.done": "Training Complete",
-    "train.return": "Back to Settings",
-    "chord.majorSuffix": "Major",
-    "chord.shapeSuffix": "Shape",
-    "chord.power": "Power",
-    "error.emptyPool": "Chord pool is empty. Check data or lower the count."
-  }
-};
-
-var I18n = {
-  locale: 'zh-CN',
-  strings: {},
-
-  set: function (locale, strings) {
-    this.locale = locale;
-    this.strings = strings;
-    if (typeof document !== 'undefined') {
-      document.documentElement.lang = locale;
-    }
-  },
-
-  t: function (key, vars) {
-    var s = this.strings[key] != null ? this.strings[key] : key;
-    if (vars) {
-      Object.keys(vars).forEach(function (k) {
-        s = s.split('{' + k + '}').join(vars[k]);
-      });
-    }
-    return s;
-  },
-
-  apply: function () {
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      el.textContent = I18n.t(el.getAttribute('data-i18n'));
-    });
-    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
-      el.setAttribute('aria-label', I18n.t(el.getAttribute('data-i18n-aria')));
-    });
-    document.title = I18n.t('app.title');
-  }
-};
-
 /* ---------- 小工具 ---------- */
 
 function randInt(n) { return Math.floor(Math.random() * n); }
@@ -175,18 +74,6 @@ function shuffle(arr) {
     var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
   }
   return arr;
-}
-
-function loadJSON(url, fallback) {
-  return fetch(url)
-    .then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
-    })
-    .catch(function (err) {
-      console.warn('[trainer] fetch 失败（可能以 file:// 打开），使用内嵌数据：', url, err);
-      return fallback;
-    });
 }
 
 /* ---------- CAGED 移调 ---------- */
@@ -535,39 +422,17 @@ function bindActions() {
   document.getElementById('btn-done-return').addEventListener('click', function () { Session.stop(); });
 }
 
-/* ---------- 语言切换 ---------- */
-
-function bindLang() {
-  var sel = document.getElementById('lang-select');
-  sel.value = I18n.locale;
-  sel.addEventListener('change', function () {
-    var locale = sel.value;
-    loadJSON('data/i18n/' + locale + '.json', I18N_FALLBACK[locale] || I18N_FALLBACK['zh-CN'])
-      .then(function (strings) {
-        I18n.set(locale, strings);
-        try { localStorage.setItem('trainer-lang', locale); } catch (e) {}
-        I18n.apply();
-        if (Session.running && !Session.done) {
-          Session.renderTraining();
-          Session.setPauseLabel(Session.paused ? 'train.resume' : 'train.pause');
-        }
-      });
-  });
-}
-
 /* ---------- 启动 ---------- */
 
-function initialLocale() {
-  try {
-    var saved = localStorage.getItem('trainer-lang');
-    if (saved) return saved;
-  } catch (e) {}
-  return 'zh-CN';
-}
-
-loadJSON('data/i18n/' + initialLocale() + '.json', I18N_FALLBACK[initialLocale()] || I18N_FALLBACK['zh-CN'])
-  .then(function (strings) {
-    I18n.set(initialLocale(), strings);
+I18n.load(I18n.initialLocale())
+  .then(function () {
+    I18n.apply();
+    I18n.initSwitcher('lang-select', function () {
+      if (Session.running && !Session.done) {
+        Session.renderTraining();
+        Session.setPauseLabel(Session.paused ? 'train.resume' : 'train.pause');
+      }
+    });
     return Promise.all([
       loadJSON('data/open_chords.json', OPEN_CHORD_FALLBACK),
       loadJSON('data/caged.json', CAGED_FALLBACK)
@@ -578,6 +443,4 @@ loadJSON('data/i18n/' + initialLocale() + '.json', I18N_FALLBACK[initialLocale()
     Session.cagedData = results[1];
     bindSettings();
     bindActions();
-    bindLang();
-    I18n.apply();
   });
