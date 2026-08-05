@@ -15,6 +15,11 @@ function stringY(s: number): number {
   return TOP + (6 - s) * SGAP;
 }
 
+// 有品的音位于品格中间（第 f 品 = f-1 与 f 两条品线之间的中点）；空弦（0 品）在琴枕处
+function fretX(fret: number): number {
+  return fret === 0 ? X0 : X0 + (fret - 0.5) * FRET_W;
+}
+
 /**
  * 可复用指板图（0–12 品，6 弦在顶部）。
  * - positions：要标记的音名位置（accent 圆点 + label）
@@ -63,9 +68,9 @@ export default function Fretboard({
         </text>
       ))}
 
-      {/* 指板圆点 */}
+      {/* 指板圆点（位于品格中间） */}
       {INLAY_FRETS.map((f) => (
-        <circle key={`in${f}`} cx={X0 + f * FRET_W} cy={midY} r={5} fill="#3a3e46" />
+        <circle key={`in${f}`} cx={X0 + (f - 0.5) * FRET_W} cy={midY} r={5} fill="#3a3e46" />
       ))}
 
       {/* 琴枕 */}
@@ -107,7 +112,7 @@ export default function Fretboard({
 
       {/* 高亮位置 */}
       {positions.map((p, i) => {
-        const cx = X0 + p.fret * FRET_W;
+        const cx = fretX(p.fret);
         const cy = stringY(p.string);
         const isActive =
           active && active.string === p.string && active.fret === p.fret;
