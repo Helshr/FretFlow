@@ -1,12 +1,11 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {Link} from '@/i18n/navigation';
 import cagedData from '@/data/caged.json';
 import {enumerateShapeRoots} from '@/lib/chords/enumerate';
 import {chordDisplay} from '@/lib/chords/display';
 import type {DisplayLabels} from '@/lib/chords/display';
 import type {CagedShape} from '@/lib/chords/types';
 import ChordDiagram from '@/components/ChordDiagram';
-import PageHeader from '@/components/PageHeader';
+import FeaturePage from '@/components/FeaturePage';
 
 const ROOTS = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
@@ -27,15 +26,7 @@ export default async function ChordsPage({
   const shapes = cagedData.shapes as CagedShape[];
 
   return (
-    <main className="mx-auto w-full max-w-[1200px] flex-1 px-4 py-6">
-      <PageHeader
-        left={
-          <Link href="/" className="rounded-lg border border-line bg-card-2 px-3 py-1.5 text-muted hover:text-text">
-            {t('nav.home')}
-          </Link>
-        }
-      />
-      <h1 className="mb-1 text-2xl font-bold">{t('home.chordChart')}</h1>
+    <FeaturePage homeLabel={t('nav.home')} title={t('home.chordChart')} maxWidth="max-w-[1200px]">
       <p className="mb-4 text-sm text-muted">{t('home.chordChartNote')}</p>
 
       <div className="overflow-x-auto rounded-2xl border border-line">
@@ -85,6 +76,6 @@ export default async function ChordsPage({
           </tbody>
         </table>
       </div>
-    </main>
+    </FeaturePage>
   );
 }
