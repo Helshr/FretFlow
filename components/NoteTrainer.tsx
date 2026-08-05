@@ -154,7 +154,7 @@ export default function NoteTrainer() {
       <div className="rounded-2xl border border-line bg-card p-8 text-center">
         <div className="mb-4 text-sm text-muted">{t('instruction')}</div>
         <div className="text-[5rem] font-extrabold leading-none">
-          {currentNote ?? '—'}
+          {currentNote ?? ''}
         </div>
         <div className="mt-4 flex h-7 items-center justify-center text-base text-accent-2">
           {playing ? `${t('playing')} ${posLabel}` : status === 'ready' ? t('ready') : ''}
