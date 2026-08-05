@@ -4,6 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {makePool, pickNext} from '@/lib/chords/transpose';
 import type {CagedShape, OpenChord, PoolItem, Settings} from '@/lib/chords/types';
+import {formatTime} from '@/lib/format';
 import {useDrumMachine} from './useDrumMachine';
 import openDataJson from '@/data/open_chords.json';
 import cagedDataJson from '@/data/caged.json';
@@ -41,13 +42,6 @@ export function useTrainingSession() {
   const pausedAtRef = useRef(0);
   const tickerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  function renderTime(ms: number) {
-    const total = Math.max(0, Math.round(ms / 1000));
-    const m = Math.floor(total / 60);
-    const s = total % 60;
-    setTimeText(`${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`);
-  }
-
   function advanceChord() {
     const cur = nextRef.current;
     if (!cur) return;
@@ -78,17 +72,26 @@ export function useTrainingSession() {
     const elapsed = performance.now() - startedAtRef.current - pausedTotalRef.current;
     const remaining = settings.durationMin * 60000 - elapsed;
     if (remaining <= 0) {
-      renderTime(0);
+      setTimeText(formatTime(0));
       finish();
       return;
     }
-    renderTime(remaining);
+    setTimeText(formatTime(remaining));
+  }
+
+  function stopAudio() {
+    drum.stop();
+    clearTicker();
+  }
+
+  function startAudio(bpm: number) {
+    drum.start(bpm, onBar);
+    tickerRef.current = setInterval(tick, 200);
   }
 
   function finish() {
     setPhase('done');
-    drum.stop();
-    clearTicker();
+    stopAudio();
   }
 
   function start(settings: Settings) {
@@ -109,10 +112,9 @@ export function useTrainingSession() {
     setPaused(false);
     setMode(settings.mode);
     setPhase('training');
-    renderTime(settings.durationMin * 60000);
+    setTimeText(formatTime(settings.durationMin * 60000));
 
-    drum.start(settings.bpm, onBar);
-    tickerRef.current = setInterval(tick, 200);
+    startAudio(settings.bpm);
   }
 
   function togglePause() {
@@ -120,28 +122,24 @@ export function useTrainingSession() {
     if (!paused) {
       setPaused(true);
       pausedAtRef.current = performance.now();
-      drum.stop();
-      clearTicker();
+      stopAudio();
     } else {
       pausedTotalRef.current += performance.now() - pausedAtRef.current;
       setPaused(false);
       barCountRef.current = 0; // 鼓机相位重置到小节起点，重记小节数
-      drum.start(settingsRef.current.bpm, onBar);
-      tickerRef.current = setInterval(tick, 200);
+      startAudio(settingsRef.current.bpm);
     }
   }
 
   function stop() {
     setPhase('settings');
     setPaused(false);
-    drum.stop();
-    clearTicker();
+    stopAudio();
   }
 
   useEffect(() => {
     return () => {
-      drum.stop();
-      clearTicker();
+      stopAudio();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
