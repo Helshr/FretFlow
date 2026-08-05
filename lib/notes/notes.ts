@@ -1,5 +1,6 @@
 // 音符数据与播放助手（浏览器 API，均加 typeof window 守卫）
 
+import {getAudioContext} from '../audio';
 import {OPEN_FREQ, OPEN_SEMITONE} from '../guitar';
 
 export const NATURAL_NOTES = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
@@ -46,24 +47,11 @@ export function speakNote(note: string): void {
   window.speechSynthesis.speak(u);
 }
 
-// Web Audio 单音合成
+// Web Audio 单音/和弦合成
 class TonePlayer {
-  private ctx: AudioContext | null = null;
-
-  private ensureCtx(): AudioContext | null {
-    if (typeof window === 'undefined') return null;
-    if (!this.ctx) {
-      const AC =
-        window.AudioContext ||
-        (window as unknown as {webkitAudioContext: typeof AudioContext}).webkitAudioContext;
-      this.ctx = new AC();
-    }
-    if (this.ctx.state === 'suspended') void this.ctx.resume();
-    return this.ctx;
-  }
-
-  play(freq: number, duration = 0.4): void {
-    const ctx = this.ensureCtx();
+  // 单个音：正弦振荡器 + 增益包络
+  private tone(freq: number, peak: number, duration: number): void {
+    const ctx = getAudioContext();
     if (!ctx) return;
     const now = ctx.currentTime;
     const osc = ctx.createOscillator();
@@ -71,8 +59,8 @@ class TonePlayer {
     osc.type = 'sine';
     osc.frequency.value = freq;
     gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.6, now + 0.02);
-    gain.gain.setValueAtTime(0.6, now + duration * 0.6);
+    gain.gain.linearRampToValueAtTime(peak, now + 0.02);
+    gain.gain.setValueAtTime(peak, now + duration * 0.65);
     gain.gain.linearRampToValueAtTime(0.001, now + duration);
     osc.connect(gain);
     gain.connect(ctx.destination);
@@ -80,25 +68,14 @@ class TonePlayer {
     osc.stop(now + duration + 0.05);
   }
 
+  play(freq: number, duration = 0.4): void {
+    this.tone(freq, 0.6, duration);
+  }
+
   // 同时奏响多个音高（和弦）；单音音量调低避免削波
   playChord(freqs: number[], duration = 1.2): void {
-    const ctx = this.ensureCtx();
-    if (!ctx) return;
-    const now = ctx.currentTime;
     freqs.forEach((f) => {
-      if (f <= 0) return;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.value = f;
-      gain.gain.setValueAtTime(0, now);
-      gain.gain.linearRampToValueAtTime(0.35, now + 0.02);
-      gain.gain.setValueAtTime(0.35, now + duration * 0.7);
-      gain.gain.linearRampToValueAtTime(0.001, now + duration);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(now);
-      osc.stop(now + duration + 0.05);
+      if (f > 0) this.tone(f, 0.35, duration);
     });
   }
 }

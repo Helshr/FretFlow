@@ -3,6 +3,8 @@
  * 鼓点由数据（DRUM_PATTERNS）驱动，每种风格定义 16 分步进下各打击乐的出现位置。
  * 只在浏览器端使用；AudioContext 在 start()（用户手势）里惰性创建。
  */
+import {getAudioContext} from '../audio';
+
 export interface DrumPattern {
   id: string;
   kick: number[]; // 16 分步进下标：底鼓
@@ -55,10 +57,8 @@ export class DrumMachine {
   running = false;
 
   start(bpm: number, onBar: () => void, patternId = 'rock'): void {
-    if (typeof window === 'undefined') return;
-    const AC = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    if (!this.ctx) this.ctx = new AC();
-    if (this.ctx.state === 'suspended') void this.ctx.resume();
+    this.ctx = getAudioContext();
+    if (!this.ctx) return;
     if (!this.master) {
       this.master = this.ctx.createGain();
       this.master.gain.value = 0.85;
