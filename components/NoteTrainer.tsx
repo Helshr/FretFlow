@@ -1,6 +1,7 @@
 'use client';
 
 import {useTranslations} from 'next-intl';
+import {noteNameAt} from '@/lib/notes/notes';
 import {useNotePlayer} from '@/hooks/useNotePlayer';
 import type {NoteScope} from '@/hooks/useNotePlayer';
 import {useGuitarSamples} from '@/hooks/useGuitarSamples';
@@ -26,9 +27,9 @@ export default function NoteTrainer() {
   } = useNotePlayer();
 
   const posLabel = currentPos
-    ? `${t('stringX', {n: currentPos.string})} ${
-        currentPos.fret === 0 ? t('open') : t('fretX', {n: currentPos.fret})
-      }`
+    ? `${noteNameAt(currentPos.string, currentPos.fret)} · ${t('stringX', {
+        n: currentPos.string,
+      })} ${currentPos.fret === 0 ? t('open') : t('fretX', {n: currentPos.fret})}`
     : '';
 
   const scopeBtn = (active: boolean) =>

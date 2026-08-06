@@ -13,7 +13,7 @@ import {
 export type NoteScope = '7' | '12';
 export type NoteStatus = 'idle' | 'playing' | 'ready';
 
-const FIRST_DELAY_MS = 350; // 念完字母后的首个音延迟
+const FIRST_DELAY_MS = 2000; // 念字母（~0.4s）+ 停顿 1.5s 后再开始播放音序
 const DEFAULT_INTERVAL_MS = 700; // 每个音的时间间隔（默认）
 
 export function useNotePlayer() {

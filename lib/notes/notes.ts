@@ -37,6 +37,13 @@ export function notePositions(noteSemi: number): NotePosition[] {
   return out;
 }
 
+// 某弦某品的音名 + 八度，如 "E3"
+export function noteNameAt(string: number, fret: number): string {
+  const freq = OPEN_FREQ[string] * Math.pow(2, fret / 12);
+  const midi = Math.round(69 + 12 * Math.log2(freq / 440));
+  return CHROMATIC_NOTES[((midi % 12) + 12) % 12] + (Math.floor(midi / 12) - 1);
+}
+
 // 语音念出音名
 export function speakNote(note: string): void {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
