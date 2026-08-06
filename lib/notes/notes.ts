@@ -44,11 +44,11 @@ export function noteNameAt(string: number, fret: number): string {
   return CHROMATIC_NOTES[((midi % 12) + 12) % 12] + (Math.floor(midi / 12) - 1);
 }
 
-// 语音念出音名
+// 语音念出音名（用小写，避免单个大写字母被读成 "capital X"）
 export function speakNote(note: string): void {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(note);
+  const u = new SpeechSynthesisUtterance(note.toLowerCase());
   u.lang = 'en-US';
   u.rate = 0.9;
   window.speechSynthesis.speak(u);
