@@ -4,6 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {chordFrequencies, makePool, pickNext} from '@/lib/chords/transpose';
 import type {CagedShape, OpenChord, PoolItem, Settings} from '@/lib/chords/types';
+import {getAudioContext} from '@/lib/audio';
 import {formatTime} from '@/lib/format';
 import {tonePlayer} from '@/lib/notes/notes';
 import {useDrumMachine} from './useDrumMachine';
@@ -13,7 +14,7 @@ import cagedDataJson from '@/data/caged.json';
 const openData = openDataJson as {chords: OpenChord[]};
 const cagedData = cagedDataJson as {shapes: CagedShape[]};
 
-export type SessionPhase = 'settings' | 'training' | 'done';
+export type SessionPhase = 'settings' | 'countdown' | 'training' | 'done';
 
 export function useTrainingSession() {
   const t = useTranslations('error');
@@ -25,6 +26,7 @@ export function useTrainingSession() {
   const [next, setNext] = useState<PoolItem | null>(null);
   const [timeText, setTimeText] = useState('05:00');
   const [paused, setPaused] = useState(false);
+  const [countdown, setCountdown] = useState<number | null>(null);
 
   // 计时/切换所需的可变值放 refs，避免鼓机 onBar 与 ticker 里的闭包过期
   const settingsRef = useRef<Settings>({
@@ -44,6 +46,7 @@ export function useTrainingSession() {
   const pausedTotalRef = useRef(0);
   const pausedAtRef = useRef(0);
   const tickerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   function playCurrentChord(c: PoolItem, when?: number) {
     if (settingsRef.current.playChord) {
@@ -111,6 +114,25 @@ export function useTrainingSession() {
     stopAudio();
   }
 
+  function clearCountdown() {
+    if (countdownRef.current) {
+      clearInterval(countdownRef.current);
+      countdownRef.current = null;
+    }
+  }
+
+  // 倒计时结束后的真正开始
+  function beginTraining() {
+    const settings = settingsRef.current;
+    const pool = poolRef.current;
+    startedAtRef.current = performance.now();
+    setPhase('training');
+    setTimeText(formatTime(settings.durationMin * 60000));
+    playCurrentChord(pool[0]); // 初始和弦（采样已预加载，音频上下文已预建）
+    preloadChord(nextRef.current!); // start() 已保证 next 存在
+    startAudio(settings.bpm, settings.patternId);
+  }
+
   function start(settings: Settings) {
     const pool = makePool(settings, openData, cagedData);
     if (pool.length === 0) {
@@ -124,16 +146,28 @@ export function useTrainingSession() {
     setCurrent(pool[0]);
     setNext(nextRef.current);
     barCountRef.current = 0;
-    startedAtRef.current = performance.now();
     pausedTotalRef.current = 0;
     setPaused(false);
     setMode(settings.mode);
-    setPhase('training');
-    setTimeText(formatTime(settings.durationMin * 60000));
 
-    playCurrentChord(pool[0]); // 初始和弦（采样已预加载，手势内初始化音频上下文）
-    preloadChord(nextRef.current); // 后台预加载下一个和弦
-    startAudio(settings.bpm, settings.patternId);
+    // 用户手势内预建音频上下文（倒计时结束后才能正常发声）
+    getAudioContext();
+
+    // 3-2-1 倒计时后再开始
+    clearCountdown();
+    setPhase('countdown');
+    setCountdown(3);
+    let n = 3;
+    countdownRef.current = setInterval(() => {
+      n--;
+      if (n <= 0) {
+        clearCountdown();
+        setCountdown(null);
+        beginTraining();
+      } else {
+        setCountdown(n);
+      }
+    }, 1000);
   }
 
   function togglePause() {
@@ -153,12 +187,15 @@ export function useTrainingSession() {
   function stop() {
     setPhase('settings');
     setPaused(false);
+    setCountdown(null);
+    clearCountdown();
     stopAudio();
   }
 
   useEffect(() => {
     return () => {
       stopAudio();
+      clearCountdown();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -170,6 +207,7 @@ export function useTrainingSession() {
     next,
     timeText,
     paused,
+    countdown,
     start,
     togglePause,
     stop,

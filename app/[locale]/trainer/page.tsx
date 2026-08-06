@@ -17,7 +17,12 @@ export default function TrainerPage() {
     <FeaturePage homeLabel={t('nav.home')} title={t('app.title')}>
       <p className="mb-6 text-center text-sm text-muted">{t('app.subtitle')}</p>
 
-      {session.phase === 'settings' ? (
+      {session.phase === 'countdown' ? (
+        <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border border-line bg-card p-8 text-center">
+          <div className="mb-6 text-2xl font-bold text-accent">{t('train.countdown')}</div>
+          <div className="text-[7rem] font-extrabold leading-none">{session.countdown}</div>
+        </div>
+      ) : session.phase === 'settings' ? (
         <SettingsForm
           onStart={session.start}
           samplesReady={ready}

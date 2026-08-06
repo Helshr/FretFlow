@@ -35,7 +35,10 @@ export default function TrainingView({
   const currentD = current ? chordDisplay(current, labels) : null;
   const nextD = next ? chordDisplay(next, labels) : null;
 
-  const card = 'rounded-2xl border border-line bg-card p-5 text-center';
+  // 当前和弦用 accent 边框+发光突出，下一和弦弱化
+  const currentCard =
+    'rounded-2xl border-2 border-accent bg-accent/5 p-5 text-center shadow-[0_0_24px_rgba(233,69,96,0.18)]';
+  const nextCard = 'rounded-2xl border border-line bg-card p-5 text-center opacity-75';
   const cardLabel = 'mb-1.5 text-sm text-muted';
   const chordName = 'mb-0.5 text-4xl font-extrabold leading-tight';
   const chordShape = 'mb-1.5 min-h-[1.4em] text-base text-accent-2';
@@ -53,13 +56,13 @@ export default function TrainingView({
       </div>
 
       <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className={card}>
+        <div className={currentCard}>
           <div className={cardLabel}>{t('train.current')}</div>
           <div className={chordName}>{currentD?.name}</div>
           <div className={chordShape}>{currentD?.shape}</div>
           {currentD && <ChordDiagram {...currentD} />}
         </div>
-        <div className={card}>
+        <div className={nextCard}>
           <div className={cardLabel}>{t('train.next')}</div>
           <div className={chordName}>{nextD?.name}</div>
           <div className={chordShape}>{nextD?.shape}</div>
