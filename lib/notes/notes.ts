@@ -48,24 +48,36 @@ export function speakNote(note: string): void {
 }
 
 // Web Audio 单音/和弦合成
+// 加法合成模拟拨弦：基音 + 多个谐波，幅度约 1/n，高次谐波衰减更快，快速起音模拟拨弦瞬态。
+const PARTIALS = [
+  {mult: 1, amp: 1.0, decay: 1.0},
+  {mult: 2, amp: 0.55, decay: 0.7},
+  {mult: 3, amp: 0.35, decay: 0.5},
+  {mult: 4, amp: 0.22, decay: 0.35},
+  {mult: 5, amp: 0.15, decay: 0.28},
+  {mult: 6, amp: 0.1, decay: 0.22},
+];
+
 class TonePlayer {
-  // 单个音：正弦振荡器 + 增益包络
+  // 单个音：多个谐波正弦 + 各自的增益包络
   private tone(freq: number, peak: number, duration: number): void {
     const ctx = getAudioContext();
     if (!ctx) return;
     const now = ctx.currentTime;
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = 'sine';
-    osc.frequency.value = freq;
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(peak, now + 0.02);
-    gain.gain.setValueAtTime(peak, now + duration * 0.65);
-    gain.gain.linearRampToValueAtTime(0.001, now + duration);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(now);
-    osc.stop(now + duration + 0.05);
+    PARTIALS.forEach((p) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq * p.mult;
+      const d = Math.max(0.1, duration * p.decay);
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(peak * p.amp, now + 0.003);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + d);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + d + 0.05);
+    });
   }
 
   play(freq: number, duration = 0.4): void {
