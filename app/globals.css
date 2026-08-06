@@ -42,3 +42,9 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
+
+/* 首页卡片入场：IntersectionObserver 添加 .visible 后显示 */
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
