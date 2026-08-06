@@ -52,7 +52,7 @@ export default function HomePage() {
       <section className="relative flex h-screen min-h-[700px] items-end overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=1800&q=85"
+            src="/hero-guitar.jpg"
             alt=""
             fill
             sizes="100vw"
