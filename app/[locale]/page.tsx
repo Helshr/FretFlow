@@ -69,10 +69,6 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="animate-fade-up absolute bottom-6 right-10 z-[2] flex flex-col items-center gap-2 [animation-delay:900ms] [animation-fill-mode:forwards] max-md:right-5">
-          <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{t('scrollHint')}</span>
-          <div className="h-10 w-px bg-gradient-to-b from-white/40 to-transparent" />
-        </div>
       </section>
 
       {/* FEATURES — 功能卡片 */}
@@ -124,24 +120,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-[#2a2a2a] bg-[#0a0a0a] px-10 py-10 text-center max-md:px-5">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-2">
-          <p className="text-[0.9375rem] font-medium text-[#a0a0a0]">{t('footerMore')}</p>
-          <p className="text-[0.8125rem] text-[#6b6b6b]">
-            Guitar samples by{' '}
-            <a
-              href="https://github.com/tonejs/tonejs-instruments"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#e8a850] transition-colors hover:text-[#f5f5f5]"
-            >
-              Tone.js Instruments
-            </a>{' '}
-            (CC BY 3.0)
-          </p>
-        </div>
-      </footer>
+      {/* 署名（CC-BY 许可要求保留，极简） */}
+      <p className="px-10 pb-8 pt-4 text-center text-[0.75rem] text-[#6b6b6b] max-md:px-5">
+        Guitar samples by{' '}
+        <a
+          href="https://github.com/tonejs/tonejs-instruments"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#8a8a8a] transition-colors hover:text-[#f5f5f5]"
+        >
+          Tone.js Instruments
+        </a>{' '}
+        (CC BY 3.0)
+      </p>
     </div>
   );
 }
