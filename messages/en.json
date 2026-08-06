@@ -86,16 +86,38 @@
     "title": "FretFlow",
     "subtitle": "Pick a feature to start practicing",
     "section": "Features",
-    "trainer": "Chord Switching Trainer",
-    "trainerDesc": "5-min chord switching · Open Chords & CAGED · movable across the fretboard",
-    "chordChart": "All Chords",
-    "chordChartDesc": "All CAGED voicings × 12 roots · full-fretboard reference",
+
+    "heroEyebrow": "Master the Fretboard",
+    "heroTitle1": "Guitar Practice",
+    "heroTitle2": "Flows",
+    "heroTitle3": "Freely",
+    "heroDesc": "From chord switching to fretboard memory, from tuning to theory — FretFlow makes every practice session precise and effective.",
+    "heroCta": "Start Practicing",
+    "scrollHint": "Scroll",
+
+    "sectionTitle": "Choose Your Practice Path",
+    "sectionSub": "Four carefully designed tools covering every guitarist's core training needs",
+
+    "trainer": "Most Popular",
+    "trainerTitle": "Chord Switching Trainer",
+    "trainerDesc": "5-minute intensive switching drills. Covers Open Chords & the CAGED system with full fretboard transposition.",
+
+    "chordChart": "Reference",
+    "chordChartTitle": "Complete Chord Chart",
+    "chordChartDesc": "All CAGED qualities × 12 roots. A complete fretboard fingering reference at your fingertips.",
     "chordChartNote": "All CAGED voicings × 12 roots · red = root · thick = barre",
-    "notes": "Fretboard Notes",
-    "notesDesc": "Speaks each note and plays it across all six strings",
-    "tuner": "Guitar Tuner",
-    "tunerDesc": "Tune each string with mic pitch detection",
-    "enter": "Open",
-    "comingSoon": "More features coming soon"
+
+    "notes": "Memory Drill",
+    "notesTitle": "Fretboard Note Practice",
+    "notesDesc": "The app calls out notes and plays each position across strings 6→1. Build fretboard intuition fast.",
+
+    "tuner": "Utility",
+    "tunerTitle": "Guitar Tuner",
+    "tunerDesc": "Real-time pitch detection via microphone. Tune every string accurately — simple, fast, no extra gear.",
+
+    "enter": "Start",
+    "comingSoon": "Coming Soon",
+    "comingSoonTitle": "More Features in Development",
+    "footerMore": "More features coming soon"
   }
 }

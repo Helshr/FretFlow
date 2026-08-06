@@ -86,16 +86,38 @@
     "title": "FretFlow",
     "subtitle": "选择一个功能开始练习",
     "section": "功能",
-    "trainer": "和弦切换训练器",
-    "trainerDesc": "5 分钟和弦切换训练 · Open Chords 与 CAGED · 全指板移调",
-    "chordChart": "全量和弦图",
-    "chordChartDesc": "CAGED 全性质 × 12 根音 · 全指板指形总表",
+
+    "heroEyebrow": "征服指板",
+    "heroTitle1": "吉他练习",
+    "heroTitle2": "流动",
+    "heroTitle3": "自如",
+    "heroDesc": "从和弦切换到指板记忆，从调音到理论——FretFlow 让你的每一次练习都精准高效。",
+    "heroCta": "开始练习",
+    "scrollHint": "滚动",
+
+    "sectionTitle": "选择你的练习方向",
+    "sectionSub": "四个精心设计的工具，覆盖吉他手最核心的训练需求",
+
+    "trainer": "最受欢迎",
+    "trainerTitle": "和弦切换训练器",
+    "trainerDesc": "5 分钟高强度切换训练。覆盖 Open Chords 与 CAGED 系统，支持全指板移调练习。",
+
+    "chordChart": "参考工具",
+    "chordChartTitle": "全量和弦图",
+    "chordChartDesc": "CAGED 全性质 × 12 根音，完整的指板指形总表，随时查阅每一个和弦的按法。",
     "chordChartNote": "CAGED 全性质 × 12 根音 · 红=根音 · 粗线=横按",
-    "notes": "指板音名练习",
-    "notesDesc": "程序念音，并按 6→1 弦播放每个音的位置",
-    "tuner": "吉他调音器",
-    "tunerDesc": "麦克风检测音高，调准每根弦",
-    "enter": "进入",
-    "comingSoon": "更多功能即将到来"
+
+    "notes": "记忆训练",
+    "notesTitle": "指板音名练习",
+    "notesDesc": "程序念音，按 6→1 弦顺序播放每个音的位置。快速建立指板音名直觉。",
+
+    "tuner": "实用工具",
+    "tunerTitle": "吉他调音器",
+    "tunerDesc": "使用麦克风实时检测音高，精准调准每根弦。简单、快速、无需额外设备。",
+
+    "enter": "进入训练",
+    "comingSoon": "即将到来",
+    "comingSoonTitle": "更多功能开发中",
+    "footerMore": "更多功能即将到来"
   }
 }
