@@ -119,6 +119,17 @@ export function useNotePlayer() {
     }
   }
 
+  // 停止当前播放并回到初始状态
+  const stop = useCallback(() => {
+    clearTimers();
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    setCurrentNote(null);
+    setStatus('idle');
+    setCurrentPos(null);
+  }, [clearTimers]);
+
   const playing = status === 'playing';
   const positions = currentNote ? notePositions(NOTE_SEMITONE[currentNote]) : [];
 
@@ -137,5 +148,6 @@ export function useNotePlayer() {
     start,
     nextNote,
     repeat,
+    stop,
   };
 }

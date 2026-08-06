@@ -49,6 +49,7 @@
     "auto": "Auto",
     "playing": "Playing:",
     "ready": "Ready",
+    "stop": "Stop",
     "scope7": "7 natural notes",
     "scope12": "12 notes (with sharps)",
     "stringX": "String {n}",

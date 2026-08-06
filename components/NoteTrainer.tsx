@@ -24,6 +24,7 @@ export default function NoteTrainer() {
     start,
     nextNote,
     repeat,
+    stop,
   } = useNotePlayer();
 
   const posLabel = currentPos
@@ -113,6 +114,9 @@ export default function NoteTrainer() {
           </button>
         ) : (
           <>
+            <button onClick={stop} className={ctrlBtn(false)}>
+              {t('stop')}
+            </button>
             <button onClick={nextNote} disabled={playing} className={ctrlBtn(true, playing)}>
               {t('next')}
             </button>
