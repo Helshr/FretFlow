@@ -15,6 +15,30 @@ export {SAMPLE_COUNT};
 class TonePlayer {
   private cache = new Map<string, AudioBuffer>();
   private pending = new Map<string, Promise<AudioBuffer | null>>();
+  private active = new Set<{source: AudioBufferSourceNode; gain: GainNode}>();
+
+  // 停掉当前正在发声的音（切和弦/切音时调用，避免长采样余音重叠、新音卡不准拍）
+  private stopAll(): void {
+    const ctx = getAudioContext();
+    const now = ctx ? ctx.currentTime : 0;
+    this.active.forEach(({source, gain}) => {
+      try {
+        gain.gain.setValueAtTime(gain.gain.value, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+        source.stop(now + 0.05);
+      } catch {
+        // 已自然结束则忽略
+      }
+    });
+    this.active.clear();
+  }
+
+  // 登记一个发声节点，结束时自动移除；切音时由 stopAll 统一停掉
+  private track(source: AudioBufferSourceNode, gain: GainNode): void {
+    const pair = {source, gain};
+    this.active.add(pair);
+    source.onended = () => this.active.delete(pair);
+  }
 
   // 取 WAV 的 ArrayBuffer：内存优先 → Cache API（持久）→ 网络，并写入 Cache API
   private async fetchWav(file: string): Promise<ArrayBuffer | null> {
@@ -113,6 +137,7 @@ class TonePlayer {
     g.gain.value = gain;
     src.connect(g);
     g.connect(ctx.destination);
+    this.track(src, g);
     // 指定时刻在将来则对准播放，否则立即
     src.start(when !== undefined && when > ctx.currentTime ? when : undefined);
     return true;
@@ -148,6 +173,7 @@ class TonePlayer {
   }
 
   play(freq: number, duration = 0.4): void {
+    this.stopAll();
     this.playSample(freq, SAMPLE_GAIN).then((ok) => {
       if (!ok) this.tone(freq, 0.6, duration);
     });
@@ -155,6 +181,7 @@ class TonePlayer {
 
   // 同时奏响多个音高（和弦）；单音音量调低避免削波。when 为音频时间（可选）
   playChord(freqs: number[], duration = 1.2, when?: number): void {
+    this.stopAll();
     freqs.forEach((f) => {
       if (f > 0) {
         this.playSample(f, CHORD_GAIN, when).then((ok) => {
