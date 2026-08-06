@@ -157,25 +157,27 @@ class TonePlayer {
   }
 
   // 预加载全部采样到 Cache API（不解码，省内存）；带进度回调。重复访问命中缓存会很快。
-  async preloadAll(onProgress?: (loaded: number, total: number) => void): Promise<void> {
+  // 返回成功加载的采样数（可用于诊断是否全部失败）
+  async preloadAll(
+    onProgress?: (loaded: number, total: number, ok: number) => void,
+  ): Promise<number> {
     const total = SAMPLES.length;
     const useCache = typeof caches !== 'undefined';
     let i = 0;
     let done = 0;
+    let ok = 0;
     const worker = async () => {
       while (i < total) {
         const file = SAMPLES[i].file;
         i++;
-        if (useCache) {
-          await this.fetchWav(file); // 只缓存 WAV，播放时再解码
-        } else {
-          await this.getBuffer(file); // 无 Cache API 时直接解码进内存
-        }
+        const buf = useCache ? await this.fetchWav(file) : await this.getBuffer(file);
+        if (buf) ok++;
         done++;
-        onProgress?.(done, total);
+        onProgress?.(done, total, ok);
       }
     };
     await Promise.all(Array.from({length: 4}, () => worker()));
+    return ok;
   }
 
   // 播放采样；成功返回 true，失败返回 false（由调用方降级）。when 为音频时间（可选，用于对准拍子）

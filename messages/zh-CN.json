@@ -56,7 +56,8 @@
     "open": "空弦",
     "interval": "每个音的间隔",
     "seconds": "秒",
-    "loadingSamples": "加载音色中… {n}%"
+    "loadingSamples": "加载音色中… {n}%",
+    "sampleFailed": "音色加载失败，正在使用合成音色"
   },
   "tuner": {
     "title": "吉他调音器",

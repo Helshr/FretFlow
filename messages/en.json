@@ -56,7 +56,8 @@
     "open": "open",
     "interval": "Interval per note",
     "seconds": "s",
-    "loadingSamples": "Loading samples… {n}%"
+    "loadingSamples": "Loading samples… {n}%",
+    "sampleFailed": "Sample load failed, using synthesized tone"
   },
   "tuner": {
     "title": "Guitar Tuner",
