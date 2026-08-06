@@ -2,7 +2,7 @@
 
 import {useState} from 'react';
 import {useTranslations} from 'next-intl';
-import type {Settings} from '@/lib/chords/types';
+import type {Settings, ShapeFilter} from '@/lib/chords/types';
 import {DRUM_PATTERNS} from '@/lib/drum/drumMachine';
 
 function RadioGroup<T extends string | number>({
@@ -86,6 +86,7 @@ export default function SettingsForm({
 }) {
   const t = useTranslations('settings');
   const [mode, setMode] = useState<'open' | 'caged'>('open');
+  const [shapeFilter, setShapeFilter] = useState<ShapeFilter>('all');
   const [chordCount, setChordCount] = useState(4);
   const [bpm, setBpm] = useState(80);
   const [measuresPerChord, setMeasuresPerChord] = useState<1 | 2 | 4>(1);
@@ -94,7 +95,16 @@ export default function SettingsForm({
   const [playChord, setPlayChord] = useState(true);
 
   function submit() {
-    onStart({mode, chordCount, bpm, measuresPerChord, durationMin, patternId, playChord});
+    onStart({
+      mode,
+      shapeFilter,
+      chordCount,
+      bpm,
+      measuresPerChord,
+      durationMin,
+      patternId,
+      playChord,
+    });
   }
 
   return (
@@ -109,6 +119,23 @@ export default function SettingsForm({
           {value: 'caged' as const, label: t('modeCaged')},
         ]}
       />
+
+      {mode === 'caged' && (
+        <RadioGroup
+          legend={t('shape')}
+          name="shape-filter"
+          value={shapeFilter}
+          onChange={setShapeFilter}
+          options={[
+            {value: 'all' as const, label: t('shapeAll')},
+            {value: 'C' as const, label: 'C'},
+            {value: 'A' as const, label: 'A'},
+            {value: 'G' as const, label: 'G'},
+            {value: 'E' as const, label: 'E'},
+            {value: 'D' as const, label: 'D'},
+          ]}
+        />
+      )}
 
       <SliderRow id="chord-count" label={t('chordCount')} min={2} max={12} value={chordCount} onChange={setChordCount} />
       <SliderRow id="bpm" label={t('bpm')} min={40} max={180} value={bpm} onChange={setBpm} />

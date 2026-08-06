@@ -8,6 +8,8 @@
     "mode": "模式",
     "modeOpen": "Open Chords",
     "modeCaged": "CAGED",
+    "shape": "CAGED 指形",
+    "shapeAll": "全部",
     "chordCount": "训练和弦数量",
     "bpm": "BPM",
     "measures": "每个和弦持续",

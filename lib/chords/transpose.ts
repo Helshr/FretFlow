@@ -68,12 +68,18 @@ export function makePool(
     }));
   }
 
+  // 限定某指形家族（如 'E' → E/Em/E7/Em7/Emaj7/E5）
+  const shapePool =
+    settings.shapeFilter === 'all'
+      ? cagedData.shapes
+      : cagedData.shapes.filter((s) => s.id.startsWith(settings.shapeFilter));
+
   const seen = new Set<string>();
   const pool: PoolItem[] = [];
   let guard = 0;
   while (pool.length < settings.chordCount && guard++ < 500) {
     const quality = QUALITIES[randInt(QUALITIES.length)];
-    const candidates = cagedData.shapes.filter((s) => s.quality === quality);
+    const candidates = shapePool.filter((s) => s.quality === quality);
     if (candidates.length === 0) continue;
     const shape = candidates[randInt(candidates.length)];
     const range = rootFretRange(shape);

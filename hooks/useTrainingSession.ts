@@ -3,7 +3,7 @@
 import {useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {chordFrequencies, makePool, pickNext} from '@/lib/chords/transpose';
-import type {CagedShape, OpenChord, PoolItem, Settings} from '@/lib/chords/types';
+import type {CagedShape, OpenChord, PoolItem, Settings, ShapeFilter} from '@/lib/chords/types';
 import {getAudioContext} from '@/lib/audio';
 import {formatTime} from '@/lib/format';
 import {tonePlayer} from '@/lib/notes/notes';
@@ -24,6 +24,7 @@ export function useTrainingSession() {
 
   const [phase, setPhase] = useState<SessionPhase>('settings');
   const [mode, setMode] = useState<'open' | 'caged'>('open');
+  const [shapeFilter, setShapeFilter] = useState<ShapeFilter>('all');
   const [pool, setPool] = useState<PoolItem[]>([]);
   const [current, setCurrent] = useState<PoolItem | null>(null);
   const [next, setNext] = useState<PoolItem | null>(null);
@@ -34,6 +35,7 @@ export function useTrainingSession() {
   // 计时/切换所需的可变值放 refs，避免鼓机 onBar 与 ticker 里的闭包过期
   const settingsRef = useRef<Settings>({
     mode: 'open',
+    shapeFilter: 'all',
     chordCount: 4,
     bpm: 80,
     measuresPerChord: 1,
@@ -137,6 +139,7 @@ export function useTrainingSession() {
     pausedTotalRef.current = 0;
     setPaused(false);
     setMode(settings.mode);
+    setShapeFilter(settings.shapeFilter);
 
     // 用户手势内预建音频上下文（倒计时结束后才能正常发声）
     getAudioContext();
@@ -189,6 +192,7 @@ export function useTrainingSession() {
   return {
     phase,
     mode,
+    shapeFilter,
     pool,
     current,
     next,

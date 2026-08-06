@@ -8,6 +8,8 @@
     "mode": "Mode",
     "modeOpen": "Open Chords",
     "modeCaged": "CAGED",
+    "shape": "CAGED shape",
+    "shapeAll": "All",
     "chordCount": "Number of Chords",
     "bpm": "BPM",
     "measures": "Hold Each Chord",

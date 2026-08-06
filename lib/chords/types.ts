@@ -28,8 +28,11 @@ export interface TransposedChord {
 
 export type PoolItem = TransposedChord | (OpenChord & { key: string });
 
+export type ShapeFilter = 'all' | 'C' | 'A' | 'G' | 'E' | 'D';
+
 export interface Settings {
   mode: 'open' | 'caged';
+  shapeFilter: ShapeFilter; // CAGED 模式下限定某个指形
   chordCount: number;
   bpm: number;
   measuresPerChord: 1 | 2 | 4;

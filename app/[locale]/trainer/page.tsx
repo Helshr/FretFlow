@@ -11,7 +11,12 @@ export default function TrainerPage() {
   const t = useTranslations();
   const session = useTrainingSession();
   const {ready, loaded, total} = useGuitarSamples();
-  const modeLabel = session.mode === 'open' ? 'Open Chords' : 'CAGED';
+  const modeLabel =
+    session.mode === 'open'
+      ? 'Open Chords'
+      : session.shapeFilter === 'all'
+        ? 'CAGED'
+        : `CAGED · ${session.shapeFilter}${t('chord.shapeSuffix')}`;
 
   return (
     <FeaturePage homeLabel={t('nav.home')} title={t('app.title')}>
