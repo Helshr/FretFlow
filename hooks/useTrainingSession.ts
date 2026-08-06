@@ -45,27 +45,34 @@ export function useTrainingSession() {
   const pausedAtRef = useRef(0);
   const tickerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  function playCurrentChord(c: PoolItem) {
+  function playCurrentChord(c: PoolItem, when?: number) {
     if (settingsRef.current.playChord) {
-      tonePlayer.playChord(chordFrequencies(c));
+      tonePlayer.playChord(chordFrequencies(c), undefined, when);
     }
   }
 
-  function advanceChord() {
+  function preloadChord(c: PoolItem) {
+    if (settingsRef.current.playChord) {
+      tonePlayer.preload(chordFrequencies(c));
+    }
+  }
+
+  function advanceChord(when?: number) {
     const cur = nextRef.current;
     if (!cur) return;
     currentRef.current = cur;
     nextRef.current = pickNext(poolRef.current, cur);
     setCurrent(cur);
     setNext(nextRef.current);
-    playCurrentChord(cur);
+    playCurrentChord(cur, when); // 采样已在上一次预加载 → 准时播放
+    preloadChord(nextRef.current); // 后台预加载下一个和弦
   }
 
-  function onBar() {
+  function onBar(barTime: number) {
     const m = settingsRef.current.measuresPerChord;
     barCountRef.current += 1;
     if (barCountRef.current > 1 && (barCountRef.current - 1) % m === 0) {
-      advanceChord();
+      advanceChord(barTime);
     }
   }
 
@@ -124,7 +131,8 @@ export function useTrainingSession() {
     setPhase('training');
     setTimeText(formatTime(settings.durationMin * 60000));
 
-    playCurrentChord(pool[0]); // 在用户手势内初始化 TonePlayer 音频上下文
+    playCurrentChord(pool[0]); // 初始和弦（采样已预加载，手势内初始化音频上下文）
+    preloadChord(nextRef.current); // 后台预加载下一个和弦
     startAudio(settings.bpm, settings.patternId);
   }
 

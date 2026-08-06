@@ -77,8 +77,12 @@ function SliderRow({
 
 export default function SettingsForm({
   onStart,
+  samplesReady = true,
+  samplesProgress = 100,
 }: {
   onStart: (settings: Settings) => void;
+  samplesReady?: boolean;
+  samplesProgress?: number;
 }) {
   const t = useTranslations('settings');
   const [mode, setMode] = useState<'open' | 'caged'>('open');
@@ -146,9 +150,16 @@ export default function SettingsForm({
         options={([1, 3, 5, 10] as const).map((v) => ({value: v, label: t(`minutes${v}`)}))}
       />
 
+      {!samplesReady && (
+        <div className="mt-3 text-center text-sm text-muted">
+          {t('loadingSamples', {n: samplesProgress})}
+        </div>
+      )}
+
       <button
         onClick={submit}
-        className="mt-1 w-full rounded-xl bg-accent py-3 text-lg font-bold text-white hover:brightness-110"
+        disabled={!samplesReady}
+        className="mt-1 w-full rounded-xl bg-accent py-3 text-lg font-bold text-white hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
       >
         {t('start')}
       </button>

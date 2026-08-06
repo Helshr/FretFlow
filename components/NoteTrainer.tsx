@@ -3,10 +3,12 @@
 import {useTranslations} from 'next-intl';
 import {useNotePlayer} from '@/hooks/useNotePlayer';
 import type {NoteScope} from '@/hooks/useNotePlayer';
+import {useGuitarSamples} from '@/hooks/useGuitarSamples';
 import Fretboard from './Fretboard';
 
 export default function NoteTrainer() {
   const t = useTranslations('notes');
+  const {ready, loaded, total} = useGuitarSamples();
   const {
     scope,
     currentNote,
@@ -94,9 +96,15 @@ export default function NoteTrainer() {
         </div>
       </div>
 
+      {!ready && (
+        <div className="mb-3 text-center text-sm text-muted">
+          {t('loadingSamples', {n: Math.round((loaded / total) * 100)})}
+        </div>
+      )}
+
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         {!currentNote ? (
-          <button onClick={start} className={ctrlBtn(true)}>
+          <button onClick={start} disabled={!ready} className={ctrlBtn(true, !ready)}>
             {t('start')}
           </button>
         ) : (

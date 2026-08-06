@@ -18,6 +18,7 @@
     "pattern": "Drum pattern",
     "metronome": "Metronome",
     "playChord": "Play current chord (to check fingering)",
+    "loadingSamples": "Loading samples… {n}%",
     "minutes1": "1 minute",
     "minutes3": "3 minutes",
     "minutes5": "5 minutes",
@@ -54,7 +55,8 @@
     "fretX": "fret {n}",
     "open": "open",
     "interval": "Interval per note",
-    "seconds": "s"
+    "seconds": "s",
+    "loadingSamples": "Loading samples… {n}%"
   },
   "tuner": {
     "title": "Guitar Tuner",

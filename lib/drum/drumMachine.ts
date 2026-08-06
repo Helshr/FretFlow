@@ -53,10 +53,10 @@ export class DrumMachine {
   private step = 0;
   private bpm = 120;
   private pattern: DrumPattern = DRUM_PATTERNS[0];
-  private onBar: (() => void) | null = null;
+  private onBar: ((barTime: number) => void) | null = null;
   running = false;
 
-  start(bpm: number, onBar: () => void, patternId = 'rock'): void {
+  start(bpm: number, onBar: (barTime: number) => void, patternId = 'rock'): void {
     this.ctx = getAudioContext();
     if (!this.ctx) return;
     if (!this.master) {
@@ -92,7 +92,10 @@ export class DrumMachine {
       this.scheduleStep(this.step, this.nextTime);
       this.nextTime += spb;
       this.step = (this.step + 1) % 16;
-      if (this.step === 0 && this.onBar) this.onBar();
+      if (this.step === 0 && this.onBar) {
+        // 刚排程的 step 0 就是该小节的起始时刻
+        this.onBar(this.nextTime - spb);
+      }
     }
   }
 

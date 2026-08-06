@@ -83,9 +83,34 @@ function nearestSample(midi: number): {file: string; playbackRate: number} {
   return {file: best.file, playbackRate: Math.pow(2, (midi - best.midi) / 12)};
 }
 
+export const SAMPLE_COUNT = SAMPLES.length;
+
+const CACHE_NAME = 'guitar-samples-v1';
+
 class TonePlayer {
   private cache = new Map<string, AudioBuffer>();
   private pending = new Map<string, Promise<AudioBuffer | null>>();
+
+  // 取 WAV 的 ArrayBuffer：内存优先 → Cache API（持久）→ 网络，并写入 Cache API
+  private async fetchWav(file: string): Promise<ArrayBuffer | null> {
+    const url = SAMPLE_BASE_URL + file + '.wav';
+    try {
+      if (typeof caches !== 'undefined') {
+        const store = await caches.open(CACHE_NAME);
+        const hit = await store.match(url);
+        if (hit) return await hit.arrayBuffer();
+        const res = await fetch(url);
+        if (!res.ok) return null;
+        void store.put(url, res.clone());
+        return await res.arrayBuffer();
+      }
+      const res = await fetch(url);
+      if (!res.ok) return null;
+      return await res.arrayBuffer();
+    } catch {
+      return null;
+    }
+  }
 
   // 加载并缓存采样（并发去重）
   private getBuffer(file: string): Promise<AudioBuffer | null> {
@@ -105,18 +130,49 @@ class TonePlayer {
   private async load(file: string): Promise<AudioBuffer | null> {
     const ctx = getAudioContext();
     if (!ctx) return null;
+    const arrayBuf = await this.fetchWav(file);
+    if (!arrayBuf) return null;
     try {
-      const res = await fetch(SAMPLE_BASE_URL + file + '.wav');
-      if (!res.ok) return null;
-      const arrayBuf = await res.arrayBuffer();
       return await ctx.decodeAudioData(arrayBuf);
     } catch {
       return null;
     }
   }
 
-  // 播放采样；成功返回 true，失败返回 false（由调用方降级）
-  private async playSample(freq: number, gain: number): Promise<boolean> {
+  // 预加载指定频率对应的采样（不发声），保证之后 play 准时
+  preload(freqs: number[]): void {
+    freqs.forEach((f) => {
+      if (f > 0) {
+        const midi = Math.round(69 + 12 * Math.log2(f / 440));
+        void this.getBuffer(nearestSample(midi).file);
+      }
+    });
+  }
+
+  // 预加载全部采样到 Cache API（不解码，省内存）；带进度回调。重复访问命中缓存会很快。
+  async preloadAll(onProgress?: (loaded: number, total: number) => void): Promise<void> {
+    const total = SAMPLES.length;
+    const useCache = typeof caches !== 'undefined';
+    let i = 0;
+    let done = 0;
+    const worker = async () => {
+      while (i < total) {
+        const file = SAMPLES[i].file;
+        i++;
+        if (useCache) {
+          await this.fetchWav(file); // 只缓存 WAV，播放时再解码
+        } else {
+          await this.getBuffer(file); // 无 Cache API 时直接解码进内存
+        }
+        done++;
+        onProgress?.(done, total);
+      }
+    };
+    await Promise.all(Array.from({length: 4}, () => worker()));
+  }
+
+  // 播放采样；成功返回 true，失败返回 false（由调用方降级）。when 为音频时间（可选，用于对准拍子）
+  private async playSample(freq: number, gain: number, when?: number): Promise<boolean> {
     const ctx = getAudioContext();
     if (!ctx) return false;
     const midi = Math.round(69 + 12 * Math.log2(freq / 440));
@@ -130,7 +186,8 @@ class TonePlayer {
     g.gain.value = gain;
     src.connect(g);
     g.connect(ctx.destination);
-    src.start();
+    // 指定时刻在将来则对准播放，否则立即
+    src.start(when !== undefined && when > ctx.currentTime ? when : undefined);
     return true;
   }
 
@@ -169,11 +226,11 @@ class TonePlayer {
     });
   }
 
-  // 同时奏响多个音高（和弦）；单音音量调低避免削波
-  playChord(freqs: number[], duration = 1.2): void {
+  // 同时奏响多个音高（和弦）；单音音量调低避免削波。when 为音频时间（可选）
+  playChord(freqs: number[], duration = 1.2, when?: number): void {
     freqs.forEach((f) => {
       if (f > 0) {
-        this.playSample(f, CHORD_GAIN).then((ok) => {
+        this.playSample(f, CHORD_GAIN, when).then((ok) => {
           if (!ok) this.tone(f, 0.35, duration);
         });
       }

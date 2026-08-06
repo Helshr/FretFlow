@@ -18,6 +18,7 @@
     "pattern": "鼓点",
     "metronome": "节拍器",
     "playChord": "播放当前和弦音（辅助判断按法）",
+    "loadingSamples": "加载音色中… {n}%",
     "minutes1": "1 分钟",
     "minutes3": "3 分钟",
     "minutes5": "5 分钟",
@@ -54,7 +55,8 @@
     "fretX": "{n}品",
     "open": "空弦",
     "interval": "每个音的间隔",
-    "seconds": "秒"
+    "seconds": "秒",
+    "loadingSamples": "加载音色中… {n}%"
   },
   "tuner": {
     "title": "吉他调音器",

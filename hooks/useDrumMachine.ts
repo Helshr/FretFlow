@@ -7,7 +7,7 @@ export function useDrumMachine() {
   const drumRef = useRef(drumMachine);
 
   return {
-    start: (bpm: number, onBar: () => void, patternId?: string) =>
+    start: (bpm: number, onBar: (barTime: number) => void, patternId?: string) =>
       drumRef.current.start(bpm, onBar, patternId),
     stop: () => drumRef.current.stop(),
   };

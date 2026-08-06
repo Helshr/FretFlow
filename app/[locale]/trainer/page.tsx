@@ -2,6 +2,7 @@
 
 import {useTranslations} from 'next-intl';
 import {useTrainingSession} from '@/hooks/useTrainingSession';
+import {useGuitarSamples} from '@/hooks/useGuitarSamples';
 import FeaturePage from '@/components/FeaturePage';
 import SettingsForm from '@/components/SettingsForm';
 import TrainingView from '@/components/TrainingView';
@@ -9,6 +10,7 @@ import TrainingView from '@/components/TrainingView';
 export default function TrainerPage() {
   const t = useTranslations();
   const session = useTrainingSession();
+  const {ready, loaded, total} = useGuitarSamples();
   const modeLabel = session.mode === 'open' ? 'Open Chords' : 'CAGED';
 
   return (
@@ -16,7 +18,11 @@ export default function TrainerPage() {
       <p className="mb-6 text-center text-sm text-muted">{t('app.subtitle')}</p>
 
       {session.phase === 'settings' ? (
-        <SettingsForm onStart={session.start} />
+        <SettingsForm
+          onStart={session.start}
+          samplesReady={ready}
+          samplesProgress={Math.round((loaded / total) * 100)}
+        />
       ) : (
         <TrainingView
           modeLabel={modeLabel}
