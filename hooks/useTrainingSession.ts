@@ -8,6 +8,7 @@ import {getAudioContext} from '@/lib/audio';
 import {formatTime} from '@/lib/format';
 import {tonePlayer} from '@/lib/notes/notes';
 import {useDrumMachine} from './useDrumMachine';
+import {useSessionTimers} from './useSessionTimers';
 import openDataJson from '@/data/open_chords.json';
 import cagedDataJson from '@/data/caged.json';
 
@@ -19,6 +20,7 @@ export type SessionPhase = 'settings' | 'countdown' | 'training' | 'done';
 export function useTrainingSession() {
   const t = useTranslations('error');
   const drum = useDrumMachine();
+  const timers = useSessionTimers();
 
   const [phase, setPhase] = useState<SessionPhase>('settings');
   const [mode, setMode] = useState<'open' | 'caged'>('open');
@@ -45,8 +47,6 @@ export function useTrainingSession() {
   const startedAtRef = useRef(0);
   const pausedTotalRef = useRef(0);
   const pausedAtRef = useRef(0);
-  const tickerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   function playCurrentChord(c: PoolItem, when?: number) {
     if (settingsRef.current.playChord) {
@@ -79,13 +79,6 @@ export function useTrainingSession() {
     }
   }
 
-  function clearTicker() {
-    if (tickerRef.current) {
-      clearInterval(tickerRef.current);
-      tickerRef.current = null;
-    }
-  }
-
   function tick() {
     const settings = settingsRef.current;
     // eslint-disable-next-line react-hooks/purity -- tick 仅由 setInterval 调用，非渲染期
@@ -101,24 +94,17 @@ export function useTrainingSession() {
 
   function stopAudio() {
     drum.stop();
-    clearTicker();
+    timers.clear();
   }
 
   function startAudio(bpm: number, patternId: string) {
     drum.start(bpm, onBar, patternId);
-    tickerRef.current = setInterval(tick, 200);
+    timers.set(tick, 200);
   }
 
   function finish() {
     setPhase('done');
     stopAudio();
-  }
-
-  function clearCountdown() {
-    if (countdownRef.current) {
-      clearInterval(countdownRef.current);
-      countdownRef.current = null;
-    }
   }
 
   // 倒计时结束后的真正开始
@@ -154,14 +140,14 @@ export function useTrainingSession() {
     getAudioContext();
 
     // 3-2-1 倒计时后再开始
-    clearCountdown();
+    timers.clear();
     setPhase('countdown');
     setCountdown(3);
     let n = 3;
-    countdownRef.current = setInterval(() => {
+    timers.set(() => {
       n--;
       if (n <= 0) {
-        clearCountdown();
+        timers.clear();
         setCountdown(null);
         beginTraining();
       } else {
@@ -188,14 +174,12 @@ export function useTrainingSession() {
     setPhase('settings');
     setPaused(false);
     setCountdown(null);
-    clearCountdown();
     stopAudio();
   }
 
   useEffect(() => {
     return () => {
       stopAudio();
-      clearCountdown();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -35,9 +35,9 @@ export default function TrainingView({
   const currentD = current ? chordDisplay(current, labels) : null;
   const nextD = next ? chordDisplay(next, labels) : null;
 
-  // 当前和弦用 accent 边框+发光突出，下一和弦弱化
+  // 当前和弦用绿色边框+发光突出（边框宽度与下一和弦一致，避免布局跳动），下一和弦弱化
   const currentCard =
-    'rounded-2xl border-2 border-accent bg-accent/5 p-5 text-center shadow-[0_0_24px_rgba(233,69,96,0.18)]';
+    'rounded-2xl border border-accent-2 bg-accent-2/5 p-5 text-center shadow-[0_0_20px_rgba(46,204,113,0.12)]';
   const nextCard = 'rounded-2xl border border-line bg-card p-5 text-center opacity-75';
   const cardLabel = 'mb-1.5 text-sm text-muted';
   const chordName = 'mb-0.5 text-4xl font-extrabold leading-tight';
