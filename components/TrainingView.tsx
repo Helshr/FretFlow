@@ -7,6 +7,7 @@ import ChordDiagram from './ChordDiagram';
 
 export default function TrainingView({
   modeLabel,
+  pool,
   current,
   next,
   timeText,
@@ -17,6 +18,7 @@ export default function TrainingView({
   onReturn,
 }: {
   modeLabel: string;
+  pool: PoolItem[];
   current: PoolItem | null;
   next: PoolItem | null;
   timeText: string;
@@ -54,6 +56,31 @@ export default function TrainingView({
           {t('train.stop')}
         </button>
       </div>
+
+      {pool.length > 1 && (
+        <div className="mb-4">
+          <div className="mb-2 text-sm text-muted">{t('train.allChords')}</div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {pool.map((c, i) => {
+              const d = chordDisplay(c, labels);
+              const isCurrent = current ? c.key === current.key : false;
+              return (
+                <div
+                  key={i}
+                  className={`w-20 rounded-xl border p-2 text-center ${
+                    isCurrent
+                      ? 'border-accent-2 bg-accent-2/10'
+                      : 'border-line bg-card opacity-60'
+                  }`}
+                >
+                  <div className="truncate text-xs font-semibold">{d.name}</div>
+                  <ChordDiagram {...d} className="mx-auto w-[52px]" />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className={currentCard}>

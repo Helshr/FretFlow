@@ -24,6 +24,7 @@ export function useTrainingSession() {
 
   const [phase, setPhase] = useState<SessionPhase>('settings');
   const [mode, setMode] = useState<'open' | 'caged'>('open');
+  const [pool, setPool] = useState<PoolItem[]>([]);
   const [current, setCurrent] = useState<PoolItem | null>(null);
   const [next, setNext] = useState<PoolItem | null>(null);
   const [timeText, setTimeText] = useState('05:00');
@@ -127,6 +128,7 @@ export function useTrainingSession() {
     }
     settingsRef.current = settings;
     poolRef.current = pool;
+    setPool(pool);
     currentRef.current = pool[0];
     nextRef.current = pickNext(pool, pool[0]);
     setCurrent(pool[0]);
@@ -187,6 +189,7 @@ export function useTrainingSession() {
   return {
     phase,
     mode,
+    pool,
     current,
     next,
     timeText,

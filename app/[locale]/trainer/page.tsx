@@ -31,6 +31,7 @@ export default function TrainerPage() {
       ) : (
         <TrainingView
           modeLabel={modeLabel}
+          pool={session.pool}
           current={session.current}
           next={session.next}
           timeText={session.timeText}

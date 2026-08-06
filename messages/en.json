@@ -34,6 +34,7 @@
     "stop": "Stop",
     "done": "Training Complete",
     "countdown": "Get ready",
+    "allChords": "All chords",
     "return": "Back to Settings"
   },
   "chord": {
