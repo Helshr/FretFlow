@@ -12,10 +12,10 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
  */
 
 const CARDS = [
-  {href: '/trainer', icon: '🎸', tag: 'home.trainer', title: 'home.trainerTitle', desc: 'home.trainerDesc', link: 'home.enter'},
-  {href: '/chords', icon: '📋', tag: 'home.chordChart', title: 'home.chordChartTitle', desc: 'home.chordChartDesc', link: 'home.enter'},
-  {href: '/notes', icon: '🎵', tag: 'home.notes', title: 'home.notesTitle', desc: 'home.notesDesc', link: 'home.enter'},
-  {href: '/tuner', icon: '🎯', tag: 'home.tuner', title: 'home.tunerTitle', desc: 'home.tunerDesc', link: 'home.enter'},
+  {href: '/trainer', icon: '🎸', tag: 'trainer', title: 'trainerTitle', desc: 'trainerDesc', link: 'enter'},
+  {href: '/chords', icon: '📋', tag: 'chordChart', title: 'chordChartTitle', desc: 'chordChartDesc', link: 'enter'},
+  {href: '/notes', icon: '🎵', tag: 'notes', title: 'notesTitle', desc: 'notesDesc', link: 'enter'},
+  {href: '/tuner', icon: '🎯', tag: 'tuner', title: 'tunerTitle', desc: 'tunerDesc', link: 'enter'},
 ] as const;
 
 export default function HomePage() {
