@@ -77,7 +77,8 @@ export function useTrainingSession() {
   function onBar(barTime: number) {
     const m = settingsRef.current.measuresPerChord;
     barCountRef.current += 1;
-    if (barCountRef.current > 1 && (barCountRef.current - 1) % m === 0) {
+    // 每满 measuresPerChord 小节换一次和弦（去掉 >1 守卫，否则首个和弦会多占一小节）
+    if (barCountRef.current % m === 0) {
       advanceChord(barTime);
     }
   }
