@@ -29,7 +29,7 @@ export default function LanguageSwitcher({
 
   return (
     <select
-      defaultValue={locale}
+      value={locale}
       onChange={onSelectChange}
       disabled={isPending}
       className={`cursor-pointer rounded-lg border px-3 py-1.5 text-sm ${className}`}
