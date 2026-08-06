@@ -2,7 +2,7 @@
 
 import {useTranslations} from 'next-intl';
 import Image from 'next/image';
-import {useEffect, useRef} from 'react';
+import {useEffect} from 'react';
 import {Link} from '@/i18n/navigation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
@@ -18,31 +18,8 @@ const CARDS = [
   {href: '/tuner', icon: '🎯', tag: 'home.tuner', title: 'home.tunerTitle', desc: 'home.tunerDesc', link: 'home.enter'},
 ] as const;
 
-function useCardReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = ref.current;
-    if (!container) return;
-    const cards = container.querySelectorAll<HTMLElement>('.feature-card');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      {threshold: 0.1, rootMargin: '0px 0px -40px 0px'},
-    );
-    cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
-  }, []);
-
-  return ref;
-}
-
 export default function HomePage() {
   const t = useTranslations('home');
-  const cardGridRef = useCardReveal();
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] antialiased">
@@ -111,23 +88,26 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div ref={cardGridRef} className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
+          <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
             {CARDS.map((card, i) => (
               <Link
                 key={card.href}
                 href={card.href}
-                className="feature-card group relative flex cursor-pointer flex-col gap-3 rounded-[20px] border border-[#2a2a2a] bg-[#141414] p-8 text-inherit no-underline opacity-0 translate-y-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#3d3d3d] hover:bg-[#1a1a1a] hover:shadow-[0_8px_32px_rgba(0,0,0,0.5)] max-md:p-6"
-                style={{
-                  transitionDelay: `${i * 100}ms`,
-                  ...(i === 0 ? {opacity: 1, transform: 'translateY(0)'} : {}),
-                }}
+                className="group relative flex cursor-pointer flex-col gap-3 rounded-[20px] border border-[#2a2a2a] bg-[#141414] p-8 text-inherit no-underline transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#3d3d3d] hover:bg-[#1a1a1a] hover:shadow-[0_8px_32px_rgba(0,0,0,0.5)] max-md:p-6"
+                style={{animationDelay: `${i * 100}ms`}}
               >
-                <div className="mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-[rgba(232,168,80,0.12)] text-2xl">
+                <div className="animate-fade-up mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-[rgba(232,168,80,0.12)] text-2xl">
                   {card.icon}
                 </div>
-                <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[#e8a850]">{t(card.tag)}</span>
-                <h3 className="text-xl font-bold tracking-[-0.01em]">{t(card.title)}</h3>
-                <p className="text-[0.9375rem] leading-relaxed text-[#a0a0a0]">{t(card.desc)}</p>
+                <span className="animate-fade-up text-xs font-semibold uppercase tracking-[0.1em] text-[#e8a850] [animation-delay:100ms]">
+                  {t(card.tag)}
+                </span>
+                <h3 className="animate-fade-up text-xl font-bold tracking-[-0.01em] [animation-delay:150ms]">
+                  {t(card.title)}
+                </h3>
+                <p className="animate-fade-up text-[0.9375rem] leading-relaxed text-[#a0a0a0] [animation-delay:200ms]">
+                  {t(card.desc)}
+                </p>
                 <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300 group-hover:gap-3 group-hover:text-[#e8a850]">
                   {t(card.link)}
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -135,10 +115,7 @@ export default function HomePage() {
               </Link>
             ))}
 
-            <div
-              className="feature-card relative flex cursor-default flex-col gap-3 rounded-[20px] border border-[#2a2a2a] bg-[#141414] p-8 opacity-0 translate-y-8 opacity-50 transition-all duration-500 ease-out max-md:p-6"
-              style={{transitionDelay: '400ms'}}
-            >
+            <div className="relative flex cursor-default flex-col gap-3 rounded-[20px] border border-[#2a2a2a] bg-[#141414] p-8 opacity-50 max-md:p-6">
               <div className="mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-[rgba(255,255,255,0.04)] text-2xl">✨</div>
               <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[#a0a0a0]">{t('comingSoon')}</span>
               <h3 className="text-xl font-bold tracking-[-0.01em]">{t('comingSoonTitle')}</h3>
