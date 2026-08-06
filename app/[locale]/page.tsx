@@ -48,6 +48,19 @@ export default async function HomePage({
           <div className="text-xl font-bold">{t('comingSoon')}</div>
         </div>
       </div>
+
+      <footer className="mt-10 text-center text-xs text-muted/70">
+        Guitar samples by{' '}
+        <a
+          href="https://github.com/tonejs/tonejs-instruments"
+          target="_blank"
+          rel="noreferrer"
+          className="underline hover:text-muted"
+        >
+          Tone.js Instruments
+        </a>{' '}
+        (CC BY 3.0)
+      </footer>
     </main>
   );
 }

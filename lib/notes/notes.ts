@@ -47,31 +47,114 @@ export function speakNote(note: string): void {
   window.speechSynthesis.speak(u);
 }
 
-// Web Audio 单音/和弦合成
-// 加法合成模拟拨弦：基音 + 多个谐波，幅度约 1/n，高次谐波衰减更快，快速起音模拟拨弦瞬态。
-const PARTIALS = [
-  {mult: 1, amp: 1.0, decay: 1.0},
-  {mult: 2, amp: 0.55, decay: 0.7},
-  {mult: 3, amp: 0.35, decay: 0.5},
-  {mult: 4, amp: 0.22, decay: 0.35},
-  {mult: 5, amp: 0.15, decay: 0.28},
-  {mult: 6, amp: 0.1, decay: 0.22},
+// 吉他发声：真实采样（tonejs-instrument-guitar-acoustic-wav，CC-BY 3.0）经 jsDelivr CDN 按需加载。
+// 每个音映射到最近的半音采样，用 playbackRate 微调（≤1 半音，失真极小）；采样加载失败时降级为加法合成。
+const SAMPLE_BASE_URL = 'https://cdn.jsdelivr.net/npm/tonejs-instrument-guitar-acoustic-wav@1.1.0/';
+const SAMPLE_GAIN = 0.8; // 单音音量
+const CHORD_GAIN = 0.5; // 和弦单音音量（多音同奏防削波）
+
+// 半音采样表（MIDI 音符号 → 包内文件名），E2..D5 按序
+const SAMPLES: {midi: number; file: string}[] = [
+  {midi: 38, file: 'D2'}, {midi: 39, file: 'Ds2'}, {midi: 40, file: 'E2'},
+  {midi: 41, file: 'F2'}, {midi: 42, file: 'Fs2'}, {midi: 43, file: 'G2'},
+  {midi: 44, file: 'Gs2'}, {midi: 45, file: 'A2'}, {midi: 46, file: 'As2'},
+  {midi: 47, file: 'B2'}, {midi: 48, file: 'C3'}, {midi: 49, file: 'Cs3'},
+  {midi: 50, file: 'D3'}, {midi: 51, file: 'Ds3'}, {midi: 52, file: 'E3'},
+  {midi: 53, file: 'F3'}, {midi: 54, file: 'Fs3'}, {midi: 55, file: 'G3'},
+  {midi: 56, file: 'Gs3'}, {midi: 57, file: 'A3'}, {midi: 58, file: 'As3'},
+  {midi: 59, file: 'B3'}, {midi: 60, file: 'C4'}, {midi: 61, file: 'Cs4'},
+  {midi: 62, file: 'D4'}, {midi: 63, file: 'Ds4'}, {midi: 64, file: 'E4'},
+  {midi: 65, file: 'F4'}, {midi: 66, file: 'Fs4'}, {midi: 67, file: 'G4'},
+  {midi: 68, file: 'Gs4'}, {midi: 69, file: 'A4'}, {midi: 70, file: 'As4'},
+  {midi: 71, file: 'B4'}, {midi: 72, file: 'C5'}, {midi: 73, file: 'Cs5'},
+  {midi: 74, file: 'D5'},
 ];
 
+function nearestSample(midi: number): {file: string; playbackRate: number} {
+  let best = SAMPLES[0];
+  let bestDiff = Infinity;
+  for (const s of SAMPLES) {
+    const d = Math.abs(s.midi - midi);
+    if (d < bestDiff) {
+      bestDiff = d;
+      best = s;
+    }
+  }
+  return {file: best.file, playbackRate: Math.pow(2, (midi - best.midi) / 12)};
+}
+
 class TonePlayer {
-  // 单个音：多个谐波正弦 + 各自的增益包络
+  private cache = new Map<string, AudioBuffer>();
+  private pending = new Map<string, Promise<AudioBuffer | null>>();
+
+  // 加载并缓存采样（并发去重）
+  private getBuffer(file: string): Promise<AudioBuffer | null> {
+    const cached = this.cache.get(file);
+    if (cached) return Promise.resolve(cached);
+    const inflight = this.pending.get(file);
+    if (inflight) return inflight;
+    const p = this.load(file).then((buf) => {
+      this.pending.delete(file);
+      if (buf) this.cache.set(file, buf);
+      return buf;
+    });
+    this.pending.set(file, p);
+    return p;
+  }
+
+  private async load(file: string): Promise<AudioBuffer | null> {
+    const ctx = getAudioContext();
+    if (!ctx) return null;
+    try {
+      const res = await fetch(SAMPLE_BASE_URL + file + '.wav');
+      if (!res.ok) return null;
+      const arrayBuf = await res.arrayBuffer();
+      return await ctx.decodeAudioData(arrayBuf);
+    } catch {
+      return null;
+    }
+  }
+
+  // 播放采样；成功返回 true，失败返回 false（由调用方降级）
+  private async playSample(freq: number, gain: number): Promise<boolean> {
+    const ctx = getAudioContext();
+    if (!ctx) return false;
+    const midi = Math.round(69 + 12 * Math.log2(freq / 440));
+    const {file, playbackRate} = nearestSample(midi);
+    const buffer = await this.getBuffer(file);
+    if (!buffer) return false;
+    const src = ctx.createBufferSource();
+    const g = ctx.createGain();
+    src.buffer = buffer;
+    src.playbackRate.value = playbackRate;
+    g.gain.value = gain;
+    src.connect(g);
+    g.connect(ctx.destination);
+    src.start();
+    return true;
+  }
+
+  // 加法合成（降级用）：基音 + 多个谐波，高次谐波衰减更快，快速起音模拟拨弦
   private tone(freq: number, peak: number, duration: number): void {
     const ctx = getAudioContext();
     if (!ctx) return;
     const now = ctx.currentTime;
-    PARTIALS.forEach((p) => {
+    const partials = [
+      {m: 1, a: 1.0, d: 1.0},
+      {m: 2, a: 0.55, d: 0.7},
+      {m: 3, a: 0.35, d: 0.5},
+      {m: 4, a: 0.22, d: 0.35},
+      {m: 5, a: 0.15, d: 0.28},
+      {m: 6, a: 0.1, d: 0.22},
+    ];
+    partials.forEach((p) => {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = 'sine';
-      osc.frequency.value = freq * p.mult;
-      const d = Math.max(0.1, duration * p.decay);
+      osc.frequency.value = freq * p.m;
+      const d = Math.max(0.1, duration * p.d);
       gain.gain.setValueAtTime(0, now);
-      gain.gain.linearRampToValueAtTime(peak * p.amp, now + 0.003);
+      gain.gain.linearRampToValueAtTime(peak * p.a, now + 0.003);
       gain.gain.exponentialRampToValueAtTime(0.001, now + d);
       osc.connect(gain);
       gain.connect(ctx.destination);
@@ -81,13 +164,19 @@ class TonePlayer {
   }
 
   play(freq: number, duration = 0.4): void {
-    this.tone(freq, 0.6, duration);
+    this.playSample(freq, SAMPLE_GAIN).then((ok) => {
+      if (!ok) this.tone(freq, 0.6, duration);
+    });
   }
 
   // 同时奏响多个音高（和弦）；单音音量调低避免削波
   playChord(freqs: number[], duration = 1.2): void {
     freqs.forEach((f) => {
-      if (f > 0) this.tone(f, 0.35, duration);
+      if (f > 0) {
+        this.playSample(f, CHORD_GAIN).then((ok) => {
+          if (!ok) this.tone(f, 0.35, duration);
+        });
+      }
     });
   }
 }
