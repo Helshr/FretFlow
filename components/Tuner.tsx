@@ -81,7 +81,7 @@ export default function Tuner() {
         {!running ? (
           <button
             onClick={start}
-            className="min-h-12 rounded-xl bg-accent px-10 py-3 text-base font-semibold text-white hover:brightness-110"
+            className="min-h-12 rounded-xl bg-accent px-10 py-3 text-base font-semibold text-[#0a0a0a] hover:brightness-110"
           >
             {t('start')}
           </button>

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #121316;
-  --color-card: #1d1f24;
-  --color-card-2: #24262d;
-  --color-text: #ececf0;
-  --color-muted: #9aa0a8;
-  --color-accent: #e94560;
+  --color-bg: #0a0a0a;
+  --color-card: #141414;
+  --color-card-2: #1c1c1c;
+  --color-text: #f5f5f5;
+  --color-muted: #a0a0a0;
+  --color-accent: #e8a850;
   --color-accent-2: #2ecc71;
-  --color-line: #32353d;
+  --color-line: #2a2a2a;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -33,6 +33,29 @@
     to {
       opacity: 1;
     }
+  }
+}
+
+/* 倒计时数字弹出 */
+@keyframes pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 节拍点跳动 */
+@keyframes beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
   }
 }
 

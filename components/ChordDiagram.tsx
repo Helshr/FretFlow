@@ -139,7 +139,7 @@ export default function ChordDiagram({
                 cy={y}
                 r={16}
                 fill="#2b2e35"
-                stroke="#ff6b6b"
+                stroke="#e8a850"
                 strokeWidth={3}
               />
             );
@@ -153,7 +153,7 @@ export default function ChordDiagram({
               cy={y}
               r={16}
               fill="#2b2e35"
-              stroke={isRoot ? '#ff6b6b' : '#3a3e46'}
+              stroke={isRoot ? '#e8a850' : '#3a3e46'}
               strokeWidth={isRoot ? 3 : 1}
             />
             {fingers && fingers[i] > 0 && (
@@ -163,7 +163,7 @@ export default function ChordDiagram({
                 textAnchor="middle"
                 fontSize={14}
                 fontWeight="bold"
-                fill="#ececf0"
+                fill="#f5f5f5"
               >
                 {fingers[i]}
               </text>

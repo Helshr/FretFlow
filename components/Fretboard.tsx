@@ -129,7 +129,7 @@ export default function Fretboard({
               cx={cx}
               cy={cy}
               r={isActive ? 14 : 10}
-              fill="#e94560"
+              fill="#e8a850"
               stroke={isActive ? '#fff' : 'none'}
               strokeWidth={isActive ? 2.5 : 0}
             />
@@ -140,7 +140,7 @@ export default function Fretboard({
                 textAnchor="middle"
                 fontSize={11}
                 fontWeight={700}
-                fill="#fff"
+                fill="#0a0a0a"
               >
                 {label}
               </text>

@@ -31,6 +31,12 @@ export function useTrainingSession() {
   const [timeText, setTimeText] = useState('05:00');
   const [paused, setPaused] = useState(false);
   const [countdown, setCountdown] = useState<number | null>(null);
+  const [switchCount, setSwitchCount] = useState(0);
+  const [measureBeats, setMeasureBeats] = useState(0);
+  const [progress, setProgress] = useState(1);
+  const [measuresPerChord, setMeasuresPerChord] = useState(1);
+  const [bpm, setBpm] = useState(80);
+  const [durationMin, setDurationMin] = useState(5);
 
   // 计时/切换所需的可变值放 refs，避免鼓机 onBar 与 ticker 里的闭包过期
   const settingsRef = useRef<Settings>({
@@ -70,6 +76,7 @@ export function useTrainingSession() {
     nextRef.current = pickNext(poolRef.current, cur);
     setCurrent(cur);
     setNext(nextRef.current);
+    setSwitchCount((c) => c + 1);
     playCurrentChord(cur, when); // 采样已在上一次预加载 → 准时播放
     preloadChord(nextRef.current); // 后台预加载下一个和弦
   }
@@ -94,6 +101,11 @@ export function useTrainingSession() {
       return;
     }
     setTimeText(formatTime(remaining));
+    setProgress(Math.max(0, remaining / (settings.durationMin * 60000)));
+    // 当前和弦组内的小节拍位置（用于节拍点动画）
+    const beatMs = (60 / settings.bpm) * 1000;
+    const chordMs = beatMs * 4 * settings.measuresPerChord;
+    setMeasureBeats(Math.floor((elapsed % chordMs) / beatMs));
   }
 
   function stopAudio() {
@@ -117,6 +129,9 @@ export function useTrainingSession() {
     const pool = poolRef.current;
     startedAtRef.current = performance.now();
     setPhase('training');
+    setSwitchCount(0);
+    setMeasureBeats(0);
+    setProgress(1);
     setTimeText(formatTime(settings.durationMin * 60000));
     playCurrentChord(pool[0]); // 初始和弦（采样已预加载，音频上下文已预建）
     preloadChord(nextRef.current!); // start() 已保证 next 存在
@@ -141,6 +156,9 @@ export function useTrainingSession() {
     setPaused(false);
     setMode(settings.mode);
     setShapeFilter(settings.shapeFilter);
+    setMeasuresPerChord(settings.measuresPerChord);
+    setBpm(settings.bpm);
+    setDurationMin(settings.durationMin);
 
     // 用户手势内预建音频上下文（倒计时结束后才能正常发声）
     getAudioContext();
@@ -200,6 +218,12 @@ export function useTrainingSession() {
     timeText,
     paused,
     countdown,
+    switchCount,
+    measureBeats,
+    progress,
+    measuresPerChord,
+    bpm,
+    durationMin,
     start,
     togglePause,
     stop,

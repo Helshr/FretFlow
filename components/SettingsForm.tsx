@@ -5,76 +5,6 @@ import {useTranslations} from 'next-intl';
 import type {Settings, ShapeFilter} from '@/lib/chords/types';
 import {DRUM_PATTERNS} from '@/lib/drum/drumMachine';
 
-function RadioGroup<T extends string | number>({
-  legend,
-  name,
-  options,
-  value,
-  onChange,
-}: {
-  legend: string;
-  name: string;
-  options: {value: T; label: string}[];
-  value: T;
-  onChange: (v: T) => void;
-}) {
-  return (
-    <fieldset className="mb-4 rounded-xl border border-line px-4 py-3">
-      <legend className="px-2 text-sm text-muted">{legend}</legend>
-      {options.map((o) => (
-        <label key={String(o.value)} className="mr-4 inline-block cursor-pointer text-base">
-          <input
-            type="radio"
-            name={name}
-            className="mr-2 accent-accent"
-            checked={value === o.value}
-            onChange={() => onChange(o.value)}
-          />
-          {o.label}
-        </label>
-      ))}
-    </fieldset>
-  );
-}
-
-function SliderRow({
-  id,
-  label,
-  min,
-  max,
-  value,
-  onChange,
-}: {
-  id: string;
-  label: string;
-  min: number;
-  max: number;
-  value: number;
-  onChange: (v: number) => void;
-}) {
-  return (
-    <div className="mb-5">
-      <label htmlFor={id} className="mb-2 block">
-        {label}
-      </label>
-      <div className="flex items-center gap-3">
-        <input
-          id={id}
-          type="range"
-          min={min}
-          max={max}
-          value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
-          className="h-7 flex-1 accent-accent"
-        />
-        <span className="min-w-8 rounded-lg bg-card-2 px-2 py-1 text-center text-lg font-bold tabular-nums">
-          {value}
-        </span>
-      </div>
-    </div>
-  );
-}
-
 export default function SettingsForm({
   onStart,
   samplesReady = true,
@@ -108,88 +38,212 @@ export default function SettingsForm({
   }
 
   return (
-    <div className="rounded-2xl border border-line bg-card p-5">
-      <RadioGroup
-        legend={t('mode')}
-        name="mode"
-        value={mode}
-        onChange={setMode}
-        options={[
-          {value: 'open' as const, label: t('modeOpen')},
-          {value: 'caged' as const, label: t('modeCaged')},
-        ]}
-      />
+    <div className="flex flex-col gap-7 rounded-[28px] border border-[#2a2a2a] bg-[#141414] p-8 max-md:p-6">
+      <SettingSection label={t('mode')}>
+        <PillGroup
+          options={[
+            {v: 'open' as const, l: t('modeOpen')},
+            {v: 'caged' as const, l: t('modeCaged')},
+          ]}
+          value={mode}
+          onChange={setMode}
+        />
+      </SettingSection>
 
       {mode === 'caged' && (
-        <RadioGroup
-          legend={t('shape')}
-          name="shape-filter"
-          value={shapeFilter}
-          onChange={setShapeFilter}
-          options={[
-            {value: 'all' as const, label: t('shapeAll')},
-            {value: 'C' as const, label: 'C'},
-            {value: 'A' as const, label: 'A'},
-            {value: 'G' as const, label: 'G'},
-            {value: 'E' as const, label: 'E'},
-            {value: 'D' as const, label: 'D'},
-          ]}
-        />
+        <SettingSection label={t('shape')}>
+          <ChipGroup
+            options={[
+              {v: 'all', l: t('shapeAll')},
+              {v: 'C', l: 'C'},
+              {v: 'A', l: 'A'},
+              {v: 'G', l: 'G'},
+              {v: 'E', l: 'E'},
+              {v: 'D', l: 'D'},
+            ]}
+            value={shapeFilter}
+            onChange={setShapeFilter}
+          />
+        </SettingSection>
       )}
 
-      <SliderRow id="chord-count" label={t('chordCount')} min={2} max={12} value={chordCount} onChange={setChordCount} />
-      <SliderRow id="bpm" label={t('bpm')} min={40} max={180} value={bpm} onChange={setBpm} />
+      <SettingSection label={t('chordCount')}>
+        <GoldSlider value={chordCount} min={2} max={12} onChange={setChordCount} />
+      </SettingSection>
 
-      <RadioGroup
-        legend={t('pattern')}
-        name="pattern"
-        value={patternId}
-        onChange={setPatternId}
-        options={DRUM_PATTERNS.map((p) => ({
-          value: p.id,
-          label: p.id === 'metronome' ? t('metronome') : p.id[0].toUpperCase() + p.id.slice(1),
-        }))}
-      />
+      <SettingSection label={t('bpm')}>
+        <GoldSlider value={bpm} min={40} max={180} onChange={setBpm} />
+      </SettingSection>
 
-      <RadioGroup
-        legend={t('measures')}
-        name="measures"
-        value={measuresPerChord}
-        onChange={setMeasuresPerChord}
-        options={([1, 2, 4] as const).map((v) => ({value: v, label: t(`measures${v}`)}))}
-      />
-
-      <label className="mb-5 flex cursor-pointer items-center gap-2 text-base">
-        <input
-          type="checkbox"
-          checked={playChord}
-          onChange={(e) => setPlayChord(e.target.checked)}
-          className="h-4 w-4 accent-accent"
+      <SettingSection label={t('pattern')}>
+        <ChipGroup
+          options={DRUM_PATTERNS.map((p) => ({
+            v: p.id,
+            l: p.id === 'metronome' ? t('metronome') : p.id[0].toUpperCase() + p.id.slice(1),
+          }))}
+          value={patternId}
+          onChange={setPatternId}
         />
-        {t('playChord')}
-      </label>
+      </SettingSection>
 
-      <RadioGroup
-        legend={t('time')}
-        name="duration"
-        value={durationMin}
-        onChange={setDurationMin}
-        options={([1, 3, 5, 10] as const).map((v) => ({value: v, label: t(`minutes${v}`)}))}
-      />
+      <SettingSection label={t('measures')}>
+        <ChipGroup
+          options={([1, 2, 4] as const).map((v) => ({v: String(v), l: t(`measures${v}`)}))}
+          value={String(measuresPerChord)}
+          onChange={(v) => setMeasuresPerChord(Number(v) as 1 | 2 | 4)}
+        />
+      </SettingSection>
+
+      <SettingSection label={t('time')}>
+        <div className="grid grid-cols-4 gap-2 max-[600px]:grid-cols-2">
+          {[1, 3, 5, 10].map((d) => (
+            <button
+              key={d}
+              className={`rounded-xl border-[1.5px] px-4 py-4 text-center transition-all hover:border-[#e8a850] font-[inherit] cursor-pointer ${
+                durationMin === d
+                  ? 'border-[#e8a850] bg-[rgba(232,168,80,0.08)] text-[#e8a850]'
+                  : 'border-[#2a2a2a] bg-transparent text-[#a0a0a0]'
+              }`}
+              onClick={() => setDurationMin(d)}
+            >
+              <span className="block text-2xl font-bold">{d}</span>
+              <span className={`text-xs ${durationMin === d ? 'text-[#e8a850]' : 'text-[#6b6b6b]'}`}>
+                {t(`minutes${d}`)}
+              </span>
+            </button>
+          ))}
+        </div>
+      </SettingSection>
+
+      <div className="flex items-center justify-between rounded-xl bg-[#1c1c1c] px-4 py-3">
+        <span className="text-[0.9375rem] font-medium text-[#a0a0a0]">{t('playChord')}</span>
+        <Toggle on={playChord} onChange={setPlayChord} />
+      </div>
 
       {!samplesReady && (
-        <div className="mt-3 text-center text-sm text-muted">
-          {t('loadingSamples', {n: samplesProgress})}
-        </div>
+        <p className="text-center text-sm text-[#a0a0a0]">{t('loadingSamples', {n: samplesProgress})}</p>
       )}
 
       <button
         onClick={submit}
         disabled={!samplesReady}
-        className="mt-1 w-full rounded-xl bg-accent py-3 text-lg font-bold text-white hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
+        className="w-full rounded-2xl border-0 bg-[linear-gradient(135deg,#e8a850,#d49430)] py-[18px] text-xl font-bold text-[#0a0a0a] cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(232,168,80,0.5)] disabled:cursor-not-allowed disabled:opacity-40 [box-shadow:0_4px_24px_rgba(232,168,80,0.3)]"
       >
         {t('start')}
       </button>
     </div>
+  );
+}
+
+/* ── 小组件 ── */
+
+function SettingSection({label, children}: {label: string; children: React.ReactNode}) {
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#6b6b6b]">
+        {label}
+        <span className="h-px flex-1 bg-[#2a2a2a]" />
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function PillGroup<T extends string>({
+  options,
+  value,
+  onChange,
+}: {
+  options: {v: T; l: string}[];
+  value: T;
+  onChange: (v: T) => void;
+}) {
+  return (
+    <div className="flex w-fit gap-0.5 rounded-full border border-[#2a2a2a] bg-[#1c1c1c] p-[3px]">
+      {options.map((o) => (
+        <button
+          key={o.v}
+          className={`rounded-full border-0 px-[22px] py-2.5 text-[0.9375rem] font-semibold cursor-pointer transition-all font-[inherit] ${
+            o.v === value
+              ? 'bg-[#e8a850] text-[#0a0a0a] [box-shadow:0_2px_12px_rgba(232,168,80,0.3)]'
+              : 'bg-transparent text-[#a0a0a0]'
+          }`}
+          onClick={() => onChange(o.v)}
+        >
+          {o.l}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function ChipGroup<T extends string>({
+  options,
+  value,
+  onChange,
+}: {
+  options: {v: T; l: string}[];
+  value: T;
+  onChange: (v: T) => void;
+}) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {options.map((o) => (
+        <button
+          key={o.v}
+          className={`rounded-full border-[1.5px] px-5 py-2.5 text-[0.9375rem] font-semibold cursor-pointer transition-all font-[inherit] ${
+            o.v === value
+              ? 'border-[#e8a850] bg-[#e8a850] text-[#0a0a0a] [box-shadow:0_2px_12px_rgba(232,168,80,0.3)]'
+              : 'border-[#2a2a2a] bg-transparent text-[#a0a0a0] hover:border-[#e8a850] hover:text-[#e8a850]'
+          }`}
+          onClick={() => onChange(o.v)}
+        >
+          {o.l}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function GoldSlider({
+  value,
+  min,
+  max,
+  onChange,
+}: {
+  value: number;
+  min: number;
+  max: number;
+  onChange: (v: number) => void;
+}) {
+  return (
+    <div className="flex items-center gap-4">
+      <input
+        type="range"
+        min={min}
+        max={max}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="h-1.5 flex-1 cursor-pointer appearance-none rounded bg-[#2a2a2a] [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#e8a850] [&::-webkit-slider-thumb]:[box-shadow:0_0_16px_rgba(232,168,80,0.3)] [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:duration-150 hover:[&::-webkit-slider-thumb]:scale-[1.15]"
+      />
+      <div className="min-w-[56px] rounded-xl border border-[#2a2a2a] bg-[#1c1c1c] px-3 py-2 text-center text-xl font-bold tabular-nums text-[#e8a850]">
+        {value}
+      </div>
+    </div>
+  );
+}
+
+function Toggle({on, onChange}: {on: boolean; onChange: (v: boolean) => void}) {
+  return (
+    <button
+      className={`relative h-7 w-12 cursor-pointer rounded-full border-none transition-colors ${on ? 'bg-[#e8a850]' : 'bg-[#2a2a2a]'}`}
+      onClick={() => onChange(!on)}
+    >
+      <span
+        className={`absolute top-[3px] h-[22px] w-[22px] rounded-full bg-white transition-transform ${
+          on ? 'translate-x-5' : 'translate-x-[3px]'
+        }`}
+      />
+    </button>
   );
 }

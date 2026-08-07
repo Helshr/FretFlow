@@ -36,7 +36,7 @@ export default function NoteTrainer() {
   const scopeBtn = (active: boolean) =>
     `rounded-xl px-4 py-2 text-sm font-semibold transition ${
       active
-        ? 'bg-accent text-white'
+        ? 'bg-accent text-[#0a0a0a]'
         : 'border border-line bg-card-2 text-muted hover:text-text'
     }`;
   const ctrlBtn = (primary = false, disabled = false) =>
@@ -44,7 +44,7 @@ export default function NoteTrainer() {
       disabled
         ? 'cursor-not-allowed opacity-40'
         : primary
-          ? 'bg-accent text-white hover:brightness-110'
+          ? 'bg-accent text-[#0a0a0a] hover:brightness-110'
           : 'border border-line bg-card-2 hover:brightness-110'
     }`;
 
