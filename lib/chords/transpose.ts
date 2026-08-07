@@ -93,10 +93,11 @@ export function makePool(
   return pool;
 }
 
+// 按池子展示顺序取当前和弦的下一个（循环），保证与「全部和弦」网格顺序一致
 export function pickNext(pool: PoolItem[], current: PoolItem): PoolItem {
-  const others = pool.filter((c) => c.key !== current.key);
-  if (others.length === 0) return current;
-  return others[randInt(others.length)];
+  const idx = pool.findIndex((c) => c.key === current.key);
+  if (idx === -1) return pool[0] ?? current;
+  return pool[(idx + 1) % pool.length];
 }
 
 // 和弦各非闷音弦的实际音高（6→1 弦顺序），用于播放和弦音

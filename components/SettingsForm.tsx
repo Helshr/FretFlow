@@ -38,7 +38,7 @@ export default function SettingsForm({
   }
 
   return (
-    <div className="flex flex-col gap-7 rounded-[28px] border border-[#2a2a2a] bg-[#141414] p-8 max-md:p-6">
+    <div className="flex flex-col gap-4 rounded-[24px] border border-[#2a2a2a] bg-[#141414] p-6">
       <SettingSection label={t('mode')}>
         <PillGroup
           options={[
@@ -67,46 +67,50 @@ export default function SettingsForm({
         </SettingSection>
       )}
 
-      <SettingSection label={t('chordCount')}>
-        <GoldSlider value={chordCount} min={2} max={12} onChange={setChordCount} />
-      </SettingSection>
+      <div className="grid gap-4 md:grid-cols-2">
+        <SettingSection label={t('chordCount')}>
+          <GoldSlider value={chordCount} min={2} max={18} onChange={setChordCount} />
+        </SettingSection>
 
-      <SettingSection label={t('bpm')}>
-        <GoldSlider value={bpm} min={40} max={180} onChange={setBpm} />
-      </SettingSection>
+        <SettingSection label={t('bpm')}>
+          <GoldSlider value={bpm} min={40} max={180} onChange={setBpm} />
+        </SettingSection>
+      </div>
 
-      <SettingSection label={t('pattern')}>
-        <ChipGroup
-          options={DRUM_PATTERNS.map((p) => ({
-            v: p.id,
-            l: p.id === 'metronome' ? t('metronome') : p.id[0].toUpperCase() + p.id.slice(1),
-          }))}
-          value={patternId}
-          onChange={setPatternId}
-        />
-      </SettingSection>
+      <div className="grid gap-4 md:grid-cols-2">
+        <SettingSection label={t('pattern')}>
+          <ChipGroup
+            options={DRUM_PATTERNS.map((p) => ({
+              v: p.id,
+              l: p.id === 'metronome' ? t('metronome') : p.id[0].toUpperCase() + p.id.slice(1),
+            }))}
+            value={patternId}
+            onChange={setPatternId}
+          />
+        </SettingSection>
 
-      <SettingSection label={t('measures')}>
-        <ChipGroup
-          options={([1, 2, 4] as const).map((v) => ({v: String(v), l: t(`measures${v}`)}))}
-          value={String(measuresPerChord)}
-          onChange={(v) => setMeasuresPerChord(Number(v) as 1 | 2 | 4)}
-        />
-      </SettingSection>
+        <SettingSection label={t('measures')}>
+          <ChipGroup
+            options={([1, 2, 4] as const).map((v) => ({v: String(v), l: t(`measures${v}`)}))}
+            value={String(measuresPerChord)}
+            onChange={(v) => setMeasuresPerChord(Number(v) as 1 | 2 | 4)}
+          />
+        </SettingSection>
+      </div>
 
       <SettingSection label={t('time')}>
         <div className="grid grid-cols-4 gap-2 max-[600px]:grid-cols-2">
           {[1, 3, 5, 10].map((d) => (
             <button
               key={d}
-              className={`rounded-xl border-[1.5px] px-4 py-4 text-center transition-all hover:border-[#e8a850] font-[inherit] cursor-pointer ${
+              className={`rounded-xl border-[1.5px] px-4 py-2.5 text-center transition-all hover:border-[#e8a850] font-[inherit] cursor-pointer ${
                 durationMin === d
                   ? 'border-[#e8a850] bg-[rgba(232,168,80,0.08)] text-[#e8a850]'
                   : 'border-[#2a2a2a] bg-transparent text-[#a0a0a0]'
               }`}
               onClick={() => setDurationMin(d)}
             >
-              <span className="block text-2xl font-bold">{d}</span>
+              <span className="block text-xl font-bold">{d}</span>
               <span className={`text-xs ${durationMin === d ? 'text-[#e8a850]' : 'text-[#6b6b6b]'}`}>
                 {t(`minutes${d}`)}
               </span>
@@ -115,7 +119,7 @@ export default function SettingsForm({
         </div>
       </SettingSection>
 
-      <div className="flex items-center justify-between rounded-xl bg-[#1c1c1c] px-4 py-3">
+      <div className="flex items-center justify-between rounded-xl bg-[#1c1c1c] px-4 py-2.5">
         <span className="text-[0.9375rem] font-medium text-[#a0a0a0]">{t('playChord')}</span>
         <Toggle on={playChord} onChange={setPlayChord} />
       </div>
@@ -127,7 +131,7 @@ export default function SettingsForm({
       <button
         onClick={submit}
         disabled={!samplesReady}
-        className="w-full rounded-2xl border-0 bg-[linear-gradient(135deg,#e8a850,#d49430)] py-[18px] text-xl font-bold text-[#0a0a0a] cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(232,168,80,0.5)] disabled:cursor-not-allowed disabled:opacity-40 [box-shadow:0_4px_24px_rgba(232,168,80,0.3)]"
+        className="w-full rounded-2xl border-0 bg-[linear-gradient(135deg,#e8a850,#d49430)] py-3 text-lg font-bold text-[#0a0a0a] cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(232,168,80,0.5)] disabled:cursor-not-allowed disabled:opacity-40 [box-shadow:0_4px_24px_rgba(232,168,80,0.3)]"
       >
         {t('start')}
       </button>

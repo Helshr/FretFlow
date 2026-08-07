@@ -26,7 +26,7 @@ export default function ChordDiagram({
   fingers,
   rootString,
   barre,
-  className = 'max-w-[300px]',
+  className = 'w-full max-w-[300px]',
 }: ChordDisplay & {className?: string}) {
   const rootIndex = rootString ? 6 - rootString : -1;
   const pos = position(frets);
@@ -36,7 +36,7 @@ export default function ChordDiagram({
       viewBox="0 0 260 330"
       role="img"
       aria-label={name}
-      className={`h-auto w-full ${className}`}
+      className={`h-auto ${className}`}
     >
       {pos === 1 ? (
         <line

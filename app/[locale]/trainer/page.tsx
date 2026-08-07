@@ -21,9 +21,9 @@ export default function TrainerPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] antialiased">
-      <div className="mx-auto max-w-[900px] px-6 py-6 pb-16">
+      <div className="mx-auto max-w-[900px] px-6 py-5 pb-8">
         {/* 顶部栏 */}
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-5 flex items-center justify-between">
           <Link
             href="/"
             className="inline-flex items-center gap-1.5 rounded-full border border-[#2a2a2a] px-4 py-2.5 text-sm font-semibold text-[#a0a0a0] transition-all hover:border-[#3d3d3d] hover:bg-[#1c1c1c] hover:text-[#f5f5f5]"
@@ -35,11 +35,11 @@ export default function TrainerPage() {
 
         {session.phase === 'settings' && (
           <>
-            <div className="mb-10 text-center">
-              <h1 className="text-2xl font-bold tracking-[-0.01em]">
+            <div className="mb-6 text-center">
+              <h1 className="text-xl font-bold tracking-[-0.01em]">
                 FretFlow · <span className="text-[#e8a850]">{t('app.title')}</span>
               </h1>
-              <p className="mt-2 text-[0.9375rem] text-[#a0a0a0]">{t('app.subtitle')}</p>
+              <p className="mt-1 text-sm text-[#a0a0a0]">{t('app.subtitle')}</p>
             </div>
             <SettingsForm
               onStart={session.start}

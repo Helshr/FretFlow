@@ -41,10 +41,42 @@ export default function TrainingView({
   const beatsPerChord = measuresPerChord * 4;
 
   return (
-    <div className="flex flex-col items-center gap-8 pt-4">
+    <div className="flex flex-col items-center gap-3 pt-2">
+      {/* 全部练习和弦（自适应网格，最多 6 个/排，位于最上方） */}
+      <div className="flex w-full max-w-[560px] flex-col gap-1.5">
+        <div className="text-xs font-semibold uppercase tracking-[0.08em] text-[#6b6b6b]">
+          {t('train.allChords')}
+        </div>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
+          {pool.map((c, i) => {
+            const d = chordDisplay(c, labels);
+            const isCurrent = current ? c.key === current.key : false;
+            return (
+              <div
+                key={i}
+                className={`flex flex-col items-center rounded-xl border px-1 pb-1 pt-1.5 text-center ${
+                  isCurrent
+                    ? 'border-[#e8a850] bg-[#e8a850]/10 [box-shadow:0_0_16px_rgba(232,168,80,0.2)]'
+                    : 'border-[#2a2a2a] bg-[#141414]'
+                }`}
+              >
+                <div
+                  className={`mb-1 truncate text-xs font-semibold ${
+                    isCurrent ? 'text-[#e8a850]' : 'text-[#a0a0a0]'
+                  }`}
+                >
+                  {d.name}
+                </div>
+                <ChordDiagram {...d} className="w-full" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* 环形计时器 */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="relative h-[100px] w-[100px]">
+      <div className="flex flex-col items-center gap-1">
+        <div className="relative h-[68px] w-[68px]">
           <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
             <circle cx="50" cy="50" r="44" fill="none" stroke="#2a2a2a" strokeWidth="6" />
             <circle
@@ -60,7 +92,7 @@ export default function TrainingView({
               style={{transition: 'stroke-dashoffset 0.2s linear'}}
             />
           </svg>
-          <div className="absolute inset-0 flex items-center justify-center text-[1.375rem] font-bold tabular-nums">
+          <div className="absolute inset-0 flex items-center justify-center text-base font-bold tabular-nums">
             {timeText}
           </div>
         </div>
@@ -69,27 +101,35 @@ export default function TrainingView({
         </span>
       </div>
 
-      {/* 当前和弦 */}
-      <div className="text-center">
-        <div className="mb-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6b6b]">
-          {t('train.current')}
+      {/* 当前 / 下一和弦并排 */}
+      <div className="grid w-full max-w-[560px] grid-cols-1 gap-3 md:grid-cols-2">
+        <div className="flex flex-col items-center rounded-2xl border border-[#e8a850]/50 bg-[#1c1c1c] px-5 py-2.5 text-center [box-shadow:0_0_24px_rgba(232,168,80,0.12)]">
+          <div className="mb-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6b6b]">
+            {t('train.current')}
+          </div>
+          <div className="animate-pulse text-4xl font-extrabold leading-tight tracking-[-0.02em] text-[#e8a850] [text-shadow:0_0_60px_rgba(232,168,80,0.3)] max-md:text-3xl">
+            {currentD?.name}
+          </div>
+          <div className="mt-0.5 text-sm font-semibold text-[#a0a0a0]">{currentD?.shape}</div>
+          {currentD && <ChordDiagram {...currentD} className="mx-auto mt-1.5 w-[120px]" />}
         </div>
-        <div className="animate-pulse text-[5rem] font-black leading-none tracking-[-0.02em] text-[#e8a850] [text-shadow:0_0_60px_rgba(232,168,80,0.3)] max-md:text-[3.5rem]">
-          {currentD?.name}
+        <div className="flex flex-col items-center rounded-2xl border border-[#2a2a2a] bg-[#141414] px-5 py-2.5 text-center opacity-80">
+          <div className="mb-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6b6b]">
+            {t('train.next')}
+          </div>
+          <div className="text-xl font-bold leading-tight text-[#a0a0a0]">{nextD?.name}</div>
+          <div className="mt-0.5 text-xs font-semibold text-[#6b6b6b]">{nextD?.shape}</div>
+          {nextD && <ChordDiagram {...nextD} className="mx-auto mt-1.5 w-[88px] opacity-80" />}
         </div>
-        <div className="mt-1 text-sm font-semibold text-[#a0a0a0]">{currentD?.shape}</div>
       </div>
 
-      {/* 和弦指法图 */}
-      {currentD && <ChordDiagram {...currentD} className="mx-auto w-[220px]" />}
-
       {/* 小节节拍点 */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="flex gap-3">
+      <div className="flex flex-col items-center gap-1.5">
+        <div className="flex gap-2">
           {Array.from({length: beatsPerChord}).map((_, i) => (
             <div
               key={i}
-              className={`h-4 w-4 rounded-full border-2 transition-all ${
+              className={`h-3.5 w-3.5 rounded-full border-2 transition-all ${
                 i < measureBeats
                   ? 'border-[#e8a850] bg-[#e8a850] [box-shadow:0_0_12px_rgba(232,168,80,0.3)]'
                   : i === measureBeats
@@ -104,42 +144,13 @@ export default function TrainingView({
         </span>
       </div>
 
-      {/* 下一和弦 */}
-      <div className="rounded-2xl border border-[#2a2a2a] bg-[#1c1c1c] px-8 py-3 text-center">
-        <div className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6b6b6b]">
-          {t('train.next')}
-        </div>
-        <div className="text-xl font-bold text-[#a0a0a0]">{nextD?.name}</div>
-      </div>
-
-      {/* 和弦流 */}
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        {pool.map((c, i) => {
-          const isCurrent = current ? c.key === current.key : false;
-          return (
-            <span key={i} className="flex items-center gap-3">
-              {i > 0 && <span className="text-xs text-[#6b6b6b]">→</span>}
-              <span
-                className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${
-                  isCurrent
-                    ? 'border-[#e8a850] bg-[#e8a850] text-[#0a0a0a] [box-shadow:0_0_16px_rgba(232,168,80,0.3)]'
-                    : 'border-[#2a2a2a] text-[#a0a0a0]'
-                }`}
-              >
-                {chordDisplay(c, labels).name}
-              </span>
-            </span>
-          );
-        })}
-      </div>
-
       <div className="text-sm text-[#6b6b6b]">{modeLabel}</div>
 
       {/* 控制 */}
       <div className="flex gap-3">
         <button
           onClick={onPause}
-          className="inline-flex items-center gap-2 rounded-full border-[1.5px] px-7 py-3 text-base font-bold cursor-pointer transition-all font-[inherit]"
+          className="inline-flex items-center gap-2 rounded-full border-[1.5px] px-6 py-2 text-sm font-bold cursor-pointer transition-all font-[inherit]"
           style={{
             borderColor: paused ? '#e8a850' : '#2a2a2a',
             color: paused ? '#e8a850' : '#f5f5f5',
@@ -150,7 +161,7 @@ export default function TrainingView({
         </button>
         <button
           onClick={onStop}
-          className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#fb7185] bg-transparent px-7 py-3 text-base font-bold text-[#fb7185] cursor-pointer transition-all hover:bg-[rgba(251,113,133,0.08)] font-[inherit]"
+          className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#fb7185] bg-transparent px-6 py-2 text-sm font-bold text-[#fb7185] cursor-pointer transition-all hover:bg-[rgba(251,113,133,0.08)] font-[inherit]"
         >
           {t('train.stop')}
         </button>
