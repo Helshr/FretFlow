@@ -8,6 +8,10 @@ import {routing} from '@/i18n/routing';
 const LABELS: Record<string, string> = {
   'zh-CN': '中文',
   en: 'English',
+  ja: '日本語',
+  ko: '한국어',
+  es: 'Español',
+  fr: 'Français',
 };
 
 export default function LanguageSwitcher({

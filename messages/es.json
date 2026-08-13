@@ -1,0 +1,123 @@
+{
+  "app": {
+    "title": "FretFlow · Entrenador de cambios de acordes",
+    "subtitle": "Abre la página → configura → pulsa inicio → practica acordes"
+  },
+  "settings": {
+    "language": "Idioma",
+    "mode": "Modo",
+    "modeOpen": "Open Chords",
+    "modeCaged": "CAGED",
+    "shape": "Forma CAGED",
+    "shapeAll": "Todas",
+    "chordCount": "N.º de acordes",
+    "bpm": "BPM",
+    "measures": "Compases por acorde",
+    "measures1": "1 compás",
+    "measures2": "2 compases",
+    "measures4": "4 compases",
+    "time": "Duración",
+    "pattern": "Patrón de batería",
+    "metronome": "Metrónomo",
+    "playChord": "Tocar el acorde actual (para comprobar la posición)",
+    "loadingSamples": "Cargando sonidos… {n}%",
+    "minutes1": "1 minuto",
+    "minutes3": "3 minutos",
+    "minutes5": "5 minutos",
+    "minutes10": "10 minutos",
+    "start": "Empezar"
+  },
+  "train": {
+    "current": "Acorde actual",
+    "next": "Siguiente",
+    "remaining": "Tiempo restante",
+    "pause": "Pausar",
+    "resume": "Reanudar",
+    "stop": "Detener",
+    "done": "Entrenamiento completado",
+    "countdown": "Prepárate",
+    "allChords": "Todos los acordes",
+    "return": "Volver a ajustes"
+  },
+  "chord": {
+    "majorSuffix": "mayor",
+    "shapeSuffix": "Forma",
+    "power": "power chord"
+  },
+  "notes": {
+    "title": "Practicar notas en el mástil",
+    "instruction": "Escucha el nombre de la nota y búscala en cada cuerda (6→1, incl. al aire)",
+    "start": "Empezar",
+    "next": "Siguiente nota",
+    "repeat": "Repetir",
+    "auto": "Modo automático",
+    "playing": "Sonando:",
+    "ready": "Listo",
+    "stop": "Detener",
+    "scope7": "7 notas naturales",
+    "scope12": "12 notas (con sostenidos/bemoles)",
+    "stringX": "Cuerda {n}",
+    "fretX": "Traste {n}",
+    "open": "Al aire",
+    "interval": "Intervalo entre notas",
+    "seconds": "s",
+    "loadingSamples": "Cargando sonidos… {n}%",
+    "sampleFailed": "Fallo al cargar los sonidos; usando sonido sintetizado"
+  },
+  "tuner": {
+    "title": "Afinador de guitarra",
+    "start": "Empezar a afinar",
+    "stop": "Detener",
+    "pluck": "Pulsa una cuerda",
+    "listening": "Afinando…",
+    "inTune": "¡Afín!",
+    "flat": "Baja",
+    "sharp": "Alta",
+    "micError": "No se puede acceder al micrófono; revisa los permisos del navegador",
+    "stringX": "Cuerda {n}"
+  },
+  "error": {
+    "emptyPool": "El grupo de acordes está vacío. Revisa los datos o reduce el número"
+  },
+  "nav": {
+    "home": "Inicio"
+  },
+  "home": {
+    "title": "FretFlow",
+    "subtitle": "Elige una función para practicar",
+    "section": "Funciones",
+
+    "heroEyebrow": "Domina el mástil",
+    "heroTitle1": "Práctica de guitarra",
+    "heroTitle2": "fluida",
+    "heroTitle3": "y precisa",
+    "heroDesc": "Del cambio de acordes a la memoria del mástil, de la afinación a la teoría: FretFlow hace que cada sesión sea precisa y eficiente.",
+    "heroCta": "Empezar a practicar",
+    "scrollHint": "Desplázate",
+
+    "sectionTitle": "Elige tu dirección de práctica",
+    "sectionSub": "Cuatro herramientas diseñadas para cubrir las necesidades esenciales del guitarrista",
+
+    "trainer": "Más popular",
+    "trainerTitle": "Entrenador de cambios de acordes",
+    "trainerDesc": "Entrenamiento intenso de 5 minutos. Cubre Open Chords y el sistema CAGED, con práctica de transposición en todo el mástil.",
+
+    "chordChart": "Herramienta de referencia",
+    "chordChartTitle": "Tabla completa de acordes",
+    "chordChartDesc": "CAGED completo × 12 fundamentales. Todas las formas en el mástil para consultar cualquier acorde.",
+    "chordChartNote": "CAGED completo × 12 fundamentales · rojo=fundamental · línea gruesa=cejilla",
+
+    "notes": "Entrenamiento de memoria",
+    "notesTitle": "Practicar notas en el mástil",
+    "notesDesc": "El programa nombra la nota y reproduce cada posición en orden 6→1. Gana intuición sobre las notas del mástil.",
+
+    "tuner": "Herramienta práctica",
+    "tunerTitle": "Afinador de guitarra",
+    "tunerDesc": "Detección de tono en tiempo real por micrófono para afinar cada cuerda con precisión. Simple, rápido, sin equipo extra.",
+
+    "enter": "Entrar",
+    "comingSoon": "Próximamente",
+    "comingSoonTitle": "Más funciones en desarrollo",
+    "footerMore": "Más funciones próximamente"
+  }
+}

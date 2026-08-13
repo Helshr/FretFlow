@@ -1,0 +1,123 @@
+{
+  "app": {
+    "title": "FretFlow · Entraînement aux changements d'accords",
+    "subtitle": "Ouvrir la page → régler → lancer → pratiquer les accords"
+  },
+  "settings": {
+    "language": "Langue",
+    "mode": "Mode",
+    "modeOpen": "Open Chords",
+    "modeCaged": "CAGED",
+    "shape": "Forme CAGED",
+    "shapeAll": "Toutes",
+    "chordCount": "Nombre d'accords",
+    "bpm": "BPM",
+    "measures": "Mesures par accord",
+    "measures1": "1 mesure",
+    "measures2": "2 mesures",
+    "measures4": "4 mesures",
+    "time": "Durée",
+    "pattern": "Pattern de batterie",
+    "metronome": "Métronome",
+    "playChord": "Jouer l'accord actuel (pour vérifier la position)",
+    "loadingSamples": "Chargement des sons… {n}%",
+    "minutes1": "1 minute",
+    "minutes3": "3 minutes",
+    "minutes5": "5 minutes",
+    "minutes10": "10 minutes",
+    "start": "Commencer"
+  },
+  "train": {
+    "current": "Accord actuel",
+    "next": "Suivant",
+    "remaining": "Temps restant",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "stop": "Arrêter",
+    "done": "Entraînement terminé",
+    "countdown": "Préparez-vous",
+    "allChords": "Tous les accords",
+    "return": "Retour aux réglages"
+  },
+  "chord": {
+    "majorSuffix": "majeur",
+    "shapeSuffix": "Forme",
+    "power": "power chord"
+  },
+  "notes": {
+    "title": "Pratiquer les notes sur le manche",
+    "instruction": "Écoutez le nom de la note et trouvez-la sur chaque corde (6→1, y compris à vide)",
+    "start": "Commencer",
+    "next": "Note suivante",
+    "repeat": "Répéter",
+    "auto": "Mode automatique",
+    "playing": "Lecture :",
+    "ready": "Prêt",
+    "stop": "Arrêter",
+    "scope7": "7 notes naturelles",
+    "scope12": "12 notes (avec dièses/bémols)",
+    "stringX": "Corde {n}",
+    "fretX": "Frette {n}",
+    "open": "À vide",
+    "interval": "Intervalle entre les notes",
+    "seconds": "s",
+    "loadingSamples": "Chargement des sons… {n}%",
+    "sampleFailed": "Échec du chargement des sons ; utilisation du son de synthèse"
+  },
+  "tuner": {
+    "title": "Accordeur de guitare",
+    "start": "Commencer l'accordage",
+    "stop": "Arrêter",
+    "pluck": "Pincez une corde",
+    "listening": "Accordage…",
+    "inTune": "Juste !",
+    "flat": "Trop bas",
+    "sharp": "Trop haut",
+    "micError": "Impossible d'accéder au micro ; vérifiez les permissions du navigateur",
+    "stringX": "Corde {n}"
+  },
+  "error": {
+    "emptyPool": "Le groupe d'accords est vide. Vérifiez les données ou réduisez le nombre"
+  },
+  "nav": {
+    "home": "Accueil"
+  },
+  "home": {
+    "title": "FretFlow",
+    "subtitle": "Choisissez une fonction pour pratiquer",
+    "section": "Fonctions",
+
+    "heroEyebrow": "Maîtrisez le manche",
+    "heroTitle1": "Pratique de la guitare",
+    "heroTitle2": "fluide",
+    "heroTitle3": "et précise",
+    "heroDesc": "Du changement d'accords à la mémorisation du manche, de l'accordage à la théorie : FretFlow rend chaque session précise et efficace.",
+    "heroCta": "Commencer à pratiquer",
+    "scrollHint": "Défiler",
+
+    "sectionTitle": "Choisissez votre direction",
+    "sectionSub": "Quatre outils pensés pour couvrir les besoins essentiels du guitariste",
+
+    "trainer": "Le plus populaire",
+    "trainerTitle": "Entraîneur de changements d'accords",
+    "trainerDesc": "Entraînement intense de 5 minutes. Couvre Open Chords et le système CAGED, avec pratique de transposition sur tout le manche.",
+
+    "chordChart": "Outil de référence",
+    "chordChartTitle": "Tableau complet des accords",
+    "chordChartDesc": "CAGED complet × 12 fondamentales. Toutes les formes au manche pour consulter n'importe quel accord.",
+    "chordChartNote": "CAGED complet × 12 fondamentales · rouge=fondamentale · trait épais=barré",
+
+    "notes": "Entraînement de mémorisation",
+    "notesTitle": "Pratiquer les notes sur le manche",
+    "notesDesc": "Le programme énonce la note et joue chaque position dans l'ordre 6→1. Développez vite votre intuition des notes.",
+
+    "tuner": "Outil pratique",
+    "tunerTitle": "Accordeur de guitare",
+    "tunerDesc": "Détection de hauteur en temps réel via le micro pour accorder chaque corde avec précision. Simple, rapide, sans matériel.",
+
+    "enter": "Entrer",
+    "comingSoon": "Bientôt disponible",
+    "comingSoonTitle": "Plus de fonctions en développement",
+    "footerMore": "Plus de fonctions à venir"
+  }
+}

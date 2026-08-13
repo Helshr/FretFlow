@@ -119,8 +119,8 @@ export default function SettingsForm({
         </div>
       </SettingSection>
 
-      <div className="flex items-center justify-between rounded-xl bg-[#1c1c1c] px-4 py-2.5">
-        <span className="text-[0.9375rem] font-medium text-[#a0a0a0]">{t('playChord')}</span>
+      <div className="flex items-center justify-between gap-3 rounded-xl bg-[#1c1c1c] px-4 py-2.5">
+        <span className="min-w-0 text-[0.9375rem] font-medium text-[#a0a0a0]">{t('playChord')}</span>
         <Toggle on={playChord} onChange={setPlayChord} />
       </div>
 
@@ -240,7 +240,7 @@ function GoldSlider({
 function Toggle({on, onChange}: {on: boolean; onChange: (v: boolean) => void}) {
   return (
     <button
-      className={`relative h-7 w-12 cursor-pointer rounded-full border-none transition-colors ${on ? 'bg-[#e8a850]' : 'bg-[#2a2a2a]'}`}
+      className={`relative h-7 w-12 shrink-0 cursor-pointer rounded-full border-none transition-colors ${on ? 'bg-[#e8a850]' : 'bg-[#2a2a2a]'}`}
       onClick={() => onChange(!on)}
     >
       <span
