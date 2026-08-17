@@ -83,7 +83,9 @@
     "title": "뮤직 슬라이드 룰",
     "root": "근음",
     "chordsArpeggios": "코드와 아르페지오",
-    "key": "근음 (5도권)",
+    "scales": "스케일",
+    "familyMajor": "메이저 다이어토닉 모드",
+    "familyHarmonicMinor": "하모닉 마이너 모드",
     "catTriads": "3화음 · 기초",
     "catSevenths": "7화음",
     "catSixths": "6화음",
@@ -113,14 +115,7 @@
       "add9": "add9",
       "eleven": "11th",
       "thirteen": "13th"
-    },
-    "scaleType": "음계 종류",
-    "degrees": "음계도와 코드",
-    "progressions": "자주 쓰는 진행",
-    "major": "메이저",
-    "naturalMinor": "내추럴 마이너",
-    "harmonicMinor": "하모닉 마이너",
-    "melodicMinor": "멜로딕 마이너"
+    }
   },
   "nav": {
     "home": "홈"

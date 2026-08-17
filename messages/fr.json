@@ -83,7 +83,9 @@
     "title": "Règle à calculer musicale",
     "root": "Tonique",
     "chordsArpeggios": "Accords et arpèges",
-    "key": "Tonique (cycle des quintes)",
+    "scales": "Gammes",
+    "familyMajor": "Modes diatoniques majeurs",
+    "familyHarmonicMinor": "Modes de la mineure harmonique",
     "catTriads": "Triades · Bases",
     "catSevenths": "Accords de septième",
     "catSixths": "Accords de sixte",
@@ -113,14 +115,7 @@
       "add9": "Ajoutée 9",
       "eleven": "Onzième",
       "thirteen": "Treizième"
-    },
-    "scaleType": "Gamme",
-    "degrees": "Degrés et accords",
-    "progressions": "Progressions",
-    "major": "Majeur",
-    "naturalMinor": "Mineur naturel",
-    "harmonicMinor": "Mineur harmonique",
-    "melodicMinor": "Mineur mélodique"
+    }
   },
   "nav": {
     "home": "Accueil"

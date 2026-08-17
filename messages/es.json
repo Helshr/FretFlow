@@ -83,7 +83,9 @@
     "title": "Regla deslizante musical",
     "root": "Tónica",
     "chordsArpeggios": "Acordes y arpegios",
-    "key": "Tónica (círculo de quintas)",
+    "scales": "Escalas",
+    "familyMajor": "Modos diatónicos mayores",
+    "familyHarmonicMinor": "Modos de menor armónica",
     "catTriads": "Tríadas · Básicas",
     "catSevenths": "Acordes de séptima",
     "catSixths": "Acordes de sexta",
@@ -113,14 +115,7 @@
       "add9": "Con 9ª",
       "eleven": "Onceava",
       "thirteen": "Treceava"
-    },
-    "scaleType": "Escala",
-    "degrees": "Grados y acordes",
-    "progressions": "Progresiones",
-    "major": "Mayor",
-    "naturalMinor": "Menor natural",
-    "harmonicMinor": "Menor armónica",
-    "melodicMinor": "Menor melódica"
+    }
   },
   "nav": {
     "home": "Inicio"

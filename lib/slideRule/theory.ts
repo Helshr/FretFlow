@@ -4,11 +4,24 @@ export type PitchClass = number; // 0=C 1=C# … 11=B
 
 export type Quality = 'major' | 'minor' | 'dim' | 'aug';
 
+export type ScaleFamilyId = 'majorDiatonic' | 'harmonicMinor';
+
+export interface ScaleFamily {
+  id: ScaleFamilyId;
+  labelKey: string; // i18n key（slideRule.family*）
+}
+
 export interface ScaleType {
   id: string;
+  name: string; // 拉丁名（Ionian 等），各语言通用
+  family: ScaleFamilyId;
   intervals: number[]; // 相对主音的半音
-  labelKey: string; // i18n key（slideRule.*）
 }
+
+export const SCALE_FAMILIES: ScaleFamily[] = [
+  {id: 'majorDiatonic', labelKey: 'familyMajor'},
+  {id: 'harmonicMinor', labelKey: 'familyHarmonicMinor'},
+];
 
 export interface DegreeChord {
   degree: string; // I / ii / iii / IV / V / vi / vii°
@@ -60,15 +73,22 @@ export function pcSharpName(pc: PitchClass): string {
 export const FIFTHS_ORDER: PitchClass[] = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5];
 
 export const SCALE_TYPES: ScaleType[] = [
-  {id: 'major', intervals: [0, 2, 4, 5, 7, 9, 11], labelKey: 'major'},
-  {id: 'naturalMinor', intervals: [0, 2, 3, 5, 7, 8, 10], labelKey: 'naturalMinor'},
-  {id: 'harmonicMinor', intervals: [0, 2, 3, 5, 7, 8, 11], labelKey: 'harmonicMinor'},
-  {id: 'melodicMinor', intervals: [0, 2, 3, 5, 7, 9, 11], labelKey: 'melodicMinor'},
-  {id: 'dorian', intervals: [0, 2, 3, 5, 7, 9, 10], labelKey: 'dorian'},
-  {id: 'phrygian', intervals: [0, 1, 3, 5, 7, 8, 10], labelKey: 'phrygian'},
-  {id: 'lydian', intervals: [0, 2, 4, 6, 7, 9, 11], labelKey: 'lydian'},
-  {id: 'mixolydian', intervals: [0, 2, 4, 5, 7, 9, 10], labelKey: 'mixolydian'},
-  {id: 'locrian', intervals: [0, 1, 3, 5, 6, 8, 10], labelKey: 'locrian'},
+  // Major Diatonic Modes（同组大调音阶，从不同音级起始）
+  {id: 'ionian', name: 'Ionian', family: 'majorDiatonic', intervals: [0, 2, 4, 5, 7, 9, 11]},
+  {id: 'dorian', name: 'Dorian', family: 'majorDiatonic', intervals: [0, 2, 3, 5, 7, 9, 10]},
+  {id: 'phrygian', name: 'Phrygian', family: 'majorDiatonic', intervals: [0, 1, 3, 5, 7, 8, 10]},
+  {id: 'lydian', name: 'Lydian', family: 'majorDiatonic', intervals: [0, 2, 4, 6, 7, 9, 11]},
+  {id: 'mixolydian', name: 'Mixolydian', family: 'majorDiatonic', intervals: [0, 2, 4, 5, 7, 9, 10]},
+  {id: 'aeolian', name: 'Aeolian', family: 'majorDiatonic', intervals: [0, 2, 3, 5, 7, 8, 10]},
+  {id: 'locrian', name: 'Locrian', family: 'majorDiatonic', intervals: [0, 1, 3, 5, 6, 8, 10]},
+  // Harmonic Minor Modes（和声小音阶的 7 个调式）
+  {id: 'hmAeolian7', name: 'Aeolian ♯7', family: 'harmonicMinor', intervals: [0, 2, 3, 5, 7, 8, 11]},
+  {id: 'hmLocrian6', name: 'Locrian ♯6', family: 'harmonicMinor', intervals: [0, 1, 3, 5, 6, 9, 10]},
+  {id: 'hmIonian5', name: 'Ionian ♯5', family: 'harmonicMinor', intervals: [0, 2, 4, 5, 8, 9, 11]},
+  {id: 'hmDorian4', name: 'Dorian ♯4', family: 'harmonicMinor', intervals: [0, 2, 3, 6, 7, 9, 10]},
+  {id: 'hmPhrygianMajor', name: 'Phrygian Major', family: 'harmonicMinor', intervals: [0, 1, 4, 5, 7, 8, 10]},
+  {id: 'hmLydian2', name: 'Lydian ♯2', family: 'harmonicMinor', intervals: [0, 3, 4, 6, 7, 9, 10]},
+  {id: 'hmUltralocrian', name: 'Ultralocrian', family: 'harmonicMinor', intervals: [0, 1, 3, 4, 6, 8, 9]},
 ];
 
 export function getScaleType(id: string): ScaleType {

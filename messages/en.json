@@ -83,7 +83,9 @@
     "title": "Music Slide Rule",
     "root": "Root",
     "chordsArpeggios": "Chords & Arpeggios",
-    "key": "Key (Circle of Fifths)",
+    "scales": "Scales",
+    "familyMajor": "Major Diatonic Modes",
+    "familyHarmonicMinor": "Harmonic Minor Modes",
     "catTriads": "Triads · Basics",
     "catSevenths": "7th Chords",
     "catSixths": "6th Chords",
@@ -113,14 +115,7 @@
       "add9": "Add 9",
       "eleven": "Eleven",
       "thirteen": "Thirteen"
-    },
-    "scaleType": "Scale",
-    "degrees": "Scale Degrees & Chords",
-    "progressions": "Progressions",
-    "major": "Major",
-    "naturalMinor": "Natural minor",
-    "harmonicMinor": "Harmonic minor",
-    "melodicMinor": "Melodic minor"
+    }
   },
   "nav": {
     "home": "Home"

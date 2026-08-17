@@ -83,7 +83,9 @@
     "title": "音乐滑尺",
     "root": "根音",
     "chordsArpeggios": "和弦与琶音",
-    "key": "主音（五度圈）",
+    "scales": "音阶",
+    "familyMajor": "大调自然调式",
+    "familyHarmonicMinor": "和声小调调式",
     "catTriads": "三和弦 · 基础",
     "catSevenths": "七和弦",
     "catSixths": "六和弦",
@@ -113,14 +115,7 @@
       "add9": "加九和弦",
       "eleven": "十一和弦",
       "thirteen": "十三和弦"
-    },
-    "scaleType": "音阶类型",
-    "degrees": "音级与顺阶和弦",
-    "progressions": "常用进行",
-    "major": "大调",
-    "naturalMinor": "自然小调",
-    "harmonicMinor": "和声小调",
-    "melodicMinor": "旋律小调"
+    }
   },
   "nav": {
     "home": "首页"

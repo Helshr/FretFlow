@@ -83,7 +83,9 @@
     "title": "ミュージックスライドルール",
     "root": "ルート",
     "chordsArpeggios": "コードとアルペジオ",
-    "key": "主音（五度圏）",
+    "scales": "スケール",
+    "familyMajor": "メジャー・ダイアトニック・モード",
+    "familyHarmonicMinor": "ハーモニック・マイナー・モード",
     "catTriads": "三和音 · 基本",
     "catSevenths": "七和音",
     "catSixths": "六和音",
@@ -113,14 +115,7 @@
       "add9": "add9",
       "eleven": "11th",
       "thirteen": "13th"
-    },
-    "scaleType": "音階の種類",
-    "degrees": "音級とダイアトニックコード",
-    "progressions": "よく使う進行",
-    "major": "メジャー",
-    "naturalMinor": "ナチュラルマイナー",
-    "harmonicMinor": "ハーモニックマイナー",
-    "melodicMinor": "メロディックマイナー"
+    }
   },
   "nav": {
     "home": "ホーム"
