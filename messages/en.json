@@ -80,7 +80,7 @@
     "emptyPool": "Chord pool is empty. Check data or lower the count."
   },
   "slideRule": {
-    "title": "Music Slide Rule",
+    "title": "Chords & Scales",
     "root": "Root",
     "chordsArpeggios": "Chords & Arpeggios",
     "scales": "Scales",
@@ -154,8 +154,8 @@
     "tunerDesc": "Real-time pitch detection via microphone. Tune every string accurately — simple, fast, no extra gear.",
 
     "slideRule": "Music Theory",
-    "slideRuleTitle": "Music Slide Rule",
-    "slideRuleDesc": "Pick a key and scale to instantly see scale degrees, diatonic chords & common progressions",
+    "slideRuleTitle": "Chords & Scales",
+    "slideRuleDesc": "Pick a root to see the notes of 23 chord types and 14 modes",
 
     "enter": "Start",
     "comingSoon": "Coming Soon",

@@ -80,7 +80,7 @@
     "emptyPool": "El grupo de acordes está vacío. Revisa los datos o reduce el número"
   },
   "slideRule": {
-    "title": "Regla deslizante musical",
+    "title": "Acordes y escalas",
     "root": "Tónica",
     "chordsArpeggios": "Acordes y arpegios",
     "scales": "Escalas",
@@ -154,8 +154,8 @@
     "tunerDesc": "Detección de tono en tiempo real por micrófono para afinar cada cuerda con precisión. Simple, rápido, sin equipo extra.",
 
     "slideRule": "Teoría musical",
-    "slideRuleTitle": "Regla deslizante musical",
-    "slideRuleDesc": "Elige tónica y escala para ver al instante grados, acordes diatónicos y progresiones",
+    "slideRuleTitle": "Acordes y escalas",
+    "slideRuleDesc": "Elige la tónica y ve las notas de 23 acordes y 14 modos",
 
     "enter": "Entrar",
     "comingSoon": "Próximamente",

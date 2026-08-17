@@ -80,7 +80,7 @@
     "emptyPool": "코드 풀이 비어 있습니다. 데이터를 확인하거나 개수를 줄여주세요"
   },
   "slideRule": {
-    "title": "뮤직 슬라이드 룰",
+    "title": "코드와 스케일",
     "root": "근음",
     "chordsArpeggios": "코드와 아르페지오",
     "scales": "스케일",
@@ -154,8 +154,8 @@
     "tunerDesc": "마이크로 실시간 음높이를 감지해 각 줄을 정확히 조율합니다. 간단·빠름·추가 장비 불필요.",
 
     "slideRule": "음악 이론",
-    "slideRuleTitle": "뮤직 슬라이드 룰",
-    "slideRuleDesc": "근음과 음계를 고르면 음계도·다이아토닉 코드·자주 쓰는 진행을 즉시 표시",
+    "slideRuleTitle": "코드와 스케일",
+    "slideRuleDesc": "근음을 고르면 23종 코드와 14개 모드의 구성음을 표시",
 
     "enter": "연습 시작",
     "comingSoon": "곧 출시",

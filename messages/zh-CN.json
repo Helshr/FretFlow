@@ -80,7 +80,7 @@
     "emptyPool": "和弦池为空，请检查数据或减少数量"
   },
   "slideRule": {
-    "title": "音乐滑尺",
+    "title": "和弦与音阶",
     "root": "根音",
     "chordsArpeggios": "和弦与琶音",
     "scales": "音阶",
@@ -154,8 +154,8 @@
     "tunerDesc": "使用麦克风实时检测音高，精准调准每根弦。简单、快速、无需额外设备。",
 
     "slideRule": "乐理工具",
-    "slideRuleTitle": "音乐滑尺",
-    "slideRuleDesc": "选主音与音阶，秒查音级、顺阶和弦与常用进行",
+    "slideRuleTitle": "和弦与音阶",
+    "slideRuleDesc": "选根音，查看 23 种和弦与 14 个调式的组成音",
 
     "enter": "进入训练",
     "comingSoon": "即将到来",

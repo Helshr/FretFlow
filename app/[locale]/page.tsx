@@ -5,6 +5,7 @@ import Image from 'next/image';
 import {useEffect} from 'react';
 import {Link} from '@/i18n/navigation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import FeatureCard from '@/components/FeatureCard';
 
 /**
  * FretFlow 首页 — 深色主题重设计（黑 + 金）
@@ -12,11 +13,11 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
  */
 
 const CARDS = [
-  {href: '/trainer', icon: '🎸', tag: 'trainer', title: 'trainerTitle', desc: 'trainerDesc', link: 'enter'},
-  {href: '/chords', icon: '📋', tag: 'chordChart', title: 'chordChartTitle', desc: 'chordChartDesc', link: 'enter'},
-  {href: '/notes', icon: '🎵', tag: 'notes', title: 'notesTitle', desc: 'notesDesc', link: 'enter'},
-  {href: '/tuner', icon: '🎯', tag: 'tuner', title: 'tunerTitle', desc: 'tunerDesc', link: 'enter'},
-  {href: '/slide-rule', icon: '🧭', tag: 'slideRule', title: 'slideRuleTitle', desc: 'slideRuleDesc', link: 'enter'},
+  {href: '/tuner', tag: 'tuner', title: 'tunerTitle', desc: 'tunerDesc', link: 'enter'},
+  {href: '/trainer', tag: 'trainer', title: 'trainerTitle', desc: 'trainerDesc', link: 'enter'},
+  {href: '/chords', tag: 'chordChart', title: 'chordChartTitle', desc: 'chordChartDesc', link: 'enter'},
+  {href: '/notes', tag: 'notes', title: 'notesTitle', desc: 'notesDesc', link: 'enter'},
+  {href: '/slide-rule', tag: 'slideRule', title: 'slideRuleTitle', desc: 'slideRuleDesc', link: 'enter'},
 ] as const;
 
 export default function HomePage() {
@@ -87,33 +88,22 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
             {CARDS.map((card, i) => (
-              <Link
+              <FeatureCard
                 key={card.href}
                 href={card.href}
-                className="group relative flex cursor-pointer flex-col gap-3 rounded-[20px] border border-[#2a2a2a] bg-[#141414] p-8 text-inherit no-underline transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#3d3d3d] hover:bg-[#1a1a1a] hover:shadow-[0_8px_32px_rgba(0,0,0,0.5)] max-md:p-6"
-                style={{animationDelay: `${i * 100}ms`}}
-              >
-                <div className="animate-fade-up mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-[rgba(232,168,80,0.12)] text-2xl">
-                  {card.icon}
-                </div>
-                <span className="animate-fade-up text-xs font-semibold uppercase tracking-[0.1em] text-[#e8a850] [animation-delay:100ms]">
-                  {t(card.tag)}
-                </span>
-                <h3 className="animate-fade-up text-xl font-bold tracking-[-0.01em] [animation-delay:150ms]">
-                  {t(card.title)}
-                </h3>
-                <p className="animate-fade-up text-[0.9375rem] leading-relaxed text-[#a0a0a0] [animation-delay:200ms]">
-                  {t(card.desc)}
-                </p>
-                <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300 group-hover:gap-3 group-hover:text-[#e8a850]">
-                  {t(card.link)}
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </span>
-              </Link>
+                index={i + 1}
+                delayMs={i * 100}
+                tag={t(card.tag)}
+                title={t(card.title)}
+                desc={t(card.desc)}
+                linkLabel={t(card.link)}
+              />
             ))}
 
-            <div className="relative flex cursor-default flex-col gap-3 rounded-[20px] border border-[#2a2a2a] bg-[#141414] p-8 opacity-50 max-md:p-6">
-              <div className="mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-[rgba(255,255,255,0.04)] text-2xl">✨</div>
+            <div className="relative flex animate-fade-up cursor-default flex-col gap-2.5 rounded-[20px] border border-[#2a2a2a] bg-[#141414] p-7 opacity-50 max-md:p-6" style={{animationDelay: '500ms'}}>
+              <span className="pointer-events-none absolute right-6 top-5 select-none text-4xl font-black tracking-tighter text-[#2a2a2a]">
+                {String(CARDS.length + 1).padStart(2, '0')}
+              </span>
               <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[#a0a0a0]">{t('comingSoon')}</span>
               <h3 className="text-xl font-bold tracking-[-0.01em]">{t('comingSoonTitle')}</h3>
             </div>
