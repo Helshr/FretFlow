@@ -79,6 +79,49 @@
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."
   },
+  "slideRule": {
+    "title": "Music Slide Rule",
+    "root": "Root",
+    "chordsArpeggios": "Chords & Arpeggios",
+    "key": "Key (Circle of Fifths)",
+    "catTriads": "Triads · Basics",
+    "catSevenths": "7th Chords",
+    "catSixths": "6th Chords",
+    "catSuspended": "Suspended",
+    "catExtended": "9 · 11 · 13",
+    "chordTypes": {
+      "major": "Major Triad",
+      "augmented": "Augmented Triad",
+      "minor": "Minor Triad",
+      "diminished": "Diminished Triad",
+      "dominant7": "Dominant 7",
+      "major7": "Major 7",
+      "minor7": "Minor 7",
+      "dim7": "Diminished 7",
+      "minorMaj7": "Minor Major 7",
+      "halfDim7": "Minor 7♭5",
+      "sevenFlat5": "7♭5",
+      "sevenSharp5": "7#5",
+      "sevenSharp9": "7#9",
+      "sevenFlat9": "7♭9",
+      "six": "Six",
+      "minorSix": "Minor 6",
+      "sixAdd9": "6/9",
+      "sus4": "Suspended 4",
+      "nine": "Nine",
+      "minorNine": "Minor 9",
+      "add9": "Add 9",
+      "eleven": "Eleven",
+      "thirteen": "Thirteen"
+    },
+    "scaleType": "Scale",
+    "degrees": "Scale Degrees & Chords",
+    "progressions": "Progressions",
+    "major": "Major",
+    "naturalMinor": "Natural minor",
+    "harmonicMinor": "Harmonic minor",
+    "melodicMinor": "Melodic minor"
+  },
   "nav": {
     "home": "Home"
   },
@@ -114,6 +157,10 @@
     "tuner": "Utility",
     "tunerTitle": "Guitar Tuner",
     "tunerDesc": "Real-time pitch detection via microphone. Tune every string accurately — simple, fast, no extra gear.",
+
+    "slideRule": "Music Theory",
+    "slideRuleTitle": "Music Slide Rule",
+    "slideRuleDesc": "Pick a key and scale to instantly see scale degrees, diatonic chords & common progressions",
 
     "enter": "Start",
     "comingSoon": "Coming Soon",

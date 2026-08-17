@@ -79,6 +79,49 @@
   "error": {
     "emptyPool": "코드 풀이 비어 있습니다. 데이터를 확인하거나 개수를 줄여주세요"
   },
+  "slideRule": {
+    "title": "뮤직 슬라이드 룰",
+    "root": "근음",
+    "chordsArpeggios": "코드와 아르페지오",
+    "key": "근음 (5도권)",
+    "catTriads": "3화음 · 기초",
+    "catSevenths": "7화음",
+    "catSixths": "6화음",
+    "catSuspended": "서스펜디드",
+    "catExtended": "9 · 11 · 13",
+    "chordTypes": {
+      "major": "장3화음",
+      "augmented": "증3화음",
+      "minor": "단3화음",
+      "diminished": "감3화음",
+      "dominant7": "도미넌트7",
+      "major7": "메이저7",
+      "minor7": "마이너7",
+      "dim7": "디미니시7",
+      "minorMaj7": "마이너메이저7",
+      "halfDim7": "하프디미니시7",
+      "sevenFlat5": "7♭5",
+      "sevenSharp5": "7#5",
+      "sevenSharp9": "7#9",
+      "sevenFlat9": "7♭9",
+      "six": "6th",
+      "minorSix": "m6",
+      "sixAdd9": "6/9",
+      "sus4": "서스4",
+      "nine": "9th",
+      "minorNine": "m9",
+      "add9": "add9",
+      "eleven": "11th",
+      "thirteen": "13th"
+    },
+    "scaleType": "음계 종류",
+    "degrees": "음계도와 코드",
+    "progressions": "자주 쓰는 진행",
+    "major": "메이저",
+    "naturalMinor": "내추럴 마이너",
+    "harmonicMinor": "하모닉 마이너",
+    "melodicMinor": "멜로딕 마이너"
+  },
   "nav": {
     "home": "홈"
   },
@@ -114,6 +157,10 @@
     "tuner": "실용 도구",
     "tunerTitle": "기타 튜너",
     "tunerDesc": "마이크로 실시간 음높이를 감지해 각 줄을 정확히 조율합니다. 간단·빠름·추가 장비 불필요.",
+
+    "slideRule": "음악 이론",
+    "slideRuleTitle": "뮤직 슬라이드 룰",
+    "slideRuleDesc": "근음과 음계를 고르면 음계도·다이아토닉 코드·자주 쓰는 진행을 즉시 표시",
 
     "enter": "연습 시작",
     "comingSoon": "곧 출시",

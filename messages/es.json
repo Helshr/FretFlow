@@ -79,6 +79,49 @@
   "error": {
     "emptyPool": "El grupo de acordes está vacío. Revisa los datos o reduce el número"
   },
+  "slideRule": {
+    "title": "Regla deslizante musical",
+    "root": "Tónica",
+    "chordsArpeggios": "Acordes y arpegios",
+    "key": "Tónica (círculo de quintas)",
+    "catTriads": "Tríadas · Básicas",
+    "catSevenths": "Acordes de séptima",
+    "catSixths": "Acordes de sexta",
+    "catSuspended": "Suspendidos",
+    "catExtended": "9 · 11 · 13",
+    "chordTypes": {
+      "major": "Tríada mayor",
+      "augmented": "Aumentada",
+      "minor": "Tríada menor",
+      "diminished": "Disminuida",
+      "dominant7": "Séptima dominante",
+      "major7": "Séptima mayor",
+      "minor7": "Séptima menor",
+      "dim7": "Séptima disminuida",
+      "minorMaj7": "Séptima menor mayor",
+      "halfDim7": "Séptima menor 5♭",
+      "sevenFlat5": "7♭5",
+      "sevenSharp5": "7#5",
+      "sevenSharp9": "7#9",
+      "sevenFlat9": "7♭9",
+      "six": "Sexta",
+      "minorSix": "Sexta menor",
+      "sixAdd9": "6/9",
+      "sus4": "Suspendida 4",
+      "nine": "Novena",
+      "minorNine": "Novena menor",
+      "add9": "Con 9ª",
+      "eleven": "Onceava",
+      "thirteen": "Treceava"
+    },
+    "scaleType": "Escala",
+    "degrees": "Grados y acordes",
+    "progressions": "Progresiones",
+    "major": "Mayor",
+    "naturalMinor": "Menor natural",
+    "harmonicMinor": "Menor armónica",
+    "melodicMinor": "Menor melódica"
+  },
   "nav": {
     "home": "Inicio"
   },
@@ -114,6 +157,10 @@
     "tuner": "Herramienta práctica",
     "tunerTitle": "Afinador de guitarra",
     "tunerDesc": "Detección de tono en tiempo real por micrófono para afinar cada cuerda con precisión. Simple, rápido, sin equipo extra.",
+
+    "slideRule": "Teoría musical",
+    "slideRuleTitle": "Regla deslizante musical",
+    "slideRuleDesc": "Elige tónica y escala para ver al instante grados, acordes diatónicos y progresiones",
 
     "enter": "Entrar",
     "comingSoon": "Próximamente",

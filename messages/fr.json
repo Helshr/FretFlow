@@ -79,6 +79,49 @@
   "error": {
     "emptyPool": "Le groupe d'accords est vide. Vérifiez les données ou réduisez le nombre"
   },
+  "slideRule": {
+    "title": "Règle à calculer musicale",
+    "root": "Tonique",
+    "chordsArpeggios": "Accords et arpèges",
+    "key": "Tonique (cycle des quintes)",
+    "catTriads": "Triades · Bases",
+    "catSevenths": "Accords de septième",
+    "catSixths": "Accords de sixte",
+    "catSuspended": "Suspendus",
+    "catExtended": "9 · 11 · 13",
+    "chordTypes": {
+      "major": "Triade majeure",
+      "augmented": "Augmentée",
+      "minor": "Triade mineure",
+      "diminished": "Diminuée",
+      "dominant7": "Septième de dominante",
+      "major7": "Septième majeure",
+      "minor7": "Septième mineure",
+      "dim7": "Septième diminuée",
+      "minorMaj7": "Septième mineure majeure",
+      "halfDim7": "Septième mineure 5♭",
+      "sevenFlat5": "7♭5",
+      "sevenSharp5": "7#5",
+      "sevenSharp9": "7#9",
+      "sevenFlat9": "7♭9",
+      "six": "Sixte",
+      "minorSix": "Sixte mineure",
+      "sixAdd9": "6/9",
+      "sus4": "Suspendue 4",
+      "nine": "Neuvième",
+      "minorNine": "Neuvième mineure",
+      "add9": "Ajoutée 9",
+      "eleven": "Onzième",
+      "thirteen": "Treizième"
+    },
+    "scaleType": "Gamme",
+    "degrees": "Degrés et accords",
+    "progressions": "Progressions",
+    "major": "Majeur",
+    "naturalMinor": "Mineur naturel",
+    "harmonicMinor": "Mineur harmonique",
+    "melodicMinor": "Mineur mélodique"
+  },
   "nav": {
     "home": "Accueil"
   },
@@ -114,6 +157,10 @@
     "tuner": "Outil pratique",
     "tunerTitle": "Accordeur de guitare",
     "tunerDesc": "Détection de hauteur en temps réel via le micro pour accorder chaque corde avec précision. Simple, rapide, sans matériel.",
+
+    "slideRule": "Théorie musicale",
+    "slideRuleTitle": "Règle à calculer musicale",
+    "slideRuleDesc": "Choisissez tonique et gamme pour voir instantanément degrés, accords diatoniques et progressions",
 
     "enter": "Entrer",
     "comingSoon": "Bientôt disponible",

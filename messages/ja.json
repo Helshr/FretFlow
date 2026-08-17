@@ -79,6 +79,49 @@
   "error": {
     "emptyPool": "コードがありません。データを確認するか、数を減らしてください"
   },
+  "slideRule": {
+    "title": "ミュージックスライドルール",
+    "root": "ルート",
+    "chordsArpeggios": "コードとアルペジオ",
+    "key": "主音（五度圏）",
+    "catTriads": "三和音 · 基本",
+    "catSevenths": "七和音",
+    "catSixths": "六和音",
+    "catSuspended": "サス系",
+    "catExtended": "9 · 11 · 13",
+    "chordTypes": {
+      "major": "長三和音",
+      "augmented": "増三和音",
+      "minor": "短三和音",
+      "diminished": "減三和音",
+      "dominant7": "属7",
+      "major7": "メジャー7",
+      "minor7": "マイナー7",
+      "dim7": "ディミニッシュ7",
+      "minorMaj7": "マイナーメジャー7",
+      "halfDim7": "ハーフディミニッシュ7",
+      "sevenFlat5": "7♭5",
+      "sevenSharp5": "7#5",
+      "sevenSharp9": "7#9",
+      "sevenFlat9": "7♭9",
+      "six": "6th",
+      "minorSix": "m6",
+      "sixAdd9": "6/9",
+      "sus4": "サス4",
+      "nine": "9th",
+      "minorNine": "m9",
+      "add9": "add9",
+      "eleven": "11th",
+      "thirteen": "13th"
+    },
+    "scaleType": "音階の種類",
+    "degrees": "音級とダイアトニックコード",
+    "progressions": "よく使う進行",
+    "major": "メジャー",
+    "naturalMinor": "ナチュラルマイナー",
+    "harmonicMinor": "ハーモニックマイナー",
+    "melodicMinor": "メロディックマイナー"
+  },
   "nav": {
     "home": "ホーム"
   },
@@ -114,6 +157,10 @@
     "tuner": "実用ツール",
     "tunerTitle": "ギターチューナー",
     "tunerDesc": "マイクでリアルタイムに音程を検出し、各弦を正確にチューニング。簡単・高速・追加機材不要。",
+
+    "slideRule": "音楽理論",
+    "slideRuleTitle": "ミュージックスライドルール",
+    "slideRuleDesc": "主音と音階を選ぶと、音級・順次和音・よく使う進行をすぐ表示",
 
     "enter": "練習へ",
     "comingSoon": "近日公開",

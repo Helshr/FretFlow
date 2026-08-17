@@ -79,6 +79,49 @@
   "error": {
     "emptyPool": "和弦池为空，请检查数据或减少数量"
   },
+  "slideRule": {
+    "title": "音乐滑尺",
+    "root": "根音",
+    "chordsArpeggios": "和弦与琶音",
+    "key": "主音（五度圈）",
+    "catTriads": "三和弦 · 基础",
+    "catSevenths": "七和弦",
+    "catSixths": "六和弦",
+    "catSuspended": "挂留和弦",
+    "catExtended": "九 · 十一 · 十三",
+    "chordTypes": {
+      "major": "大三和弦",
+      "augmented": "增三和弦",
+      "minor": "小三和弦",
+      "diminished": "减三和弦",
+      "dominant7": "属七和弦",
+      "major7": "大七和弦",
+      "minor7": "小七和弦",
+      "dim7": "减七和弦",
+      "minorMaj7": "小大七和弦",
+      "halfDim7": "半减七和弦",
+      "sevenFlat5": "属七降五",
+      "sevenSharp5": "属七升五",
+      "sevenSharp9": "属七升九",
+      "sevenFlat9": "属七降九",
+      "six": "六和弦",
+      "minorSix": "小六和弦",
+      "sixAdd9": "大六加九",
+      "sus4": "挂四和弦",
+      "nine": "九和弦",
+      "minorNine": "小九和弦",
+      "add9": "加九和弦",
+      "eleven": "十一和弦",
+      "thirteen": "十三和弦"
+    },
+    "scaleType": "音阶类型",
+    "degrees": "音级与顺阶和弦",
+    "progressions": "常用进行",
+    "major": "大调",
+    "naturalMinor": "自然小调",
+    "harmonicMinor": "和声小调",
+    "melodicMinor": "旋律小调"
+  },
   "nav": {
     "home": "首页"
   },
@@ -114,6 +157,10 @@
     "tuner": "实用工具",
     "tunerTitle": "吉他调音器",
     "tunerDesc": "使用麦克风实时检测音高，精准调准每根弦。简单、快速、无需额外设备。",
+
+    "slideRule": "乐理工具",
+    "slideRuleTitle": "音乐滑尺",
+    "slideRuleDesc": "选主音与音阶，秒查音级、顺阶和弦与常用进行",
 
     "enter": "进入训练",
     "comingSoon": "即将到来",

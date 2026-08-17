@@ -16,6 +16,7 @@ const CARDS = [
   {href: '/chords', icon: '📋', tag: 'chordChart', title: 'chordChartTitle', desc: 'chordChartDesc', link: 'enter'},
   {href: '/notes', icon: '🎵', tag: 'notes', title: 'notesTitle', desc: 'notesDesc', link: 'enter'},
   {href: '/tuner', icon: '🎯', tag: 'tuner', title: 'tunerTitle', desc: 'tunerDesc', link: 'enter'},
+  {href: '/slide-rule', icon: '🧭', tag: 'slideRule', title: 'slideRuleTitle', desc: 'slideRuleDesc', link: 'enter'},
 ] as const;
 
 export default function HomePage() {
