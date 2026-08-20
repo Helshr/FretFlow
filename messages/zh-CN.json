@@ -138,5 +138,12 @@
     "comingSoon": "即将到来",
     "comingSoonTitle": "更多功能开发中",
     "footerMore": "更多功能即将到来"
+  },
+  "practice": {
+    "record": "练习记录",
+    "streak": "连续 {n} 天",
+    "streakLabel": "连续天数",
+    "sessions": "累计 {n} 次",
+    "switches": "总切换 {n} 次"
   }
 }

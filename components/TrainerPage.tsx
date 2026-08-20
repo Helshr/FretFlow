@@ -35,7 +35,24 @@ export default function TrainerPage() {
 
         {session.phase === 'settings' && (
           <>
-            <div className="mb-6 text-center">
+            {/* 练习记录条 */}
+            <div className="mb-3 flex items-center justify-between rounded-xl border border-[#2a2a2a] bg-[#141414] px-4 py-1.5">
+              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#6b6b6b]">
+                {t('practice.record')}
+              </span>
+              <div className="flex items-center gap-4 text-sm text-[#a0a0a0]">
+                <span>
+                  <span className="font-bold text-[#e8a850]">
+                    {t('practice.streak', {n: session.practiceStats.currentStreak})}
+                  </span>
+                </span>
+                <span className="text-[#2a2a2a]">|</span>
+                <span>{t('practice.sessions', {n: session.practiceStats.totalSessions})}</span>
+                <span>{t('practice.switches', {n: session.practiceStats.totalSwitches})}</span>
+              </div>
+            </div>
+
+            <div className="mb-4 text-center">
               <h1 className="text-xl font-bold tracking-[-0.01em]">{t('app.title')}</h1>
               <p className="mt-1 text-sm text-[#a0a0a0]">{t('app.subtitle')}</p>
             </div>
@@ -85,6 +102,7 @@ export default function TrainerPage() {
               <StatCard value={session.switchCount} label={t('train.allChords')} />
               <StatCard value={`${session.durationMin}:00`} label={t('settings.time')} />
               <StatCard value={session.bpm} label={t('settings.bpm')} />
+              <StatCard value={session.practiceStats.currentStreak} label={t('practice.streakLabel')} />
             </div>
             <button
               onClick={session.stop}

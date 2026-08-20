@@ -9,6 +9,7 @@ import {formatTime} from '@/lib/format';
 import {tonePlayer} from '@/lib/notes/notes';
 import {useDrumMachine} from './useDrumMachine';
 import {useSessionTimers} from './useSessionTimers';
+import {usePracticeLog} from './usePracticeLog';
 import openDataJson from '@/data/open_chords.json';
 import cagedDataJson from '@/data/caged.json';
 
@@ -21,6 +22,7 @@ export function useTrainingSession() {
   const t = useTranslations('error');
   const drum = useDrumMachine();
   const timers = useSessionTimers();
+  const practice = usePracticeLog();
 
   const [phase, setPhase] = useState<SessionPhase>('settings');
   const [mode, setMode] = useState<'open' | 'caged'>('open');
@@ -56,6 +58,7 @@ export function useTrainingSession() {
   const startedAtRef = useRef(0);
   const pausedTotalRef = useRef(0);
   const pausedAtRef = useRef(0);
+  const switchCountRef = useRef(0);
 
   function playCurrentChord(c: PoolItem, when?: number) {
     if (settingsRef.current.playChord) {
@@ -76,7 +79,8 @@ export function useTrainingSession() {
     nextRef.current = pickNext(poolRef.current, cur);
     setCurrent(cur);
     setNext(nextRef.current);
-    setSwitchCount((c) => c + 1);
+    switchCountRef.current += 1;
+    setSwitchCount(switchCountRef.current);
     playCurrentChord(cur, when); // 采样已在上一次预加载 → 准时播放
     preloadChord(nextRef.current); // 后台预加载下一个和弦
   }
@@ -121,6 +125,13 @@ export function useTrainingSession() {
   function finish() {
     setPhase('done');
     stopAudio();
+    const s = settingsRef.current;
+    practice.logSession({
+      durationMin: s.durationMin,
+      bpm: s.bpm,
+      switchCount: switchCountRef.current,
+      mode: s.mode,
+    });
   }
 
   // 倒计时结束后的真正开始
@@ -129,6 +140,7 @@ export function useTrainingSession() {
     const pool = poolRef.current;
     startedAtRef.current = performance.now();
     setPhase('training');
+    switchCountRef.current = 0;
     setSwitchCount(0);
     setMeasureBeats(0);
     setProgress(1);
@@ -224,6 +236,7 @@ export function useTrainingSession() {
     measuresPerChord,
     bpm,
     durationMin,
+    practiceStats: practice.stats,
     start,
     togglePause,
     stop,

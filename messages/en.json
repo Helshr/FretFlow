@@ -138,5 +138,12 @@
     "comingSoon": "Coming Soon",
     "comingSoonTitle": "More Features in Development",
     "footerMore": "More features coming soon"
+  },
+  "practice": {
+    "record": "Practice Log",
+    "streak": "{n}-day streak",
+    "streakLabel": "Day streak",
+    "sessions": "{n} sessions",
+    "switches": "{n} switches"
   }
 }

@@ -138,5 +138,12 @@
     "comingSoon": "Próximamente",
     "comingSoonTitle": "Más funciones en desarrollo",
     "footerMore": "Más funciones próximamente"
+  },
+  "practice": {
+    "record": "Registro de práctica",
+    "streak": "Racha de {n} días",
+    "streakLabel": "Racha",
+    "sessions": "{n} sesiones",
+    "switches": "{n} cambios"
   }
 }

@@ -138,5 +138,12 @@
     "comingSoon": "近日公開",
     "comingSoonTitle": "さらに多くの機能を開発中",
     "footerMore": "さらなる機能が近日公開"
+  },
+  "practice": {
+    "record": "練習記録",
+    "streak": "連続 {n} 日",
+    "streakLabel": "連続日数",
+    "sessions": "累計 {n} 回",
+    "switches": "総チェンジ {n} 回"
   }
 }

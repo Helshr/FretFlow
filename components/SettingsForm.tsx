@@ -38,7 +38,7 @@ export default function SettingsForm({
   }
 
   return (
-    <div className="flex flex-col gap-4 rounded-[24px] border border-[#2a2a2a] bg-[#141414] p-6">
+    <div className="flex flex-col gap-3 rounded-[24px] border border-[#2a2a2a] bg-[#141414] p-6">
       <SettingSection label={t('mode')}>
         <PillGroup
           options={[
@@ -67,7 +67,7 @@ export default function SettingsForm({
         </SettingSection>
       )}
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-3 md:grid-cols-2">
         <SettingSection label={t('chordCount')}>
           <GoldSlider value={chordCount} min={2} max={18} onChange={setChordCount} />
         </SettingSection>
@@ -77,7 +77,7 @@ export default function SettingsForm({
         </SettingSection>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-3 md:grid-cols-2">
         <SettingSection label={t('pattern')}>
           <ChipGroup
             options={DRUM_PATTERNS.map((p) => ({
