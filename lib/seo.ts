@@ -22,7 +22,7 @@ export function languageAlternates(path: string): Record<string, string> {
   return out;
 }
 
-// 单页 metadata：title（layout 模板会追加 " — FretFlow"）+ desc + OG + hreflang
+// 单页 metadata：title（layout 模板会追加 " — FretFlow"）+ desc + OG + canonical + hreflang
 export function pageMetadata(
   title: string,
   description: string,
@@ -39,6 +39,9 @@ export function pageMetadata(
       siteName: 'FretFlow',
       locale: locale.replace('-', '_'),
     },
-    alternates: {languages: languageAlternates(path)},
+    alternates: {
+      canonical: absoluteUrl(locale, path),
+      languages: languageAlternates(path),
+    },
   };
 }

@@ -6,7 +6,7 @@ import {notFound} from 'next/navigation';
 import {Analytics} from '@vercel/analytics/next';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import {routing} from '@/i18n/routing';
-import {languageAlternates} from '@/lib/seo';
+import {absoluteUrl, languageAlternates} from '@/lib/seo';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -31,7 +31,10 @@ export async function generateMetadata({
       siteName: 'FretFlow',
       locale: locale.replace('-', '_'),
     },
-    alternates: {languages: languageAlternates('')},
+    alternates: {
+      canonical: absoluteUrl(locale, ''),
+      languages: languageAlternates(''),
+    },
   };
 }
 
