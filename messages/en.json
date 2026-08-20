@@ -64,18 +64,6 @@
     "loadingSamples": "Loading samples… {n}%",
     "sampleFailed": "Sample load failed, using synthesized tone"
   },
-  "tuner": {
-    "title": "Guitar Tuner",
-    "start": "Start",
-    "stop": "Stop",
-    "pluck": "Pluck a string",
-    "listening": "Listening…",
-    "inTune": "In tune!",
-    "flat": "Flat",
-    "sharp": "Sharp",
-    "micError": "Cannot access microphone. Check browser permissions.",
-    "stringX": "String {n}"
-  },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."
   },
@@ -124,7 +112,6 @@
     "title": "FretFlow",
     "subtitle": "Pick a feature to start practicing",
     "section": "Features",
-
     "heroEyebrow": "Master the Fretboard",
     "heroTitle1": "Guitar Practice",
     "heroTitle2": "Flows",
@@ -132,31 +119,21 @@
     "heroDesc": "From chord switching to fretboard memory, from tuning to theory — FretFlow makes every practice session precise and effective.",
     "heroCta": "Start Practicing",
     "scrollHint": "Scroll",
-
     "sectionTitle": "Choose Your Practice Path",
     "sectionSub": "Four carefully designed tools covering every guitarist's core training needs",
-
     "trainer": "Most Popular",
     "trainerTitle": "Chord Switching Trainer",
     "trainerDesc": "5-minute intensive switching drills. Covers Open Chords & the CAGED system with full fretboard transposition.",
-
     "chordChart": "Reference",
     "chordChartTitle": "Complete Chord Chart",
     "chordChartDesc": "All CAGED qualities × 12 roots. A complete fretboard fingering reference at your fingertips.",
     "chordChartNote": "All CAGED voicings × 12 roots · red = root · thick = barre",
-
     "notes": "Memory Drill",
     "notesTitle": "Fretboard Note Practice",
     "notesDesc": "The app calls out notes and plays each position across strings 6→1. Build fretboard intuition fast.",
-
-    "tuner": "Utility",
-    "tunerTitle": "Guitar Tuner",
-    "tunerDesc": "Real-time pitch detection via microphone. Tune every string accurately — simple, fast, no extra gear.",
-
     "slideRule": "Music Theory",
     "slideRuleTitle": "Chords & Scales",
     "slideRuleDesc": "Pick a root to see the notes of 23 chord types and 14 modes",
-
     "enter": "Start",
     "comingSoon": "Coming Soon",
     "comingSoonTitle": "More Features in Development",

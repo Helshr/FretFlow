@@ -64,18 +64,6 @@
     "loadingSamples": "음색 불러오는 중… {n}%",
     "sampleFailed": "음색 로드 실패, 대체 음색으로 재생 중"
   },
-  "tuner": {
-    "title": "기타 튜너",
-    "start": "튜닝 시작",
-    "stop": "중지",
-    "pluck": "줄을 튕겨주세요",
-    "listening": "튜닝 중…",
-    "inTune": "조율됨!",
-    "flat": "낮음",
-    "sharp": "높음",
-    "micError": "마이크에 접근할 수 없습니다. 브라우저 권한을 확인하세요",
-    "stringX": "{n}번 줄"
-  },
   "error": {
     "emptyPool": "코드 풀이 비어 있습니다. 데이터를 확인하거나 개수를 줄여주세요"
   },
@@ -124,7 +112,6 @@
     "title": "FretFlow",
     "subtitle": "연습할 기능을 선택하세요",
     "section": "기능",
-
     "heroEyebrow": "지판 정복",
     "heroTitle1": "기타 연습",
     "heroTitle2": "유연하게",
@@ -132,31 +119,21 @@
     "heroDesc": "코드 전환부터 지판 암기, 튜닝부터 이론까지——FretFlow가 매번의 연습을 정확하고 효율적으로 만들어줍니다.",
     "heroCta": "연습 시작",
     "scrollHint": "스크롤",
-
     "sectionTitle": "연습 방향 선택",
     "sectionSub": "기타리스트의 핵심 훈련을 다루는 4가지 도구",
-
     "trainer": "가장 인기",
     "trainerTitle": "코드 전환 연습기",
     "trainerDesc": "5분 고강도 전환 훈련. Open Chords와 CAGED 시스템을 아우르며, 전 지판 조옮김 연습을 지원합니다.",
-
     "chordChart": "참고 도구",
     "chordChartTitle": "전체 코드 차트",
     "chordChartDesc": "CAGED 전 유형 × 12 근음, 지판의 모든 폼 총람. 언제든 필요한 코드의 잡는 법을 확인하세요.",
     "chordChartNote": "CAGED 전 유형 × 12 근음 · 빨강=근음 · 굵은 선=바레",
-
     "notes": "암기 훈련",
     "notesTitle": "지판 음명 연습",
     "notesDesc": "프로그램이 음명을 말하고, 6→1줄 순서로 각 음의 위치를 재생합니다. 지판 음명 감각을 빠르게 익힙니다.",
-
-    "tuner": "실용 도구",
-    "tunerTitle": "기타 튜너",
-    "tunerDesc": "마이크로 실시간 음높이를 감지해 각 줄을 정확히 조율합니다. 간단·빠름·추가 장비 불필요.",
-
     "slideRule": "음악 이론",
     "slideRuleTitle": "코드와 스케일",
     "slideRuleDesc": "근음을 고르면 23종 코드와 14개 모드의 구성음을 표시",
-
     "enter": "연습 시작",
     "comingSoon": "곧 출시",
     "comingSoonTitle": "더 많은 기능 개발 중",

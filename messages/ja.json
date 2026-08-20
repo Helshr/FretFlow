@@ -64,18 +64,6 @@
     "loadingSamples": "サウンドを読み込み中… {n}%",
     "sampleFailed": "サウンド読み込みに失敗、代替音源で再生中"
   },
-  "tuner": {
-    "title": "ギターチューナー",
-    "start": "チューニング開始",
-    "stop": "停止",
-    "pluck": "弦を弾いてください",
-    "listening": "調律中…",
-    "inTune": "合っています！",
-    "flat": "低い",
-    "sharp": "高い",
-    "micError": "マイクにアクセスできません。ブラウザの権限を確認してください",
-    "stringX": "{n}弦"
-  },
   "error": {
     "emptyPool": "コードがありません。データを確認するか、数を減らしてください"
   },
@@ -124,7 +112,6 @@
     "title": "FretFlow",
     "subtitle": "練習する機能を選択",
     "section": "機能",
-
     "heroEyebrow": "指板を攻略",
     "heroTitle1": "ギター練習",
     "heroTitle2": "なめらかに",
@@ -132,31 +119,21 @@
     "heroDesc": "コードチェンジから指板記憶、チューニングから理論まで——FretFlow であなたの練習をより正確に、より効率的に。",
     "heroCta": "練習を始める",
     "scrollHint": "スクロール",
-
     "sectionTitle": "練習の方向を選ぶ",
     "sectionSub": "ギタリストの核心的なトレーニングをカバーする 4 つのツール",
-
     "trainer": "人気No.1",
     "trainerTitle": "コードチェンジ練習",
     "trainerDesc": "5 分間の高強度チェンジ練習。Open Chords と CAGED システムをカバー、フレット全般で移調練習に対応。",
-
     "chordChart": "参考ツール",
     "chordChartTitle": "全コード図",
     "chordChartDesc": "CAGED 全タイプ × 12 ルート。指板の全フォーム一覧、いつでも確認できます。",
     "chordChartNote": "CAGED 全タイプ × 12 ルート・赤=ルート・太線=バレー",
-
     "notes": "記憶トレーニング",
     "notesTitle": "指板音名練習",
     "notesDesc": "プログラムが音名を読み上げ、6→1 弦の順で各音の位置を再生。指板の音名感覚を素早く身につけます。",
-
-    "tuner": "実用ツール",
-    "tunerTitle": "ギターチューナー",
-    "tunerDesc": "マイクでリアルタイムに音程を検出し、各弦を正確にチューニング。簡単・高速・追加機材不要。",
-
     "slideRule": "音楽理論",
     "slideRuleTitle": "コードとスケール",
     "slideRuleDesc": "ルートを選ぶと、23 種類のコードと 14 のモードの構成音を表示",
-
     "enter": "練習へ",
     "comingSoon": "近日公開",
     "comingSoonTitle": "さらに多くの機能を開発中",
