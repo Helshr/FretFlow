@@ -237,6 +237,7 @@ export function useTrainingSession() {
     bpm,
     durationMin,
     practiceStats: practice.stats,
+    practiceRecent: practice.recent,
     start,
     togglePause,
     stop,

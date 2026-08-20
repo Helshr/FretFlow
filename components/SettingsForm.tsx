@@ -38,7 +38,7 @@ export default function SettingsForm({
   }
 
   return (
-    <div className="flex flex-col gap-3 rounded-[24px] border border-[#2a2a2a] bg-[#141414] p-6">
+    <div className="flex flex-col gap-2 rounded-[24px] border border-[#2a2a2a] bg-[#141414] p-4">
       <SettingSection label={t('mode')}>
         <PillGroup
           options={[
@@ -103,14 +103,14 @@ export default function SettingsForm({
           {[1, 3, 5, 10].map((d) => (
             <button
               key={d}
-              className={`rounded-xl border-[1.5px] px-4 py-2.5 text-center transition-all hover:border-[#e8a850] font-[inherit] cursor-pointer ${
+              className={`rounded-xl border-[1.5px] px-3 py-1.5 text-center transition-all hover:border-[#e8a850] font-[inherit] cursor-pointer ${
                 durationMin === d
                   ? 'border-[#e8a850] bg-[rgba(232,168,80,0.08)] text-[#e8a850]'
                   : 'border-[#2a2a2a] bg-transparent text-[#a0a0a0]'
               }`}
               onClick={() => setDurationMin(d)}
             >
-              <span className="block text-xl font-bold">{d}</span>
+              <span className="block text-base font-bold">{d}</span>
               <span className={`text-xs ${durationMin === d ? 'text-[#e8a850]' : 'text-[#6b6b6b]'}`}>
                 {t(`minutes${d}`)}
               </span>
@@ -119,7 +119,7 @@ export default function SettingsForm({
         </div>
       </SettingSection>
 
-      <div className="flex items-center justify-between gap-3 rounded-xl bg-[#1c1c1c] px-4 py-2.5">
+      <div className="flex items-center justify-between gap-3 rounded-xl bg-[#1c1c1c] px-4 py-2">
         <span className="min-w-0 text-[0.9375rem] font-medium text-[#a0a0a0]">{t('playChord')}</span>
         <Toggle on={playChord} onChange={setPlayChord} />
       </div>
@@ -131,7 +131,7 @@ export default function SettingsForm({
       <button
         onClick={submit}
         disabled={!samplesReady}
-        className="w-full rounded-2xl border-0 bg-[linear-gradient(135deg,#e8a850,#d49430)] py-3 text-lg font-bold text-[#0a0a0a] cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(232,168,80,0.5)] disabled:cursor-not-allowed disabled:opacity-40 [box-shadow:0_4px_24px_rgba(232,168,80,0.3)]"
+        className="w-full rounded-2xl border-0 bg-[linear-gradient(135deg,#e8a850,#d49430)] py-2.5 text-lg font-bold text-[#0a0a0a] cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(232,168,80,0.5)] disabled:cursor-not-allowed disabled:opacity-40 [box-shadow:0_4px_24px_rgba(232,168,80,0.3)]"
       >
         {t('start')}
       </button>
@@ -143,7 +143,7 @@ export default function SettingsForm({
 
 function SettingSection({label, children}: {label: string; children: React.ReactNode}) {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#6b6b6b]">
         {label}
         <span className="h-px flex-1 bg-[#2a2a2a]" />
@@ -167,7 +167,7 @@ function PillGroup<T extends string>({
       {options.map((o) => (
         <button
           key={o.v}
-          className={`rounded-full border-0 px-[22px] py-2.5 text-[0.9375rem] font-semibold cursor-pointer transition-all font-[inherit] ${
+          className={`rounded-full border-0 px-[22px] py-1.5 text-[0.9375rem] font-semibold cursor-pointer transition-all font-[inherit] ${
             o.v === value
               ? 'bg-[#e8a850] text-[#0a0a0a] [box-shadow:0_2px_12px_rgba(232,168,80,0.3)]'
               : 'bg-transparent text-[#a0a0a0]'
@@ -195,7 +195,7 @@ function ChipGroup<T extends string>({
       {options.map((o) => (
         <button
           key={o.v}
-          className={`rounded-full border-[1.5px] px-5 py-2.5 text-[0.9375rem] font-semibold cursor-pointer transition-all font-[inherit] ${
+          className={`rounded-full border-[1.5px] px-5 py-1.5 text-[0.9375rem] font-semibold cursor-pointer transition-all font-[inherit] ${
             o.v === value
               ? 'border-[#e8a850] bg-[#e8a850] text-[#0a0a0a] [box-shadow:0_2px_12px_rgba(232,168,80,0.3)]'
               : 'border-[#2a2a2a] bg-transparent text-[#a0a0a0] hover:border-[#e8a850] hover:text-[#e8a850]'
@@ -230,7 +230,7 @@ function GoldSlider({
         onChange={(e) => onChange(Number(e.target.value))}
         className="h-1.5 flex-1 cursor-pointer appearance-none rounded bg-[#2a2a2a] [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#e8a850] [&::-webkit-slider-thumb]:[box-shadow:0_0_16px_rgba(232,168,80,0.3)] [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:duration-150 hover:[&::-webkit-slider-thumb]:scale-[1.15]"
       />
-      <div className="min-w-[56px] rounded-xl border border-[#2a2a2a] bg-[#1c1c1c] px-3 py-2 text-center text-xl font-bold tabular-nums text-[#e8a850]">
+      <div className="min-w-[56px] rounded-xl border border-[#2a2a2a] bg-[#1c1c1c] px-3 py-1.5 text-center text-lg font-bold tabular-nums text-[#e8a850]">
         {value}
       </div>
     </div>
@@ -239,15 +239,11 @@ function GoldSlider({
 
 function Toggle({on, onChange}: {on: boolean; onChange: (v: boolean) => void}) {
   return (
-    <button
-      className={`relative h-7 w-12 shrink-0 cursor-pointer rounded-full border-none transition-colors ${on ? 'bg-[#e8a850]' : 'bg-[#2a2a2a]'}`}
-      onClick={() => onChange(!on)}
-    >
-      <span
-        className={`absolute top-[3px] h-[22px] w-[22px] rounded-full bg-white transition-transform ${
-          on ? 'translate-x-5' : 'translate-x-[3px]'
-        }`}
-      />
-    </button>
+    <input
+      type="checkbox"
+      className="toggle shrink-0"
+      checked={on}
+      onChange={(e) => onChange(e.target.checked)}
+    />
   );
 }

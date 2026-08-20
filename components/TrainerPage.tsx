@@ -21,9 +21,9 @@ export default function TrainerPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] antialiased">
-      <div className="mx-auto max-w-[900px] px-6 py-5 pb-8">
+      <div className="mx-auto max-w-[900px] px-6 py-4 pb-6">
         {/* 顶部栏 */}
-        <div className="mb-5 flex items-center justify-between">
+        <div className="mb-3 flex items-center justify-between">
           <Link
             href="/"
             className="inline-flex items-center gap-1.5 rounded-full border border-[#2a2a2a] px-4 py-2.5 text-sm font-semibold text-[#a0a0a0] transition-all hover:border-[#3d3d3d] hover:bg-[#1c1c1c] hover:text-[#f5f5f5]"
@@ -35,24 +35,43 @@ export default function TrainerPage() {
 
         {session.phase === 'settings' && (
           <>
-            {/* 练习记录条 */}
-            <div className="mb-3 flex items-center justify-between rounded-xl border border-[#2a2a2a] bg-[#141414] px-4 py-1.5">
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#6b6b6b]">
-                {t('practice.record')}
-              </span>
-              <div className="flex items-center gap-4 text-sm text-[#a0a0a0]">
-                <span>
-                  <span className="font-bold text-[#e8a850]">
-                    {t('practice.streak', {n: session.practiceStats.currentStreak})}
-                  </span>
+            {/* 练习记录（笔记本风格） */}
+            <div className="mb-2 overflow-hidden rounded-xl border border-[#2a2a2a] bg-[#141414]">
+              <div className="flex items-center justify-between border-b border-[#2a2a2a] bg-[#1c1c1c] px-4 py-1.5">
+                <span className="flex items-center gap-1.5 text-[0.8rem] font-bold text-[#f5f5f5]">
+                  <NotebookIcon />
+                  {t('practice.record')}
                 </span>
-                <span className="text-[#2a2a2a]">|</span>
-                <span>{t('practice.sessions', {n: session.practiceStats.totalSessions})}</span>
-                <span>{t('practice.switches', {n: session.practiceStats.totalSwitches})}</span>
+                <span className="rounded-full border border-[#e8a850]/40 bg-[#e8a850]/10 px-2.5 py-0.5 text-xs font-semibold text-[#e8a850]">
+                  {t('practice.streak', {n: session.practiceStats.currentStreak})}
+                </span>
+              </div>
+              <div className="px-4 py-1.5 text-[0.8rem] leading-[20px] [background:repeating-linear-gradient(transparent,transparent_19px,rgba(255,255,255,0.05)_19px,rgba(255,255,255,0.05)_20px)]">
+                {session.practiceRecent.length > 0 ? (
+                  session.practiceRecent.slice(0, 3).map((r, i) => (
+                    <div key={i} className="flex items-baseline justify-between">
+                      <span className="tabular-nums text-[#6b6b6b]">
+                        {r.date.slice(5).replace('-', '/')}
+                      </span>
+                      <span className="tabular-nums font-medium text-[#e8a850]">
+                        {t('practice.entry', {
+                          duration: r.durationMin,
+                          bpm: r.bpm,
+                          switches: r.switchCount,
+                        })}
+                      </span>
+                    </div>
+                  ))
+                ) : (
+                  <div className="flex flex-col items-center gap-1 py-2 text-center">
+                    <NotebookIcon className="text-[#3a3e46]" />
+                    <span className="text-[#6b6b6b]">{t('practice.empty')}</span>
+                  </div>
+                )}
               </div>
             </div>
 
-            <div className="mb-4 text-center">
+            <div className="mb-3 text-center">
               <h1 className="text-xl font-bold tracking-[-0.01em]">{t('app.title')}</h1>
               <p className="mt-1 text-sm text-[#a0a0a0]">{t('app.subtitle')}</p>
             </div>
@@ -114,6 +133,15 @@ export default function TrainerPage() {
         )}
       </div>
     </div>
+  );
+}
+
+function NotebookIcon({className = ''}: {className?: string}) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className={className}>
+      <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M5 6h6M5 9h6M5 12h3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
   );
 }
 

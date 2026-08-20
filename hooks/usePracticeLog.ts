@@ -97,6 +97,7 @@ function computeStats(records: PracticeRecord[]): PracticeStats {
 export function usePracticeLog() {
   const records = useSyncExternalStore(subscribe, getSnapshot, () => []);
   const stats = computeStats(records);
+  const recent = [...records].reverse();
 
   const logSession = useCallback((rec: Omit<PracticeRecord, 'date'>) => {
     const record: PracticeRecord = {...rec, date: todayStr()};
@@ -110,5 +111,5 @@ export function usePracticeLog() {
     window.dispatchEvent(new Event('storage'));
   }, []);
 
-  return {stats, logSession};
+  return {stats, recent, logSession};
 }

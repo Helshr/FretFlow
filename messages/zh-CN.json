@@ -144,6 +144,8 @@
     "streak": "连续 {n} 天",
     "streakLabel": "连续天数",
     "sessions": "累计 {n} 次",
-    "switches": "总切换 {n} 次"
+    "switches": "总切换 {n} 次",
+    "entry": "{duration}分 · {bpm} BPM · {switches} 次",
+    "empty": "完成一次训练，开始记录"
   }
 }

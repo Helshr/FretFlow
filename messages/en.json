@@ -144,6 +144,8 @@
     "streak": "{n}-day streak",
     "streakLabel": "Day streak",
     "sessions": "{n} sessions",
-    "switches": "{n} switches"
+    "switches": "{n} switches",
+    "entry": "{duration} min · {bpm} BPM · {switches}",
+    "empty": "Finish a session to start logging"
   }
 }

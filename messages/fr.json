@@ -144,6 +144,8 @@
     "streak": "Série de {n} jours",
     "streakLabel": "Série",
     "sessions": "{n} séances",
-    "switches": "{n} changements"
+    "switches": "{n} changements",
+    "entry": "{duration} min · {bpm} BPM · {switches}",
+    "empty": "Terminez une séance pour commencer le journal"
   }
 }

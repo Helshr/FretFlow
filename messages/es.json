@@ -144,6 +144,8 @@
     "streak": "Racha de {n} días",
     "streakLabel": "Racha",
     "sessions": "{n} sesiones",
-    "switches": "{n} cambios"
+    "switches": "{n} cambios",
+    "entry": "{duration} min · {bpm} BPM · {switches}",
+    "empty": "Termina una sesión para empezar a registrar"
   }
 }

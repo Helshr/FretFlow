@@ -144,6 +144,8 @@
     "streak": "連続 {n} 日",
     "streakLabel": "連続日数",
     "sessions": "累計 {n} 回",
-    "switches": "総チェンジ {n} 回"
+    "switches": "総チェンジ {n} 回",
+    "entry": "{duration}分 · {bpm} BPM · {switches}回",
+    "empty": "トレーニングを終えると記録が始まります"
   }
 }

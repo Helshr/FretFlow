@@ -144,6 +144,8 @@
     "streak": "연속 {n}일",
     "streakLabel": "연속 일수",
     "sessions": "누적 {n}회",
-    "switches": "총 전환 {n}회"
+    "switches": "총 전환 {n}회",
+    "entry": "{duration}분 · {bpm} BPM · {switches}회",
+    "empty": "연습을 마치면 기록이 시작됩니다"
   }
 }

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 @theme {
   --color-bg: #0a0a0a;
@@ -64,4 +65,16 @@ body {
   color: var(--color-text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* DaisyUI toggle 对齐黑金主题：关=深灰轨道+白球，开=金色轨道+白球 */
+.toggle {
+  border: none;
+  background-color: #2a2a2a;
+  --input-color: #fff;
+}
+.toggle:checked {
+  border: none;
+  background-color: #e8a850;
+  --input-color: #fff;
 }
