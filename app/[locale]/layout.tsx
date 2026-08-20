@@ -1,11 +1,12 @@
 import type {Metadata} from 'next';
 import {NextIntlClientProvider} from 'next-intl';
-import {getMessages, setRequestLocale} from 'next-intl/server';
+import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {Analytics} from '@vercel/analytics/next';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import {routing} from '@/i18n/routing';
+import {languageAlternates} from '@/lib/seo';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -17,10 +18,20 @@ export async function generateMetadata({
 }: {
   params: Promise<{locale: string}>;
 }): Promise<Metadata> {
-  await params;
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'home'});
+  const description = t('heroDesc');
   return {
-    title: 'FretFlow',
-    description: 'FretFlow — 吉他训练',
+    title: {default: 'FretFlow', template: '%s — FretFlow'},
+    description,
+    openGraph: {
+      title: 'FretFlow',
+      description,
+      type: 'website',
+      siteName: 'FretFlow',
+      locale: locale.replace('-', '_'),
+    },
+    alternates: {languages: languageAlternates('')},
   };
 }
 

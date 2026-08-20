@@ -1,13 +1,25 @@
+import type {Metadata} from 'next';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import cagedData from '@/data/caged.json';
 import {enumerateShapeRoots} from '@/lib/chords/enumerate';
 import {chordDisplay} from '@/lib/chords/display';
 import type {DisplayLabels} from '@/lib/chords/display';
 import type {CagedShape} from '@/lib/chords/types';
+import {pageMetadata} from '@/lib/seo';
 import ChordDiagram from '@/components/ChordDiagram';
 import FeaturePage from '@/components/FeaturePage';
 
 const ROOTS = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{locale: string}>;
+}): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale});
+  return pageMetadata(t('home.chordChartTitle'), t('home.chordChartDesc'), '/chords', locale);
+}
 
 export default async function ChordsPage({
   params,
