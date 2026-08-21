@@ -37,7 +37,8 @@
     "done": "Entrenamiento completado",
     "countdown": "Prepárate",
     "allChords": "Todos los acordes",
-    "return": "Volver a ajustes"
+    "return": "Volver a ajustes",
+    "chordSound": "Sonido de acorde"
   },
   "chord": {
     "majorSuffix": "mayor",

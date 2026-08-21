@@ -105,10 +105,12 @@ export default function TrainerPage() {
             next={session.next}
             timeText={session.timeText}
             paused={session.paused}
+            playChord={session.playChord}
             measureBeats={session.measureBeats}
             progress={session.progress}
             measuresPerChord={session.measuresPerChord}
             onPause={session.togglePause}
+            onToggleChord={session.togglePlayChord}
             onStop={session.stop}
           />
         )}

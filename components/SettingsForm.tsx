@@ -4,6 +4,7 @@ import {useState} from 'react';
 import {useTranslations} from 'next-intl';
 import type {Settings, ShapeFilter} from '@/lib/chords/types';
 import {DRUM_PATTERNS} from '@/lib/drum/drumMachine';
+import {loadPlayChord, savePlayChord} from '@/lib/prefs';
 
 export default function SettingsForm({
   onStart,
@@ -22,7 +23,7 @@ export default function SettingsForm({
   const [measuresPerChord, setMeasuresPerChord] = useState<1 | 2 | 4>(1);
   const [durationMin, setDurationMin] = useState(5);
   const [patternId, setPatternId] = useState('rock');
-  const [playChord, setPlayChord] = useState(true);
+  const [playChord, setPlayChord] = useState(loadPlayChord);
 
   function submit() {
     onStart({
@@ -121,7 +122,13 @@ export default function SettingsForm({
 
       <div className="flex items-center justify-between gap-3 rounded-xl bg-[#1c1c1c] px-4 py-2">
         <span className="min-w-0 text-[0.9375rem] font-medium text-[#a0a0a0]">{t('playChord')}</span>
-        <Toggle on={playChord} onChange={setPlayChord} />
+        <Toggle
+          on={playChord}
+          onChange={(v) => {
+            setPlayChord(v);
+            savePlayChord(v);
+          }}
+        />
       </div>
 
       {!samplesReady && (

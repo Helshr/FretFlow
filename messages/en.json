@@ -37,7 +37,8 @@
     "done": "Training Complete",
     "countdown": "Get ready",
     "allChords": "All chords",
-    "return": "Back to Settings"
+    "return": "Back to Settings",
+    "chordSound": "Chord sound"
   },
   "chord": {
     "majorSuffix": "Major",

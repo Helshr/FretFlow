@@ -37,7 +37,8 @@
     "done": "練習完了",
     "countdown": "準備",
     "allChords": "すべてのコード",
-    "return": "設定に戻る"
+    "return": "設定に戻る",
+    "chordSound": "コード音"
   },
   "chord": {
     "majorSuffix": "メジャー",

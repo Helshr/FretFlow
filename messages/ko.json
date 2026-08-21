@@ -37,7 +37,8 @@
     "done": "연습 완료",
     "countdown": "준비",
     "allChords": "전체 코드",
-    "return": "설정으로 돌아가기"
+    "return": "설정으로 돌아가기",
+    "chordSound": "코드음"
   },
   "chord": {
     "majorSuffix": "메이저",

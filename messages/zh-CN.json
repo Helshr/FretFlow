@@ -37,7 +37,8 @@
     "done": "训练完成",
     "countdown": "准备开始",
     "allChords": "全部和弦",
-    "return": "返回设置"
+    "return": "返回设置",
+    "chordSound": "和弦音"
   },
   "chord": {
     "majorSuffix": "大调",
