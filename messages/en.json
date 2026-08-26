@@ -153,7 +153,8 @@
     "empty": "Finish a session to start logging"
   },
   "tuner": {
-    "title": "Guitar Tuner",
+    "title": "Online Guitar Tuner with Microphone",
+    "metaDescription": "Free online guitar tuner with microphone: detects the pitch of all 6 strings in real time and guides you in 3 steps. Nothing to install, works in any browser.",
     "start": "Start",
     "stop": "Stop",
     "pluck": "Pluck a string",
@@ -162,6 +163,38 @@
     "flat": "Flat",
     "sharp": "Sharp",
     "micError": "Cannot access microphone. Check browser permissions.",
-    "stringX": "String {n}"
+    "stringX": "String {n}",
+    "seo": {
+      "h2": "Free online guitar tuner with microphone",
+      "intro": "Tuning your guitar has never been easier. This free online tuner uses your computer or phone microphone to detect the pitch of each string in real time and tells you when it sounds flat or sharp. Nothing to install, no extra gear — it runs right in the browser on any device with a microphone.",
+      "stepsTitle": "How to tune your guitar in 3 steps",
+      "steps": [
+        { "title": "Enable the microphone", "body": "Click «Start tuning» and allow microphone access when your browser asks." },
+        { "title": "Pluck a string", "body": "Pluck a string without fretting it: the tuner detects the note and the deviation. The needle to the left means flat; to the right, sharp." },
+        { "title": "Turn the tuning peg", "body": "Turn the corresponding peg until the string turns green and shows «In tune». Repeat for all 6 strings." }
+      ],
+      "stringsTitle": "String notes in standard tuning",
+      "stringsNote": "From low to high, the 6 guitar strings are tuned to:",
+      "strings": [
+        { "order": "6th", "note": "E (low E)" },
+        { "order": "5th", "note": "A" },
+        { "order": "4th", "note": "D" },
+        { "order": "3rd", "note": "G" },
+        { "order": "2nd", "note": "B" },
+        { "order": "1st", "note": "E (high E)" }
+      ],
+      "tipsTitle": "Tips for an accurate result",
+      "tips": [
+        "Tune in a quiet room so the microphone picks up only the string, not background noise.",
+        "Pluck firmly and wait 1–2 seconds for the reading to stabilize.",
+        "Tightening some strings slightly changes the others — double-check the 1st string when you're done."
+      ],
+      "faqTitle": "Frequently asked questions",
+      "faq": [
+        { "q": "How do I tune my guitar with my phone or computer?", "a": "Tap «Start tuning», allow microphone access, pluck an open string, and turn the peg until the note turns green. All you need is a browser." },
+        { "q": "What note is each guitar string?", "a": "In standard tuning, from low to high: E (6th), A (5th), D (4th), G (3rd), B (2nd), E (1st)." },
+        { "q": "Is this tuner free? Do I need to install anything?", "a": "Yes, it's completely free. FretFlow uses the browser's Web Audio API — nothing to download or install, and it works on any device with a microphone." }
+      ]
+    }
   }
 }

@@ -12,9 +12,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const t = await getTranslations({locale});
-  // 西班牙语 SEO 关键词页面使用专属描述，其余语言沿用首页卡片文案
-  const desc = locale === 'es' ? t('tuner.metaDescription') : t('home.tunerDesc');
-  return pageMetadata(t('tuner.title'), desc, '/tuner', locale);
+  return pageMetadata(t('tuner.title'), t('tuner.metaDescription'), '/tuner', locale);
 }
 
 export default async function TunerPage({
@@ -29,7 +27,7 @@ export default async function TunerPage({
   return (
     <FeaturePage homeLabel={t('nav.home')} title={t('tuner.title')}>
       <Tuner />
-      {locale === 'es' && <TunerSeo locale={locale} />}
+      <TunerSeo locale={locale} />
     </FeaturePage>
   );
 }
