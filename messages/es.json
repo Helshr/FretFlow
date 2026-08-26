@@ -153,7 +153,8 @@
     "empty": "Termina una sesión para empezar a registrar"
   },
   "tuner": {
-    "title": "Afinador de guitarra",
+    "title": "Afinador de Guitarra Online con Micrófono",
+    "metaDescription": "Afinador de guitarra online gratis con micrófono: detecta la nota de las 6 cuerdas en tiempo real y te guía en 3 pasos. Sin instalar nada, desde cualquier navegador.",
     "start": "Empezar a afinar",
     "stop": "Detener",
     "pluck": "Pulsa una cuerda",
@@ -162,6 +163,38 @@
     "flat": "Baja",
     "sharp": "Alta",
     "micError": "No se puede acceder al micrófono; revisa los permisos del navegador",
-    "stringX": "Cuerda {n}"
+    "stringX": "Cuerda {n}",
+    "seo": {
+      "h2": "Afinador de guitarra online gratis con micrófono",
+      "intro": "Afinar la guitarra nunca fue tan fácil. Este afinador online gratuito usa el micrófono de tu ordenador o móvil para detectar el tono de cada cuerda en tiempo real y mostrarte cuándo suena ligeramente grave o aguda. No necesitas instalar ni comprar un afinador: funciona directamente en el navegador, en cualquier dispositivo con micrófono.",
+      "stepsTitle": "Cómo afinar la guitarra en 3 pasos",
+      "steps": [
+        { "title": "Activa el micrófono", "body": "Pulsa «Empezar a afinar» y permite el acceso al micrófono cuando el navegador lo pida." },
+        { "title": "Toca una cuerda al aire", "body": "Pulsa una cuerda sin pisarla: el afinador detectará la nota y la desviación. El indicador a la izquierda significa que suena grave; a la derecha, aguda." },
+        { "title": "Ajusta la clavija", "body": "Gira la clavija correspondiente hasta que la cuerda aparezca en verde y veas «¡Afín!». Repite con las 6 cuerdas." }
+      ],
+      "stringsTitle": "Notas de las cuerdas en afinación estándar",
+      "stringsNote": "De grave a agudo, las 6 cuerdas de la guitarra se afinan así:",
+      "strings": [
+        { "order": "6ª", "note": "E (mi grave)" },
+        { "order": "5ª", "note": "A (la)" },
+        { "order": "4ª", "note": "D (re)" },
+        { "order": "3ª", "note": "G (sol)" },
+        { "order": "2ª", "note": "B (si)" },
+        { "order": "1ª", "note": "E (mi agudo)" }
+      ],
+      "tipsTitle": "Consejos para un resultado preciso",
+      "tips": [
+        "Afina en un lugar tranquilo para que el micrófono capte solo la cuerda y no el ruido ambiente.",
+        "Toca la cuerda con firmeza y espera 1–2 segundos a que se estabilice la lectura.",
+        "Al tensar unas cuerdas cambia ligeramente la afinación de las demás: al terminar repasa la 1ª cuerda."
+      ],
+      "faqTitle": "Preguntas frecuentes",
+      "faq": [
+        { "q": "¿Cómo afino la guitarra con el móvil o el ordenador?", "a": "Pulsa «Empezar a afinar», permite el acceso al micrófono, toca una cuerda al aire y gira la clavija hasta que la nota aparezca en verde. Solo necesitas el navegador." },
+        { "q": "¿Qué notas tienen las cuerdas de la guitarra?", "a": "En afinación estándar, de grave a agudo: E (6ª, mi grave), A (5ª, la), D (4ª, re), G (3ª, sol), B (2ª, si) y E (1ª, mi agudo)." },
+        { "q": "¿El afinador es gratis y no requiere instalar nada?", "a": "Sí. FretFlow funciona directamente en el navegador con Web Audio API: no descargas ni instalas nada y puedes usarlo en cualquier dispositivo con micrófono." }
+      ]
+    }
   }
 }
