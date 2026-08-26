@@ -138,7 +138,10 @@
     "enter": "Entrar",
     "comingSoon": "Próximamente",
     "comingSoonTitle": "Más funciones en desarrollo",
-    "footerMore": "Más funciones próximamente"
+    "footerMore": "Más funciones próximamente",
+    "tuner": "Herramienta práctica",
+    "tunerTitle": "Afinador de guitarra",
+    "tunerDesc": "Detección de tono en tiempo real por micrófono para afinar cada cuerda con precisión. Simple, rápido, sin equipo extra."
   },
   "practice": {
     "record": "Registro de práctica",
@@ -148,5 +151,17 @@
     "switches": "{n} cambios",
     "entry": "{duration} min · {bpm} BPM · {switches}",
     "empty": "Termina una sesión para empezar a registrar"
+  },
+  "tuner": {
+    "title": "Afinador de guitarra",
+    "start": "Empezar a afinar",
+    "stop": "Detener",
+    "pluck": "Pulsa una cuerda",
+    "listening": "Afinando…",
+    "inTune": "¡Afín!",
+    "flat": "Baja",
+    "sharp": "Alta",
+    "micError": "No se puede acceder al micrófono; revisa los permisos del navegador",
+    "stringX": "Cuerda {n}"
   }
 }

@@ -138,7 +138,10 @@
     "enter": "进入训练",
     "comingSoon": "即将到来",
     "comingSoonTitle": "更多功能开发中",
-    "footerMore": "更多功能即将到来"
+    "footerMore": "更多功能即将到来",
+    "tuner": "实用工具",
+    "tunerTitle": "吉他调音器",
+    "tunerDesc": "使用麦克风实时检测音高，精准调准每根弦。简单、快速、无需额外设备。"
   },
   "practice": {
     "record": "练习记录",
@@ -148,5 +151,17 @@
     "switches": "总切换 {n} 次",
     "entry": "{duration}分 · {bpm} BPM · {switches} 次",
     "empty": "完成一次训练，开始记录"
+  },
+  "tuner": {
+    "title": "吉他调音器",
+    "start": "开始调音",
+    "stop": "停止",
+    "pluck": "请拨一根琴弦",
+    "listening": "调音中…",
+    "inTune": "准了！",
+    "flat": "偏低",
+    "sharp": "偏高",
+    "micError": "无法访问麦克风，请检查浏览器权限",
+    "stringX": "{n}弦"
   }
 }

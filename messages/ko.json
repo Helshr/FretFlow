@@ -138,7 +138,10 @@
     "enter": "연습 시작",
     "comingSoon": "곧 출시",
     "comingSoonTitle": "더 많은 기능 개발 중",
-    "footerMore": "더 많은 기능이 곧 출시됩니다"
+    "footerMore": "더 많은 기능이 곧 출시됩니다",
+    "tuner": "실용 도구",
+    "tunerTitle": "기타 튜너",
+    "tunerDesc": "마이크로 실시간 음높이를 감지해 각 줄을 정확히 조율합니다. 간단·빠름·추가 장비 불필요."
   },
   "practice": {
     "record": "연습 기록",
@@ -148,5 +151,17 @@
     "switches": "총 전환 {n}회",
     "entry": "{duration}분 · {bpm} BPM · {switches}회",
     "empty": "연습을 마치면 기록이 시작됩니다"
+  },
+  "tuner": {
+    "title": "기타 튜너",
+    "start": "튜닝 시작",
+    "stop": "중지",
+    "pluck": "줄을 튕겨주세요",
+    "listening": "튜닝 중…",
+    "inTune": "조율됨!",
+    "flat": "낮음",
+    "sharp": "높음",
+    "micError": "마이크에 접근할 수 없습니다. 브라우저 권한을 확인하세요",
+    "stringX": "{n}번 줄"
   }
 }

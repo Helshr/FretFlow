@@ -13,6 +13,7 @@ import FeatureCard from '@/components/FeatureCard';
  */
 
 const CARDS = [
+  {href: '/tuner', tag: 'tuner', title: 'tunerTitle', desc: 'tunerDesc', link: 'enter'},
   {href: '/trainer', tag: 'trainer', title: 'trainerTitle', desc: 'trainerDesc', link: 'enter'},
   {href: '/chords', tag: 'chordChart', title: 'chordChartTitle', desc: 'chordChartDesc', link: 'enter'},
   {href: '/notes', tag: 'notes', title: 'notesTitle', desc: 'notesDesc', link: 'enter'},

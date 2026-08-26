@@ -138,7 +138,10 @@
     "enter": "Start",
     "comingSoon": "Coming Soon",
     "comingSoonTitle": "More Features in Development",
-    "footerMore": "More features coming soon"
+    "footerMore": "More features coming soon",
+    "tuner": "Utility",
+    "tunerTitle": "Guitar Tuner",
+    "tunerDesc": "Real-time pitch detection via microphone. Tune every string accurately — simple, fast, no extra gear."
   },
   "practice": {
     "record": "Practice Log",
@@ -148,5 +151,17 @@
     "switches": "{n} switches",
     "entry": "{duration} min · {bpm} BPM · {switches}",
     "empty": "Finish a session to start logging"
+  },
+  "tuner": {
+    "title": "Guitar Tuner",
+    "start": "Start",
+    "stop": "Stop",
+    "pluck": "Pluck a string",
+    "listening": "Listening…",
+    "inTune": "In tune!",
+    "flat": "Flat",
+    "sharp": "Sharp",
+    "micError": "Cannot access microphone. Check browser permissions.",
+    "stringX": "String {n}"
   }
 }

@@ -138,7 +138,10 @@
     "enter": "Entrer",
     "comingSoon": "Bientôt disponible",
     "comingSoonTitle": "Plus de fonctions en développement",
-    "footerMore": "Plus de fonctions à venir"
+    "footerMore": "Plus de fonctions à venir",
+    "tuner": "Outil pratique",
+    "tunerTitle": "Accordeur de guitare",
+    "tunerDesc": "Détection de hauteur en temps réel via le micro pour accorder chaque corde avec précision. Simple, rapide, sans matériel."
   },
   "practice": {
     "record": "Journal de pratique",
@@ -148,5 +151,17 @@
     "switches": "{n} changements",
     "entry": "{duration} min · {bpm} BPM · {switches}",
     "empty": "Terminez une séance pour commencer le journal"
+  },
+  "tuner": {
+    "title": "Accordeur de guitare",
+    "start": "Commencer l'accordage",
+    "stop": "Arrêter",
+    "pluck": "Pincez une corde",
+    "listening": "Accordage…",
+    "inTune": "Juste !",
+    "flat": "Trop bas",
+    "sharp": "Trop haut",
+    "micError": "Impossible d'accéder au micro ; vérifiez les permissions du navigateur",
+    "stringX": "Corde {n}"
   }
 }
