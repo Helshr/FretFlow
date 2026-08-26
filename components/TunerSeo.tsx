@@ -50,6 +50,9 @@ export default async function TunerSeo({locale}: {locale: string}) {
         ))}
       </div>
 
+      <h3 className="mt-8 text-lg font-bold tracking-[-0.01em]">{t('hzTitle')}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-[#a0a0a0]">{t('hzBody')}</p>
+
       <h3 className="mt-8 text-lg font-bold tracking-[-0.01em]">{t('tipsTitle')}</h3>
       <ul className="mt-3 grid gap-2">
         {tips.map((tip, i) => (

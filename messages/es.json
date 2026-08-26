@@ -153,8 +153,8 @@
     "empty": "Termina una sesión para empezar a registrar"
   },
   "tuner": {
-    "title": "Afinador de Guitarra Online con Micrófono",
-    "metaDescription": "Afinador de guitarra online gratis con micrófono: detecta la nota de las 6 cuerdas en tiempo real y te guía en 3 pasos. Sin instalar nada, desde cualquier navegador.",
+    "title": "Afinador de Guitarra Online con Micrófono Gratis",
+    "metaDescription": "Afina tu guitarra online gratis usando el micrófono. Afinador cromático rápido y preciso, compatible con la afinación estándar y las frecuencias de referencia de 432 Hz y 440 Hz.",
     "start": "Empezar a afinar",
     "stop": "Detener",
     "pluck": "Pulsa una cuerda",
@@ -164,6 +164,7 @@
     "sharp": "Alta",
     "micError": "No se puede acceder al micrófono; revisa los permisos del navegador",
     "stringX": "Cuerda {n}",
+    "referencePitch": "Frecuencia de referencia",
     "seo": {
       "h2": "Afinador de guitarra online gratis con micrófono",
       "intro": "Afinar la guitarra nunca fue tan fácil. Este afinador online gratuito usa el micrófono de tu ordenador o móvil para detectar el tono de cada cuerda en tiempo real y mostrarte cuándo suena ligeramente grave o aguda. No necesitas instalar ni comprar un afinador: funciona directamente en el navegador, en cualquier dispositivo con micrófono.",
@@ -173,6 +174,8 @@
         { "title": "Toca una cuerda al aire", "body": "Pulsa una cuerda sin pisarla: el afinador detectará la nota y la desviación. El indicador a la izquierda significa que suena grave; a la derecha, aguda." },
         { "title": "Ajusta la clavija", "body": "Gira la clavija correspondiente hasta que la cuerda aparezca en verde y veas «¡Afín!». Repite con las 6 cuerdas." }
       ],
+      "hzTitle": "Afinador de guitarra a 432 Hz y 440 Hz",
+      "hzBody": "Además de la afinación estándar a 440 Hz, este afinador online permite cambiar la frecuencia de referencia a 432 Hz, la afinación que muchos músicos eligen por su sonido más cálido. En «Frecuencia de referencia», elige 432 Hz o 440 Hz: las notas de las cuerdas y el indicador se ajustan automáticamente.",
       "stringsTitle": "Notas de las cuerdas en afinación estándar",
       "stringsNote": "De grave a agudo, las 6 cuerdas de la guitarra se afinan así:",
       "strings": [

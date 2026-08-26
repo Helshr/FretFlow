@@ -3,10 +3,11 @@
 import {useTranslations} from 'next-intl';
 import {GUITAR_STRINGS} from '@/lib/guitar';
 import {useTuner} from '@/hooks/useTuner';
+import {saveReferencePitch} from '@/lib/prefs';
 
 export default function Tuner() {
   const t = useTranslations('tuner');
-  const {running, detected, silent, micError, start, stop} = useTuner();
+  const {running, detected, silent, micError, reference, setReference, start, stop} = useTuner();
 
   const cents = detected ? detected.stringCents : 0;
   const inTune = detected !== null && Math.abs(cents) <= 5;
@@ -26,6 +27,31 @@ export default function Tuner() {
 
   return (
     <div className="mx-auto max-w-[560px] text-center">
+      {/* 参考音高切换（440 / 432 Hz） */}
+      <div className="mb-5 flex items-center justify-center gap-3">
+        <span className="text-xs font-semibold uppercase tracking-[0.08em] text-muted">
+          {t('referencePitch')}
+        </span>
+        <div className="flex gap-0.5 rounded-full border border-line bg-card-2 p-[3px]">
+          {[440, 432].map((hz) => (
+            <button
+              key={hz}
+              onClick={() => {
+                setReference(hz);
+                saveReferencePitch(hz);
+              }}
+              className={`rounded-full px-4 py-1 text-sm font-bold font-[inherit] cursor-pointer transition-all ${
+                reference === hz
+                  ? 'bg-accent text-[#0a0a0a] [box-shadow:0_2px_12px_rgba(232,168,80,0.3)]'
+                  : 'text-muted hover:text-text'
+              }`}
+            >
+              {hz} Hz
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* 弦排 */}
       <div className="mb-8 flex justify-center gap-2">
         {GUITAR_STRINGS.map((s) => {

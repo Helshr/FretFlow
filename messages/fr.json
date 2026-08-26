@@ -154,7 +154,7 @@
   },
   "tuner": {
     "title": "Accordeur de guitare en ligne avec micro",
-    "metaDescription": "Accordeur de guitare en ligne gratuit avec micro : détecte la hauteur des 6 cordes en temps réel et vous guide en 3 étapes. Sans installation, dans n'importe quel navigateur.",
+    "metaDescription": "Accordeur de guitare en ligne gratuit avec micro : détecte la hauteur des 6 cordes en temps réel et vous guide en 3 étapes. Fréquence de référence réglable : 440 Hz ou 432 Hz. Sans installation, dans n'importe quel navigateur.",
     "start": "Commencer l'accordage",
     "stop": "Arrêter",
     "pluck": "Pincez une corde",
@@ -164,6 +164,7 @@
     "sharp": "Trop haut",
     "micError": "Impossible d'accéder au micro ; vérifiez les permissions du navigateur",
     "stringX": "Corde {n}",
+    "referencePitch": "Fréquence de référence",
     "seo": {
       "h2": "Accordeur de guitare en ligne gratuit avec micro",
       "intro": "Accorder sa guitare n'a jamais été aussi simple. Cet accordeur en ligne gratuit utilise le micro de votre ordinateur ou de votre téléphone pour détecter la hauteur de chaque corde en temps réel et vous indique si elle est trop grave ou trop aiguë. Rien à installer, aucun matériel supplémentaire : ça fonctionne directement dans le navigateur, sur n'importe quel appareil avec micro.",
@@ -183,6 +184,8 @@
         { "order": "Corde 2", "note": "B (si)" },
         { "order": "Corde 1", "note": "E (mi aigu)" }
       ],
+      "hzTitle": "Accordeur de guitare en 432 Hz et 440 Hz",
+      "hzBody": "Outre l'accordage standard à 440 Hz, cet accordeur en ligne permet de passer la fréquence de référence à 432 Hz, l'accordage que certains musiciens préfèrent pour son son plus chaleureux. Choisissez « Fréquence de référence » puis 432 Hz ou 440 Hz : les notes cibles des cordes et l'aiguille s'ajustent automatiquement.",
       "tipsTitle": "Conseils pour un résultat précis",
       "tips": [
         "Accordez dans un endroit calme pour que le micro capte uniquement la corde, pas le bruit ambiant.",

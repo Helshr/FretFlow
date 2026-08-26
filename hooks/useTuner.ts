@@ -3,12 +3,18 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {autoCorrelate, freqToDetected} from '@/lib/tuner/pitch';
 import type {Detected} from '@/lib/tuner/pitch';
+import {loadReferencePitch} from '@/lib/prefs';
 
 export function useTuner() {
   const [running, setRunning] = useState(false);
   const [detected, setDetected] = useState<Detected | null>(null);
   const [silent, setSilent] = useState(false);
   const [micError, setMicError] = useState(false);
+  const [reference, setReference] = useState(loadReferencePitch);
+  const referenceRef = useRef(reference);
+  useEffect(() => {
+    referenceRef.current = reference;
+  }, [reference]);
 
   const ctxRef = useRef<AudioContext | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -25,7 +31,7 @@ export function useTuner() {
     const freq = autoCorrelate(bufRef.current, sampleRate);
     if (freq > 0) {
       setSilent(false);
-      setDetected(freqToDetected(freq));
+      setDetected(freqToDetected(freq, referenceRef.current));
     } else {
       setSilent(true);
     }
@@ -77,5 +83,5 @@ export function useTuner() {
     };
   }, [stop]);
 
-  return {running, detected, silent, micError, start, stop};
+  return {running, detected, silent, micError, reference, setReference, start, stop};
 }

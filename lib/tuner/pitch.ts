@@ -73,8 +73,9 @@ export function autoCorrelate(buf: Float32Array, sampleRate: number): number {
   return -1;
 }
 
-export function freqToDetected(freq: number): Detected {
-  const midi = 69 + 12 * Math.log2(freq / 440);
+// referenceA：A4 参考频率（440 或 432 Hz 等），各弦目标音与音分偏差随之缩放
+export function freqToDetected(freq: number, referenceA = 440): Detected {
+  const midi = 69 + 12 * Math.log2(freq / referenceA);
   const nearestMidi = Math.round(midi);
   const note = NOTE_NAMES[((nearestMidi % 12) + 12) % 12];
   const cents = (midi - nearestMidi) * 100;
@@ -82,7 +83,8 @@ export function freqToDetected(freq: number): Detected {
   let bestStr = GUITAR_STRINGS[0];
   let bestDiff = Infinity;
   for (const s of GUITAR_STRINGS) {
-    const diff = Math.abs(1200 * Math.log2(freq / s.freq));
+    const targetFreq = (s.freq * referenceA) / 440;
+    const diff = Math.abs(1200 * Math.log2(freq / targetFreq));
     if (diff < bestDiff) {
       bestDiff = diff;
       bestStr = s;
@@ -96,6 +98,6 @@ export function freqToDetected(freq: number): Detected {
     cents,
     string: bestStr.string,
     stringNote: bestStr.note,
-    stringCents: 1200 * Math.log2(freq / bestStr.freq),
+    stringCents: 1200 * Math.log2(freq / ((bestStr.freq * referenceA) / 440)),
   };
 }

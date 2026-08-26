@@ -18,3 +18,23 @@ export function savePlayChord(v: boolean): void {
     /* localStorage 不可用时忽略 */
   }
 }
+
+const REFERENCE_PITCH_KEY = 'fretflow-reference-pitch';
+
+export function loadReferencePitch(): number {
+  if (typeof window === 'undefined') return 440;
+  try {
+    const v = Number(localStorage.getItem(REFERENCE_PITCH_KEY));
+    return v === 432 ? 432 : 440;
+  } catch {
+    return 440;
+  }
+}
+
+export function saveReferencePitch(v: number): void {
+  try {
+    localStorage.setItem(REFERENCE_PITCH_KEY, String(v));
+  } catch {
+    /* localStorage 不可用时忽略 */
+  }
+}

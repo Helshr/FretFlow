@@ -154,7 +154,7 @@
   },
   "tuner": {
     "title": "Online Guitar Tuner with Microphone",
-    "metaDescription": "Free online guitar tuner with microphone: detects the pitch of all 6 strings in real time and guides you in 3 steps. Nothing to install, works in any browser.",
+    "metaDescription": "Free online guitar tuner with microphone: detects the pitch of all 6 strings in real time and guides you in 3 steps. Selectable reference pitch — 440 Hz or 432 Hz. Nothing to install, works in any browser.",
     "start": "Start",
     "stop": "Stop",
     "pluck": "Pluck a string",
@@ -164,6 +164,7 @@
     "sharp": "Sharp",
     "micError": "Cannot access microphone. Check browser permissions.",
     "stringX": "String {n}",
+    "referencePitch": "Reference pitch",
     "seo": {
       "h2": "Free online guitar tuner with microphone",
       "intro": "Tuning your guitar has never been easier. This free online tuner uses your computer or phone microphone to detect the pitch of each string in real time and tells you when it sounds flat or sharp. Nothing to install, no extra gear — it runs right in the browser on any device with a microphone.",
@@ -183,6 +184,8 @@
         { "order": "2nd", "note": "B" },
         { "order": "1st", "note": "E (high E)" }
       ],
+      "hzTitle": "Tuner at 432 Hz and 440 Hz",
+      "hzBody": "Besides standard tuning at 440 Hz, this online tuner lets you switch the reference pitch to 432 Hz — the tuning many musicians prefer for its warmer sound. Pick «Reference pitch» and choose 432 Hz or 440 Hz: the string targets and the needle adjust automatically.",
       "tipsTitle": "Tips for an accurate result",
       "tips": [
         "Tune in a quiet room so the microphone picks up only the string, not background noise.",
