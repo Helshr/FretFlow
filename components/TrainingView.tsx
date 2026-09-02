@@ -12,10 +12,12 @@ export default function TrainingView({
   next,
   timeText,
   paused,
+  playChord,
   measureBeats,
   progress,
   measuresPerChord,
   onPause,
+  onToggleChord,
   onStop,
 }: {
   modeLabel: string;
@@ -24,10 +26,12 @@ export default function TrainingView({
   next: PoolItem | null;
   timeText: string;
   paused: boolean;
+  playChord: boolean;
   measureBeats: number;
   progress: number;
   measuresPerChord: number;
   onPause: () => void;
+  onToggleChord: () => void;
   onStop: () => void;
 }) {
   const t = useTranslations();
@@ -147,7 +151,16 @@ export default function TrainingView({
       <div className="text-sm text-[#6b6b6b]">{modeLabel}</div>
 
       {/* 控制 */}
-      <div className="flex gap-3">
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <label className="flex cursor-pointer items-center gap-2 rounded-full border-[1.5px] border-[#2a2a2a] bg-[#1c1c1c] px-4 py-2 text-sm font-bold font-[inherit]">
+          <span className={playChord ? 'text-[#e8a850]' : 'text-[#a0a0a0]'}>{t('train.chordSound')}</span>
+          <input
+            type="checkbox"
+            className="toggle toggle-sm"
+            checked={playChord}
+            onChange={() => onToggleChord()}
+          />
+        </label>
         <button
           onClick={onPause}
           className="inline-flex items-center gap-2 rounded-full border-[1.5px] px-6 py-2 text-sm font-bold cursor-pointer transition-all font-[inherit]"

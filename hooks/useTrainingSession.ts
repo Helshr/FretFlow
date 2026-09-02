@@ -10,6 +10,7 @@ import {tonePlayer} from '@/lib/notes/notes';
 import {useDrumMachine} from './useDrumMachine';
 import {useSessionTimers} from './useSessionTimers';
 import {usePracticeLog} from './usePracticeLog';
+import {loadPlayChord, savePlayChord} from '@/lib/prefs';
 import openDataJson from '@/data/open_chords.json';
 import cagedDataJson from '@/data/caged.json';
 
@@ -32,6 +33,7 @@ export function useTrainingSession() {
   const [next, setNext] = useState<PoolItem | null>(null);
   const [timeText, setTimeText] = useState('05:00');
   const [paused, setPaused] = useState(false);
+  const [playChord, setPlayChord] = useState(loadPlayChord);
   const [countdown, setCountdown] = useState<number | null>(null);
   const [switchCount, setSwitchCount] = useState(0);
   const [measureBeats, setMeasureBeats] = useState(0);
@@ -171,6 +173,7 @@ export function useTrainingSession() {
     setMeasuresPerChord(settings.measuresPerChord);
     setBpm(settings.bpm);
     setDurationMin(settings.durationMin);
+    setPlayChord(settings.playChord);
 
     // 用户手势内预建音频上下文（倒计时结束后才能正常发声）
     getAudioContext();
@@ -206,6 +209,14 @@ export function useTrainingSession() {
     }
   }
 
+  // 训练中随时开关「播放当前和弦音」
+  function togglePlayChord() {
+    const v = !settingsRef.current.playChord;
+    settingsRef.current.playChord = v;
+    setPlayChord(v);
+    savePlayChord(v);
+  }
+
   function stop() {
     setPhase('settings');
     setPaused(false);
@@ -229,6 +240,7 @@ export function useTrainingSession() {
     next,
     timeText,
     paused,
+    playChord,
     countdown,
     switchCount,
     measureBeats,
@@ -240,6 +252,7 @@ export function useTrainingSession() {
     practiceRecent: practice.recent,
     start,
     togglePause,
+    togglePlayChord,
     stop,
   };
 }

@@ -37,7 +37,8 @@
     "done": "Entraînement terminé",
     "countdown": "Préparez-vous",
     "allChords": "Tous les accords",
-    "return": "Retour aux réglages"
+    "return": "Retour aux réglages",
+    "chordSound": "Son d'accord"
   },
   "chord": {
     "majorSuffix": "majeur",
@@ -137,7 +138,10 @@
     "enter": "Entrer",
     "comingSoon": "Bientôt disponible",
     "comingSoonTitle": "Plus de fonctions en développement",
-    "footerMore": "Plus de fonctions à venir"
+    "footerMore": "Plus de fonctions à venir",
+    "tuner": "Outil pratique",
+    "tunerTitle": "Accordeur de guitare",
+    "tunerDesc": "Détection de hauteur en temps réel via le micro pour accorder chaque corde avec précision. Simple, rapide, sans matériel."
   },
   "practice": {
     "record": "Journal de pratique",
@@ -147,5 +151,53 @@
     "switches": "{n} changements",
     "entry": "{duration} min · {bpm} BPM · {switches}",
     "empty": "Terminez une séance pour commencer le journal"
+  },
+  "tuner": {
+    "title": "Accordeur de guitare en ligne avec micro",
+    "metaDescription": "Accordeur de guitare en ligne gratuit avec micro : détecte la hauteur des 6 cordes en temps réel et vous guide en 3 étapes. Fréquence de référence réglable : 440 Hz ou 432 Hz. Sans installation, dans n'importe quel navigateur.",
+    "start": "Commencer l'accordage",
+    "stop": "Arrêter",
+    "pluck": "Pincez une corde",
+    "listening": "Accordage…",
+    "inTune": "Juste !",
+    "flat": "Trop bas",
+    "sharp": "Trop haut",
+    "micError": "Impossible d'accéder au micro ; vérifiez les permissions du navigateur",
+    "stringX": "Corde {n}",
+    "referencePitch": "Fréquence de référence",
+    "seo": {
+      "h2": "Accordeur de guitare en ligne gratuit avec micro",
+      "intro": "Accorder sa guitare n'a jamais été aussi simple. Cet accordeur en ligne gratuit utilise le micro de votre ordinateur ou de votre téléphone pour détecter la hauteur de chaque corde en temps réel et vous indique si elle est trop grave ou trop aiguë. Rien à installer, aucun matériel supplémentaire : ça fonctionne directement dans le navigateur, sur n'importe quel appareil avec micro.",
+      "stepsTitle": "Accorder sa guitare en 3 étapes",
+      "steps": [
+        { "title": "Autoriser le micro", "body": "Cliquez sur « Commencer l'accordage » et autorisez l'accès au micro quand le navigateur le demande." },
+        { "title": "Grattez une corde à vide", "body": "Grattez une corde sans la fretter : l'accordeur détecte la note et l'écart. L'aiguille à gauche = trop grave, à droite = trop aigu." },
+        { "title": "Tournez la clé d'accordage", "body": "Tournez la clé correspondante jusqu'à ce que la corde passe au vert et affiche « Juste ! ». Répétez pour les 6 cordes." }
+      ],
+      "stringsTitle": "Notes des cordes en accordage standard",
+      "stringsNote": "Du grave à l'aigu, les 6 cordes de la guitare s'accordent ainsi :",
+      "strings": [
+        { "order": "Corde 6", "note": "E (mi grave)" },
+        { "order": "Corde 5", "note": "A (la)" },
+        { "order": "Corde 4", "note": "D (ré)" },
+        { "order": "Corde 3", "note": "G (sol)" },
+        { "order": "Corde 2", "note": "B (si)" },
+        { "order": "Corde 1", "note": "E (mi aigu)" }
+      ],
+      "hzTitle": "Accordeur de guitare en 432 Hz et 440 Hz",
+      "hzBody": "Outre l'accordage standard à 440 Hz, cet accordeur en ligne permet de passer la fréquence de référence à 432 Hz, l'accordage que certains musiciens préfèrent pour son son plus chaleureux. Choisissez « Fréquence de référence » puis 432 Hz ou 440 Hz : les notes cibles des cordes et l'aiguille s'ajustent automatiquement.",
+      "tipsTitle": "Conseils pour un résultat précis",
+      "tips": [
+        "Accordez dans un endroit calme pour que le micro capte uniquement la corde, pas le bruit ambiant.",
+        "Grattez la corde franchement et attendez 1 à 2 secondes que la lecture se stabilise.",
+        "Tendre certaines cordes modifie légèrement les autres : vérifiez à nouveau la 1re corde à la fin."
+      ],
+      "faqTitle": "Questions fréquentes",
+      "faq": [
+        { "q": "Comment accorder ma guitare avec mon téléphone ou mon ordinateur ?", "a": "Cliquez sur « Commencer l'accordage », autorisez le micro, grattez une corde à vide et tournez la clé jusqu'au vert. Il vous faut juste un navigateur." },
+        { "q": "Quelles notes ont les cordes de la guitare ?", "a": "En accordage standard, du grave à l'aigu : E (6e), A (5e), D (4e), G (3e), B (2e), E (1re)." },
+        { "q": "C'est gratuit ? Faut-il installer quelque chose ?", "a": "Oui, entièrement gratuit. FretFlow utilise l'API Web Audio du navigateur : rien à télécharger ni installer, et ça marche sur tout appareil avec micro." }
+      ]
+    }
   }
 }
