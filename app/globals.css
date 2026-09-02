@@ -1,5 +1,39 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "fretflow";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+  --color-base-100: #141414;
+  --color-base-200: #1c1c1c;
+  --color-base-300: #0a0a0a;
+  --color-base-content: #f5f5f5;
+  --color-primary: #e8a850;
+  --color-primary-content: #0a0a0a;
+  --color-secondary: #a0a0a0;
+  --color-secondary-content: #0a0a0a;
+  --color-accent: #e8a850;
+  --color-accent-content: #0a0a0a;
+  --color-neutral: #2a2a2a;
+  --color-neutral-content: #f5f5f5;
+  --color-info: #e8a850;
+  --color-info-content: #0a0a0a;
+  --color-success: #2ecc71;
+  --color-success-content: #07150d;
+  --color-warning: #e8a850;
+  --color-warning-content: #0a0a0a;
+  --color-error: #ef6461;
+  --color-error-content: #180505;
+  --radius-selector: 9999rem;
+  --radius-field: 1rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
 
 @theme {
   --color-bg: #0a0a0a;

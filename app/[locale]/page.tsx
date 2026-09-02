@@ -146,7 +146,12 @@ function Nav() {
       <div className="text-2xl font-bold tracking-[-0.02em]">
         Fret<span className="text-[#e8a850]">Flow</span>
       </div>
-      <LanguageSwitcher className="border-[#2a2a2a] bg-[#1c1c1c] text-[#a0a0a0]" />
+      <div className="flex items-center gap-3">
+        <Link href="/tone" className="rounded-full border border-[#e8a850]/50 px-4 py-2 text-sm text-[#e8a850] transition-colors hover:bg-[#e8a850] hover:text-[#0a0a0a]">
+          NAM 音色
+        </Link>
+        <LanguageSwitcher className="border-[#2a2a2a] bg-[#1c1c1c] text-[#a0a0a0]" />
+      </div>
     </nav>
   );
 }

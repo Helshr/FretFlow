@@ -1,0 +1,71 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Offline NAM renderer</title>
+<pre id="status">starting</pre>
+<script type="module">
+import { NamEngine } from "/nam-engine/offline-index.js";
+
+const status = (message) => { document.querySelector("#status").textContent = message; };
+const inputUrl = "/audio/ui_public_inputs_Mayer - Guitar.wav";
+const modelUrl = "/audio/example.nam";
+
+function wavBlob(buffer) {
+  const channels = buffer.numberOfChannels;
+  const frames = buffer.length;
+  const bytes = frames * channels * 2;
+  const out = new ArrayBuffer(44 + bytes);
+  const view = new DataView(out);
+  const text = (offset, value) => [...value].forEach((c, i) => view.setUint8(offset + i, c.charCodeAt(0)));
+  text(0, "RIFF"); view.setUint32(4, 36 + bytes, true); text(8, "WAVE");
+  text(12, "fmt "); view.setUint32(16, 16, true); view.setUint16(20, 1, true);
+  view.setUint16(22, channels, true); view.setUint32(24, buffer.sampleRate, true);
+  view.setUint32(28, buffer.sampleRate * channels * 2, true); view.setUint16(32, channels * 2, true);
+  view.setUint16(34, 16, true); text(36, "data"); view.setUint32(40, bytes, true);
+  let p = 44;
+  for (let i = 0; i < frames; i++) for (let c = 0; c < channels; c++) {
+    const sample = Math.max(-1, Math.min(1, buffer.getChannelData(c)[i]));
+    view.setInt16(p, sample < 0 ? sample * 0x8000 : sample * 0x7fff, true); p += 2;
+  }
+  return new Blob([out], { type: "audio/wav" });
+}
+
+async function run() {
+  status("loading DI WAV and NAM model…");
+  const [inputResponse, modelResponse] = await Promise.all([fetch(inputUrl), fetch(modelUrl)]);
+  if (!inputResponse.ok || !modelResponse.ok) throw Error("input/model file not found");
+  const inputBytes = await inputResponse.arrayBuffer();
+  const modelJson = await modelResponse.text();
+  const probe = new OfflineAudioContext(1, 128, 48000);
+  const decoded = await probe.decodeAudioData(inputBytes.slice(0));
+  // Ten seconds is enough for a direct A/B check and keeps offline rendering quick.
+  const renderFrames = Math.min(decoded.length, Math.floor(decoded.sampleRate * 10));
+  const context = new OfflineAudioContext(2, renderFrames, decoded.sampleRate);
+  const engine = await NamEngine.attach(context, { assetBaseUrl: "/nam-engine/" });
+  const node = await engine.createNode();
+  const info = await node.loadModel(modelJson, { slimSize: 0.5 });
+  const source = context.createBufferSource();
+  if (decoded.length === renderFrames) {
+    source.buffer = decoded;
+  } else {
+    const clipped = context.createBuffer(1, renderFrames, decoded.sampleRate);
+    clipped.copyToChannel(decoded.getChannelData(0).subarray(0, renderFrames), 0);
+    source.buffer = clipped;
+  }
+  const inputGain = context.createGain(); inputGain.gain.value = 0.5;
+  const modelGain = context.createGain(); modelGain.gain.value = 0.65;
+  const splitter = context.createChannelSplitter(1);
+  const merger = context.createChannelMerger(2);
+  source.connect(inputGain).connect(node).connect(modelGain).connect(splitter);
+  splitter.connect(merger, 0, 0); splitter.connect(merger, 0, 1); merger.connect(context.destination);
+  source.start(); status(`rendering ${(renderFrames / decoded.sampleRate).toFixed(1)}s (${info.expectedSampleRate} Hz)…`);
+  const rendered = await context.startRendering();
+  const blob = wavBlob(rendered);
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a"); link.href = url;
+  link.download = "Mayer-Guitar-HBE-Mammoth-FretFlow-reference.wav";
+  link.click();
+  status(`done: ${link.download} (${(blob.size / 1048576).toFixed(1)} MB)`);
+  await node.dispose();
+}
+run().catch((error) => { status(`ERROR: ${error?.stack || error}`); document.title = "ERROR"; });
+</script>
