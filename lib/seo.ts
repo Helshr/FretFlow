@@ -9,10 +9,10 @@ export function localePath(locale: string, path: string): string {
   return `${prefix}${path}`;
 }
 
-// 完整 URL（根路径补尾斜杠）
+// 完整 URL（仅裸根路径补尾斜杠；多语言首页如 /en 不带尾斜杠，与 Next 实际输出的 URL 一致）
 export function absoluteUrl(locale: string, path: string): string {
-  const base = `${SITE_URL}${localePath(locale, path)}`;
-  return path === '' ? `${base}/` : base;
+  const url = `${SITE_URL}${localePath(locale, path)}`;
+  return url === SITE_URL ? `${url}/` : url;
 }
 
 // 所有语言版本的 URL（用于 hreflang / alternates）
