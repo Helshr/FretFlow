@@ -139,6 +139,7 @@
     "comingSoon": "Próximamente",
     "comingSoonTitle": "Más funciones en desarrollo",
     "footerMore": "Más funciones próximamente",
+    "toolsTitle": "Otras herramientas de guitarra",
     "tuner": "Herramienta práctica",
     "tunerTitle": "Afinador de guitarra",
     "tunerDesc": "Detección de tono en tiempo real por micrófono para afinar cada cuerda con precisión. Simple, rápido, sin equipo extra."
@@ -154,7 +155,7 @@
   },
   "tuner": {
     "title": "Afinador de Guitarra Online con Micrófono Gratis",
-    "metaDescription": "Afina tu guitarra online gratis usando el micrófono. Afinador cromático rápido y preciso, compatible con la afinación estándar y las frecuencias de referencia de 432 Hz y 440 Hz.",
+    "metaDescription": "Afina tu guitarra online gratis usando el micrófono. Afinador rápido y preciso para la afinación estándar (E A D G B E), con frecuencias de referencia de 432 Hz y 440 Hz.",
     "start": "Empezar a afinar",
     "stop": "Detener",
     "pluck": "Pulsa una cuerda",
@@ -165,6 +166,12 @@
     "micError": "No se puede acceder al micrófono; revisa los permisos del navegador",
     "stringX": "Cuerda {n}",
     "referencePitch": "Frecuencia de referencia",
+    "ctaTitle": "¿Tu guitarra ya está afinada?",
+    "ctaTrainer": "Practica cambios de acordes durante 5 minutos",
+    "ctaStart": "Empezar a practicar",
+    "ctaCompleted": "¡Guitarra afinada!",
+    "ctaNotes": "Aprende las notas del diapasón",
+    "tunedProgress": "{n}/{total} cuerdas afinadas",
     "seo": {
       "h2": "Afinador de guitarra online gratis con micrófono",
       "intro": "Afinar la guitarra nunca fue tan fácil. Este afinador online gratuito usa el micrófono de tu ordenador o móvil para detectar el tono de cada cuerda en tiempo real y mostrarte cuándo suena ligeramente grave o aguda. No necesitas instalar ni comprar un afinador: funciona directamente en el navegador, en cualquier dispositivo con micrófono.",

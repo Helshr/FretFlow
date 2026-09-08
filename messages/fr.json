@@ -139,6 +139,7 @@
     "comingSoon": "Bientôt disponible",
     "comingSoonTitle": "Plus de fonctions en développement",
     "footerMore": "Plus de fonctions à venir",
+    "toolsTitle": "Autres outils de guitare",
     "tuner": "Outil pratique",
     "tunerTitle": "Accordeur de guitare",
     "tunerDesc": "Détection de hauteur en temps réel via le micro pour accorder chaque corde avec précision. Simple, rapide, sans matériel."
@@ -154,7 +155,7 @@
   },
   "tuner": {
     "title": "Accordeur de guitare en ligne avec micro",
-    "metaDescription": "Accordeur de guitare en ligne gratuit avec micro : détecte la hauteur des 6 cordes en temps réel et vous guide en 3 étapes. Fréquence de référence réglable : 440 Hz ou 432 Hz. Sans installation, dans n'importe quel navigateur.",
+    "metaDescription": "Accordeur de guitare en ligne gratuit avec micro : détecte la hauteur des 6 cordes en temps réel et vous guide en 3 étapes. Fréquence de référence réglable : 440 Hz ou 432 Hz. Sans installation, dans les navigateurs modernes.",
     "start": "Commencer l'accordage",
     "stop": "Arrêter",
     "pluck": "Pincez une corde",
@@ -165,6 +166,12 @@
     "micError": "Impossible d'accéder au micro ; vérifiez les permissions du navigateur",
     "stringX": "Corde {n}",
     "referencePitch": "Fréquence de référence",
+    "ctaTitle": "Votre guitare est-elle accordée ?",
+    "ctaTrainer": "Entraînez vos changements d'accords pendant 5 minutes",
+    "ctaStart": "Commencer l'entraînement",
+    "ctaCompleted": "Guitare accordée !",
+    "ctaNotes": "Apprenez les notes du manche",
+    "tunedProgress": "{n}/{total} cordes accordées",
     "seo": {
       "h2": "Accordeur de guitare en ligne gratuit avec micro",
       "intro": "Accorder sa guitare n'a jamais été aussi simple. Cet accordeur en ligne gratuit utilise le micro de votre ordinateur ou de votre téléphone pour détecter la hauteur de chaque corde en temps réel et vous indique si elle est trop grave ou trop aiguë. Rien à installer, aucun matériel supplémentaire : ça fonctionne directement dans le navigateur, sur n'importe quel appareil avec micro.",

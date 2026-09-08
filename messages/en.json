@@ -139,6 +139,7 @@
     "comingSoon": "Coming Soon",
     "comingSoonTitle": "More Features in Development",
     "footerMore": "More features coming soon",
+    "toolsTitle": "Other guitar tools",
     "tuner": "Utility",
     "tunerTitle": "Guitar Tuner",
     "tunerDesc": "Real-time pitch detection via microphone. Tune every string accurately — simple, fast, no extra gear."
@@ -154,7 +155,7 @@
   },
   "tuner": {
     "title": "Online Guitar Tuner with Microphone",
-    "metaDescription": "Free online guitar tuner with microphone: detects the pitch of all 6 strings in real time and guides you in 3 steps. Selectable reference pitch — 440 Hz or 432 Hz. Nothing to install, works in any browser.",
+    "metaDescription": "Free online guitar tuner with microphone: detects the pitch of all 6 strings in real time and guides you in 3 steps. Selectable reference pitch — 440 Hz or 432 Hz. Nothing to install, works in modern browsers.",
     "start": "Start",
     "stop": "Stop",
     "pluck": "Pluck a string",
@@ -165,6 +166,12 @@
     "micError": "Cannot access microphone. Check browser permissions.",
     "stringX": "String {n}",
     "referencePitch": "Reference pitch",
+    "ctaTitle": "Your guitar in tune yet?",
+    "ctaTrainer": "Practice chord switching for 5 minutes",
+    "ctaStart": "Start practicing",
+    "ctaCompleted": "Your guitar is in tune!",
+    "ctaNotes": "Learn the notes on the fretboard",
+    "tunedProgress": "{n}/{total} strings in tune",
     "seo": {
       "h2": "Free online guitar tuner with microphone",
       "intro": "Tuning your guitar has never been easier. This free online tuner uses your computer or phone microphone to detect the pitch of each string in real time and tells you when it sounds flat or sharp. Nothing to install, no extra gear — it runs right in the browser on any device with a microphone.",

@@ -1,13 +1,16 @@
 'use client';
 
 import {useTranslations} from 'next-intl';
+import {track} from '@vercel/analytics';
+import {Link} from '@/i18n/navigation';
 import {GUITAR_STRINGS} from '@/lib/guitar';
 import {useTuner} from '@/hooks/useTuner';
 import {saveReferencePitch} from '@/lib/prefs';
 
 export default function Tuner() {
   const t = useTranslations('tuner');
-  const {running, detected, silent, micError, reference, setReference, start, stop} = useTuner();
+  const {running, detected, silent, micError, tunedCount, allTuned, reference, setReference, start, stop} =
+    useTuner();
 
   const cents = detected ? detected.stringCents : 0;
   const inTune = detected !== null && Math.abs(cents) <= 5;
@@ -106,7 +109,10 @@ export default function Tuner() {
       <div className="mt-6">
         {!running ? (
           <button
-            onClick={start}
+            onClick={() => {
+              track('tuner_started');
+              start();
+            }}
             className="min-h-12 rounded-xl bg-accent px-10 py-3 text-base font-semibold text-[#0a0a0a] hover:brightness-110"
           >
             {t('start')}
@@ -119,6 +125,46 @@ export default function Tuner() {
             {t('stop')}
           </button>
         )}
+      </div>
+
+      {/* 调音后转化入口 */}
+      <div className="mt-8 rounded-2xl border border-line bg-card p-6 text-center">
+        {allTuned ? (
+          <>
+            <div className="text-lg font-bold text-accent-2">{t('ctaCompleted')}</div>
+            <Link
+              href="/trainer"
+              onClick={() => track('tuner_to_trainer_clicked', {stage: 'completed'})}
+              className="mt-4 inline-block min-h-12 rounded-xl bg-accent px-8 py-3 text-base font-semibold text-[#0a0a0a] hover:brightness-110"
+            >
+              {t('ctaTrainer')}
+            </Link>
+          </>
+        ) : (
+          <>
+            <div className="text-lg font-bold">{t('ctaTitle')}</div>
+            <p className="mt-1 text-sm text-muted">{t('ctaTrainer')}</p>
+            <p className="mt-1 text-xs text-muted">
+              {t('tunedProgress', {n: tunedCount, total: GUITAR_STRINGS.length})}
+            </p>
+            <Link
+              href="/trainer"
+              onClick={() => track('tuner_to_trainer_clicked', {stage: 'default'})}
+              className="mt-4 inline-block min-h-12 rounded-xl bg-accent px-8 py-3 text-base font-semibold text-[#0a0a0a] hover:brightness-110"
+            >
+              {t('ctaStart')}
+            </Link>
+          </>
+        )}
+        <p className="mt-3">
+          <Link
+            href="/notes"
+            onClick={() => track('tuner_to_trainer_clicked', {stage: 'notes'})}
+            className="text-sm text-muted underline decoration-muted/40 underline-offset-4 hover:text-text"
+          >
+            {t('ctaNotes')}
+          </Link>
+        </p>
       </div>
     </div>
   );

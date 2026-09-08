@@ -24,7 +24,7 @@ export default async function SlideRulePage({
   const t = await getTranslations();
 
   return (
-    <FeaturePage homeLabel={t('nav.home')} title={t('slideRule.title')} maxWidth="max-w-[1080px]">
+    <FeaturePage homeLabel={t('nav.home')} title={t('slideRule.title')} maxWidth="max-w-[1080px]" exclude="/slide-rule">
       <SlideRule />
     </FeaturePage>
   );

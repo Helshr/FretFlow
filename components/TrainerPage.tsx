@@ -19,6 +19,13 @@ export default function TrainerPage() {
         ? 'CAGED'
         : `CAGED · ${session.shapeFilter}${t('chord.shapeSuffix')}`;
 
+  const tools = [
+    {href: '/tuner', title: t('home.tunerTitle'), desc: t('home.tunerDesc')},
+    {href: '/notes', title: t('home.notesTitle'), desc: t('home.notesDesc')},
+    {href: '/chords', title: t('home.chordChartTitle'), desc: t('home.chordChartDesc')},
+    {href: '/slide-rule', title: t('home.slideRuleTitle'), desc: t('home.slideRuleDesc')},
+  ];
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] antialiased">
       <div className="mx-auto max-w-[900px] px-6 py-4 pb-6">
@@ -133,6 +140,24 @@ export default function TrainerPage() {
             </button>
           </div>
         )}
+
+        {/* 其他吉他工具 */}
+        <section className="mt-14 border-t border-[#2a2a2a] pt-8">
+          <h2 className="text-lg font-bold">{t('home.toolsTitle')}</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {tools.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="rounded-xl border border-[#2a2a2a] bg-[#141414] p-4 transition-colors hover:bg-[#1c1c1c]"
+              >
+                <div className="text-sm font-bold">{tool.title}</div>
+                <div className="mt-1 text-sm leading-relaxed text-[#a0a0a0]">{tool.desc}</div>
+                <div className="mt-2 text-xs font-semibold text-[#e8a850]">→</div>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );

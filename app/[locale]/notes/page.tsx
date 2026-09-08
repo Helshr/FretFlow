@@ -24,7 +24,7 @@ export default async function NotesPage({
   const t = await getTranslations();
 
   return (
-    <FeaturePage homeLabel={t('nav.home')} title={t('notes.title')}>
+    <FeaturePage homeLabel={t('nav.home')} title={t('notes.title')} exclude="/notes">
       <NoteTrainer />
     </FeaturePage>
   );

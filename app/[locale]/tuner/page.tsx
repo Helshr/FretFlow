@@ -25,7 +25,7 @@ export default async function TunerPage({
   const t = await getTranslations();
 
   return (
-    <FeaturePage homeLabel={t('nav.home')} title={t('tuner.title')}>
+    <FeaturePage homeLabel={t('nav.home')} title={t('tuner.title')} exclude="/tuner">
       <Tuner />
       <TunerSeo locale={locale} />
     </FeaturePage>

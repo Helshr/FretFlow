@@ -1,9 +1,11 @@
 import {getTranslations} from 'next-intl/server';
+import {Link} from '@/i18n/navigation';
 
 // 西语调音器页的 SEO 内容块（服务端渲染，供搜索引擎索引）。
 // 调音器本身是纯客户端 Web Audio，无索引文本，所以单独提供关键词内容 + FAQPage 结构化数据。
 export default async function TunerSeo({locale}: {locale: string}) {
   const t = await getTranslations({locale, namespace: 'tuner.seo'});
+  const cta = await getTranslations({locale, namespace: 'tuner'});
   const steps = t.raw('steps') as {title: string; body: string}[];
   const strings = t.raw('strings') as {order: string; note: string}[];
   const tips = t.raw('tips') as string[];
@@ -78,6 +80,26 @@ export default async function TunerSeo({locale}: {locale: string}) {
           </details>
         ))}
       </dl>
+
+      {/* 调音后的转化入口：把「已调准」的用户导向练习功能 */}
+      <section className="mt-8 rounded-2xl border border-[#2a2a2a] bg-[#141414] p-6 text-center">
+        <h3 className="text-lg font-bold tracking-[-0.01em]">{cta('ctaTitle')}</h3>
+        <p className="mt-1 text-sm text-[#a0a0a0]">{cta('ctaTrainer')}</p>
+        <Link
+          href="/trainer"
+          className="mt-4 inline-block rounded-xl bg-[#e8a850] px-8 py-3 text-base font-semibold text-[#0a0a0a] transition-all hover:brightness-110"
+        >
+          {cta('ctaStart')}
+        </Link>
+        <p className="mt-3">
+          <Link
+            href="/notes"
+            className="text-sm text-[#a0a0a0] underline underline-offset-4 transition-colors hover:text-[#f5f5f5]"
+          >
+            {cta('ctaNotes')}
+          </Link>
+        </p>
+      </section>
 
       <script
         type="application/ld+json"

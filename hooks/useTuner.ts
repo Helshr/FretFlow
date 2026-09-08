@@ -1,8 +1,10 @@
 'use client';
 
 import {useCallback, useEffect, useRef, useState} from 'react';
+import {track} from '@vercel/analytics';
 import {autoCorrelate, freqToDetected} from '@/lib/tuner/pitch';
 import type {Detected} from '@/lib/tuner/pitch';
+import {GUITAR_STRINGS} from '@/lib/guitar';
 import {loadReferencePitch} from '@/lib/prefs';
 
 export function useTuner() {
@@ -15,6 +17,12 @@ export function useTuner() {
   useEffect(() => {
     referenceRef.current = reference;
   }, [reference]);
+
+  // 调音漏斗：rAF 循环中记录首次达到 ±5 cents 的弦，六根全准触发 tuner_completed
+  const [tunedCount, setTunedCount] = useState(0);
+  const [allTuned, setAllTuned] = useState(false);
+  const tunedRef = useRef<Set<number>>(new Set());
+  const allTunedRef = useRef(false);
 
   const ctxRef = useRef<AudioContext | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -31,7 +39,18 @@ export function useTuner() {
     const freq = autoCorrelate(bufRef.current, sampleRate);
     if (freq > 0) {
       setSilent(false);
-      setDetected(freqToDetected(freq, referenceRef.current));
+      const next = freqToDetected(freq, referenceRef.current);
+      setDetected(next);
+      if (!allTunedRef.current && Math.abs(next.stringCents) <= 5 && !tunedRef.current.has(next.string)) {
+        tunedRef.current = new Set(tunedRef.current).add(next.string);
+        setTunedCount(tunedRef.current.size);
+        track('tuner_string_in_tune', {string: String(next.string)});
+        if (tunedRef.current.size === GUITAR_STRINGS.length) {
+          allTunedRef.current = true;
+          setAllTuned(true);
+          track('tuner_completed');
+        }
+      }
     } else {
       setSilent(true);
     }
@@ -58,6 +77,10 @@ export function useTuner() {
       setMicError(false);
       setDetected(null);
       setSilent(false);
+      tunedRef.current = new Set();
+      allTunedRef.current = false;
+      setTunedCount(0);
+      setAllTuned(false);
       rafRef.current = requestAnimationFrame(loop);
     } catch {
       setMicError(true);
@@ -83,5 +106,5 @@ export function useTuner() {
     };
   }, [stop]);
 
-  return {running, detected, silent, micError, reference, setReference, start, stop};
+  return {running, detected, silent, micError, tunedCount, allTuned, reference, setReference, start, stop};
 }

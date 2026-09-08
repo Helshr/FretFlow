@@ -139,6 +139,7 @@
     "comingSoon": "即将到来",
     "comingSoonTitle": "更多功能开发中",
     "footerMore": "更多功能即将到来",
+    "toolsTitle": "其他吉他工具",
     "tuner": "实用工具",
     "tunerTitle": "吉他调音器",
     "tunerDesc": "使用麦克风实时检测音高，精准调准每根弦。简单、快速、无需额外设备。"
@@ -165,6 +166,12 @@
     "micError": "无法访问麦克风，请检查浏览器权限",
     "stringX": "{n}弦",
     "referencePitch": "参考音高",
+    "ctaTitle": "吉他已经调准了吗？",
+    "ctaTrainer": "开始 5 分钟和弦切换练习",
+    "ctaStart": "开始练习",
+    "ctaCompleted": "吉他已经调准了！",
+    "ctaNotes": "学习指板上的音名",
+    "tunedProgress": "已调准 {n}/{total} 根弦",
     "seo": {
       "h2": "免费的在线吉他调音器（麦克风）",
       "intro": "给吉他调音从来没有这么简单。这款免费在线调音器利用电脑或手机的麦克风，实时检测每根弦的音高，并告诉你它偏低还是偏高。不需要安装任何软件，也不用额外设备，任何带麦克风的设备打开浏览器就能用。",

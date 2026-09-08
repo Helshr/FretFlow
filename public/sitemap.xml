@@ -9,7 +9,6 @@
 <xhtml:link rel="alternate" hreflang="ko" href="https://fretflow.art/ko" />
 <xhtml:link rel="alternate" hreflang="es" href="https://fretflow.art/es" />
 <xhtml:link rel="alternate" hreflang="fr" href="https://fretflow.art/fr" />
-<lastmod>2026-08-26</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1.0</priority>
 </url>
@@ -22,7 +21,6 @@
 <xhtml:link rel="alternate" hreflang="ko" href="https://fretflow.art/ko/trainer" />
 <xhtml:link rel="alternate" hreflang="es" href="https://fretflow.art/es/trainer" />
 <xhtml:link rel="alternate" hreflang="fr" href="https://fretflow.art/fr/trainer" />
-<lastmod>2026-08-26</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -35,7 +33,6 @@
 <xhtml:link rel="alternate" hreflang="ko" href="https://fretflow.art/ko/chords" />
 <xhtml:link rel="alternate" hreflang="es" href="https://fretflow.art/es/chords" />
 <xhtml:link rel="alternate" hreflang="fr" href="https://fretflow.art/fr/chords" />
-<lastmod>2026-08-26</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -48,7 +45,6 @@
 <xhtml:link rel="alternate" hreflang="ko" href="https://fretflow.art/ko/notes" />
 <xhtml:link rel="alternate" hreflang="es" href="https://fretflow.art/es/notes" />
 <xhtml:link rel="alternate" hreflang="fr" href="https://fretflow.art/fr/notes" />
-<lastmod>2026-08-26</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -61,7 +57,6 @@
 <xhtml:link rel="alternate" hreflang="ko" href="https://fretflow.art/ko/tuner" />
 <xhtml:link rel="alternate" hreflang="es" href="https://fretflow.art/es/tuner" />
 <xhtml:link rel="alternate" hreflang="fr" href="https://fretflow.art/fr/tuner" />
-<lastmod>2026-08-26</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -74,8 +69,19 @@
 <xhtml:link rel="alternate" hreflang="ko" href="https://fretflow.art/ko/slide-rule" />
 <xhtml:link rel="alternate" hreflang="es" href="https://fretflow.art/es/slide-rule" />
 <xhtml:link rel="alternate" hreflang="fr" href="https://fretflow.art/fr/slide-rule" />
-<lastmod>2026-08-26</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
+</url>
+<url>
+<loc>https://fretflow.art/tone</loc>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://fretflow.art/tone" />
+<xhtml:link rel="alternate" hreflang="zh-CN" href="https://fretflow.art/tone" />
+<xhtml:link rel="alternate" hreflang="en" href="https://fretflow.art/en/tone" />
+<xhtml:link rel="alternate" hreflang="ja" href="https://fretflow.art/ja/tone" />
+<xhtml:link rel="alternate" hreflang="ko" href="https://fretflow.art/ko/tone" />
+<xhtml:link rel="alternate" hreflang="es" href="https://fretflow.art/es/tone" />
+<xhtml:link rel="alternate" hreflang="fr" href="https://fretflow.art/fr/tone" />
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
 </url>
 </urlset>

@@ -38,7 +38,7 @@ export default async function ChordsPage({
   const shapes = cagedData.shapes as CagedShape[];
 
   return (
-    <FeaturePage homeLabel={t('nav.home')} title={t('home.chordChart')} maxWidth="max-w-[1200px]">
+    <FeaturePage homeLabel={t('nav.home')} title={t('home.chordChart')} maxWidth="max-w-[1200px]" exclude="/chords">
       <p className="mb-4 text-sm text-muted">{t('home.chordChartNote')}</p>
 
       <div className="overflow-x-auto rounded-2xl border border-line">
