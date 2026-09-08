@@ -41,6 +41,8 @@ export async function startToneSelection() {
     preview: 'true',
     menubar: 'true',
   });
+  // 外部 OAuth 授权跳转（Tone3000），非站内页面，无需 router/redirect
+  // eslint-disable-next-line @next/next/no-location-assign-relative-destination
   window.location.assign(`${AUTH_URL}?${params}`);
 }
 

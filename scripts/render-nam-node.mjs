@@ -1,7 +1,6 @@
 import fs from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 
-const root = new URL("..", import.meta.url);
 const workletPath = new URL("../public/nam-engine/nam-worklet.js", import.meta.url);
 const wasmPath = new URL("../public/nam-engine/nam-engine.wasm", import.meta.url);
 const modelPath = new URL("../public/audio/example.nam", import.meta.url);
@@ -58,21 +57,21 @@ const coreSource = worklet.slice(0, worklet.indexOf("/**\n * Message protocol"))
 const corePath = `/tmp/fretflow-nam-core-${process.pid}.mjs`;
 await fs.writeFile(corePath, coreSource);
 const { createNamEngine } = await import(pathToFileURL(corePath).href);
-const module = await createNamEngine({ wasmBinary: wasm, locateFile: () => "nam-engine.wasm" });
+const engine = await createNamEngine({ wasmBinary: wasm, locateFile: () => "nam-engine.wasm" });
 const { rate, mono } = readWav16(input);
 if (rate !== 48000) throw Error(`expected 48000 Hz input, got ${rate}`);
-const block = 128, instance = module._nam_createInstance(rate, block), bufferPtr = module._nam_getBuffer(instance);
-const modelPtr = module._malloc(module.lengthBytesUTF8(model) + 1);
-module.stringToUTF8(model, modelPtr, module.lengthBytesUTF8(model) + 1);
-if (!module._nam_loadModel(instance, modelPtr, 0.5)) throw Error(module.UTF8ToString(module._nam_getLastError()));
-module._free(modelPtr);
+const block = 128, instance = engine._nam_createInstance(rate, block), bufferPtr = engine._nam_getBuffer(instance);
+const modelPtr = engine._malloc(engine.lengthBytesUTF8(model) + 1);
+engine.stringToUTF8(model, modelPtr, engine.lengthBytesUTF8(model) + 1);
+if (!engine._nam_loadModel(instance, modelPtr, 0.5)) throw Error(engine.UTF8ToString(engine._nam_getLastError()));
+engine._free(modelPtr);
 const out = new Float32Array(mono.length), heapOffset = bufferPtr >> 2;
 for (let start = 0; start < mono.length; start += block) {
   const n = Math.min(block, mono.length - start);
-  for (let i = 0; i < block; i++) module.HEAPF32[heapOffset + i] = i < n ? mono[start + i] * 0.5 : 0;
-  module._nam_process(instance, n);
-  for (let i = 0; i < n; i++) out[start + i] = module.HEAPF32[heapOffset + i] * 0.65;
+  for (let i = 0; i < block; i++) engine.HEAPF32[heapOffset + i] = i < n ? mono[start + i] * 0.5 : 0;
+  engine._nam_process(instance, n);
+  for (let i = 0; i < n; i++) out[start + i] = engine.HEAPF32[heapOffset + i] * 0.65;
 }
 await fs.writeFile(outputPath, writeWavStereo(out, out, rate));
-module._nam_destroyInstance(instance);
+engine._nam_destroyInstance(instance);
 console.log(`wrote ${outputPath.pathname} (${(out.length / rate).toFixed(2)}s)`);

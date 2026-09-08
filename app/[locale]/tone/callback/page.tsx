@@ -13,6 +13,8 @@ export default function ToneCallbackPage() {
     const code = params.get('code');
     const state = params.get('state');
     if (!code || !state) {
+      // OAuth 回调一次性初始化：同步展示缺失参数的错误，属合理用法
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMessage(params.get('error') || '授权未完成');
       return;
     }

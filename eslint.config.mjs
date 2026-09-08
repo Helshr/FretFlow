@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Static assets & generated artifacts (e.g. Emscripten glue in nam-engine/).
+    "public/**",
   ]),
 ]);
 
