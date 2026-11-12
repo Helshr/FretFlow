@@ -108,17 +108,24 @@ export const AUG_PATTERNS: AugPattern[] = [
   },
 ];
 
-// 指形移调：琴弦与左手手指保持不变；向上取模 12 的正八度位移，
-// 向上取模 12 的正八度位移；21 品指板下 12 个调的 base(0..11) 都落在范围内，
-// 理论上无需跨八度调整（保留 ±12 兜底，防止日后收窄指板）。
+// 指形移调：琴弦与左手手指保持不变，只平移品位。
+// 返回该指形在 0–MAX 品内**所有可放置的八度**（低→高合并），
+// 例如 Pattern A × F# 大调在低八度（根音 2 品）与高八度（根音 14 品）都能放下，
+// 两个位置都返回，让「找到 1」时把全部位置的 1 都选出来。
 export function patternRoute(p: AugPattern, tonic: number): ScaleEntry[] | null {
   const base = (((tonic - p.baseTonic) % 12) + 12) % 12;
-  for (const octave of [0, -12, 12]) {
+  const offsets: number[] = [];
+  for (const octave of [-24, -12, 0, 12, 24]) {
     const off = base + octave;
-    const out = p.notes.map((n) => ({...n, fret: n.fret + off}));
-    if (out.every((n) => n.fret >= 0 && n.fret <= MAX_SCALE_FRET)) return out;
+    if (p.notes.every((n) => n.fret + off >= 0 && n.fret + off <= MAX_SCALE_FRET)) {
+      offsets.push(off);
+    }
   }
-  return null; // 形状跨度 <12 品，±12 内必有可显示八度，理论不会触发
+  const out: ScaleEntry[] = [];
+  for (const off of offsets.sort((a, b) => a - b)) {
+    for (const n of p.notes) out.push({...n, fret: n.fret + off});
+  }
+  return out.length > 0 ? out : null;
 }
 
 // 指定位置在 12 音名里的名字（不带八度，如 "F#"）

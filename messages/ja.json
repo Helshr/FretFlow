@@ -122,8 +122,8 @@
     "currentKey": "現在の調：{key} メジャー",
     "findDegree": "{degree} を見つける",
     "showPattern": "現在の指形を表示",
-    "wrongDegreeNotInShape": "ここも {degree} 度ですが、この指形にはありません",
-    "wrongFlat": "探している位置ではありません"
+    "wrongFlat": "探している位置ではありません",
+    "wrongDegree": "{hit} 度ですね、{target} 度を探しています"
   },
   "error": {
     "emptyPool": "コードがありません。データを確認するか、数を減らしてください"

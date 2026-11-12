@@ -122,8 +122,8 @@
     "currentKey": "Tonalidad: {key} mayor",
     "findDegree": "Encuentra el grado {degree}",
     "showPattern": "Mostrar patrón actual",
-    "wrongDegreeNotInShape": "También es el grado {degree}, pero no está en este patrón",
-    "wrongFlat": "No es el lugar buscado"
+    "wrongFlat": "No es el lugar buscado",
+    "wrongDegree": "Es el grado {hit}, buscamos el {target}"
   },
   "error": {
     "emptyPool": "El grupo de acordes está vacío. Revisa los datos o reduce el número"

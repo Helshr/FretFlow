@@ -122,8 +122,8 @@
     "currentKey": "현재 조: {key} 장조",
     "findDegree": "{degree} 찾기",
     "showPattern": "현재 지형 표시",
-    "wrongDegreeNotInShape": "여기도 {degree}음인데 이 지형엔 없어요",
-    "wrongFlat": "찾는 위치가 아니에요"
+    "wrongFlat": "찾는 위치가 아니에요",
+    "wrongDegree": "그건 {hit}음, {target}음을 찾아야 해요"
   },
   "error": {
     "emptyPool": "코드 풀이 비어 있습니다. 데이터를 확인하거나 개수를 줄여주세요"

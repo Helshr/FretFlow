@@ -122,8 +122,8 @@
     "currentKey": "Key: {key} major",
     "findDegree": "Find degree {degree}",
     "showPattern": "Show current pattern",
-    "wrongDegreeNotInShape": "Also degree {degree}, but it's not in this pattern",
-    "wrongFlat": "Not the spot we're looking for"
+    "wrongFlat": "Not the spot we're looking for",
+    "wrongDegree": "That's degree {hit}, we need {target}"
   },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."

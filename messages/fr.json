@@ -122,8 +122,8 @@
     "currentKey": "Tonalité : {key} majeur",
     "findDegree": "Trouve le degré {degree}",
     "showPattern": "Afficher la position actuelle",
-    "wrongDegreeNotInShape": "C'est aussi le degré {degree}, mais pas dans cette position",
-    "wrongFlat": "Ce n'est pas l'emplacement attendu"
+    "wrongFlat": "Ce n'est pas l'emplacement attendu",
+    "wrongDegree": "C'est le degré {hit}, on cherche le {target}"
   },
   "error": {
     "emptyPool": "Le groupe d'accords est vide. Vérifiez les données ou réduisez le nombre"
