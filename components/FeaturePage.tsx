@@ -22,7 +22,9 @@ export default async function FeaturePage({
   const tools = [
     {href: '/tuner', title: t('tunerTitle'), desc: t('tunerDesc')},
     {href: '/trainer', title: t('trainerTitle'), desc: t('trainerDesc')},
+    {href: '/scales', title: t('scalesTitle'), desc: t('scalesDesc')},
     {href: '/notes', title: t('notesTitle'), desc: t('notesDesc')},
+    {href: '/find-note', title: t('findNoteTitle'), desc: t('findNoteDesc')},
     {href: '/chords', title: t('chordChartTitle'), desc: t('chordChartDesc')},
     {href: '/slide-rule', title: t('slideRuleTitle'), desc: t('slideRuleDesc')},
   ].filter((tool) => tool.href !== exclude);

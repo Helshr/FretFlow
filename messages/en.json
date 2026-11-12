@@ -65,6 +65,66 @@
     "loadingSamples": "Loading samples… {n}%",
     "sampleFailed": "Sample load failed, using synthesized tone"
   },
+  "scales": {
+    "title": "Major Scale Finger Patterns",
+    "subtitle": "Absolutely Understand Guitar · Lesson 7 practice: three beginner major-scale fingerings",
+    "key": "Key",
+    "pattern": "Pattern",
+    "label": "Label",
+    "degree": "Degree",
+    "noteName": "Note name",
+    "showFinger": "Show fingering",
+    "stringX": "string {n}",
+    "fretX": "fret {n}",
+    "patternName": {
+      "a": "Pattern A · 6th-string middle root",
+      "b": "Pattern B · 5th-string pinky root",
+      "c": "Pattern C · 6th-string pinky root with reach"
+    },
+    "patternTag": {
+      "a": "No shifting",
+      "b": "No shifting",
+      "c": "One reach"
+    },
+    "patternDetail": {
+      "a": "Root on the 6th string, held by your middle finger, no shifting needed. Example: G major.",
+      "b": "Root on the 5th string, held by your pinky, no shifting needed. Example: D major.",
+      "c": "Root on the 6th string with your pinky; reach once for the 7th degree. Example: A major."
+    },
+    "reachHint": "Reach: stretch your pinky to {string} · {fret}, then return to position",
+    "degreeRoot": "root",
+    "modeView": "View",
+    "modeQuiz": "Find notes"
+  },
+  "findNote": {
+    "title": "Find the Note",
+    "subtitle": "A note name appears — click where it lives on the fretboard. Turn recall into muscle memory.",
+    "target": "Find this note",
+    "clickHint": "Click every spot on the fretboard where this note appears",
+    "remaining": "{n} left",
+    "hint": "Hint",
+    "skip": "Next note",
+    "reset": "Restart",
+    "correct": "Correct",
+    "wrong": "Wrong",
+    "streak": "Streak",
+    "done": "Done!",
+    "foundAll": "All {note} found — nice!",
+    "wrongMsg": "That's {note} — {target} isn't there",
+    "correctMsg": "Yes, {note}!",
+    "scope7": "7 natural notes",
+    "scope12": "12 notes (accidentals)",
+    "loadingSamples": "Loading samples… {n}%",
+    "sampleFailed": "Sample loading failed, using synthesized tones",
+    "open": "open",
+    "next": "Next",
+    "hear": "Hear",
+    "currentKey": "Key: {key} major",
+    "findDegree": "Find degree {degree}",
+    "showPattern": "Show current pattern",
+    "wrongDegreeNotInShape": "Also degree {degree}, but it's not in this pattern",
+    "wrongFlat": "Not the spot we're looking for"
+  },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."
   },
@@ -121,7 +181,7 @@
     "heroCta": "Start Practicing",
     "scrollHint": "Scroll",
     "sectionTitle": "Choose Your Practice Path",
-    "sectionSub": "Four carefully designed tools covering every guitarist's core training needs",
+    "sectionSub": "Carefully designed tools covering every guitarist's core training needs — from tuning to scales",
     "trainer": "Most Popular",
     "trainerTitle": "Chord Switching Trainer",
     "trainerDesc": "Post-lesson chord switching practice from Absolutely Understand Guitar",
@@ -142,7 +202,13 @@
     "toolsTitle": "Other guitar tools",
     "tuner": "Utility",
     "tunerTitle": "Guitar Tuner",
-    "tunerDesc": "Real-time pitch detection via microphone. Tune every string accurately — simple, fast, no extra gear."
+    "tunerDesc": "Real-time pitch detection via microphone. Tune every string accurately — simple, fast, no extra gear.",
+    "scales": "Post-lesson practice",
+    "scalesTitle": "Major Scale Patterns",
+    "scalesDesc": "Absolutely Understand Guitar practice: three beginner major-scale fingerings. Switch keys to view degrees and fingerings — all three patterns combined cover all 12 keys.",
+    "findNote": "Active recall",
+    "findNoteTitle": "Find the Note",
+    "findNoteDesc": "A note name appears on screen — click where it lives on the fretboard and turn recall into muscle memory."
   },
   "practice": {
     "record": "Practice Log",
@@ -177,19 +243,46 @@
       "intro": "Tuning your guitar has never been easier. This free online tuner uses your computer or phone microphone to detect the pitch of each string in real time and tells you when it sounds flat or sharp. Nothing to install, no extra gear — it runs right in the browser on any device with a microphone.",
       "stepsTitle": "How to tune your guitar in 3 steps",
       "steps": [
-        { "title": "Enable the microphone", "body": "Click «Start tuning» and allow microphone access when your browser asks." },
-        { "title": "Pluck a string", "body": "Pluck a string without fretting it: the tuner detects the note and the deviation. The needle to the left means flat; to the right, sharp." },
-        { "title": "Turn the tuning peg", "body": "Turn the corresponding peg until the string turns green and shows «In tune». Repeat for all 6 strings." }
+        {
+          "title": "Enable the microphone",
+          "body": "Click «Start tuning» and allow microphone access when your browser asks."
+        },
+        {
+          "title": "Pluck a string",
+          "body": "Pluck a string without fretting it: the tuner detects the note and the deviation. The needle to the left means flat; to the right, sharp."
+        },
+        {
+          "title": "Turn the tuning peg",
+          "body": "Turn the corresponding peg until the string turns green and shows «In tune». Repeat for all 6 strings."
+        }
       ],
       "stringsTitle": "String notes in standard tuning",
       "stringsNote": "From low to high, the 6 guitar strings are tuned to:",
       "strings": [
-        { "order": "6th", "note": "E (low E)" },
-        { "order": "5th", "note": "A" },
-        { "order": "4th", "note": "D" },
-        { "order": "3rd", "note": "G" },
-        { "order": "2nd", "note": "B" },
-        { "order": "1st", "note": "E (high E)" }
+        {
+          "order": "6th",
+          "note": "E (low E)"
+        },
+        {
+          "order": "5th",
+          "note": "A"
+        },
+        {
+          "order": "4th",
+          "note": "D"
+        },
+        {
+          "order": "3rd",
+          "note": "G"
+        },
+        {
+          "order": "2nd",
+          "note": "B"
+        },
+        {
+          "order": "1st",
+          "note": "E (high E)"
+        }
       ],
       "hzTitle": "Tuner at 432 Hz and 440 Hz",
       "hzBody": "Besides standard tuning at 440 Hz, this online tuner lets you switch the reference pitch to 432 Hz — the tuning many musicians prefer for its warmer sound. Pick «Reference pitch» and choose 432 Hz or 440 Hz: the string targets and the needle adjust automatically.",
@@ -201,9 +294,18 @@
       ],
       "faqTitle": "Frequently asked questions",
       "faq": [
-        { "q": "How do I tune my guitar with my phone or computer?", "a": "Tap «Start tuning», allow microphone access, pluck an open string, and turn the peg until the note turns green. All you need is a browser." },
-        { "q": "What note is each guitar string?", "a": "In standard tuning, from low to high: E (6th), A (5th), D (4th), G (3rd), B (2nd), E (1st)." },
-        { "q": "Is this tuner free? Do I need to install anything?", "a": "Yes, it's completely free. FretFlow uses the browser's Web Audio API — nothing to download or install, and it works on any device with a microphone." }
+        {
+          "q": "How do I tune my guitar with my phone or computer?",
+          "a": "Tap «Start tuning», allow microphone access, pluck an open string, and turn the peg until the note turns green. All you need is a browser."
+        },
+        {
+          "q": "What note is each guitar string?",
+          "a": "In standard tuning, from low to high: E (6th), A (5th), D (4th), G (3rd), B (2nd), E (1st)."
+        },
+        {
+          "q": "Is this tuner free? Do I need to install anything?",
+          "a": "Yes, it's completely free. FretFlow uses the browser's Web Audio API — nothing to download or install, and it works on any device with a microphone."
+        }
       ]
     }
   }

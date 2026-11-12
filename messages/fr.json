@@ -65,6 +65,66 @@
     "loadingSamples": "Chargement des sons… {n}%",
     "sampleFailed": "Échec du chargement des sons ; utilisation du son de synthèse"
   },
+  "scales": {
+    "title": "Gammes majeures — doigtés",
+    "subtitle": "Pratique de la leçon 7 d'Absolutely Understand Guitar : trois positions de gammes majeures pour débutants",
+    "key": "Tonalité",
+    "pattern": "Position",
+    "label": "Étiquette",
+    "degree": "Degré",
+    "noteName": "Nom de note",
+    "showFinger": "Afficher les doigtés",
+    "stringX": "corde {n}",
+    "fretX": "case {n}",
+    "patternName": {
+      "a": "Position A · racine 6e, majeur",
+      "b": "Position B · racine 5e, auriculaire",
+      "c": "Position C · racine 6e, auriculaire + extension"
+    },
+    "patternTag": {
+      "a": "Sans déplacement",
+      "b": "Sans déplacement",
+      "c": "Une extension"
+    },
+    "patternDetail": {
+      "a": "La racine est sur la 6e corde avec le majeur, sans déplacer la main. Exemple : sol majeur.",
+      "b": "La racine est sur la 5e corde avec l'auriculaire, sans déplacement. Exemple : ré majeur.",
+      "c": "La racine est sur la 6e corde avec l'auriculaire ; étendez une fois pour le 7e degré. Exemple : la majeur."
+    },
+    "reachHint": "Extension : étendez l'auriculaire jusqu'à {string} · {fret}, puis retour en position",
+    "degreeRoot": "racine",
+    "modeView": "Voir",
+    "modeQuiz": "Trouver les notes"
+  },
+  "findNote": {
+    "title": "Trouve la note",
+    "subtitle": "Un nom de note s'affiche : cliquez sur l'endroit où elle se trouve sur le manche.",
+    "target": "Trouve cette note",
+    "clickHint": "Cliquez chaque case du manche où cette note apparaît",
+    "remaining": "Plus que {n}",
+    "hint": "Indice",
+    "skip": "Note suivante",
+    "reset": "Recommencer",
+    "correct": "Juste",
+    "wrong": "Faux",
+    "streak": "Série",
+    "done": "Terminé !",
+    "foundAll": "Tous les {note} trouvés — bravo !",
+    "wrongMsg": "C'est {note} — {target} n'est pas là",
+    "correctMsg": "Oui, {note} !",
+    "scope7": "7 notes naturelles",
+    "scope12": "12 notes (altérations)",
+    "loadingSamples": "Chargement des sons… {n}%",
+    "sampleFailed": "Échec du chargement des sons, tons synthétisés utilisés",
+    "open": "à vide",
+    "next": "Suivant",
+    "hear": "Écouter",
+    "currentKey": "Tonalité : {key} majeur",
+    "findDegree": "Trouve le degré {degree}",
+    "showPattern": "Afficher la position actuelle",
+    "wrongDegreeNotInShape": "C'est aussi le degré {degree}, mais pas dans cette position",
+    "wrongFlat": "Ce n'est pas l'emplacement attendu"
+  },
   "error": {
     "emptyPool": "Le groupe d'accords est vide. Vérifiez les données ou réduisez le nombre"
   },
@@ -121,7 +181,7 @@
     "heroCta": "Commencer à pratiquer",
     "scrollHint": "Défiler",
     "sectionTitle": "Choisissez votre direction",
-    "sectionSub": "Quatre outils pensés pour couvrir les besoins essentiels du guitariste",
+    "sectionSub": "Des outils pensés pour couvrir les besoins essentiels du guitariste, de l'accordage aux gammes",
     "trainer": "Le plus populaire",
     "trainerTitle": "Entraîneur de changements d'accords",
     "trainerDesc": "Pratique de changements d'accords après les leçons d'Absolutely Understand Guitar",
@@ -142,7 +202,13 @@
     "toolsTitle": "Autres outils de guitare",
     "tuner": "Outil pratique",
     "tunerTitle": "Accordeur de guitare",
-    "tunerDesc": "Détection de hauteur en temps réel via le micro pour accorder chaque corde avec précision. Simple, rapide, sans matériel."
+    "tunerDesc": "Détection de hauteur en temps réel via le micro pour accorder chaque corde avec précision. Simple, rapide, sans matériel.",
+    "scales": "Pratique post-leçon",
+    "scalesTitle": "Gammes majeures — doigtés",
+    "scalesDesc": "Pratique d'Absolutely Understand Guitar : trois positions de gammes majeures. Changez de tonalité pour voir degrés et doigtés — les trois positions couvrent les 12 tonalités.",
+    "findNote": "Mémoire active",
+    "findNoteTitle": "Trouve la note",
+    "findNoteDesc": "Un nom de note s'affiche, vous le repérez sur le manche en un clic : la mémorisation devient instinctive."
   },
   "practice": {
     "record": "Journal de pratique",
@@ -177,19 +243,46 @@
       "intro": "Accorder sa guitare n'a jamais été aussi simple. Cet accordeur en ligne gratuit utilise le micro de votre ordinateur ou de votre téléphone pour détecter la hauteur de chaque corde en temps réel et vous indique si elle est trop grave ou trop aiguë. Rien à installer, aucun matériel supplémentaire : ça fonctionne directement dans le navigateur, sur n'importe quel appareil avec micro.",
       "stepsTitle": "Accorder sa guitare en 3 étapes",
       "steps": [
-        { "title": "Autoriser le micro", "body": "Cliquez sur « Commencer l'accordage » et autorisez l'accès au micro quand le navigateur le demande." },
-        { "title": "Grattez une corde à vide", "body": "Grattez une corde sans la fretter : l'accordeur détecte la note et l'écart. L'aiguille à gauche = trop grave, à droite = trop aigu." },
-        { "title": "Tournez la clé d'accordage", "body": "Tournez la clé correspondante jusqu'à ce que la corde passe au vert et affiche « Juste ! ». Répétez pour les 6 cordes." }
+        {
+          "title": "Autoriser le micro",
+          "body": "Cliquez sur « Commencer l'accordage » et autorisez l'accès au micro quand le navigateur le demande."
+        },
+        {
+          "title": "Grattez une corde à vide",
+          "body": "Grattez une corde sans la fretter : l'accordeur détecte la note et l'écart. L'aiguille à gauche = trop grave, à droite = trop aigu."
+        },
+        {
+          "title": "Tournez la clé d'accordage",
+          "body": "Tournez la clé correspondante jusqu'à ce que la corde passe au vert et affiche « Juste ! ». Répétez pour les 6 cordes."
+        }
       ],
       "stringsTitle": "Notes des cordes en accordage standard",
       "stringsNote": "Du grave à l'aigu, les 6 cordes de la guitare s'accordent ainsi :",
       "strings": [
-        { "order": "Corde 6", "note": "E (mi grave)" },
-        { "order": "Corde 5", "note": "A (la)" },
-        { "order": "Corde 4", "note": "D (ré)" },
-        { "order": "Corde 3", "note": "G (sol)" },
-        { "order": "Corde 2", "note": "B (si)" },
-        { "order": "Corde 1", "note": "E (mi aigu)" }
+        {
+          "order": "Corde 6",
+          "note": "E (mi grave)"
+        },
+        {
+          "order": "Corde 5",
+          "note": "A (la)"
+        },
+        {
+          "order": "Corde 4",
+          "note": "D (ré)"
+        },
+        {
+          "order": "Corde 3",
+          "note": "G (sol)"
+        },
+        {
+          "order": "Corde 2",
+          "note": "B (si)"
+        },
+        {
+          "order": "Corde 1",
+          "note": "E (mi aigu)"
+        }
       ],
       "hzTitle": "Accordeur de guitare en 432 Hz et 440 Hz",
       "hzBody": "Outre l'accordage standard à 440 Hz, cet accordeur en ligne permet de passer la fréquence de référence à 432 Hz, l'accordage que certains musiciens préfèrent pour son son plus chaleureux. Choisissez « Fréquence de référence » puis 432 Hz ou 440 Hz : les notes cibles des cordes et l'aiguille s'ajustent automatiquement.",
@@ -201,9 +294,18 @@
       ],
       "faqTitle": "Questions fréquentes",
       "faq": [
-        { "q": "Comment accorder ma guitare avec mon téléphone ou mon ordinateur ?", "a": "Cliquez sur « Commencer l'accordage », autorisez le micro, grattez une corde à vide et tournez la clé jusqu'au vert. Il vous faut juste un navigateur." },
-        { "q": "Quelles notes ont les cordes de la guitare ?", "a": "En accordage standard, du grave à l'aigu : E (6e), A (5e), D (4e), G (3e), B (2e), E (1re)." },
-        { "q": "C'est gratuit ? Faut-il installer quelque chose ?", "a": "Oui, entièrement gratuit. FretFlow utilise l'API Web Audio du navigateur : rien à télécharger ni installer, et ça marche sur tout appareil avec micro." }
+        {
+          "q": "Comment accorder ma guitare avec mon téléphone ou mon ordinateur ?",
+          "a": "Cliquez sur « Commencer l'accordage », autorisez le micro, grattez une corde à vide et tournez la clé jusqu'au vert. Il vous faut juste un navigateur."
+        },
+        {
+          "q": "Quelles notes ont les cordes de la guitare ?",
+          "a": "En accordage standard, du grave à l'aigu : E (6e), A (5e), D (4e), G (3e), B (2e), E (1re)."
+        },
+        {
+          "q": "C'est gratuit ? Faut-il installer quelque chose ?",
+          "a": "Oui, entièrement gratuit. FretFlow utilise l'API Web Audio du navigateur : rien à télécharger ni installer, et ça marche sur tout appareil avec micro."
+        }
       ]
     }
   }

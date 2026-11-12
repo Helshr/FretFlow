@@ -1,24 +1,23 @@
+import {
+  DOUBLE_INLAY_FRETS,
+  FRET_LABEL_Y,
+  FRETS,
+  FRET_W,
+  INLAY_Y,
+  LAST_X,
+  SINGLE_INLAY_FRETS,
+  STRING_LABEL_X,
+  TOP,
+  VIEW_H,
+  VIEW_W,
+  X0,
+  fretX,
+  stringY,
+} from '@/lib/fretboard';
+
 export interface FretPos {
   string: number; // 6..1
   fret: number; // 0..12，0=空弦
-}
-
-const X0 = 40; // 琴枕 x
-const FRET_W = 52; // 每品宽
-const TOP = 44; // 6 弦 y
-const SGAP = 22; // 弦间距
-const FRETS = 12;
-const LAST_X = X0 + FRETS * FRET_W;
-const SINGLE_INLAY_FRETS = [3, 5, 7, 9];
-const DOUBLE_INLAY_FRETS = [12];
-
-function stringY(s: number): number {
-  return TOP + (6 - s) * SGAP;
-}
-
-// 有品的音位于品格中间（第 f 品 = f-1 与 f 两条品线之间的中点）；空弦（0 品）在琴枕处
-function fretX(fret: number): number {
-  return fret === 0 ? X0 : X0 + (fret - 0.5) * FRET_W;
 }
 
 /**
@@ -37,15 +36,13 @@ export default function Fretboard({
   label?: string;
   className?: string;
 }) {
-  const midY = (TOP + stringY(1)) / 2;
-
   return (
-    <svg viewBox="0 0 760 205" role="img" aria-label={label ? `${label} positions` : 'fretboard'} className={`h-auto w-full ${className}`}>
+    <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} role="img" aria-label={label ? `${label} positions` : 'fretboard'} className={`h-auto w-full ${className}`}>
       {/* 弦号标签 */}
       {[6, 5, 4, 3, 2, 1].map((s) => (
         <text
           key={`l${s}`}
-          x={X0 - 14}
+          x={STRING_LABEL_X}
           y={stringY(s) + 4}
           textAnchor="middle"
           fontSize={11}
@@ -60,7 +57,7 @@ export default function Fretboard({
         <text
           key={`f${i}`}
           x={X0 + i * FRET_W}
-          y={192}
+          y={FRET_LABEL_Y}
           textAnchor="middle"
           fontSize={12}
           fill="#6b7280"
@@ -71,12 +68,12 @@ export default function Fretboard({
 
       {/* 指板圆点（位于品格中间；12 品为双点） */}
       {SINGLE_INLAY_FRETS.map((f) => (
-        <circle key={`in${f}`} cx={fretX(f)} cy={midY} r={5} fill="#3a3e46" />
+        <circle key={`in${f}`} cx={fretX(f)} cy={INLAY_Y} r={5} fill="#3a3e46" />
       ))}
       {DOUBLE_INLAY_FRETS.map((f) => (
         <g key={`in${f}`}>
-          <circle cx={fretX(f)} cy={midY - 18} r={5} fill="#3a3e46" />
-          <circle cx={fretX(f)} cy={midY + 18} r={5} fill="#3a3e46" />
+          <circle cx={fretX(f)} cy={INLAY_Y - 18} r={5} fill="#3a3e46" />
+          <circle cx={fretX(f)} cy={INLAY_Y + 18} r={5} fill="#3a3e46" />
         </g>
       ))}
 
