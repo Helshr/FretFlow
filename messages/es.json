@@ -123,7 +123,8 @@
     "findDegree": "Encuentra el grado {degree}",
     "showPattern": "Mostrar patrón actual",
     "wrongFlat": "No es el lugar buscado",
-    "wrongDegree": "Es el grado {hit}, buscamos el {target}"
+    "wrongDegree": "Es el grado {hit}, buscamos el {target}",
+    "wrongDegreeNotInShape": "También es el grado {degree}, pero no está en este patrón"
   },
   "error": {
     "emptyPool": "El grupo de acordes está vacío. Revisa los datos o reduce el número"

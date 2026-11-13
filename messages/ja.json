@@ -123,7 +123,8 @@
     "findDegree": "{degree} を見つける",
     "showPattern": "現在の指形を表示",
     "wrongFlat": "探している位置ではありません",
-    "wrongDegree": "{hit} 度ですね、{target} 度を探しています"
+    "wrongDegree": "{hit} 度ですね、{target} 度を探しています",
+    "wrongDegreeNotInShape": "ここも {degree} 度ですが、この指形にはありません"
   },
   "error": {
     "emptyPool": "コードがありません。データを確認するか、数を減らしてください"

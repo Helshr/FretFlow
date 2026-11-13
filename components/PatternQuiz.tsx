@@ -6,7 +6,6 @@ import {OPEN_FREQ, OPEN_SEMITONE} from '@/lib/guitar';
 import {tonePlayer} from '@/lib/notes/notes';
 import {patternRoute} from '@/lib/scales/aug';
 import type {AugPattern} from '@/lib/scales/aug';
-import {FRETS} from '@/lib/scales/board';
 import {useGuitarSamples} from '@/hooks/useGuitarSamples';
 import QuizFretboard from './QuizFretboard';
 import type {MarkedPos} from './QuizFretboard';
@@ -22,17 +21,6 @@ function posFreq(s: number, f: number): number {
 
 const MAJOR_STEPS = [0, 2, 4, 5, 7, 9, 11];
 const SCALE_DEGREES = [1, 2, 3, 4, 5, 6, 7];
-
-// 某音级在指板（全部 6 弦 0–FRETS 品）上的所有位置
-function notePositions(pitchClass: number): {string: number; fret: number}[] {
-  const out: {string: number; fret: number}[] = [];
-  for (let s = 1; s <= 6; s++) {
-    for (let f = 0; f <= FRETS; f++) {
-      if (posSemi(s, f) === pitchClass) out.push({string: s, fret: f});
-    }
-  }
-  return out;
-}
 
 // 给定调性下，某 pitch class 是第几级（1–7），不是阶内音返回 null
 function degreeOf(tonic: number, semi: number): number | null {
@@ -57,9 +45,9 @@ function shuffle<T>(arr: readonly T[]): T[] {
 
 /**
  * 指形 × 调性 的「找音」练习：选出一种指形后，在某个调下，
- * 依次出题「找到 N」（如 Pattern A · G 大调 · 找到 4）。
- * 正确答案 = 第 N 级音（如 D 大调的 7 → C#）在指板上的**所有**位置，不限指形；
- * 上方「显示当前指形」只作参考。
+ * 依次出题「找到 N」。
+ * 正确答案 = 第 N 级在这个指形（含所有可放置八度）内的全部位置；
+ * 指形外的同音级算错并提示「这是 N 级，但不在这个指形里」。
  */
 export default function PatternQuiz({
   pattern,
@@ -75,8 +63,17 @@ export default function PatternQuiz({
   const t = useTranslations('findNote');
   const {ready, loaded, total, failed} = useGuitarSamples();
 
-  // 指定调下的指形位置（仅用于上方的参考图）
+  // 指定调下、该指形（含多八度全部音符与音级）——既是参考图的数据，也是「找到 N」的答案域
   const route = useMemo(() => patternRoute(pattern, tonic) ?? [], [pattern, tonic]);
+  const byDegree = useMemo(() => {
+    const m = new Map<number, {string: number; fret: number}[]>();
+    route.forEach((e) => {
+      const arr = m.get(e.degree);
+      if (arr) arr.push({string: e.string, fret: e.fret});
+      else m.set(e.degree, [{string: e.string, fret: e.fret}]);
+    });
+    return m;
+  }, [route]);
 
   const [order, setOrder] = useState<number[]>(() => shuffle(SCALE_DEGREES));
   const [degIdx, setDegIdx] = useState(0);
@@ -90,13 +87,11 @@ export default function PatternQuiz({
   const [showPattern, setShowPattern] = useState(true); // 练习上方的当前指形参考图
 
   const targetDegree: number | undefined = order[degIdx];
-  // 第 N 级音 = 该调音阶的第 N 个音级；正确答案 = 这个音在指板上的**所有**位置
-  const targetPitch =
-    targetDegree === undefined ? null : (tonic + MAJOR_STEPS[targetDegree - 1]) % 12;
-  const targets: MarkedPos[] =
-    targetPitch === null
-      ? []
-      : notePositions(targetPitch).map((p) => ({...p, label: String(targetDegree)}));
+  // 正确答案 = 第 N 级在这个指形（含多八度）内的全部位置
+  const targets: MarkedPos[] = (byDegree.get(targetDegree ?? -1) ?? []).map((p) => ({
+    ...p,
+    label: String(targetDegree),
+  }));
   const markLabel = targetDegree === undefined ? '' : String(targetDegree);
   const remaining = targets.length - found.length;
   const degreeDone = targetDegree !== undefined && found.length >= targets.length;
@@ -153,9 +148,11 @@ export default function PatternQuiz({
         {string: s, fret: f, label: hitDegree === null ? '' : String(hitDegree)},
       ]);
       setWrongFlash(
-        hitDegree !== null && hitDegree !== targetDegree
-          ? t('wrongDegree', {hit: hitDegree, target: targetDegree})
-          : t('wrongFlat'),
+        hitDegree === targetDegree
+          ? t('wrongDegreeNotInShape', {degree: targetDegree})
+          : hitDegree !== null
+            ? t('wrongDegree', {hit: hitDegree, target: targetDegree})
+            : t('wrongFlat'),
       );
       window.setTimeout(() => {
         setWrong((prev) => prev.filter((p) => !(p.string === s && p.fret === f)));

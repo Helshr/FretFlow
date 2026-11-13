@@ -123,7 +123,8 @@
     "findDegree": "找到 {degree}",
     "showPattern": "显示当前指形",
     "wrongFlat": "这里不是要找的位置",
-    "wrongDegree": "这是 {hit} 级，要找 {target} 级"
+    "wrongDegree": "这是 {hit} 级，要找 {target} 级",
+    "wrongDegreeNotInShape": "这里也是 {degree} 级，但不在这个指形里"
   },
   "error": {
     "emptyPool": "和弦池为空，请检查数据或减少数量"

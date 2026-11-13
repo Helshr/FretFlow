@@ -123,7 +123,8 @@
     "findDegree": "Find degree {degree}",
     "showPattern": "Show current pattern",
     "wrongFlat": "Not the spot we're looking for",
-    "wrongDegree": "That's degree {hit}, we need {target}"
+    "wrongDegree": "That's degree {hit}, we need {target}",
+    "wrongDegreeNotInShape": "Also degree {degree}, but it's not in this pattern"
   },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."
