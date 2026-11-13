@@ -1,6 +1,6 @@
 // AUG（Absolutely Understand Guitar）Lesson 7 三种大调音阶指形练习数据。
-// 三种指形覆盖全部 1–6 弦的标准把位形状（非官方指形图逐点转录，正式发布前需对照教材核对，
-// 尤其 Pattern B 的低音侧与各形状的 6/7 品伸展细节）。移调见 patternRoute。
+// 三指形的全把位形状（覆盖 1–6 弦）已由用户按教材逐弦核对确认（2026-11-13）。
+// 移调见 patternRoute。
 
 // 指板满品数：21 品保证每个调的指形都能落在 0–MAX 品内的自然低八度区，12 个调全部可展示。
 export const MAX_SCALE_FRET = 21;
@@ -35,8 +35,9 @@ export const AUG_PATTERNS: AugPattern[] = [
     tagKey: 'patternTag.a',
     detailKey: 'patternDetail.a',
     baseTonic: 7, // G
-    // 全把位形状（根音 6 弦·中指）：按你给的八度路线延伸至全部 6 弦，标把位 2-5（2 弦 7 品为小指伸展）
+    // 全把位形状（根音 6 弦·中指）：6 弦/1 弦都从导音起（7,1,2）；第 7 级只出现在 6弦/4弦/1弦
     notes: [
+      e(6, 2, 1, 7),
       e(6, 3, 2, 1),
       e(6, 5, 4, 2),
       e(5, 2, 1, 3),
@@ -50,7 +51,7 @@ export const AUG_PATTERNS: AugPattern[] = [
       e(3, 5, 4, 4),
       e(2, 3, 2, 5),
       e(2, 5, 4, 6),
-      e(2, 7, 4, 7),
+      e(1, 2, 1, 7),
       e(1, 3, 2, 1),
       e(1, 5, 4, 2),
     ],
@@ -61,10 +62,13 @@ export const AUG_PATTERNS: AugPattern[] = [
     tagKey: 'patternTag.b',
     detailKey: 'patternDetail.b',
     baseTonic: 2, // D
-    // 全把位形状（根音 5 弦·小指）：按你给的八度路线延伸至全部 6 弦，标把位 2-6
+    // 全把位形状（根音 5 弦·小指）：用户核对修正——6 弦 F#/G/A(3,4,5)，5 弦 B/C#/D(6,7,1)
     notes: [
-      e(6, 4, 3, 3),
-      e(6, 5, 4, 4),
+      e(6, 2, 1, 3),
+      e(6, 3, 2, 4),
+      e(6, 5, 4, 5),
+      e(5, 2, 1, 6),
+      e(5, 4, 3, 7),
       e(5, 5, 4, 1),
       e(4, 2, 1, 2),
       e(4, 4, 3, 3),
@@ -86,8 +90,10 @@ export const AUG_PATTERNS: AugPattern[] = [
     tagKey: 'patternTag.c',
     detailKey: 'patternDetail.c',
     baseTonic: 9, // A
-    // 全把位形状（根音 6 弦·小指）：按你给的八度路线延伸至全部 6 弦；第 7 音（4 弦 6 品）小指伸展
+    // 全把位形状（根音 6 弦·小指）：用户核对修正——6 弦 F#/G#/A(6,7,1)；第 7 音（4 弦 6 品）小指伸展
     notes: [
+      e(6, 2, 1, 6),
+      e(6, 4, 3, 7),
       e(6, 5, 4, 1),
       e(5, 2, 1, 2),
       e(5, 4, 3, 3),
@@ -104,7 +110,7 @@ export const AUG_PATTERNS: AugPattern[] = [
       e(1, 4, 3, 7),
       e(1, 5, 4, 1),
     ],
-    reach: {noteIndex: 6},
+    reach: {noteIndex: 8},
   },
 ];
 
