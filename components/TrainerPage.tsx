@@ -22,6 +22,7 @@ export default function TrainerPage() {
   const tools = [
     {href: '/tuner', title: t('home.tunerTitle'), desc: t('home.tunerDesc')},
     {href: '/scales', title: t('home.scalesTitle'), desc: t('home.scalesDesc')},
+    {href: '/intervals', title: t('home.intervalsTitle'), desc: t('home.intervalsDesc')},
     {href: '/notes', title: t('home.notesTitle'), desc: t('home.notesDesc')},
     {href: '/find-note', title: t('home.findNoteTitle'), desc: t('home.findNoteDesc')},
     {href: '/chords', title: t('home.chordChartTitle'), desc: t('home.chordChartDesc')},

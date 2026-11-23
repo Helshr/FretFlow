@@ -126,6 +126,35 @@
     "wrongDegree": "그건 {hit}음, {target}음을 찾아야 해요",
     "wrongDegreeNotInShape": "여기도 {degree}음인데 이 지형엔 없어요"
   },
+  "intervals": {
+    "title": "C 장조 음정 연습",
+    "timeLimit": "문제당 제한 시간",
+    "again": "한 번 더",
+    "done": "완료",
+    "correct": "정답",
+    "wrong": "오답",
+    "timeout": "시간 초과",
+    "questionOf": "{n}/{total}번째",
+    "timeLeft": "남은 시간 {sec}초",
+    "pickInterval": "이 음정은?",
+    "revealNote": "정답을 기억하고 다음 문제로…",
+    "score": "점수: {correct}/{total}",
+    "m2": "단2도",
+    "M2": "장2도",
+    "m3": "단3도",
+    "M3": "장3도",
+    "P4": "완전4도",
+    "A4": "증4도",
+    "d5": "감5도",
+    "P5": "완전5도",
+    "m6": "단6도",
+    "M6": "장6도",
+    "m7": "단7도",
+    "M7": "장7도",
+    "P8": "완전8도",
+    "roundNote": "라운드당 {n}문제",
+    "correctNote": "정답!"
+  },
   "error": {
     "emptyPool": "코드 풀이 비어 있습니다. 데이터를 확인하거나 개수를 줄여주세요"
   },
@@ -209,7 +238,10 @@
     "scalesDesc": "Absolutely Understand Guitar 연습: 입문자용 메이저 스케일 지형 3가지. 조를 바꿔 음도·운지를 확인하세요. 세 지형을 합치면 12조 전체를 커버합니다.",
     "findNote": "능동 기억",
     "findNoteTitle": "음명 찾기",
-    "findNoteDesc": "음명이 표시되면 지판에서 클릭해 찾는 연습. 외우기가 몸에 배게 합니다."
+    "findNoteDesc": "음명이 표시되면 지판에서 클릭해 찾는 연습. 외우기가 몸에 배게 합니다.",
+    "intervals": "음악 이론",
+    "intervalsTitle": "C 장조 음정",
+    "intervalsDesc": "C 장조의 두 음이 표시되고, 제한 시간 안에 올바른 음정을 고르는 속도 연습."
   },
   "practice": {
     "record": "연습 기록",

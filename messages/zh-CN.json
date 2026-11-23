@@ -126,6 +126,35 @@
     "wrongDegree": "这是 {hit} 级，要找 {target} 级",
     "wrongDegreeNotInShape": "这里也是 {degree} 级，但不在这个指形里"
   },
+  "intervals": {
+    "title": "C 大调音程练习",
+    "timeLimit": "每题限时",
+    "again": "再来一轮",
+    "done": "完成",
+    "correct": "正确",
+    "wrong": "错误",
+    "timeout": "超时",
+    "questionOf": "第 {n}/{total} 题",
+    "timeLeft": "剩余 {sec}s",
+    "pickInterval": "这个音程是？",
+    "revealNote": "记住正确答案，下一题马上来…",
+    "score": "得分：{correct}/{total}",
+    "m2": "小二度",
+    "M2": "大二度",
+    "m3": "小三度",
+    "M3": "大三度",
+    "P4": "纯四度",
+    "A4": "增四度",
+    "d5": "减五度",
+    "P5": "纯五度",
+    "m6": "小六度",
+    "M6": "大六度",
+    "m7": "小七度",
+    "M7": "大七度",
+    "P8": "纯八度",
+    "roundNote": "每轮 {n} 题",
+    "correctNote": "答对了！"
+  },
   "error": {
     "emptyPool": "和弦池为空，请检查数据或减少数量"
   },
@@ -209,7 +238,10 @@
     "scalesDesc": "Absolutely Understand Guitar 课后练习：三种入门大调指形，切调查看音级、音名与指法，三个指形合起来覆盖全部 12 个调。",
     "findNote": "主动记忆",
     "findNoteTitle": "找音名",
-    "findNoteDesc": "音名出现在屏幕上，你在指板上点击找到它——把记住指板变成肌肉记忆。"
+    "findNoteDesc": "音名出现在屏幕上，你在指板上点击找到它——把记住指板变成肌肉记忆。",
+    "intervals": "乐理练习",
+    "intervalsTitle": "C 大调音程",
+    "intervalsDesc": "随机出 C 大调音阶的两个音，限时选出正确音程（大/小/纯/增/减），练就音程反应。"
   },
   "practice": {
     "record": "练习记录",

@@ -126,6 +126,35 @@
     "wrongDegree": "{hit} 度ですね、{target} 度を探しています",
     "wrongDegreeNotInShape": "ここも {degree} 度ですが、この指形にはありません"
   },
+  "intervals": {
+    "title": "C メジャー音程トレーニング",
+    "timeLimit": "1 問あたりの秒数",
+    "again": "もう 1 ラウンド",
+    "done": "完了",
+    "correct": "正解",
+    "wrong": "不正解",
+    "timeout": "時間切れ",
+    "questionOf": "{n}/{total} 問目",
+    "timeLeft": "残り {sec} 秒",
+    "pickInterval": "この音程は？",
+    "revealNote": "答えを覚えて、次の問題へ進みます…",
+    "score": "スコア：{correct}/{total}",
+    "m2": "短2度",
+    "M2": "長2度",
+    "m3": "短3度",
+    "M3": "長3度",
+    "P4": "完全4度",
+    "A4": "増4度",
+    "d5": "減5度",
+    "P5": "完全5度",
+    "m6": "短6度",
+    "M6": "長6度",
+    "m7": "短7度",
+    "M7": "長7度",
+    "P8": "完全8度",
+    "roundNote": "1 ラウンド {n} 問",
+    "correctNote": "正解！"
+  },
   "error": {
     "emptyPool": "コードがありません。データを確認するか、数を減らしてください"
   },
@@ -209,7 +238,10 @@
     "scalesDesc": "Absolutely Understand Guitar の復習：初心者向け 3 つの大調指形。調を切り替えて音度・運指を確認。3 つの指形を合わせれば全 12 調をカバー。",
     "findNote": "能動的記憶",
     "findNoteTitle": "音名さがし",
-    "findNoteDesc": "音名が表示されたら指板上でクリックして見つける練習。覚えた指板を身体に染み込ませます。"
+    "findNoteDesc": "音名が表示されたら指板上でクリックして見つける練習。覚えた指板を身体に染み込ませます。",
+    "intervals": "楽理練習",
+    "intervalsTitle": "C メジャー音程",
+    "intervalsDesc": "C メジャーの 2 音が表示。制限時間内に正しい音程を選ぶスピード練習。"
   },
   "practice": {
     "record": "練習記録",

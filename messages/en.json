@@ -126,6 +126,35 @@
     "wrongDegree": "That's degree {hit}, we need {target}",
     "wrongDegreeNotInShape": "Also degree {degree}, but it's not in this pattern"
   },
+  "intervals": {
+    "title": "C Major Interval Trainer",
+    "timeLimit": "Seconds per question",
+    "again": "Play again",
+    "done": "Done",
+    "correct": "Correct",
+    "wrong": "Wrong",
+    "timeout": "Timeout",
+    "questionOf": "Question {n}/{total}",
+    "timeLeft": "{sec}s left",
+    "pickInterval": "What interval is this?",
+    "revealNote": "Note the answer — next question incoming…",
+    "score": "Score: {correct}/{total}",
+    "m2": "minor 2nd",
+    "M2": "major 2nd",
+    "m3": "minor 3rd",
+    "M3": "major 3rd",
+    "P4": "perfect 4th",
+    "A4": "augmented 4th",
+    "d5": "diminished 5th",
+    "P5": "perfect 5th",
+    "m6": "minor 6th",
+    "M6": "major 6th",
+    "m7": "minor 7th",
+    "M7": "major 7th",
+    "P8": "perfect octave",
+    "roundNote": "{n} questions per round",
+    "correctNote": "Correct!"
+  },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."
   },
@@ -209,7 +238,10 @@
     "scalesDesc": "Absolutely Understand Guitar practice: three beginner major-scale fingerings. Switch keys to view degrees and fingerings — all three patterns combined cover all 12 keys.",
     "findNote": "Active recall",
     "findNoteTitle": "Find the Note",
-    "findNoteDesc": "A note name appears on screen — click where it lives on the fretboard and turn recall into muscle memory."
+    "findNoteDesc": "A note name appears on screen — click where it lives on the fretboard and turn recall into muscle memory.",
+    "intervals": "Music theory",
+    "intervalsTitle": "C Major Intervals",
+    "intervalsDesc": "Two notes from the C major scale on screen — beat the timer and name the interval (major/minor/perfect/augmented/diminished)."
   },
   "practice": {
     "record": "Practice Log",

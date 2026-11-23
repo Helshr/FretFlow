@@ -126,6 +126,35 @@
     "wrongDegree": "Es el grado {hit}, buscamos el {target}",
     "wrongDegreeNotInShape": "También es el grado {degree}, pero no está en este patrón"
   },
+  "intervals": {
+    "title": "Intervalos en do mayor",
+    "timeLimit": "Segundos por pregunta",
+    "again": "Otra ronda",
+    "done": "¡Completado!",
+    "correct": "Correcto",
+    "wrong": "Error",
+    "timeout": "Agotado",
+    "questionOf": "Pregunta {n}/{total}",
+    "timeLeft": "Quedan {sec}s",
+    "pickInterval": "¿Qué intervalo es?",
+    "revealNote": "Recuerda la respuesta, viene la siguiente…",
+    "score": "Puntuación: {correct}/{total}",
+    "m2": "2.ª menor",
+    "M2": "2.ª mayor",
+    "m3": "3.ª menor",
+    "M3": "3.ª mayor",
+    "P4": "4.ª justa",
+    "A4": "4.ª aumentada",
+    "d5": "5.ª disminuida",
+    "P5": "5.ª justa",
+    "m6": "6.ª menor",
+    "M6": "6.ª mayor",
+    "m7": "7.ª menor",
+    "M7": "7.ª mayor",
+    "P8": "octava justa",
+    "roundNote": "{n} preguntas por ronda",
+    "correctNote": "¡Correcto!"
+  },
   "error": {
     "emptyPool": "El grupo de acordes está vacío. Revisa los datos o reduce el número"
   },
@@ -209,7 +238,10 @@
     "scalesDesc": "Práctica de Absolutely Understand Guitar: tres digitaciones básicas de escala mayor. Cambia de tonalidad para ver grados y digitaciones — los tres patrones cubren las 12 tonalidades.",
     "findNote": "Memoria activa",
     "findNoteTitle": "Encuentra la nota",
-    "findNoteDesc": "Aparece una nota y tú la localizas en el mástil con un clic: memorizar el diapasón se vuelve instintivo."
+    "findNoteDesc": "Aparece una nota y tú la localizas en el mástil con un clic: memorizar el diapasón se vuelve instintivo.",
+    "intervals": "Teoría musical",
+    "intervalsTitle": "Intervalos en do mayor",
+    "intervalsDesc": "Dos notas de do mayor en pantalla: a contrarreloj, nombra el intervalo correcto."
   },
   "practice": {
     "record": "Registro de práctica",

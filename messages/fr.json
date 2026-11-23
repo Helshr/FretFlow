@@ -126,6 +126,35 @@
     "wrongDegree": "C'est le degré {hit}, on cherche le {target}",
     "wrongDegreeNotInShape": "C'est aussi le degré {degree}, mais pas dans cette position"
   },
+  "intervals": {
+    "title": "Intervalles en do majeur",
+    "timeLimit": "Secondes par question",
+    "again": "Rejouer",
+    "done": "Terminé",
+    "correct": "Juste",
+    "wrong": "Faux",
+    "timeout": "Temps écoulé",
+    "questionOf": "Question {n}/{total}",
+    "timeLeft": "Plus que {sec}s",
+    "pickInterval": "Quel est cet intervalle ?",
+    "revealNote": "Retenez la réponse, prochaine question…",
+    "score": "Score : {correct}/{total}",
+    "m2": "seconde mineure",
+    "M2": "seconde majeure",
+    "m3": "tierce mineure",
+    "M3": "tierce majeure",
+    "P4": "quarte juste",
+    "A4": "quarte augmentée",
+    "d5": "quinte diminuée",
+    "P5": "quinte juste",
+    "m6": "sixte mineure",
+    "M6": "sixte majeure",
+    "m7": "septième mineure",
+    "M7": "septième majeure",
+    "P8": "octave juste",
+    "roundNote": "{n} questions par tour",
+    "correctNote": "Juste !"
+  },
   "error": {
     "emptyPool": "Le groupe d'accords est vide. Vérifiez les données ou réduisez le nombre"
   },
@@ -209,7 +238,10 @@
     "scalesDesc": "Pratique d'Absolutely Understand Guitar : trois positions de gammes majeures. Changez de tonalité pour voir degrés et doigtés — les trois positions couvrent les 12 tonalités.",
     "findNote": "Mémoire active",
     "findNoteTitle": "Trouve la note",
-    "findNoteDesc": "Un nom de note s'affiche, vous le repérez sur le manche en un clic : la mémorisation devient instinctive."
+    "findNoteDesc": "Un nom de note s'affiche, vous le repérez sur le manche en un clic : la mémorisation devient instinctive.",
+    "intervals": "Théorie",
+    "intervalsTitle": "Intervalles en do majeur",
+    "intervalsDesc": "Deux notes de do majeur à l'écran : chronométré, trouvez le bon intervalle."
   },
   "practice": {
     "record": "Journal de pratique",

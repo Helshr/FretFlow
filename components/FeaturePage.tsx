@@ -23,6 +23,7 @@ export default async function FeaturePage({
     {href: '/tuner', title: t('tunerTitle'), desc: t('tunerDesc')},
     {href: '/trainer', title: t('trainerTitle'), desc: t('trainerDesc')},
     {href: '/scales', title: t('scalesTitle'), desc: t('scalesDesc')},
+    {href: '/intervals', title: t('intervalsTitle'), desc: t('intervalsDesc')},
     {href: '/notes', title: t('notesTitle'), desc: t('notesDesc')},
     {href: '/find-note', title: t('findNoteTitle'), desc: t('findNoteDesc')},
     {href: '/chords', title: t('chordChartTitle'), desc: t('chordChartDesc')},

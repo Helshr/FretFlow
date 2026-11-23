@@ -73,6 +73,18 @@
 <priority>0.8</priority>
 </url>
 <url>
+<loc>https://fretflow.art/intervals</loc>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://fretflow.art/intervals" />
+<xhtml:link rel="alternate" hreflang="zh-CN" href="https://fretflow.art/intervals" />
+<xhtml:link rel="alternate" hreflang="en" href="https://fretflow.art/en/intervals" />
+<xhtml:link rel="alternate" hreflang="ja" href="https://fretflow.art/ja/intervals" />
+<xhtml:link rel="alternate" hreflang="ko" href="https://fretflow.art/ko/intervals" />
+<xhtml:link rel="alternate" hreflang="es" href="https://fretflow.art/es/intervals" />
+<xhtml:link rel="alternate" hreflang="fr" href="https://fretflow.art/fr/intervals" />
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
 <loc>https://fretflow.art/tuner</loc>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://fretflow.art/tuner" />
 <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fretflow.art/tuner" />

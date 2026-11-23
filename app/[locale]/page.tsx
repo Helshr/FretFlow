@@ -16,6 +16,7 @@ const CARDS = [
   {href: '/tuner', tag: 'tuner', title: 'tunerTitle', desc: 'tunerDesc', link: 'enter'},
   {href: '/trainer', tag: 'trainer', title: 'trainerTitle', desc: 'trainerDesc', link: 'enter'},
   {href: '/scales', tag: 'scales', title: 'scalesTitle', desc: 'scalesDesc', link: 'enter'},
+  {href: '/intervals', tag: 'intervals', title: 'intervalsTitle', desc: 'intervalsDesc', link: 'enter'},
   {href: '/notes', tag: 'notes', title: 'notesTitle', desc: 'notesDesc', link: 'enter'},
   {href: '/find-note', tag: 'findNote', title: 'findNoteTitle', desc: 'findNoteDesc', link: 'enter'},
   {href: '/chords', tag: 'chordChart', title: 'chordChartTitle', desc: 'chordChartDesc', link: 'enter'},
