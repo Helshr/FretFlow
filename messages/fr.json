@@ -154,10 +154,14 @@
     "P8": "octave juste",
     "roundNote": "{n} questions par tour",
     "correctNote": "Juste !",
-    "intervalTable": "Table des intervalles en do majeur",
     "P1": "unisson",
     "subtitle": "Deux notes de la gamme de do majeur s'affichent — choisissez le bon intervalle (majeur/mineur/juste/augmenté/diminué).",
-    "start": "Démarrer"
+    "start": "Démarrer",
+    "selectAll": "Tout sélectionner",
+    "clearAll": "Tout effacer",
+    "selectHint": "Sélectionnez au moins un intervalle pour démarrer",
+    "tableClickHint": "Touchez une case pour inclure/exclure cet intervalle",
+    "backToSelect": "Retour aux choix"
   },
   "error": {
     "emptyPool": "Le groupe d'accords est vide. Vérifiez les données ou réduisez le nombre"

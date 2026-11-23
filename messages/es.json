@@ -154,10 +154,14 @@
     "P8": "octava justa",
     "roundNote": "{n} preguntas por ronda",
     "correctNote": "¡Correcto!",
-    "intervalTable": "Tabla de intervalos en do mayor",
     "P1": "unísono",
     "subtitle": "Se muestran dos notas de la escala de do mayor: elige el intervalo correcto (mayor/menor/justa/aumentada/disminuida).",
-    "start": "Empezar"
+    "start": "Empezar",
+    "selectAll": "Seleccionar todo",
+    "clearAll": "Quitar",
+    "selectHint": "Selecciona al menos un intervalo para empezar",
+    "tableClickHint": "Pulsa una celda para incluir/excluir ese intervalo",
+    "backToSelect": "Volver a selección"
   },
   "error": {
     "emptyPool": "El grupo de acordes está vacío. Revisa los datos o reduce el número"

@@ -10,6 +10,7 @@ import {
   intervalQKey,
 } from '@/lib/intervals/cmajor';
 import type {IntervalId, IntervalQuestion} from '@/lib/intervals/cmajor';
+import IntervalTable from './IntervalTable';
 
 const ROUND_LENGTH = 20; // 一轮固定 20 题
 const TIME_CHOICES = [20, 10, 5, 3, 1];
@@ -28,11 +29,50 @@ function shuffle<T>(arr: readonly T[]): T[] {
   return out;
 }
 
-// 一轮 n 道题：先各保一条覆盖 7 个音名的题，其余随机不重复；超出题库再随机补
-function buildRound(n: number): IntervalQuestion[] {
+// 把题目排成相邻不重复的顺序（池子只有 1 类时除外）
+function arrangeNoAdjacent(list: IntervalQuestion[]): IntervalQuestion[] {
+  if (list.length <= 1) return list;
+  const used: IntervalQuestion[] = [];
+  const counts = new Map<string, IntervalQuestion & {n: number}>();
+  for (const q of list) {
+    const k = intervalQKey(q);
+    const e = counts.get(k);
+    if (e) e.n++;
+    else counts.set(k, {...q, n: 1});
+  }
+  while (used.length < list.length) {
+    let bestKey: string | null = null;
+    let bestN = -1;
+    const prevKey = used.length ? intervalQKey(used[used.length - 1]) : null;
+    for (const [k, e] of counts) {
+      if (e.n === 0 || k === prevKey) continue;
+      if (e.n > bestN) {
+        bestN = e.n;
+        bestKey = k;
+      }
+    }
+    if (bestKey === null) {
+      // 只剩当前相邻那类，只能接着放
+      for (const [k, e] of counts) {
+        if (e.n > 0) {
+          bestKey = k;
+          break;
+        }
+      }
+    }
+    const e = counts.get(bestKey!)!;
+    used.push(e);
+    e.n--;
+  }
+  return used;
+}
+
+// 一轮 n 道题：从勾选池子里先各保一条覆盖 7 个音名的题，其余随机；最后排成相邻不重复
+function buildRound(n: number, pool: IntervalQuestion[]): IntervalQuestion[] {
+  if (pool.length === 0) return [];
   const used = new Set<string>();
   const covered = C_MAJOR_NOTES.map((note) => {
-    const q = C_INTERVAL_QUESTIONS.find(
+    const q = pool.find(
       (x) => (x.low === note || x.high === note) && !used.has(intervalQKey(x)),
     );
     if (q) {
@@ -41,13 +81,13 @@ function buildRound(n: number): IntervalQuestion[] {
     }
     return undefined;
   }).filter((x): x is IntervalQuestion => x !== undefined);
-  const rest = C_INTERVAL_QUESTIONS.filter((x) => !used.has(intervalQKey(x)));
+  const rest = pool.filter((x) => !used.has(intervalQKey(x)));
   const distinct = shuffle([...covered, ...rest]);
-  if (n <= distinct.length) return shuffle(distinct.slice(0, n));
-  const extra = Array.from({length: n - distinct.length}, () =>
-    randomFrom(C_INTERVAL_QUESTIONS),
-  );
-  return shuffle([...distinct, ...extra]);
+  const multiset =
+    n <= distinct.length
+      ? distinct.slice(0, n)
+      : [...distinct, ...Array.from({length: n - distinct.length}, () => randomFrom(pool))];
+  return arrangeNoAdjacent(multiset);
 }
 
 function buildOptions(q: IntervalQuestion): IntervalId[] {
@@ -63,9 +103,9 @@ interface Game {
   options: IntervalId[];
 }
 
-function newGame(): Game {
-  const round = buildRound(ROUND_LENGTH);
-  return {round, index: 0, options: buildOptions(round[0])};
+function newGame(pool: IntervalQuestion[]): Game {
+  const round = buildRound(ROUND_LENGTH, pool);
+  return {round, index: 0, options: round[0] ? buildOptions(round[0]) : []};
 }
 
 type Phase = 'ready' | 'playing' | 'done';
@@ -80,6 +120,8 @@ export default function IntervalGame() {
 
   const [game, setGame] = useState<Game | null>(null);
   const [phase, setPhase] = useState<Phase>('ready');
+  // 勾选的音程对（格子）的 key = `${low}-${high}`；默认全不选，点格子即加入（要练什么点哪几格）
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [timerSec, setTimerSec] = useState(DEFAULT_TIMER);
   const [remainingMs, setRemainingMs] = useState(DEFAULT_TIMER * 1000);
   const [reveal, setReveal] = useState<IntervalId | null>(null);
@@ -162,8 +204,22 @@ export default function IntervalGame() {
     }
   }
 
+  function toggleCell(key: string) {
+    setSelectedKeys((prev) =>
+      prev.includes(key) ? prev.filter((x) => x !== key) : [...prev, key],
+    );
+  }
+
+  function selectAll() {
+    setSelectedKeys(C_INTERVAL_QUESTIONS.map((q) => intervalQKey(q)));
+  }
+
   function start() {
-    setGame(newGame());
+    const pool = C_INTERVAL_QUESTIONS.filter((q) =>
+      selectedKeys.includes(intervalQKey(q)),
+    );
+    if (pool.length === 0) return;
+    setGame(newGame(pool));
     setPhase('playing');
     setCorrectCount(0);
     setWrongCount(0);
@@ -188,15 +244,41 @@ export default function IntervalGame() {
 
   if (phase === 'ready') {
     return (
-      <div className="mx-auto max-w-[480px] text-center">
-        <p className="mb-8 text-sm leading-relaxed text-muted">{t('subtitle')}</p>
-        <button
-          onClick={start}
-          className="rounded-full bg-accent px-12 py-4 text-lg font-bold text-[#0a0a0a] transition hover:-translate-y-0.5 hover:brightness-110"
-        >
-          {t('start')}
-        </button>
-        <p className="mt-5 text-xs text-muted">{t('roundNote', {n: ROUND_LENGTH})}</p>
+      <div className="mx-auto max-w-[560px] text-center">
+        <p className="mb-2 text-sm leading-relaxed text-muted">{t('subtitle')}</p>
+        {/* 音程对照表 = 出题范围选择器 */}
+        <IntervalTable selectedKeys={selectedKeys} onToggle={toggleCell} />
+        <div className="mt-3 flex justify-center gap-2">
+          <button
+            type="button"
+            onClick={selectAll}
+            className="rounded-full border border-line bg-card-2 px-4 py-1.5 text-xs font-semibold text-muted transition hover:text-text"
+          >
+            {t('selectAll')}
+          </button>
+          <button
+            type="button"
+            onClick={() => setSelectedKeys([])}
+            className="rounded-full border border-line bg-card-2 px-4 py-1.5 text-xs font-semibold text-muted transition hover:text-text"
+          >
+            {t('clearAll')}
+          </button>
+        </div>
+        <div className="mt-6">
+          <button
+            onClick={start}
+            disabled={selectedKeys.length === 0}
+            className={`rounded-full bg-accent px-12 py-4 text-lg font-bold text-[#0a0a0a] transition hover:-translate-y-0.5 hover:brightness-110 ${
+              selectedKeys.length === 0 ? 'cursor-not-allowed opacity-40' : ''
+            }`}
+          >
+            {t('start')}
+          </button>
+        </div>
+        {selectedKeys.length === 0 && (
+          <p className="mt-3 text-sm text-accent">{t('selectHint')}</p>
+        )}
+        <p className="mt-4 text-xs text-muted">{t('roundNote', {n: ROUND_LENGTH})}</p>
       </div>
     );
   }
@@ -223,12 +305,20 @@ export default function IntervalGame() {
         <div className="mt-3 text-sm text-muted">
           {t('score', {correct: correctCount, total: round.length})}
         </div>
-        <button
-          onClick={start}
-          className="mt-6 rounded-full bg-accent px-8 py-3 text-base font-bold text-[#0a0a0a] hover:brightness-110"
-        >
-          {t('again')}
-        </button>
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <button
+            onClick={() => setPhase('ready')}
+            className="rounded-full border border-line bg-card-2 px-7 py-3 text-base font-semibold text-muted transition hover:text-text"
+          >
+            {t('backToSelect')}
+          </button>
+          <button
+            onClick={start}
+            className="rounded-full bg-accent px-8 py-3 text-base font-bold text-[#0a0a0a] hover:brightness-110"
+          >
+            {t('again')}
+          </button>
+        </div>
       </div>
     );
   }

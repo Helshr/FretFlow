@@ -154,10 +154,14 @@
     "P8": "perfect octave",
     "roundNote": "{n} questions per round",
     "correctNote": "Correct!",
-    "intervalTable": "C major interval table",
     "P1": "unison",
     "subtitle": "Two notes from the C major scale appear — choose the correct interval (major/minor/perfect/augmented/diminished).",
-    "start": "Start"
+    "start": "Start",
+    "selectAll": "Select all",
+    "clearAll": "Clear",
+    "selectHint": "Select at least one interval to start",
+    "tableClickHint": "Tap a cell to include/exclude that interval",
+    "backToSelect": "Back to selection"
   },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."
