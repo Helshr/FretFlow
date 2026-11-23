@@ -153,7 +153,11 @@
     "M7": "major 7th",
     "P8": "perfect octave",
     "roundNote": "{n} questions per round",
-    "correctNote": "Correct!"
+    "correctNote": "Correct!",
+    "intervalTable": "C major interval table",
+    "P1": "unison",
+    "subtitle": "Two notes from the C major scale appear — choose the correct interval (major/minor/perfect/augmented/diminished).",
+    "start": "Start"
   },
   "error": {
     "emptyPool": "Chord pool is empty. Check data or lower the count."

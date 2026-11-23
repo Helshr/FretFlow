@@ -1,9 +1,10 @@
 import type {Metadata} from 'next';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {pageMetadata} from '@/lib/seo';
-import {C_MAJOR_NOTES} from '@/lib/intervals/cmajor';
+import {INTERVAL_IDS} from '@/lib/intervals/cmajor';
 import FeaturePage from '@/components/FeaturePage';
 import IntervalGame from '@/components/IntervalGame';
+import IntervalTable from '@/components/IntervalTable';
 
 export async function generateMetadata({
   params,
@@ -24,19 +25,13 @@ export default async function IntervalsPage({
   setRequestLocale(locale);
   const t = await getTranslations();
 
+  // 对照表格子用的本地化音程名（含对角 P1）
+  const intervalNames: Record<string, string> = {P1: t('intervals.P1')};
+  for (const id of INTERVAL_IDS) intervalNames[id] = t(`intervals.${id}`);
+
   return (
     <FeaturePage homeLabel={t('nav.home')} title={t('intervals.title')} exclude="/intervals">
-      {/* C 大调音阶参考：不懂的人可顺着音名数音级来推理 */}
-      <div className="mb-6 flex flex-wrap items-center justify-center gap-1.5">
-        {C_MAJOR_NOTES.map((n) => (
-          <span
-            key={n}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-line bg-card-2 text-base font-bold text-text"
-          >
-            {n}
-          </span>
-        ))}
-      </div>
+      <IntervalTable label={t('intervals.intervalTable')} names={intervalNames} />
       <IntervalGame />
     </FeaturePage>
   );

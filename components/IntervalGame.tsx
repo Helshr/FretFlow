@@ -68,17 +68,18 @@ function newGame(): Game {
   return {round, index: 0, options: buildOptions(round[0])};
 }
 
-type Phase = 'playing' | 'done';
+type Phase = 'ready' | 'playing' | 'done';
 
 /**
- * C 大调音程练习：进入即开始（一轮固定 20 题），随机两个自然音，3 选 1 选音程。
- * 计时可在答题中随时切换 1/3/5/7s；答对立即下一题，答错/超时闪正确答案 0.7s。
+ * C 大调音程练习：一轮固定 20 题，随机两个自然音，3 选 1 选音程。
+ * 点「开始」后进入答题；计时可在答题时随时切换（默认 10s）；
+ * 答对闪绿 0.5s、答错/超时闪正确答案 0.7s。
  */
 export default function IntervalGame() {
   const t = useTranslations('intervals');
 
-  const [game, setGame] = useState<Game | null>(null); // 挂载后再备题，避免 SSR/水合随机不一致
-  const [phase, setPhase] = useState<Phase>('playing');
+  const [game, setGame] = useState<Game | null>(null);
+  const [phase, setPhase] = useState<Phase>('ready');
   const [timerSec, setTimerSec] = useState(DEFAULT_TIMER);
   const [remainingMs, setRemainingMs] = useState(DEFAULT_TIMER * 1000);
   const [reveal, setReveal] = useState<IntervalId | null>(null);
@@ -90,12 +91,6 @@ export default function IntervalGame() {
 
   const answeredRef = useRef(false);
   const goNextRef = useRef<() => void>(() => {});
-
-  // 进入页直接开局（挂载后延迟一拍，保证首次渲染可预测）
-  useEffect(() => {
-    const id = window.setTimeout(() => setGame(newGame()), 0);
-    return () => window.clearTimeout(id);
-  }, []);
 
   const {round, index, options} = game ?? {round: [], index: 0, options: [] as IntervalId[]};
   const current = round[index] ?? null;
@@ -167,7 +162,7 @@ export default function IntervalGame() {
     }
   }
 
-  function restart() {
+  function start() {
     setGame(newGame());
     setPhase('playing');
     setCorrectCount(0);
@@ -191,9 +186,18 @@ export default function IntervalGame() {
     return cls;
   };
 
-  if (!game) {
+  if (phase === 'ready') {
     return (
-      <div className="mx-auto max-w-[520px] pt-12 text-center text-2xl text-[#3a3e46]">…</div>
+      <div className="mx-auto max-w-[480px] text-center">
+        <p className="mb-8 text-sm leading-relaxed text-muted">{t('subtitle')}</p>
+        <button
+          onClick={start}
+          className="rounded-full bg-accent px-12 py-4 text-lg font-bold text-[#0a0a0a] transition hover:-translate-y-0.5 hover:brightness-110"
+        >
+          {t('start')}
+        </button>
+        <p className="mt-5 text-xs text-muted">{t('roundNote', {n: ROUND_LENGTH})}</p>
+      </div>
     );
   }
 
@@ -220,7 +224,7 @@ export default function IntervalGame() {
           {t('score', {correct: correctCount, total: round.length})}
         </div>
         <button
-          onClick={restart}
+          onClick={start}
           className="mt-6 rounded-full bg-accent px-8 py-3 text-base font-bold text-[#0a0a0a] hover:brightness-110"
         >
           {t('again')}

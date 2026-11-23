@@ -153,7 +153,11 @@
     "M7": "7.ª mayor",
     "P8": "octava justa",
     "roundNote": "{n} preguntas por ronda",
-    "correctNote": "¡Correcto!"
+    "correctNote": "¡Correcto!",
+    "intervalTable": "Tabla de intervalos en do mayor",
+    "P1": "unísono",
+    "subtitle": "Se muestran dos notas de la escala de do mayor: elige el intervalo correcto (mayor/menor/justa/aumentada/disminuida).",
+    "start": "Empezar"
   },
   "error": {
     "emptyPool": "El grupo de acordes está vacío. Revisa los datos o reduce el número"

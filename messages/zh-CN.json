@@ -153,7 +153,11 @@
     "M7": "大七度",
     "P8": "纯八度",
     "roundNote": "每轮 {n} 题",
-    "correctNote": "答对了！"
+    "correctNote": "答对了！",
+    "intervalTable": "C 大调音程对照表",
+    "P1": "纯一度",
+    "subtitle": "随机显示 C 大调音阶的两个音，选出正确的音程（大/小/纯/增/减）。",
+    "start": "开始"
   },
   "error": {
     "emptyPool": "和弦池为空，请检查数据或减少数量"

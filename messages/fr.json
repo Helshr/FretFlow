@@ -153,7 +153,11 @@
     "M7": "septième majeure",
     "P8": "octave juste",
     "roundNote": "{n} questions par tour",
-    "correctNote": "Juste !"
+    "correctNote": "Juste !",
+    "intervalTable": "Table des intervalles en do majeur",
+    "P1": "unisson",
+    "subtitle": "Deux notes de la gamme de do majeur s'affichent — choisissez le bon intervalle (majeur/mineur/juste/augmenté/diminué).",
+    "start": "Démarrer"
   },
   "error": {
     "emptyPool": "Le groupe d'accords est vide. Vérifiez les données ou réduisez le nombre"
